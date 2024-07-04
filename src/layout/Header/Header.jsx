@@ -2,10 +2,11 @@ import React from 'react'
 import PrimarySearchAppBar from '../../shared/PrimarySearchAppBar/PrimarySearchAppBar'
 import SecondryAppBar from '../../shared/SecondryAppBar/SecondryAppBar'
 
-function Header() {
+function Header({ toggleTheme, theme }) {
+
     return (
         <>
-            <PrimarySearchAppBar />
+            <PrimarySearchAppBar toggleTheme={toggleTheme} theme={theme} />
             <SecondryAppBar />
         </>
     )

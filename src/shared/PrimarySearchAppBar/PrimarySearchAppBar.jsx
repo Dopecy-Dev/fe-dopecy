@@ -23,7 +23,7 @@ import AccountCircleTwoToneIcon from '@mui/icons-material/AccountCircleTwoTone';
 import StorefrontTwoToneIcon from '@mui/icons-material/StorefrontTwoTone';
 import CircleNotificationsIcon from '@mui/icons-material/CircleNotifications';
 import Logo from './Logo/Logo';
-import { Button, Grid } from '@mui/material';
+import { Button, Grid, Switch } from '@mui/material';
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -69,7 +69,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
 }));
 
-export default function PrimarySearchAppBar() {
+export default function PrimarySearchAppBar({ toggleTheme, theme }) {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -396,6 +396,13 @@ export default function PrimarySearchAppBar() {
                             <MoreIcon />
                         </IconButton>
                     </Box>
+                    <Switch
+                        checked={theme === 'dark'}
+                        onChange={toggleTheme}
+                        name="themeToggle"
+                        color="primary"
+                    />
+
                 </Toolbar>
             </AppBar>
             {renderMobileMenu}

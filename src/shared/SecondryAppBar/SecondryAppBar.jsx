@@ -20,6 +20,7 @@ const HoverTypography = styled(Typography)(({ theme }) => ({
 }));
 
 export default function SecondryAppBar() {
+
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static" sx={{ boxShadow: 0 }} style={{ background: '#FFFFFF' }}>
