@@ -42,11 +42,6 @@ export default function SecondryAppBar() {
                         </Grid>
                         <Grid item>
                             <HoverTypography variant="h6">
-                                Home
-                            </HoverTypography>
-                        </Grid>
-                        <Grid item>
-                            <HoverTypography variant="h6">
                                 Events
                             </HoverTypography>
                         </Grid>
