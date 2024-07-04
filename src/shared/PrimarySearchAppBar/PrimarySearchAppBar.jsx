@@ -27,10 +27,10 @@ import { Button, Grid, Switch } from '@mui/material';
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
-    borderRadius: '25px', // Custom border radius
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
+    borderRadius: '25px',
+    backgroundColor: theme.palette.mode === 'dark' ? alpha(theme.palette.common.white, 0.15) : alpha(theme.palette.common.black, 0.15),
     '&:hover': {
-        backgroundColor: alpha(theme.palette.common.white, 0.35),
+        backgroundColor: theme.palette.mode === 'dark' ? alpha(theme.palette.common.white, 0.25) : alpha(theme.palette.common.black, 0.25),
     },
     marginRight: theme.spacing(2),
     marginLeft: 0,
@@ -39,11 +39,10 @@ const Search = styled('div')(({ theme }) => ({
         marginLeft: theme.spacing(3),
         width: 'auto',
     },
-    border: '1px solid rgba(0, 0, 0, 0.25)', // Custom border with 25% opacity
+    border: theme.palette.mode === 'dark' ? '1px solid rgba(255, 255, 255, 0.25)' : '1px solid rgba(0, 0, 0, 0.25)',
 }));
 
 const SearchIconWrapper = styled('div')(({ theme }) => ({
-    // padding: theme.spacing(0, 2),
     height: '100%',
     position: 'absolute',
     pointerEvents: 'none',
@@ -53,10 +52,9 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: alpha(theme.palette.common.black, 0.5), // Custom text color
+    color: theme.palette.mode === 'dark' ? alpha(theme.palette.common.white, 0.75) : alpha(theme.palette.common.black, 0.75),
     '& .MuiInputBase-input': {
         padding: theme.spacing(1, 1, 1, 0),
-        // vertical padding + font size from searchIcon
         paddingLeft: `calc(1em + ${theme.spacing(4)})`,
         transition: theme.transitions.create('width'),
         width: '100%',
@@ -64,9 +62,18 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
             width: '40ch',
         },
         '&::placeholder': {
-            color: alpha(theme.palette.common.black, 0.5), // Custom color for the placeholder text
+            color: theme.palette.mode === 'dark' ? alpha(theme.palette.common.white, 0.75) : alpha(theme.palette.common.black, 0.75),
         },
     },
+}));
+
+const CustomAppBar = styled(AppBar)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#333' : '#FFFFFF',
+    boxShadow: 0,
+}));
+
+const CustomTypography = styled(Typography)(({ theme }) => ({
+    color: theme.palette.mode === 'dark' ? '#FFFFFF' : '#000000',
 }));
 
 export default function PrimarySearchAppBar({ toggleTheme, theme }) {
@@ -169,7 +176,7 @@ export default function PrimarySearchAppBar({ toggleTheme, theme }) {
 
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static" sx={{ boxShadow: 0 }} style={{ background: '#FFFFFF' }}>
+            <CustomAppBar position="static">
                 <Toolbar>
                     {/* <IconButton
                         size="large"
@@ -205,22 +212,22 @@ export default function PrimarySearchAppBar({ toggleTheme, theme }) {
                                 {/* <Box component={'img'} src={MoreIcon} alt='MoreIcon'></Box> */}
                             </Grid>
                             <Grid item>
-                                <Typography
+                                <CustomTypography
                                     variant="body2"
                                     // noWrap
                                     component="div"
                                     sx={{ display: { xs: 'none', sm: 'block' }, color: '#000000', lineHeight: '1', textAlign: "left" }}
                                 >
                                     Download the
-                                </Typography>
-                                <Typography
+                                </CustomTypography>
+                                <CustomTypography
                                     variant="body2"
                                     // noWrap
                                     component="div"
                                     sx={{ display: { xs: 'none', sm: 'block' }, color: '#000000', lineHeight: '1', textAlign: "left" }}
                                 >
                                     Dopecy app
-                                </Typography>
+                                </CustomTypography>
                             </Grid>
                         </Grid>
                     </Box>
@@ -231,22 +238,22 @@ export default function PrimarySearchAppBar({ toggleTheme, theme }) {
                                 <LocationOnTwoToneIcon style={{ color: '#326039', fontSize: '2rem' }} />
                             </Grid>
                             <Grid item>
-                                <Typography
+                                <CustomTypography
                                     variant="body2"
                                     // noWrap
                                     component="div"
                                     sx={{ display: { xs: 'none', sm: 'block' }, color: '#000000', lineHeight: '1', textAlign: "left", fontWeight: '600' }}
                                 >
                                     Tikvah 22 Washington Square N,
-                                </Typography>
-                                <Typography
+                                </CustomTypography>
+                                <CustomTypography
                                     variant="body2"
                                     // noWrap
                                     component="div"
                                     sx={{ display: { xs: 'none', sm: 'block' }, color: '#000000', lineHeight: '1', textAlign: "left", fontWeight: '600' }}
                                 >
                                     New York, NY 10011, USA
-                                </Typography>
+                                </CustomTypography>
                             </Grid>
                         </Grid>
                     </Box>
@@ -265,14 +272,14 @@ export default function PrimarySearchAppBar({ toggleTheme, theme }) {
                                 >
                                     0
                                 </Typography> */}
-                                <Typography
+                                <CustomTypography
                                     variant="body2"
                                     // noWrap
                                     component="div"
                                     sx={{ display: { xs: 'none', sm: 'block' }, color: '#000000', lineHeight: '1', textAlign: "left", fontWeight: '600' }}
                                 >
                                     Become a Seller
-                                </Typography>
+                                </CustomTypography>
                             </Grid>
                         </Grid>
                     </Box>
@@ -404,7 +411,7 @@ export default function PrimarySearchAppBar({ toggleTheme, theme }) {
                     />
 
                 </Toolbar>
-            </AppBar>
+            </CustomAppBar>
             {renderMobileMenu}
             {renderMenu}
         </Box >

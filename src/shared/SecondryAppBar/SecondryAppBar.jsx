@@ -8,7 +8,7 @@ import Grid from '@mui/material/Grid';
 import AllCategoriesMenu from '../AllCategoriesMenu/AllCategoriesMenu';
 
 const HoverTypography = styled(Typography)(({ theme }) => ({
-    color: '#000000',
+    color: theme.palette.mode === 'dark' ? '#FFFFFF' : '#000000',
     textAlign: 'left',
     transition: 'color 0.3s',
     fontWeight: '500',
@@ -19,11 +19,17 @@ const HoverTypography = styled(Typography)(({ theme }) => ({
     },
 }));
 
+const CustomAppBar = styled(AppBar)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#000000' : '#FFFFFF',
+    boxShadow: 0,
+}));
+
+
 export default function SecondryAppBar() {
 
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static" sx={{ boxShadow: 0 }} style={{ background: '#FFFFFF' }}>
+            <CustomAppBar position="static" sx={{ boxShadow: 0 }}>
                 <Toolbar>
                     <Grid container columnSpacing={6} alignItems={'center'}>
                         <Grid item>
@@ -56,7 +62,7 @@ export default function SecondryAppBar() {
                         </Grid>
                     </Grid>
                 </Toolbar>
-            </AppBar>
+            </CustomAppBar>
         </Box>
     );
 }
