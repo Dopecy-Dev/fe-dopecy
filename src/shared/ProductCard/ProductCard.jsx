@@ -7,9 +7,9 @@ import { Box, CardActionArea, Grid } from '@mui/material';
 import pimag from '../../assets/images/pimage.svg'
 import starrating from '../../assets/images/Starrating.svg'
 
-export default function ProductCard() {
+export default function ProductCard(props) {
     return (
-        <Card sx={{ maxWidth: 221 }}>
+        <Card sx={{ width: props.width, borderRadius: '25px' }}>
             <CardActionArea>
                 <CardMedia
                     component="img"
