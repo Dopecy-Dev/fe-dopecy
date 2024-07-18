@@ -6,9 +6,11 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import AllCategoriesMenu from '../AllCategoriesMenu/AllCategoriesMenu';
+import CustomTypography from '../../components/typography/CustomTypography';
+import DropDownMenu from '../../components/dropdownmenu/DropDownMenu';
 
 const HoverTypography = styled(Typography)(({ theme }) => ({
-    color: theme.palette.mode === 'dark' ? '#FFFFFF' : '#000000',
+    color: theme.palette.mode === 'dark' ? '#FFFFFF' : 'text.primary',
     textAlign: 'left',
     transition: 'color 0.3s',
     fontWeight: '500',
@@ -20,44 +22,60 @@ const HoverTypography = styled(Typography)(({ theme }) => ({
 }));
 
 const CustomAppBar = styled(AppBar)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#000000' : '#FFFFFF',
+    backgroundColor: theme.palette.mode === 'dark' ? '#000000' : theme.palette.common.searchbar,
     boxShadow: 0,
+    padding: '0rem 3rem'
+
 }));
 
 
 export default function SecondryAppBar() {
 
     return (
-        <Box sx={{ flexGrow: 1 }}>
-            <CustomAppBar position="static" sx={{ boxShadow: 0 }}>
-                <Toolbar>
-                    <Grid container columnSpacing={6} alignItems={'center'}>
-                        <Grid item>
-                            <AllCategoriesMenu />
-                        </Grid>
-                        <Grid item>
-                            <HoverTypography variant="h6">
-                                Super Deals
-                            </HoverTypography>
-                        </Grid>
-                        <Grid item>
-                            <HoverTypography variant="h6">
-                                Events
-                            </HoverTypography>
-                        </Grid>
-                        <Grid item>
-                            <HoverTypography variant="h6">
-                                Clubs
-                            </HoverTypography>
-                        </Grid>
-                        <Grid item>
-                            <HoverTypography variant="h6">
-                                Studio
-                            </HoverTypography>
-                        </Grid>
-                    </Grid>
-                </Toolbar>
-            </CustomAppBar>
+        <Box sx={{ flexGrow: 1, px: 11, py: 1, bgcolor: 'common.searchbar' }}>
+
+            <Grid container spacing={6} alignItems={'center'}>
+                <Grid item>
+                    <CustomTypography
+                        text='Home'
+                        style={{
+                            fontWeight: '600',
+                            fontSize: '14px',
+                            lineHeight: '12px',
+                            color: 'text.primary'
+                        }}
+                    >
+
+                    </CustomTypography>
+                </Grid>
+                <Grid item>
+                    <CustomTypography
+                        text='Events'
+                        style={{
+                            fontWeight: '600',
+                            fontSize: '14px',
+                            lineHeight: '12px',
+                            color: 'text.primary'
+                        }}
+                    >
+                    </CustomTypography>
+                </Grid>
+                <Grid item>
+                    <CustomTypography
+                        text='Clubs'
+                        style={{
+                            fontWeight: '600',
+                            fontSize: '14px',
+                            lineHeight: '12px',
+                            color: 'text.primary'
+                        }}
+                    >
+                    </CustomTypography>
+                </Grid>
+                <Grid item>
+                    <DropDownMenu></DropDownMenu>
+                </Grid>
+            </Grid>
         </Box>
     );
 }

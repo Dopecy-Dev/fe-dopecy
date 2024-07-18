@@ -4,6 +4,7 @@ import { lightTheme, darkTheme } from './themes/themes';
 import useDarkMode from './hooks/useDarkMode';
 
 import Header from './layout/Header/Header'
+import Layout from './layout/Layout';
 
 function App() {
   const [theme, toggleTheme] = useDarkMode();
@@ -12,7 +13,8 @@ function App() {
   return (
     <ThemeProvider theme={appliedTheme}>
       <CssBaseline />
-      <Header toggleTheme={toggleTheme} theme={theme} />
+      <Layout toggleTheme={toggleTheme} theme={theme}></Layout>
+      {/* <Header toggleTheme={toggleTheme} theme={theme} /> */}
     </ThemeProvider>
   )
 }
