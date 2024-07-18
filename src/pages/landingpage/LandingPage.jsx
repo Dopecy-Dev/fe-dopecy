@@ -1,16 +1,17 @@
-import { Box, fontSize, fontWeight, lineHeight } from '@mui/system'
+import { Box } from '@mui/system'
 import React from 'react'
-import { Grid } from '@mui/material'
-import CustomTypography from '../../components/typography/CustomTypography'
 import DeliverySection from './deliverysection/DeliverySection'
 import CategoriesSection from './categoriessection/CategoriesSection'
+import ProductsSection from './productssection/ProductsSection'
 
 function LandingPage() {
     return (
         <Box>
             <Box sx={{
                 flexGrow: 1, px: 4, py: 4,
-                boxShadow: 4,
+                // border: '1px solid',
+                // borderColor: 'common.searchbar',
+                boxShadow: 3,
                 bgcolor: 'text.white'
             }}>
                 <DeliverySection />
@@ -22,6 +23,14 @@ function LandingPage() {
             >
                 <CategoriesSection />
             </Box>
+
+            {/* <Box sx={{
+                py: 4
+            }}
+            >
+                <ProductsSection />
+            </Box> */}
+
         </Box>
     )
 }
