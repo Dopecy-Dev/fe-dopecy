@@ -42,7 +42,7 @@ export default function SecondryAppBar() {
                             fontWeight: '600',
                             fontSize: '14px',
                             lineHeight: '12px',
-                            color: 'text.primary'
+                            color: 'primary.main'
                         }}
                     >
 
@@ -52,7 +52,7 @@ export default function SecondryAppBar() {
                     <CustomTypography
                         text='Events'
                         style={{
-                            fontWeight: '600',
+                            fontWeight: '300',
                             fontSize: '14px',
                             lineHeight: '12px',
                             color: 'text.primary'
@@ -64,7 +64,7 @@ export default function SecondryAppBar() {
                     <CustomTypography
                         text='Clubs'
                         style={{
-                            fontWeight: '600',
+                            fontWeight: '300',
                             fontSize: '14px',
                             lineHeight: '12px',
                             color: 'text.primary'

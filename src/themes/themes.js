@@ -10,7 +10,7 @@ const lightTheme = createTheme({
         text: {
             primary: '#000000', // Change this to your desired primary text color for the light theme
             secondary: '#555555', // Optional: change secondary text color for the light theme
-            cstmshite: '#F5F7F5',
+            cstmwhite: '#F5F7F5',
             white: '#FFFFFF',
             black: '#000000',
             titleblack: '#1A1A1A',

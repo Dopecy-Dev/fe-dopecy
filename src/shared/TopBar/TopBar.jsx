@@ -29,7 +29,7 @@ function TopBar() {
                 }}>
                     <Box component={'img'} src={DopecyDealsIcon} alt='DopecyDealsIcon' />
                     <Typography sx={{
-                        color: 'text.cstmshite',
+                        color: 'text.cstmwhite',
                         ml: 1.5
                     }}>
                         Dopecy Deals
@@ -45,7 +45,7 @@ function TopBar() {
                 }}>
                     <Box component={'img'} src={BirdCouponIcon} alt='BirdCouponIcon' />
                     <Typography sx={{
-                        color: 'text.cstmshite',
+                        color: 'text.cstmwhite',
                         ml: 1.5
                     }}>
                         Bird Coupon
@@ -61,7 +61,7 @@ function TopBar() {
                 }}>
                     <Box component={'img'} src={Buy1Get1Icon} alt='Buy1Get1Icon' />
                     <Typography sx={{
-                        color: 'text.cstmshite',
+                        color: 'text.cstmwhite',
                         ml: 1.5
                     }}>
                         Buy 1 Get 1
@@ -77,7 +77,7 @@ function TopBar() {
                 }}>
                     <Box component={'img'} src={FreeGiveawayIcon} alt='FreeGiveawayIcon' />
                     <Typography sx={{
-                        color: 'text.cstmshite',
+                        color: 'text.cstmwhite',
                         ml: 1.5
                     }}>
                         Free Giveaway
