@@ -10,7 +10,6 @@ import watchesimage from '../../../assets/images/watchesimage.svg'
 import foodimage from '../../../assets/images/foodimage.svg'
 import accessoriesimage from '../../../assets/images/accessoriesimage.svg'
 
-
 const categories = [
     {
         text: 'Mobile',
@@ -43,6 +42,11 @@ const categories = [
 ];
 
 function CategoriesSection() {
+    const handleCategoryClick = (category) => {
+        console.log(`Clicked on category: ${category.text}`);
+        // Add navigation or other click handling logic here
+    };
+
     return (
         <>
             <Grid container sx={{ justifyContent: 'space-between', alignItems: 'center', mb: 4 }}>
@@ -88,7 +92,14 @@ function CategoriesSection() {
             <Grid container spacing={8} sx={{ justifyContent: 'center', alignItems: 'center' }}>
                 {categories.map((category, index) => (
                     <Grid item key={index}>
-                        <CategoryCard text={category.text} image={category.image} />
+                        <Box
+                            sx={{
+                                cursor: 'pointer',
+                            }}
+                            onClick={() => handleCategoryClick(category)}
+                        >
+                            <CategoryCard text={category.text} image={category.image} />
+                        </Box>
                     </Grid>
                 ))}
             </Grid>
