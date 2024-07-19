@@ -16,7 +16,7 @@ export default function CategoryCard(props) {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                border: '2px solid transparent', // Initial transparent border
+                border: '1px solid transparent', // Initial transparent border
                 transition: 'border 0.3s ease-in-out', // Smooth transition
                 '&:hover': {
                     border: '1px solid', // Border color on hover

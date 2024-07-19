@@ -4,7 +4,7 @@ import React from 'react'
 function CustomTypography(props) {
     return (
         <Typography
-            sx={props.style}>
+            sx={{ ...props.style }}>
             {props.text}
         </Typography>
     )

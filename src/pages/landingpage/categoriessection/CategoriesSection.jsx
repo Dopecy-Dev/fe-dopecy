@@ -89,7 +89,7 @@ function CategoriesSection() {
                 </Grid>
             </Grid>
 
-            <Grid container spacing={8} sx={{ justifyContent: 'center', alignItems: 'center' }}>
+            <Grid container sx={{ justifyContent: 'space-between' }} >
                 {categories.map((category, index) => (
                     <Grid item key={index}>
                         <Box

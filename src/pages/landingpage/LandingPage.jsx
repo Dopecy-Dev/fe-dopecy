@@ -24,12 +24,12 @@ function LandingPage() {
                 <CategoriesSection />
             </Box>
 
-            {/* <Box sx={{
+            <Box sx={{
                 py: 4
             }}
             >
                 <ProductsSection />
-            </Box> */}
+            </Box>
 
         </Box>
     )
