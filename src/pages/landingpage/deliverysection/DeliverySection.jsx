@@ -5,7 +5,7 @@ import PackageICon from '../../../assets/images/PackageICon.svg'
 
 function DeliverySection() {
     return (
-        <Grid container spacing={4} sx={{ justifyContent: 'space-between' }}>
+        <Grid container spacing={4} sx={{ px: 8, justifyContent: 'space-between' }}>
             <Grid item sx={{ display: 'flex', alignItems: 'center' }}>
                 <Box sx={{ mr: 3 }}>
                     <Box component={'img'} src={PackageICon} alt='PackageICon'></Box>

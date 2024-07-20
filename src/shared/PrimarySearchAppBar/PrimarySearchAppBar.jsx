@@ -76,7 +76,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 const CustomAppBar = styled(AppBar)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#333' : '#FFFFFF',
     boxShadow: 'none',
-    // padding: '0rem 3rem'
 }));
 
 // const CustomTypography = styled(Typography)(({ theme }) => ({
@@ -182,10 +181,10 @@ export default function PrimarySearchAppBar({ toggleTheme, theme }) {
     );
 
     return (
-        <Box sx={{ flexGrow: 1, px: 8 }}>
-            <CustomAppBar position="static">
+        <Box sx={{ flexGrow: 1, px: 5 }}>
+            <CustomAppBar sx={{ paddingLeft: 0, paddingRight: 0 }} position="static">
                 <Toolbar>
-                    <Grid container spacing={5}
+                    <Grid container spacing={6}
                         sx={{
                             alignItems: 'center',
                             // justifyContent: 'space-between'

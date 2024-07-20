@@ -80,7 +80,7 @@ export default function ProductCard(props) {
             <Grid container sx={{ flexDirection: 'column' }}>
                 <Grid item>
                     <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                        <Rating sx={{ mb: 1 }} name="read-only" value={props?.product?.rating ? props?.product?.rating : 4} readOnly />
+                        <Rating size="small" name="read-only" value={props?.product?.rating ? props?.product?.rating : 4} readOnly />
                         <CustomTypography text={rating}
                             style={{
                                 fontWeight: '400',
@@ -100,7 +100,7 @@ export default function ProductCard(props) {
                             lineHeight: '20px',
                             color: 'text.primary',
                             textAlign: 'left',
-                            mb: 1
+                            my: 1
                         }}
                     />
 

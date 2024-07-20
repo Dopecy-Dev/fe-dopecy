@@ -32,7 +32,7 @@ const CustomAppBar = styled(AppBar)(({ theme }) => ({
 export default function SecondryAppBar() {
 
     return (
-        <Box sx={{ flexGrow: 1, px: 11, py: 1, bgcolor: 'common.searchbar' }}>
+        <Box sx={{ px: 8, py: 1, bgcolor: 'common.searchbar' }}>
 
             <Grid container spacing={6} alignItems={'center'}>
                 <Grid item>

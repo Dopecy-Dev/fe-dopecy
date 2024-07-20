@@ -7,7 +7,7 @@ function Layout({ toggleTheme, theme }) {
     return (
         <>
             <Header toggleTheme={toggleTheme} theme={theme}></Header>
-            <Box sx={{ py: 4, px: 8 }}>
+            <Box sx={{ py: 4 }}>
 
                 <LandingPage></LandingPage>
             </Box>

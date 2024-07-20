@@ -17,7 +17,8 @@ const lightTheme = createTheme({
             darkgray: '#666666',
         },
         common: {
-            searchbar: '#EBEFEB'
+            searchbar: '#EBEFEB',
+            shopsection: '#F7FFF8'
         },
     },
 });
