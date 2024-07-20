@@ -48,7 +48,7 @@ function TopBar() {
                         color: 'text.cstmwhite',
                         ml: 1.5
                     }}>
-                        Bird Coupon
+                        Early Bird Deals
                     </Typography>
                 </Box>
                 {/* </Link> */}
