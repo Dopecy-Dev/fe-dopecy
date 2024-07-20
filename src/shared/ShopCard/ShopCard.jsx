@@ -75,7 +75,7 @@ export default function ShopCard(props) {
                                 />
                             </Grid>
                             <Grid item>
-                                <Box sx={{ display: 'flex' }}>
+                                <Box sx={{ display: 'flex', my: 1 }}>
                                     <Rating size="small" sx={{ mb: 1 }} name="read-only" value={props?.product?.rating ? props?.product?.rating : 4} readOnly />
                                     <CustomTypography text={totalrating}
                                         style={{
@@ -93,11 +93,12 @@ export default function ShopCard(props) {
                     <Grid item>
                         <CustomTypography text='Opening hours'
                             style={{
-                                fontWeight: '600',
+                                fontWeight: '400',
                                 fontSize: '14px',
-                                lineHeight: '20px',
-                                color: 'text.black',
-                                textAlign: 'left'
+                                lineHeight: '14px',
+                                color: 'text.primary',
+                                textAlign: 'left',
+                                mb: 1
                             }}
                         />
                     </Grid>

@@ -10,7 +10,7 @@ import ShopCoverImage from '../../../assets/images/ShopCoverImage.svg';
 const responsive = {
     desktop: {
         breakpoint: { max: 3000, min: 1024 },
-        items: 3.8,
+        items: 4,
         slidesToSlide: 1, // Change this to 1 for continuous smooth transition
     },
     tablet: {
@@ -145,9 +145,9 @@ function ShopsSection() {
         <>
             <Grid container sx={{ justifyContent: 'space-between', alignItems: 'center', mb: 4 }}>
                 <Grid item>
-                    <Box sx={{ display: 'flex' }}>
+                    <Box sx={{ display: 'flex', ml: 8 }}>
                         <CustomTypography
-                            text='All Shop'
+                            text='All Shops'
                             style={{
                                 fontSize: '24px',
                                 lineHeight: '30px',
