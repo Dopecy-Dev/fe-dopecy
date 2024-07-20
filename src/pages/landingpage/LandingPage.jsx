@@ -5,6 +5,7 @@ import CategoriesSection from './categoriessection/CategoriesSection'
 import ProductsSection from './productssection/ProductsSection'
 import ShopsSection from './shopssection/ShopsSection'
 import SmallProductsSection from './smallproductssection/SmallProductsSection'
+import TestimonialsSection from './testimonialssection/TestimonialsSection'
 
 function LandingPage() {
     return (
@@ -29,6 +30,11 @@ function LandingPage() {
                 <Box sx={{ py: 12 }}>
                     <SmallProductsSection />
                 </Box>
+
+                <Box sx={{ py: 4 }}>
+                    <TestimonialsSection />
+                </Box>
+
             </Box>
         </>
     )
