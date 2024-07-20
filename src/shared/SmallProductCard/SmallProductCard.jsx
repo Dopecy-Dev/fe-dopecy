@@ -2,11 +2,12 @@ import * as React from 'react';
 import { Box, Grid, Rating } from '@mui/material';
 import pimag from '../../assets/images/pimage.svg'
 import CustomTypography from '../../components/typography/CustomTypography';
+import { truncateTitle } from '../../utils/truncatetext/TruncateText';
 
 export default function SmallProductCard(props) {
 
     const price = '$' + props?.product?.price
-    const title = '$' + props?.product?.title ? props?.product?.title : 'TOZO T6 True Wireless Earbuds Bluetooth'
+    const title = truncateTitle(props?.product?.title ? props?.product?.title : 'TOZO T6 True Wireless Earbuds Bluetooth', 45);
 
     return (
 

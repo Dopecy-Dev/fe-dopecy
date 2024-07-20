@@ -2,12 +2,12 @@ import * as React from 'react';
 import { Box, Grid, Rating } from '@mui/material';
 import pimag from '../../assets/images/pimage.svg'
 import CustomTypography from '../../components/typography/CustomTypography';
+import { truncateTitle } from '../../utils/truncatetext/TruncateText';
 
 export default function ShopCard(props) {
 
     const totalrating = '(' + props.shop.totalrating + ')'
-    // const price = '$' + props?.product?.price
-    const title = '$' + props?.shop?.title ? props?.shop?.title : 'Whimsical Wonder shop'
+    const title = truncateTitle(props?.shop?.title ? props?.shop?.title : 'Whimsical Wonder shop', 45);
 
     return (
 

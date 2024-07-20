@@ -1,14 +1,21 @@
-import { Box, Grid } from '@mui/material'
-import React from 'react'
-import CustomTypography from '../../../components/typography/CustomTypography'
-import PackageICon from '../../../assets/images/PackageICon.svg'
+import { Box, Grid } from '@mui/material';
+import React from 'react';
+import CustomTypography from '../../../components/typography/CustomTypography';
+import PackageIcon from '../../../assets/images/PackageICon.svg';
 
 function DeliverySection() {
     return (
         <Grid container spacing={4} sx={{ px: 8, justifyContent: 'space-between' }}>
-            <Grid item sx={{ display: 'flex', alignItems: 'center' }}>
+            <Grid
+                item
+                sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    cursor: 'pointer', // Change cursor to pointer on hover
+                }}
+            >
                 <Box sx={{ mr: 3 }}>
-                    <Box component={'img'} src={PackageICon} alt='PackageICon'></Box>
+                    <Box component={'img'} src={PackageIcon} alt='PackageIcon'></Box>
                 </Box>
 
                 <Box>
@@ -33,9 +40,17 @@ function DeliverySection() {
                     />
                 </Box>
             </Grid>
-            <Grid item sx={{ display: 'flex', alignItems: 'center' }}>
+
+            <Grid
+                item
+                sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    cursor: 'pointer', // Change cursor to pointer on hover
+                }}
+            >
                 <Box sx={{ mr: 3 }}>
-                    <Box component={'img'} src={PackageICon} alt='PackageICon'></Box>
+                    <Box component={'img'} src={PackageIcon} alt='PackageIcon'></Box>
                 </Box>
                 <Box>
                     <CustomTypography
@@ -59,9 +74,17 @@ function DeliverySection() {
                     />
                 </Box>
             </Grid>
-            <Grid item sx={{ display: 'flex', alignItems: 'center' }}>
+
+            <Grid
+                item
+                sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    cursor: 'pointer', // Change cursor to pointer on hover
+                }}
+            >
                 <Box sx={{ mr: 3 }}>
-                    <Box component={'img'} src={PackageICon} alt='PackageICon'></Box>
+                    <Box component={'img'} src={PackageIcon} alt='PackageIcon'></Box>
                 </Box>
                 <Box>
                     <CustomTypography
@@ -86,7 +109,7 @@ function DeliverySection() {
                 </Box>
             </Grid>
         </Grid>
-    )
+    );
 }
 
-export default DeliverySection
+export default DeliverySection;

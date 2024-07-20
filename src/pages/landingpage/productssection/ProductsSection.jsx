@@ -26,7 +26,7 @@ function ProductsSection() {
             type: 'Smart Phone'
         },
         {
-            title: 'Samsung Electronics Samsung Galexy S21 5G',
+            title: 'Samsung Electronics Samsung Galexy S21 5G ',
             rating: 4.0,
             totalrating: 746,
             price: '19.99',
@@ -34,7 +34,7 @@ function ProductsSection() {
             type: 'Smart Phone'
         },
         {
-            title: 'Amazon Basics High-Speed HDMI Cable (18 Gbps, 4K/6...',
+            title: 'Amazon Basics Amazon Basics High-Speed HDMI Cable (18 Gbps, 4K/6...',
             rating: 4.7,
             totalrating: 236,
             price: '99.99',
@@ -88,7 +88,7 @@ function ProductsSection() {
             image: P8Image,
         },
         {
-            title: 'Cannabis-derived products like delta-8',
+            title: 'Cannabis-derived products like delta-8 Cannabis derived  like delta-8',
             rating: 5,
             totalrating: 786,
             price: '29.99',

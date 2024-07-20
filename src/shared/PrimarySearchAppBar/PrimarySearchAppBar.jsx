@@ -225,7 +225,12 @@ export default function PrimarySearchAppBar({ toggleTheme, theme }) {
                                                 color: 'text.darkgray',
                                                 fontSize: '16px',
                                                 fontWeight: '400',
-                                                lineHeight: '18px'
+                                                lineHeight: '18px',
+                                                cursor: 'pointer',
+                                                '&:hover': {
+                                                    color: 'primary.main',
+                                                    textDecoration: 'underline',
+                                                },
                                             }}
                                         />
                                         <CustomTypography
@@ -244,7 +249,12 @@ export default function PrimarySearchAppBar({ toggleTheme, theme }) {
                                                 color: 'text.darkgray',
                                                 fontSize: '16px',
                                                 fontWeight: '400',
-                                                lineHeight: '18px'
+                                                lineHeight: '18px',
+                                                cursor: 'pointer',
+                                                '&:hover': {
+                                                    color: 'primary.main',
+                                                    textDecoration: 'underline',
+                                                },
                                             }}
                                         />
                                     </Box>
@@ -272,7 +282,12 @@ export default function PrimarySearchAppBar({ toggleTheme, theme }) {
                                                     color: 'text.darkgray',
                                                     fontSize: '16px',
                                                     fontWeight: '400',
-                                                    lineHeight: '18px'
+                                                    lineHeight: '18px',
+                                                    cursor: 'pointer',
+                                                    '&:hover': {
+                                                        color: 'primary.main',
+                                                        textDecoration: 'underline',
+                                                    },
                                                 }}
                                             />
                                         </Box>

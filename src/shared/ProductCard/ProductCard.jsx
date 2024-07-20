@@ -2,15 +2,14 @@ import * as React from 'react';
 import { Box, Grid, Rating } from '@mui/material';
 import pimag from '../../assets/images/pimage.svg'
 import CustomTypography from '../../components/typography/CustomTypography';
+import { truncateTitle } from '../../utils/truncatetext/TruncateText';
 
 export default function ProductCard(props) {
-
-    const rating = '(' + props.product.totalrating + ')'
-    const price = '$' + props?.product?.price
-    const title = '$' + props?.product?.title ? props?.product?.title : 'TOZO T6 True Wireless Earbuds Bluetooth'
+    const rating = '(' + props.product.totalrating + ')';
+    const price = '$' + props?.product?.price;
+    const title = truncateTitle(props?.product?.title ? props?.product?.title : 'TOZO T6 True Wireless Earbuds Bluetooth', 45);
 
     return (
-
         <Box
             sx={{
                 width: '234px',
@@ -37,7 +36,6 @@ export default function ProductCard(props) {
                         // top: '12px',
                         // left: '12px',
                         padding: '5px, 10px, 5px, 10px'
-
                     }}>
                     <CustomTypography text='HOT'
                         style={{
@@ -45,9 +43,7 @@ export default function ProductCard(props) {
                             fontWeight: '600',
                             fontSize: '12px',
                             lineHeight: '16px'
-
                         }} />
-
                 </Box>
             }
             {props.product.bestdeals &&
@@ -63,7 +59,6 @@ export default function ProductCard(props) {
                         // top: '12px',
                         // left: '12px',
                         padding: '5px, 10px, 5px, 10px'
-
                     }}>
                     <CustomTypography text='BEST DEALS'
                         style={{
@@ -71,9 +66,7 @@ export default function ProductCard(props) {
                             fontWeight: '600',
                             fontSize: '12px',
                             lineHeight: '16px'
-
                         }} />
-
                 </Box>
             }
             <Box sx={{ width: '202px', height: '172px' }} component={'img'} src={props?.product?.image ? props?.product?.image : pimag} alt='pimag' />
@@ -103,7 +96,6 @@ export default function ProductCard(props) {
                             my: 1
                         }}
                     />
-
                 </Grid>
                 <Grid item>
                     <CustomTypography text={price}

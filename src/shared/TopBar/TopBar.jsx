@@ -1,10 +1,11 @@
-import { Box, Grid, Typography } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Box, Grid } from '@mui/material';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import DopecyDealsIcon from '../../assets/images/DopecyDealsIcon.svg';
 import BirdCouponIcon from '../../assets/images/BirdCouponIcon.svg';
 import Buy1Get1Icon from '../../assets/images/Buy1Get1Icon.svg';
 import FreeGiveawayIcon from '../../assets/images/FreeGiveawayIcon.svg';
+import CustomTypography from '../../components/typography/CustomTypography';
 
 function TopBar() {
     return (
@@ -28,12 +29,14 @@ function TopBar() {
                     alignItems: 'center',
                 }}>
                     <Box component={'img'} src={DopecyDealsIcon} alt='DopecyDealsIcon' />
-                    <Typography sx={{
-                        color: 'text.cstmwhite',
-                        ml: 1.5
-                    }}>
-                        Dopecy Deals
-                    </Typography>
+                    <CustomTypography
+                        text="Dopecy Deals"
+                        style={{
+                            color: 'text.cstmwhite',
+                            marginLeft: '1.5rem',
+                            cursor: 'pointer',
+                        }}
+                    />
                 </Box>
                 {/* </Link> */}
             </Grid>
@@ -44,12 +47,14 @@ function TopBar() {
                     alignItems: 'center',
                 }}>
                     <Box component={'img'} src={BirdCouponIcon} alt='BirdCouponIcon' />
-                    <Typography sx={{
-                        color: 'text.cstmwhite',
-                        ml: 1.5
-                    }}>
-                        Early Bird Deals
-                    </Typography>
+                    <CustomTypography
+                        text="Early Bird Deals"
+                        style={{
+                            color: 'text.cstmwhite',
+                            marginLeft: '1.5rem',
+                            cursor: 'pointer'
+                        }}
+                    />
                 </Box>
                 {/* </Link> */}
             </Grid>
@@ -60,12 +65,14 @@ function TopBar() {
                     alignItems: 'center',
                 }}>
                     <Box component={'img'} src={Buy1Get1Icon} alt='Buy1Get1Icon' />
-                    <Typography sx={{
-                        color: 'text.cstmwhite',
-                        ml: 1.5
-                    }}>
-                        Buy 1 Get 1
-                    </Typography>
+                    <CustomTypography
+                        text="Buy 1 Get 1"
+                        style={{
+                            color: 'text.cstmwhite',
+                            marginLeft: '1.5rem',
+                            cursor: 'pointer'
+                        }}
+                    />
                 </Box>
                 {/* </Link> */}
             </Grid>
@@ -76,12 +83,14 @@ function TopBar() {
                     alignItems: 'center',
                 }}>
                     <Box component={'img'} src={FreeGiveawayIcon} alt='FreeGiveawayIcon' />
-                    <Typography sx={{
-                        color: 'text.cstmwhite',
-                        ml: 1.5
-                    }}>
-                        Free Giveaway
-                    </Typography>
+                    <CustomTypography
+                        text="Free Giveaway"
+                        style={{
+                            color: 'text.cstmwhite',
+                            marginLeft: '1.5rem',
+                            cursor: 'pointer'
+                        }}
+                    />
                 </Box>
                 {/* </Link> */}
             </Grid>
