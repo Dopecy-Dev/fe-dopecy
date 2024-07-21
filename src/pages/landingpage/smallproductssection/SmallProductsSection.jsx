@@ -1,18 +1,9 @@
 import { Box, Grid } from '@mui/material'
 import React, { useState } from 'react';
 import CustomTypography from '../../../components/typography/CustomTypography'
-import ProductCard from '../../../shared/ProductCard/ProductCard'
 import P1Image from '../../../assets/images/P1Image.svg'
 import P2Image from '../../../assets/images/P2Image.svg'
-import P3Image from '../../../assets/images/P3Image.svg'
-import P4Image from '../../../assets/images/P4Image.svg'
-import P5Image from '../../../assets/images/P5Image.svg'
-import P6Image from '../../../assets/images/P6Image.svg'
 import P7Image from '../../../assets/images/P7Image.svg'
-import P8Image from '../../../assets/images/P8Image.svg'
-import P9Image from '../../../assets/images/P9Image.svg'
-import ArrowRight from '../../../assets/images/ArrowRight.svg'
-import { LineWeight } from '@mui/icons-material';
 import SmallProductCard from '../../../shared/SmallProductCard/SmallProductCard';
 
 function SmallProductsSection() {

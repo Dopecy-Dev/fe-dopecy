@@ -15,10 +15,15 @@ const lightTheme = createTheme({
             black: '#000000',
             titleblack: '#1A1A1A',
             darkgray: '#666666',
+            footerlinks: '#999999',
+            graybg3: '#333333',
+            graytextB3: '#B3B3B3',
         },
         common: {
             searchbar: '#EBEFEB',
-            shopsection: '#F7FFF8'
+            shopsection: '#F7FFF8',
+            pinkbg: '#FFE7D6',
+            bennerdiscountbg: '#DCEDDF'
         },
     },
 });

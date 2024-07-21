@@ -82,7 +82,7 @@ const AllCategoriesMenu = () => {
     return (
         <Dropdown className="dropdown" style={{ textAlign: 'left' }}>
             <ContainedButton
-                style={{ width: '143px', height: '48px' }}
+                style={{ width: '143px', height: '48px', borderRadius: '10px', }}
                 text='Categories'
                 icon={KeyboardArrowDownIcon}
             />
