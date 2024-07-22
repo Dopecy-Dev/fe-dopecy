@@ -1,0 +1,8 @@
+.custom-dot-container {
+    position: absolute;
+    bottom: 70px; /* Adjust this value to move the dots up or down */
+    left: 15%;
+    transform: translateX(-50%);
+    width: auto;
+    text-align: center;
+}

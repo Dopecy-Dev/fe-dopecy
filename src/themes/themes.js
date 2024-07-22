@@ -26,7 +26,8 @@ const lightTheme = createTheme({
             bennerdiscountbg: '#DCEDDF',
             leftbannerbg: '#F2F4F5',
             rightbannerbg: '#191C1F',
-            rightbannerintrobg: '#EFD33D'
+            rightbannerintrobg: '#EFD33D',
+            heroarrowbg: '#DCEDDF'
         },
     },
 });
