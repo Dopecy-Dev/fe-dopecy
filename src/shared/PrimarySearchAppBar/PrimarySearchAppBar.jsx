@@ -11,7 +11,6 @@ import Menu from '@mui/material/Menu';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import Logo from './Logo/Logo';
 import { Grid } from '@mui/material';
 import AllCategoriesMenu from '../AllCategoriesMenu/AllCategoriesMenu';
 import SearchIcon from '../../assets/images/SearchIcon.svg'
@@ -19,6 +18,8 @@ import SearchIconRight from '../../assets/images/SearchIconRight.svg'
 import UserIcon from '../../assets/images/UserIcon.svg'
 import CustomTypography from '../../components/typography/CustomTypography';
 import CartIcon from "../../assets/images/CartIcon.svg";
+import { Link } from 'react-router-dom';
+import LogoGreen from '../../components/logos/LogoGreen';
 
 const Search = styled('div')(({ theme }) => ({
     display: 'flex',
@@ -191,7 +192,9 @@ export default function PrimarySearchAppBar({ toggleTheme, theme }) {
                         }}
                     >
                         <Grid item >
-                            <Logo />
+                            <Link to='/'>
+                                <LogoGreen />
+                            </Link>
                         </Grid>
                         <Grid item xs={8}>
                             <Box sx={{ display: 'flex' }}>
@@ -219,20 +222,22 @@ export default function PrimarySearchAppBar({ toggleTheme, theme }) {
                                         alignItems: 'center'
                                     }}>
                                         <Box component="img" src={UserIcon} alt="UserIcon" />
-                                        <CustomTypography
-                                            text='Sign Up'
-                                            style={{
-                                                color: 'text.darkgray',
-                                                fontSize: '16px',
-                                                fontWeight: '400',
-                                                lineHeight: '18px',
-                                                cursor: 'pointer',
-                                                '&:hover': {
-                                                    color: 'primary.main',
-                                                    textDecoration: 'underline',
-                                                },
-                                            }}
-                                        />
+                                        <Link to='/signup'>
+                                            <CustomTypography
+                                                text='Sign Up'
+                                                style={{
+                                                    color: 'text.darkgray',
+                                                    fontSize: '16px',
+                                                    fontWeight: '400',
+                                                    lineHeight: '18px',
+                                                    cursor: 'pointer',
+                                                    '&:hover': {
+                                                        color: 'primary.main',
+                                                        textDecoration: 'underline',
+                                                    },
+                                                }}
+                                            />
+                                        </Link>
                                         <CustomTypography
                                             text='/'
                                             style={{
@@ -242,21 +247,22 @@ export default function PrimarySearchAppBar({ toggleTheme, theme }) {
                                                 lineHeight: '18px'
                                             }}
                                         />
-
-                                        <CustomTypography
-                                            text='Sign In'
-                                            style={{
-                                                color: 'text.darkgray',
-                                                fontSize: '16px',
-                                                fontWeight: '400',
-                                                lineHeight: '18px',
-                                                cursor: 'pointer',
-                                                '&:hover': {
-                                                    color: 'primary.main',
-                                                    textDecoration: 'underline',
-                                                },
-                                            }}
-                                        />
+                                        <Link to='/login'>
+                                            <CustomTypography
+                                                text='Sign In'
+                                                style={{
+                                                    color: 'text.darkgray',
+                                                    fontSize: '16px',
+                                                    fontWeight: '400',
+                                                    lineHeight: '18px',
+                                                    cursor: 'pointer',
+                                                    '&:hover': {
+                                                        color: 'primary.main',
+                                                        textDecoration: 'underline',
+                                                    },
+                                                }}
+                                            />
+                                        </Link>
                                     </Box>
                                 </Grid>
                                 <Grid item>
