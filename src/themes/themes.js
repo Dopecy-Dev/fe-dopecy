@@ -23,7 +23,10 @@ const lightTheme = createTheme({
             searchbar: '#EBEFEB',
             shopsection: '#F7FFF8',
             pinkbg: '#FFE7D6',
-            bennerdiscountbg: '#DCEDDF'
+            bennerdiscountbg: '#DCEDDF',
+            leftbannerbg: '#F2F4F5',
+            rightbannerbg: '#191C1F',
+            rightbannerintrobg: '#EFD33D'
         },
     },
 });
