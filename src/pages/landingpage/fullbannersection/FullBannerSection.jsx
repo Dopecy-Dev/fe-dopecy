@@ -107,7 +107,7 @@ function FullBannerSection() {
                                 justifyContent: 'center',
                                 alignItems: 'center',
                                 position: 'absolute',
-                                top: '3050px'
+                                top: '3500px'
                             }}>
                             <CustomTypography
                                 text={price}

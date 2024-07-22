@@ -88,7 +88,7 @@ function RightHalfBanner() {
                                 justifyContent: 'center',
                                 alignItems: 'center',
                                 position: 'absolute',
-                                top: '1430px',
+                                top: '2000px',
                                 right: '130px'
                             }}>
                             <CustomTypography
