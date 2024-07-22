@@ -13,6 +13,8 @@ function Layout({ toggleTheme, theme }) {
                 <LandingPage></LandingPage>
             </Box>
             <Footer></Footer>
+
+
         </>
     )
 }
