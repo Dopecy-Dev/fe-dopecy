@@ -26,8 +26,8 @@ const responsive = {
 };
 
 const images = [
-    banner,
     Groupbanner,
+    banner,
     ban
     // Add more images as needed
 ];

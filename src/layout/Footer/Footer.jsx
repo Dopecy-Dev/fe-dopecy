@@ -15,13 +15,13 @@ import Mastercard from '../../assets/images/Mastercard.svg'
 import lockicon from '../../assets/images/lockicon.svg'
 
 function Footer() {
-    const myAccountItems = ['My Account', 'Order History', 'Shoping Cart', 'Wishlist'];
+    const myAccountItems = ['Business Login', 'Club Login', 'List your Store', 'List your Dispensaries', 'List your CBD Stores', 'List your Restaurant, Caffe , Club, Hubs , THC/CBD Lounge', 'List Your Brand', 'List your Practice', 'List Certify Lab', 'Sell on Dopecy', 'Start Package Delivery', 'Business on Dopecy', 'Drive with Dopecy', 'Build Your Brand'];
     const helpsItems = ['Contact', 'FAQs', 'Terms & Condition', 'Privacy Policy'];
-    const proxyItems = ['About', 'Shop', 'Product', 'Track Order'];
+    const proxyItems = ['About Dopecy', 'FAQ', 'Accessibility', 'Commercial Terms of Use', 'Privacy policy & Terms', 'Terms of Use'];
 
 
     return (
-        <Box sx={{ height: '396px', bgcolor: 'text.titleblack' }}>
+        <Box sx={{ bgcolor: 'text.titleblack' }}>
             <Box sx={{ borderBottom: '1px solid', borderColor: 'text.cstmwhite', px: 8, pt: 8, pb: 4 }}>
                 <Grid container spacing={8}>
                     <Grid item xs={3}>
@@ -29,7 +29,7 @@ function Footer() {
 
                             <Box sx={{ width: '124px' }} component={'img'} src={whitelogo} alt='whitelogo' />
                             <CustomTypography
-                                text='Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
+                                text='Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. '
                                 style={{
                                     fontWeight: '400',
                                     fontSize: '14px',
@@ -64,7 +64,7 @@ function Footer() {
                     <Grid item xs={5}>
                         <Box sx={{ pt: 4 }}>
                             <Grid container spacing={12}>
-                                <Grid item>
+                                <Grid item xs={6}>
                                     <Grid container sx={{ flexDirection: 'column' }}>
                                         <Grid item>
                                             <Box>
@@ -109,7 +109,7 @@ function Footer() {
                                     </Grid>
 
                                 </Grid>
-                                <Grid item>
+                                {/* <Grid item>
                                     <Grid container sx={{ flexDirection: 'column' }}>
                                         <Grid item>
                                             <Box>
@@ -153,8 +153,8 @@ function Footer() {
                                         </Grid>
                                     </Grid>
 
-                                </Grid>
-                                <Grid item>
+                                </Grid> */}
+                                <Grid item xs={6}>
                                     <Grid container sx={{ flexDirection: 'column' }}>
                                         <Grid item>
                                             <Box>
