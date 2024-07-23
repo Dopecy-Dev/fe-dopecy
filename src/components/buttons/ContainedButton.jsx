@@ -5,6 +5,7 @@ function ContainedButton(props) {
     return (
         <Button
             variant="contained"
+            {...props}
             sx={{
                 ...props.style,
                 backgroundColor: 'primary.main',
