@@ -4,6 +4,7 @@ import forgotimage from '../../assets/images/forgotimage.svg'
 import CustomTypography from '../../components/typography/CustomTypography';
 import Header from '../../layout/Header/Header';
 import ContainedButton from '../../components/buttons/ContainedButton';
+import { useNavigate } from 'react-router-dom';
 
 function ForgotPassword() {
     const [email, setEmail] = useState('');
@@ -13,6 +14,7 @@ function ForgotPassword() {
         const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return re.test(String(email).toLowerCase());
     };
+    const navigate = useNavigate();
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -27,6 +29,9 @@ function ForgotPassword() {
 
         // Handle login logic here
         console.log('Email:', email);
+
+        // Redirect to the "/congratulation" route after successful sign-up
+        navigate("/verifycode");
     };
 
 

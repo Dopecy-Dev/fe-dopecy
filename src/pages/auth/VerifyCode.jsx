@@ -4,6 +4,7 @@ import CustomTypography from '../../components/typography/CustomTypography';
 import Header from '../../layout/Header/Header';
 import ContainedButton from '../../components/buttons/ContainedButton';
 import verifycode from '../../assets/images/verifycode.svg';
+import { useNavigate } from 'react-router-dom';
 
 function VerifyCode() {
     const [code, setCode] = useState(new Array(6).fill(''));
@@ -29,6 +30,8 @@ function VerifyCode() {
         }
     };
 
+    const navigate = useNavigate();
+
     const handleSubmit = (event) => {
         event.preventDefault();
 
@@ -43,6 +46,10 @@ function VerifyCode() {
         // Handle verify logic here
         const verificationCode = code.join('');
         console.log('Verification Code:', verificationCode);
+
+        // Redirect to the "/congratulation" route after successful sign-up
+        navigate("/");
+
     };
 
     const formatTime = (seconds) => {

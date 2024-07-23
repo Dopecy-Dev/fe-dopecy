@@ -9,7 +9,7 @@ import OutlinedButton from '../../components/buttons/OutlinedButton';
 
 import googleicon from '../../assets/images/googleicon.svg';
 import facebookicon from '../../assets/images/facebookicon.svg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Login() {
     const [email, setEmail] = useState('');
@@ -25,6 +25,7 @@ function Login() {
         const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return re.test(String(email).toLowerCase());
     };
+    const navigate = useNavigate();
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -41,6 +42,11 @@ function Login() {
         console.log('Email:', email);
         console.log('Password:', password);
         console.log('Remember Me:', rememberMe);
+
+        // Redirect to the "/congratulation" route after successful sign-up
+        navigate("/");
+
+
     };
 
     const handleClickShowPassword = () => {
