@@ -47,7 +47,6 @@ function VerifyCode() {
         const verificationCode = code.join('');
         console.log('Verification Code:', verificationCode);
 
-        // Redirect to the "/congratulation" route after successful sign-up
         navigate("/");
 
     };

@@ -1,124 +1,128 @@
 import React from 'react';
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/effect-creative';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { EffectCreative, Autoplay, Pagination, Navigation, Mousewheel, Keyboard } from 'swiper/modules';
 import Groupbanner from '../../../assets/images/Groupbanner.svg';
-import banner from '../../../assets/images/banner.svg';
-import ban from '../../../assets/images/ban.svg';
+import hero1image from '../../../assets/images/hero1image.svg'
+import hero2image from '../../../assets/images/hero2image.svg'
+import hero3image from '../../../assets/images/hero3image.svg'
 import { Box, IconButton } from '@mui/material';
 import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material';
-
-const responsive = {
-    desktop: {
-        breakpoint: { max: 3000, min: 1024 },
-        items: 1,
-        slidesToSlide: 1 // optional, default to 1.
-    },
-    tablet: {
-        breakpoint: { max: 1024, min: 464 },
-        items: 2,
-        slidesToSlide: 2 // optional, default to 1.
-    },
-    mobile: {
-        breakpoint: { max: 464, min: 0 },
-        items: 1,
-        slidesToSlide: 1 // optional, default to 1.
-    }
-};
+import './HeroSection.css';
 
 const images = [
     Groupbanner,
-    banner,
-    ban
-    // Add more images as needed
+    hero1image,
+    hero2image,
+    hero3image,
 ];
 
-const CustomLeftArrow = ({ onClick }) => {
-    return (
-        <IconButton onClick={onClick}
-            sx={{
-                position: 'absolute',
-                left: 0,
-                width: '80px',
-                height: '80px',
-                zIndex: 1,
+const CustomLeftArrow = ({ onClick }) => (
+    <IconButton
+        onClick={onClick}
+        className="custom-prev"
+        sx={{
+            position: 'absolute',
+            left: 0,
+            width: '80px',
+            height: '80px',
+            zIndex: 1,
+            border: '5px solid white',
+            bgcolor: 'common.heroarrowbg',
+            '&:hover': {
                 border: '5px solid white',
                 bgcolor: 'common.heroarrowbg',
-                '&:hover': {
-                    border: '5px solid white',
-                    bgcolor: 'common.heroarrowbg',
-                },
-            }}>
-            <ArrowBackIos />
-        </IconButton>
-    );
-}
+            },
+        }}>
+        <ArrowBackIos />
+    </IconButton>
+);
 
-const CustomRightArrow = ({ onClick }) => {
-    return (
-        <IconButton onClick={onClick}
-            sx={{
-                position: 'absolute',
-                right: 0,
-                width: '80px',
-                height: '80px',
-                zIndex: 1,
+const CustomRightArrow = ({ onClick }) => (
+    <IconButton
+        onClick={onClick}
+        className="custom-next"
+        sx={{
+            position: 'absolute',
+            right: 0,
+            width: '80px',
+            height: '80px',
+            zIndex: 1,
+            border: '5px solid white',
+            bgcolor: 'common.heroarrowbg',
+            '&:hover': {
                 border: '5px solid white',
                 bgcolor: 'common.heroarrowbg',
-                '&:hover': {
-                    border: '5px solid white',
-                    bgcolor: 'common.heroarrowbg',
-                },
-            }}>
-            <ArrowForwardIos />
-        </IconButton>
-    );
-}
+            },
+        }}>
+        <ArrowForwardIos />
+    </IconButton>
+);
 
-const CustomDot = ({ onClick, active }) => {
-    return (
-        <Box
-            onClick={onClick}
-            sx={{
-                display: 'inline-block',
-                width: active ? '24px' : '12px',
-                height: active ? '12px' : '11px',
-                borderRadius: active ? '30%' : '50%',
-                margin: '0 4px',
-                backgroundColor: active ? 'text.white' : 'text.cstmwhite',
-                cursor: 'pointer',
-                transition: 'width 0.3s ease, background-color 0.3s ease'
-            }}
-        />
-    );
-}
+// const CustomDot = ({ onClick, active }) => (
+//     <Box
+//         onClick={onClick}
+//         sx={{
+//             display: 'inline-block',
+//             width: active ? '24px' : '12px',
+//             height: active ? '12px' : '11px',
+//             borderRadius: active ? '30%' : '50%',
+//             margin: '0 4px',
+//             backgroundColor: active ? 'text.white' : 'text.cstmwhite',
+//             cursor: 'pointer',
+//             transition: 'width 0.3s ease, background-color 0.3s ease'
+//         }}
+//     />
+// );
 
 function HeroSection() {
     return (
         <Box sx={{ position: 'relative' }}>
-            <Carousel
-                swipeable={false}
-                draggable={false}
-                showDots={true}
-                responsive={responsive}
-                infinite={true}
-                autoPlaySpeed={1000}
-                keyBoardControl={true}
-                customTransition="all .5"
-                transitionDuration={500}
-                containerClass="carousel-container"
-                removeArrowOnDeviceType={["tablet", "mobile"]}
-                dotListClass="custom-dot-container" // Apply custom dot container class
-                itemClass="carousel-item-padding-40-px"
-                customLeftArrow={<CustomLeftArrow />}
-                customRightArrow={<CustomRightArrow />}
-                customDot={<CustomDot />}
+            <Swiper
+                modules={[Autoplay, EffectCreative, Navigation, Mousewheel, Keyboard, Pagination]}
+                effect={'creative'}
+                grabCursor={true}
+                loop={true}
+                mousewheel={true}
+                keyboard={true}
+                navigation={{
+                    prevEl: '.custom-prev',
+                    nextEl: '.custom-next',
+                }}
+                autoplay={{
+                    delay: 4000,
+                    disableOnInteraction: false,
+                }}
+                speed={1500} // Adjust this value to slow down the transition (in milliseconds)
+                creativeEffect={{
+                    prev: {
+                        shadow: true,
+                        translate: [0, 0, -800],
+                        rotate: [180, 0, 0],
+                    },
+                    next: {
+                        shadow: true,
+                        translate: [0, 0, -800],
+                        rotate: [-180, 0, 0],
+                    },
+                }}
+                pagination={{
+                    el: '.swiper-pagination',
+                    type: 'progressbar', // Use 'bullets' for traditional dots
+                }}
             >
                 {images.map((image, index) => (
-                    <Box key={index}>
+                    <SwiperSlide key={index}>
                         <Box component='img' src={image} alt={`carousel-item-${index}`} sx={{ width: '100%', height: '470px' }} />
-                    </Box>
+                    </SwiperSlide>
                 ))}
-            </Carousel>
+            </Swiper>
+            <CustomLeftArrow />
+            <CustomRightArrow />
+            <Box className="custom-pagination" sx={{ textAlign: 'center', mt: 2 }} />
         </Box>
     );
 }

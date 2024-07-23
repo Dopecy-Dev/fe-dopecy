@@ -43,7 +43,6 @@ function Login() {
         console.log('Password:', password);
         console.log('Remember Me:', rememberMe);
 
-        // Redirect to the "/congratulation" route after successful sign-up
         navigate("/");
 
 

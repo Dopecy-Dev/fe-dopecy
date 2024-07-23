@@ -1,8 +1,51 @@
 .custom-dot-container {
     position: absolute;
-    bottom: 70px; /* Adjust this value to move the dots up or down */
-    left: 15%;
+    top: 20px; /* Adjust this value to move the dots up or down */
+    left: 50%;
     transform: translateX(-50%);
     width: auto;
     text-align: center;
+    z-index: 10; /* Ensure the dots are above other content */
+}
+
+/* .custom-dot {
+    background-color: gray;
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    border-radius: 50%;
+    margin: 0 4px;
+    transition: background-color 0.3s ease;
+} */
+
+/* .custom-dot.swiper-pagination-bullet-active {
+    background-color: white;
+    width: 24px;
+    border-radius: 30%;
+} */
+
+.custom-prev,
+.custom-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 80px;
+    height: 80px;
+    z-index: 10;
+    border: 5px solid white;
+    background-color: var(--hero-arrow-bg); /* Use your desired background color */
+}
+
+.custom-prev {
+    left: 10px; /* Adjust as needed */
+}
+
+.custom-next {
+    right: 10px; /* Adjust as needed */
+}
+
+/* Style the pagination progress bar */
+.swiper-pagination-progressbar {
+    background: #ff0000; /* Change the color as needed */
+    height: 4px; /* Adjust the height */
 }

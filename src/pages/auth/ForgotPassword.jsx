@@ -30,7 +30,6 @@ function ForgotPassword() {
         // Handle login logic here
         console.log('Email:', email);
 
-        // Redirect to the "/congratulation" route after successful sign-up
         navigate("/verifycode");
     };
 
