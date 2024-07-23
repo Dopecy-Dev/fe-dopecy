@@ -95,7 +95,7 @@ function VerifyCode() {
                                                 maxLength: 1,
                                                 style: {
                                                     textAlign: 'center',
-                                                    color: 'primary.main',
+                                                    color: '#326039',
                                                     fontSize: '24px',
                                                     fontWeight: '400'
                                                 }
