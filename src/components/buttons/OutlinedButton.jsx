@@ -17,7 +17,7 @@ function OutlinedButton(props) {
             }}
             endIcon={props.icon ? <props.icon /> : null}
         >
-            {props.leftImage} {props.text} {props.rightImage}
+            {props.leftimage} {props.text} {props.rightimage}
         </Button>
     )
 }

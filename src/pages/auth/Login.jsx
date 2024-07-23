@@ -9,6 +9,7 @@ import OutlinedButton from '../../components/buttons/OutlinedButton';
 
 import googleicon from '../../assets/images/googleicon.svg';
 import facebookicon from '../../assets/images/facebookicon.svg';
+import { Link } from 'react-router-dom';
 
 function Login() {
     const [email, setEmail] = useState('');
@@ -204,7 +205,7 @@ function Login() {
                                 }}
                             />
 
-                            <Box sx={{ display: "flex", my: 1, alignItems: "center", justifyContent: 'space-between' }}>
+                            <Box sx={{ display: "flex", my: 3, alignItems: "center", justifyContent: 'space-between' }}>
                                 <Box sx={{ width: "30%", height: "1px", bgcolor: "text.graytextB3" }}></Box>
                                 <CustomTypography
                                     text='Or Continue with'
@@ -213,8 +214,7 @@ function Login() {
                                         fontSize: '15px',
                                         lineHeight: '20px',
                                         color: 'text.graytextB3',
-                                        cursor: 'pointer',
-                                        mb: 2
+                                        cursor: 'pointer'
                                     }}
                                 />
                                 <Box sx={{ width: "30%", height: "1px", bgcolor: "text.graytextB3" }}></Box>
@@ -225,7 +225,7 @@ function Login() {
                                 text='Sign In with Google'
                                 type="submit"
                                 fullWidth
-                                leftImage={<Box sx={{ mr: 2 }} component={'img'} src={googleicon} alt='googleicon' />}
+                                leftimage={<Box sx={{ mr: 2 }} component={'img'} src={googleicon} alt='googleicon' />}
                             />
 
                             <OutlinedButton
@@ -233,7 +233,7 @@ function Login() {
                                 text='Sign In with Facebook'
                                 type="submit"
                                 fullWidth
-                                leftImage={<Box sx={{ mr: 2 }} component={'img'} src={facebookicon} alt='facebookicon' />}
+                                leftimage={<Box sx={{ mr: 2 }} component={'img'} src={facebookicon} alt='facebookicon' />}
                             />
                             <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', my: 6 }}>
 
@@ -247,16 +247,18 @@ function Login() {
                                         mr: 0.5
                                     }}
                                 />
-                                <CustomTypography
-                                    text='Sign Up Now'
-                                    style={{
-                                        fontWeight: '400',
-                                        fontSize: '12px',
-                                        lineHeight: '20px',
-                                        color: 'primary.main',
-                                        cursor: 'pointer',
-                                    }}
-                                />
+                                <Link to='/signup'>
+                                    <CustomTypography
+                                        text='Sign Up Now'
+                                        style={{
+                                            fontWeight: '400',
+                                            fontSize: '12px',
+                                            lineHeight: '20px',
+                                            color: 'primary.main',
+                                            cursor: 'pointer',
+                                        }}
+                                    />
+                                </Link>
                             </Box>
                         </form>
                     </Box>
