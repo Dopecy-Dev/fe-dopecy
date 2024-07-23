@@ -1,4 +1,4 @@
-import { Box, Grid, TextField, Checkbox, FormControlLabel, Switch, IconButton, InputAdornment, useTheme, useMediaQuery } from '@mui/material';
+import { Box, Grid, TextField, FormControlLabel, Switch, IconButton, InputAdornment, useTheme, useMediaQuery } from '@mui/material';
 import React, { useState } from 'react';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import loginbg from '../../assets/images/loginbg.svg';
@@ -16,12 +16,27 @@ function Login() {
     const [password, setPassword] = useState('');
     const [rememberMe, setRememberMe] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
+    const [emailError, setEmailError] = useState('');
 
     const theme = useTheme();
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
+    const validateEmail = (email) => {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(String(email).toLowerCase());
+    };
+
     const handleSubmit = (event) => {
         event.preventDefault();
+
+        // Validate email
+        if (!validateEmail(email)) {
+            setEmailError("Invalid email address");
+            return;
+        } else {
+            setEmailError("");
+        }
+
         // Handle login logic here
         console.log('Email:', email);
         console.log('Password:', password);
@@ -126,6 +141,8 @@ function Login() {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 sx={{ mb: 4 }}
+                                error={!!emailError}
+                                helperText={emailError}
                             />
                             <CustomTypography
                                 text='Password'
@@ -172,19 +189,21 @@ function Login() {
                                     label="Remember me"
                                     sx={{ display: 'flex', alignItems: 'center' }}
                                 />
-                                <CustomTypography
-                                    text='Forgot password?'
-                                    style={{
-                                        fontWeight: '400',
-                                        fontSize: '12px',
-                                        lineHeight: '20px',
-                                        color: 'primary.main',
-                                        cursor: 'pointer',
-                                        '&:hover': {
-                                            textDecoration: 'underline'
-                                        },
-                                    }}
-                                />
+                                <Link to='/forgotpassword'>
+                                    <CustomTypography
+                                        text='Forgot password?'
+                                        style={{
+                                            fontWeight: '400',
+                                            fontSize: '12px',
+                                            lineHeight: '20px',
+                                            color: 'primary.main',
+                                            cursor: 'pointer',
+                                            '&:hover': {
+                                                textDecoration: 'underline'
+                                            },
+                                        }}
+                                    />
+                                </Link>
                             </Box>
                             <ContainedButton
                                 style={{ height: '40px', borderRadius: '6px', p: '10px, 24px, 10px, 24px' }}

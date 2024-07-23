@@ -3,6 +3,8 @@ import { Routes, Route, BrowserRouter as Router, Navigate } from 'react-router-d
 // auth
 import Login from '../pages/auth/Login';
 import SignUp from '../pages/auth/SignUp'
+import Congratulation from '../pages/auth/Congratulation';
+import ForgotPassword from '../pages/auth/ForgotPassword';
 // import VerifyEmail from '../components/auth/VerifyEmailPage';
 // import ForgotPassword from '../components/auth/ForgotPasswordPage';
 // import ResetPassword from '../components/auth/ResetPasswordPage';
@@ -23,7 +25,6 @@ import SignUp from '../pages/auth/SignUp'
 // import Chat from '../pages/user/Chat/index'
 // import ProgressPathScreen from '../pages/user/ProgressPathScreen/index'
 import LandingPage from '../pages/landingpage/LandingPage';
-import Congratulation from '../pages/auth/Congratulation';
 
 //seller
 // import TermsAndConditions from '../pages/seller/TermsAndConditions/index'
@@ -42,13 +43,13 @@ const Routers = () => {
                 {/* auth */}
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<SignUp />} />
+                <Route path="/congratulation" element={<Congratulation />} />
+                <Route path='/forgotpassword' element={<ForgotPassword />} />
                 {/* <Route path='/verifyemail' element={<VerifyEmail />} /> */}
-                {/* <Route path='/forgotpassword' element={<ForgotPassword />} /> */}
                 {/* <Route path='/resetpassword' element={<ResetPassword />} /> */}
                 {/* user */}
                 <Route path="/" element={<Navigate replace to="/landingpage" />} />
                 <Route path="/landingpage" element={<LandingPage />} />
-                <Route path="/congratulation" element={<Congratulation />} />
                 {/* <Route path="/marketplace" element={<Protected Component={MarketPlace} />} /> */}
                 {/* <Route path="/sellerstore" element={<Protected Component={SellerStore} />} /> */}
                 {/* <Route path="/ownprofile" element={<Protected Component={OwnProfile} />} /> */}
