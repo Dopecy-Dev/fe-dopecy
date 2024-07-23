@@ -1,5 +1,6 @@
 import { Box, Grid, TextField, IconButton, InputAdornment, useTheme, useMediaQuery } from '@mui/material';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css'; // Import the styles for the phone input
@@ -22,6 +23,8 @@ function SignUp() {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [emailError, setEmailError] = useState('');
+
+    const navigate = useNavigate();
 
     const theme = useTheme();
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
@@ -53,6 +56,10 @@ function SignUp() {
         console.log('Phone:', phone);
         console.log('Password:', password);
         console.log('Remember Me:', rememberMe);
+
+        // Redirect to the "/congratulation" route after successful sign-up
+        navigate("/congratulation");
+
     };
 
     const handleClickShowPassword = () => {
