@@ -5,6 +5,7 @@ import Login from '../pages/auth/Login';
 import SignUp from '../pages/auth/SignUp'
 import Congratulation from '../pages/auth/Congratulation';
 import ForgotPassword from '../pages/auth/ForgotPassword';
+import VerifyCode from '../pages/auth/VerifyCode';
 // import VerifyEmail from '../components/auth/VerifyEmailPage';
 // import ForgotPassword from '../components/auth/ForgotPasswordPage';
 // import ResetPassword from '../components/auth/ResetPasswordPage';
@@ -45,6 +46,7 @@ const Routers = () => {
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/congratulation" element={<Congratulation />} />
                 <Route path='/forgotpassword' element={<ForgotPassword />} />
+                <Route path='/verifycode' element={<VerifyCode />} />
                 {/* <Route path='/verifyemail' element={<VerifyEmail />} /> */}
                 {/* <Route path='/resetpassword' element={<ResetPassword />} /> */}
                 {/* user */}
