@@ -1,6 +1,5 @@
 import { Box, Grid } from '@mui/material'
 import React from 'react';
-import whitelogo from '../../assets/images/whitelogo.svg'
 import fbicon from '../../assets/images/fbicon.svg'
 import twittericon from '../../assets/images/twittericon.svg'
 import pinteresticon from '../../assets/images/pinteresticon.svg'
@@ -13,6 +12,8 @@ import visalogo from '../../assets/images/visalogo.svg'
 import Discover from '../../assets/images/Discover.svg'
 import Mastercard from '../../assets/images/Mastercard.svg'
 import lockicon from '../../assets/images/lockicon.svg'
+import LogoLight from '../../components/logos/LogoLight';
+import { Link } from 'react-router-dom';
 
 function Footer() {
     const myAccountItems = ['Business Login', 'Club Login', 'List your Store', 'List your Dispensaries', 'List your CBD Stores', 'List your Restaurant, Caffe , Club, Hubs , THC/CBD Lounge', 'List Your Brand', 'List your Practice', 'List Certify Lab', 'Sell on Dopecy', 'Start Package Delivery', 'Business on Dopecy', 'Drive with Dopecy', 'Build Your Brand'];
@@ -26,8 +27,11 @@ function Footer() {
                 <Grid container spacing={8}>
                     <Grid item xs={3}>
                         <Box sx={{ py: 4, display: 'flex', flexDirection: 'column' }}>
-
-                            <Box sx={{ width: '124px' }} component={'img'} src={whitelogo} alt='whitelogo' />
+                            <Link to='/'>
+                                <Box sx={{ width: '124px' }} >
+                                    <LogoLight />
+                                </Box>
+                            </Link>
                             <CustomTypography
                                 text='Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. '
                                 style={{

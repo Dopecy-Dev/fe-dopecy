@@ -1,22 +1,23 @@
 import { Button } from '@mui/material'
 import React from 'react'
 
-function OutlinedButton() {
+function OutlinedButton(props) {
     return (
         <Button
             variant="outlined"
+            {...props}
             sx={{
-                borderColor: 'secondary.main',
-                color: 'secondary.main',
+                ...props.style,
+                // borderColor: 'transparent',
+                color: 'primary.main',
+                textTransform: 'none',
                 '&:hover': {
-                    borderColor: 'secondary.dark',
-                    color: 'secondary.dark',
+                    borderColor: 'primary.main',
                 },
-                padding: '10px 20px',
-                fontSize: '16px',
             }}
+            endIcon={props.icon ? <props.icon /> : null}
         >
-            Outlined Button
+            {props.leftimage} {props.text} {props.rightimage}
         </Button>
     )
 }

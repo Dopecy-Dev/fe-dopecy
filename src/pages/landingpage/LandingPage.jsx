@@ -9,10 +9,13 @@ import TestimonialsSection from './testimonialssection/TestimonialsSection'
 import FullBannerSection from './fullbannersection/FullBannerSection'
 import HalfBannersSection from './halfbannerssection/FullBannerSection'
 import HeroSection from './herosection/HeroSection'
+import Header from '../../layout/Header/Header'
+import Footer from '../../layout/Footer/Footer'
 
 function LandingPage() {
     return (
         <>
+            <Header></Header>
             <Box sx={{ px: 8 }}>
                 <Box sx={{ py: 4 }}>
                     <HeroSection />
@@ -49,6 +52,7 @@ function LandingPage() {
                 </Box>
 
             </Box>
+            <Footer></Footer>
         </>
     )
 }
