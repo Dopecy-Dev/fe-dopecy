@@ -18,14 +18,14 @@ import { Link } from 'react-router-dom';
 function Footer() {
     const myAccountItems = ['Business Login', 'Club Login', 'List your Store', 'List your Dispensaries', 'List your CBD Stores', 'List your Restaurant, Caffe , Club, Hubs , THC/CBD Lounge', 'List Your Brand', 'List your Practice', 'List Certify Lab', 'Sell on Dopecy', 'Start Package Delivery', 'Business on Dopecy', 'Drive with Dopecy', 'Build Your Brand'];
     const helpsItems = ['Contact', 'FAQs', 'Terms & Condition', 'Privacy Policy'];
-    const proxyItems = ['About Dopecy', 'FAQ', 'Accessibility', 'Commercial Terms of Use', 'Privacy policy & Terms', 'Terms of Use'];
+    const proxyItems = ['About Dopecy', 'FAQ', 'Accessibility', 'Commercial Terms of Use', 'Investors Inquires', 'Contact Us'];
 
 
     return (
         <Box sx={{ bgcolor: 'text.titleblack' }}>
-            <Box sx={{ borderBottom: '1px solid', borderColor: 'text.cstmwhite', px: 8, pt: 8, pb: 4 }}>
-                <Grid container spacing={8}>
-                    <Grid item xs={3}>
+            <Box sx={{ borderBottom: '1px solid', borderColor: 'text.cstmwhite', px: 8, pt: 8, pb: 4, height: '370px' }}>
+                <Grid container spacing={2}>
+                    <Grid item xs={2}>
                         <Box sx={{ py: 4, display: 'flex', flexDirection: 'column' }}>
                             <Link to='/'>
                                 <Box sx={{ width: '124px' }} >
@@ -33,7 +33,7 @@ function Footer() {
                                 </Box>
                             </Link>
                             <CustomTypography
-                                text='Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. '
+                                text='Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. '
                                 style={{
                                     fontWeight: '400',
                                     fontSize: '14px',
@@ -65,10 +65,10 @@ function Footer() {
                         </Box>
 
                     </Grid>
-                    <Grid item xs={5}>
+                    <Grid item xs={8}>
                         <Box sx={{ pt: 4 }}>
-                            <Grid container spacing={12}>
-                                <Grid item xs={6}>
+                            <Grid container spacing={2} sx={{ justifyContent: 'space-between' }}>
+                                <Grid item xs={9}>
                                     <Grid container sx={{ flexDirection: 'column' }}>
                                         <Grid item>
                                             <Box>
@@ -83,82 +83,42 @@ function Footer() {
                                                     }}
                                                 />
                                             </Box>
-                                            <Box sx={{ width: '40px', height: '4px', bgcolor: 'primary.main', my: 2 }}>
-
-                                            </Box>
+                                            <Box sx={{ width: '40px', height: '4px', bgcolor: 'primary.main', my: 2 }} />
                                         </Grid>
                                         <Grid item>
-                                            <Grid sx={{ flexDirection: 'column' }} container spacing={2}>
+                                            <Box
+                                                sx={{
+                                                    columnCount: 3,
+                                                    columnGap: 2,
+                                                    maxHeight: '150px', // Set your desired height limit here
+                                                    overflow: 'auto', // Optional: add scroll if overflow
+                                                }}
+                                            >
                                                 {myAccountItems.map((item) => (
-                                                    <Grid item key={item} onClick={() => handleClick(item)}>
-                                                        <CustomTypography
-                                                            text={item}
-                                                            style={{
-                                                                fontSize: '14px',
-                                                                lineHeight: '21px',
-                                                                fontWeight: '400',
-                                                                color: 'text.footerlinks',
-                                                                textAlign: 'left',
-                                                                cursor: 'pointer',
-                                                                '&:hover': {
-                                                                    color: 'text.white',
-                                                                }
-
-                                                            }}
-                                                        />
-                                                    </Grid>
+                                                    <CustomTypography
+                                                        key={item}
+                                                        text={item}
+                                                        style={{
+                                                            fontSize: '14px',
+                                                            lineHeight: '21px',
+                                                            fontWeight: '400',
+                                                            color: 'text.footerlinks',
+                                                            textAlign: 'left',
+                                                            cursor: 'pointer',
+                                                            breakInside: 'avoid',
+                                                            py: .2,
+                                                            '&:hover': {
+                                                                color: 'text.white',
+                                                            },
+                                                        }}
+                                                        onClick={() => handleClick(item)}
+                                                    />
                                                 ))}
-                                            </Grid>
+                                            </Box>
                                         </Grid>
                                     </Grid>
-
                                 </Grid>
-                                {/* <Grid item>
-                                    <Grid container sx={{ flexDirection: 'column' }}>
-                                        <Grid item>
-                                            <Box>
-                                                <CustomTypography
-                                                    text='Helps'
-                                                    style={{
-                                                        fontSize: '18px',
-                                                        lineHeight: '20px',
-                                                        fontWeight: '600',
-                                                        textAlign: 'left',
-                                                        color: 'text.white',
-                                                    }}
-                                                />
-                                            </Box>
-                                            <Box sx={{ width: '40px', height: '4px', bgcolor: 'primary.main', my: 2 }}>
-
-                                            </Box>
-                                        </Grid>
-                                        <Grid item>
-                                            <Grid sx={{ flexDirection: 'column' }} container spacing={2}>
-                                                {helpsItems.map((item) => (
-                                                    <Grid item key={item} onClick={() => handleClick(item)}>
-                                                        <CustomTypography
-                                                            text={item}
-                                                            style={{
-                                                                fontSize: '14px',
-                                                                lineHeight: '21px',
-                                                                fontWeight: '400',
-                                                                color: 'text.footerlinks',
-                                                                textAlign: 'left',
-                                                                cursor: 'pointer',
-                                                                '&:hover': {
-                                                                    color: 'text.white',
-                                                                }
-
-                                                            }}
-                                                        />
-                                                    </Grid>
-                                                ))}
-                                            </Grid>
-                                        </Grid>
-                                    </Grid>
-
-                                </Grid> */}
-                                <Grid item xs={6}>
+                                <Grid item xs={3}>
                                     <Grid container sx={{ flexDirection: 'column' }}>
                                         <Grid item>
                                             <Box>
@@ -173,41 +133,46 @@ function Footer() {
                                                     }}
                                                 />
                                             </Box>
-                                            <Box sx={{ width: '40px', height: '4px', bgcolor: 'primary.main', my: 2 }}>
-
-                                            </Box>
+                                            <Box sx={{ width: '40px', height: '4px', bgcolor: 'primary.main', my: 2 }} />
                                         </Grid>
                                         <Grid item>
-                                            <Grid sx={{ flexDirection: 'column' }} container spacing={2}>
+                                            <Box
+                                                sx={{
+                                                    columnCount: 1,
+                                                    columnGap: 2,
+                                                    maxHeight: '150px', // Set your desired height limit here
+                                                    overflow: 'auto', // Optional: add scroll if overflow
+                                                }}
+                                            >
                                                 {proxyItems.map((item) => (
-                                                    <Grid item key={item} onClick={() => handleClick(item)}>
-                                                        <CustomTypography
-                                                            text={item}
-                                                            style={{
-                                                                fontSize: '14px',
-                                                                lineHeight: '21px',
-                                                                fontWeight: '400',
-                                                                color: 'text.footerlinks',
-                                                                textAlign: 'left',
-                                                                cursor: 'pointer',
-                                                                '&:hover': {
-                                                                    color: 'text.white',
-                                                                }
-
-                                                            }}
-                                                        />
-                                                    </Grid>
+                                                    <CustomTypography
+                                                        key={item}
+                                                        text={item}
+                                                        style={{
+                                                            fontSize: '14px',
+                                                            lineHeight: '21px',
+                                                            fontWeight: '400',
+                                                            color: 'text.footerlinks',
+                                                            textAlign: 'left',
+                                                            cursor: 'pointer',
+                                                            breakInside: 'avoid',
+                                                            py: .2,
+                                                            '&:hover': {
+                                                                color: 'text.white',
+                                                            },
+                                                        }}
+                                                        onClick={() => handleClick(item)}
+                                                    />
                                                 ))}
-                                            </Grid>
+                                            </Box>
                                         </Grid>
                                     </Grid>
-
                                 </Grid>
                             </Grid>
                         </Box>
-
                     </Grid>
-                    <Grid item xs={4}>
+
+                    <Grid item xs={2}>
                         <Box sx={{ py: 4 }}>
                             <Grid container sx={{ flexDirection: 'column' }}>
                                 <Grid item>
