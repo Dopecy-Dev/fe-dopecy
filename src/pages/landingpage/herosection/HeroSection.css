@@ -5,7 +5,7 @@
     transform: translateX(-50%);
     width: auto;
     text-align: center;
-    z-index: 10; /* Ensure the dots are above other content */
+    z-index: 1; 
 }
 
 /* .custom-dot {
@@ -31,7 +31,7 @@
     transform: translateY(-50%);
     width: 80px;
     height: 80px;
-    z-index: 10;
+    z-index: 1;
     border: 5px solid white;
     background-color: var(--hero-arrow-bg); /* Use your desired background color */
 }

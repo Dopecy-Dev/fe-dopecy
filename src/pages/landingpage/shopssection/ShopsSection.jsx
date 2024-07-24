@@ -1,11 +1,26 @@
 import { Box, Grid } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import CustomTypography from '../../../components/typography/CustomTypography';
 import ShopCard from '../../../shared/ShopCard/ShopCard';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import shopimage from '../../../assets/images/shopimage.svg';
 import ShopCoverImage from '../../../assets/images/ShopCoverImage.svg';
+
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/pagination';
+import 'swiper/css/free-mode';
+
+// import './styles.css';
+
+// import required modules
+import { FreeMode, Autoplay, EffectCoverflow, Pagination, Navigation, Mousewheel, Keyboard } from 'swiper/modules';
+import { Link } from 'react-router-dom';
 
 const responsive = {
     desktop: {
@@ -26,6 +41,22 @@ const responsive = {
 };
 
 function ShopsSection() {
+    const swiperRef = useRef(null);
+
+    useEffect(() => {
+        const swiperInstance = swiperRef.current.swiper;
+        const handleMouseEnter = () => swiperInstance.autoplay.stop();
+        const handleMouseLeave = () => swiperInstance.autoplay.start();
+
+        const swiperEl = swiperRef.current;
+        swiperEl.addEventListener('mouseenter', handleMouseEnter);
+        swiperEl.addEventListener('mouseleave', handleMouseLeave);
+
+        return () => {
+            swiperEl.removeEventListener('mouseenter', handleMouseEnter);
+            swiperEl.removeEventListener('mouseleave', handleMouseLeave);
+        };
+    }, []);
     const [shops, setShops] = useState([
         {
             title: 'Whimsical Wonder shop',
@@ -160,7 +191,46 @@ function ShopsSection() {
                 </Grid>
             </Grid>
 
-            <Carousel
+            <Swiper
+                ref={swiperRef}
+                effect={'coverflow'}
+                freeMode={true}
+                grabCursor={true}
+                centeredSlides={true}
+                slidesPerView={4} // Show 4 slides, but center 3
+                loop={true}
+                mousewheel={true}
+                keyboard={true}
+                autoplay={{
+                    delay: 1000,
+                    disableOnInteraction: false,
+                }}
+                speed={1500}
+                coverflowEffect={{
+                    rotate: 0,
+                    stretch: 0,
+                    depth: 100,
+                    modifier: 3,
+                    slideShadows: true,
+                }}
+                // pagination={true}
+                modules={[FreeMode, Autoplay, EffectCoverflow, Pagination, Navigation, Mousewheel, Keyboard]}
+            >
+                <Grid container>
+                    {shops.map((shop, index) => (
+                        <SwiperSlide key={index}>
+                            <Grid item xs={4}>
+                                <Link to='/forgotpassword'>
+                                    <ShopCard shop={shop} />
+                                </Link>
+                            </Grid>
+                        </SwiperSlide>
+                    ))}
+                </Grid>
+            </Swiper>
+
+
+            {/* <Carousel
                 swipeable={true}
                 draggable={true}
                 showDots={false}
@@ -186,7 +256,7 @@ function ShopsSection() {
                         <ShopCard shop={shop} />
                     </Box>
                 ))}
-            </Carousel>
+            </Carousel> */}
         </>
     )
 }

@@ -109,10 +109,6 @@ function HeroSection() {
                         rotate: [-180, 0, 0],
                     },
                 }}
-                pagination={{
-                    el: '.swiper-pagination',
-                    type: 'progressbar', // Use 'bullets' for traditional dots
-                }}
             >
                 {images.map((image, index) => (
                     <SwiperSlide key={index}>
