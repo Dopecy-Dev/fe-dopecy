@@ -12,6 +12,7 @@ import P7Image from '../../../assets/images/P7Image.svg'
 import P8Image from '../../../assets/images/P8Image.svg'
 import P9Image from '../../../assets/images/P9Image.svg'
 import ArrowRight from '../../../assets/images/ArrowRight.svg'
+import { useNavigate } from 'react-router-dom';
 
 function ProductsSection() {
     const [clickedItem, setClickedItem] = useState('All Products');
@@ -111,9 +112,11 @@ function ProductsSection() {
         paddingBottom: '4px', // Add padding to space the border from the text
     });
 
+    const navigate = useNavigate();
 
     const handleProductClick = (product) => {
         console.log(`Clicked on product: ${product.title}`);
+        navigate("/productdetails");
     };
 
     const items = ['All Products', 'Smart Phone', 'Laptop', 'Headphone', 'TV', 'Browse All Product'];

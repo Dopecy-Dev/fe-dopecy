@@ -29,6 +29,7 @@ export default function SecondryAppBar() {
     });
 
     const items = ['Home', 'Events', 'Clubs'];
+    const items2 = ['Dispensaries', 'Restaurants', 'Liquor Stores '];
 
     return (
         <Box sx={{ px: 8, py: 1, bgcolor: 'common.searchbar' }}>
@@ -52,6 +53,22 @@ export default function SecondryAppBar() {
                 <Grid item>
                     <DropDownMenu />
                 </Grid>
+                {items2.map((item) => (
+                    <Grid item key={item} onClick={() => handleClick(item)}>
+                        <Box sx={getStyle(item)}>
+                            <CustomTypography
+                                text={item}
+                                style={{
+                                    fontSize: 'inherit',
+                                    lineHeight: 'inherit',
+                                    fontWeight: 'inherit',
+                                    textAlign: 'inherit',
+                                    color: 'inherit'
+                                }}
+                            />
+                        </Box>
+                    </Grid>
+                ))}
             </Grid>
         </Box>
     );

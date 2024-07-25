@@ -27,7 +27,10 @@ const lightTheme = createTheme({
             leftbannerbg: '#F2F4F5',
             rightbannerbg: '#191C1F',
             rightbannerintrobg: '#EFD33D',
-            heroarrowbg: '#DCEDDF'
+            heroarrowbg: '#DCEDDF',
+            productbg1: '#F7EDE1',
+            productbg2: '#F2F4F7',
+
         },
     },
 });
