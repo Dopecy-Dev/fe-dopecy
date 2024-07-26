@@ -78,7 +78,7 @@ function SignUp() {
     };
 
     return (
-        <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh', bgcolor: 'text.white' }}>
             <Grid container sx={{ flex: 1 }}>
                 <Grid item xs={12} md={7} sx={{ display: { xs: 'none', md: 'block' } }}>
                     <Box
@@ -123,7 +123,7 @@ function SignUp() {
                         </Box>
                     </Box>
                 </Grid>
-                <Grid item xs={12} md={5} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', p: { xs: 2, md: 4 } }}>
+                <Grid item xs={12} md={5} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', p: { xs: 2, md: 4 }, bgcolor: 'text.white' }}>
                     <Box sx={{ width: '100%', maxWidth: 400 }}>
                         <CustomTypography
                             text='Create Account'

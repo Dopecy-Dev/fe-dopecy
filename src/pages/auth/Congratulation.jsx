@@ -55,7 +55,7 @@ function Congratulation() {
                         </Box>
                     </Box>
                 </Grid>
-                <Grid item xs={12} md={5} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', p: { xs: 2, md: 4 } }}>
+                <Grid item xs={12} md={5} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', p: { xs: 2, md: 4 }, bgcolor: 'text.white' }}>
                     <Box sx={{ width: '100%', maxWidth: 400 }}>
                         <Box component="img" src={congratimage} alt="congratimage" />
                         <CustomTypography

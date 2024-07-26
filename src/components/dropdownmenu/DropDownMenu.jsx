@@ -1,77 +1,83 @@
 import * as React from 'react';
-import { Box, Button } from '@mui/material';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
+import { Box, Menu, MenuItem } from '@mui/material';
 import btndownarrowblack from '../../assets/images/btndownarrowblack.svg';
+import CustomTypography from '../typography/CustomTypography';
 
-export default function DropDownMenu() {
-    const [anchorEl, setAnchorEl] = React.useState(null);
+export default function DropDownMenu({ anchorEl, handleClose }) {
     const open = Boolean(anchorEl);
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
 
     return (
-        <div>
-            <Button
+        <Menu
+            id="basic-menu"
+            anchorEl={anchorEl}
+            open={open}
+            onClose={handleClose}
+            MenuListProps={{
+                'aria-labelledby': 'dopecy-studio-button',
+            }}
+            PaperProps={{
+                sx: {
+                    mt: 2,
+                    width: {
+                        xs: '200px',
+                        sm: '250px',
+                        md: '300px'
+                    },
+                    borderRadius: '8px',
+                    boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)'
+                }
+            }}
+        >
+            <MenuItem
+                onClick={handleClose}
                 sx={{
-                    textTransform: 'none',
-                    color: 'text.primary'
-                }}
-                id="basic-button"
-                aria-controls={open ? 'basic-menu' : undefined}
-                aria-haspopup="true"
-                aria-expanded={open ? 'true' : undefined}
-                onClick={handleClick}
-            >
-                Dopecy Studio
-                <Box sx={{ ml: 1 }} component={'img'} src={btndownarrowblack} alt='btndownarrowblack' />
-            </Button>
-            <Menu
-                id="basic-menu"
-                anchorEl={anchorEl}
-                open={open}
-                onClose={handleClose}
-                MenuListProps={{
-                    'aria-labelledby': 'basic-button',
+                    fontSize: {
+                        xs: '12px',
+                        sm: '14px',
+                        md: '16px'
+                    },
+                    borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
+                    '&:last-child': {
+                        borderBottom: 'none',
+                    },
+                    py: { xs: 1, sm: 1.5, md: 2 }
                 }}
             >
-                <MenuItem
-                    onClick={handleClose}
-                    sx={{
-                        borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
-                        '&:last-child': {
-                            borderBottom: 'none',
-                        },
-                    }}
-                >
-                    Stock News
-                </MenuItem>
-                <MenuItem
-                    onClick={handleClose}
-                    sx={{
-                        borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
-                        '&:last-child': {
-                            borderBottom: 'none',
-                        },
-                    }}
-                >
-                    Brands Podcast
-                </MenuItem>
-                <MenuItem
-                    onClick={handleClose}
-                    sx={{
-                        '&:last-child': {
-                            borderBottom: 'none',
-                        },
-                    }}
-                >
-                    Youtube Video
-                </MenuItem>
-            </Menu>
-        </div>
+                Stock News
+            </MenuItem>
+            <MenuItem
+                onClick={handleClose}
+                sx={{
+                    fontSize: {
+                        xs: '12px',
+                        sm: '14px',
+                        md: '16px'
+                    },
+                    borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
+                    '&:last-child': {
+                        borderBottom: 'none',
+                    },
+                    py: { xs: 1, sm: 1.5, md: 2 }
+                }}
+            >
+                Brands Podcast
+            </MenuItem>
+            <MenuItem
+                onClick={handleClose}
+                sx={{
+                    fontSize: {
+                        xs: '12px',
+                        sm: '14px',
+                        md: '16px'
+                    },
+                    py: { xs: 1, sm: 1.5, md: 2 },
+                    '&:last-child': {
+                        borderBottom: 'none',
+                    },
+                }}
+            >
+                Youtube Video
+            </MenuItem>
+        </Menu>
     );
 }

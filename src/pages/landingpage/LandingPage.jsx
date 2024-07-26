@@ -20,7 +20,7 @@ function LandingPage() {
                 <Box sx={{ py: 4 }}>
                     <HeroSection />
                 </Box>
-                <Box sx={{ py: 4, boxShadow: 3, bgcolor: 'text.white' }}>
+                <Box sx={{ py: 4 }}>
                     <DeliverySection />
                 </Box>
 

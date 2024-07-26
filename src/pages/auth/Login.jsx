@@ -6,7 +6,6 @@ import CustomTypography from '../../components/typography/CustomTypography';
 import LogoLoginScreen from '../../components/logos/LogoLoginScreen';
 import ContainedButton from '../../components/buttons/ContainedButton';
 import OutlinedButton from '../../components/buttons/OutlinedButton';
-
 import googleicon from '../../assets/images/googleicon.svg';
 import facebookicon from '../../assets/images/facebookicon.svg';
 import { Link, useNavigate } from 'react-router-dom';
@@ -25,6 +24,7 @@ function Login() {
         const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return re.test(String(email).toLowerCase());
     };
+
     const navigate = useNavigate();
 
     const handleSubmit = (event) => {
@@ -44,8 +44,6 @@ function Login() {
         console.log('Remember Me:', rememberMe);
 
         navigate("/");
-
-
     };
 
     const handleClickShowPassword = () => {
@@ -79,19 +77,22 @@ function Login() {
                                 top: 0,
                                 left: 0,
                                 opacity: 0.7,
-                                p: 8,
+                                p: { xs: 2, md: 8 },
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'center',
                             }}
                         >
-                            <Grid container spacing={4} sx={{ flexDirection: 'column', alignItems: 'start' }}>
+                            <Grid container spacing={4} sx={{ alignItems: 'start' }}>
                                 <Grid item>
                                     <LogoLoginScreen />
                                 </Grid>
-                                <Grid item xs={8}>
+                                <Grid item xs={12}>
                                     <CustomTypography
                                         text='Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
                                         style={{
                                             fontWeight: '400',
-                                            fontSize: '26px',
+                                            fontSize: { xs: '20px', md: '26px' },
                                             lineHeight: '36px',
                                             color: 'text.white',
                                             textAlign: 'left',
@@ -102,14 +103,14 @@ function Login() {
                         </Box>
                     </Box>
                 </Grid>
-                <Grid item xs={12} md={5} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', p: { xs: 2, md: 4 } }}>
+                <Grid item xs={12} md={5} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', p: 2, bgcolor: 'text.white' }}>
                     <Box sx={{ width: '100%', maxWidth: 400 }}>
                         <CustomTypography
                             text='Login'
                             style={{
                                 fontWeight: '600',
                                 fontSize: isSmallScreen ? '28px' : '35px',
-                                lineHeight: '28px',
+                                lineHeight: '36px',
                                 textAlign: 'left',
                                 color: 'text.titleblack',
                                 mb: 2
@@ -132,7 +133,7 @@ function Login() {
                                 style={{
                                     fontWeight: '400',
                                     fontSize: '14px',
-                                    lineHeight: '0px',
+                                    lineHeight: '20px',
                                     textAlign: 'left',
                                     color: 'text.graybg3',
                                     pl: 2
@@ -154,7 +155,7 @@ function Login() {
                                 style={{
                                     fontWeight: '400',
                                     fontSize: '14px',
-                                    lineHeight: '0px',
+                                    lineHeight: '20px',
                                     textAlign: 'left',
                                     color: 'text.graybg3',
                                     pl: 2
@@ -211,7 +212,7 @@ function Login() {
                                 </Link>
                             </Box>
                             <ContainedButton
-                                style={{ height: '40px', borderRadius: '6px', p: '10px, 24px, 10px, 24px' }}
+                                style={{ height: '40px', borderRadius: '6px', p: '10px 24px' }}
                                 text='Login'
                                 type="submit"
                                 fullWidth
@@ -221,14 +222,13 @@ function Login() {
                                 style={{
                                     fontWeight: '400',
                                     fontSize: '15px',
-                                    lineHeight: '12px',
+                                    lineHeight: '20px',
                                     color: 'primary.main',
                                     cursor: 'pointer',
                                     textDecoration: 'underline',
                                     my: 3
                                 }}
                             />
-
                             <Box sx={{ display: "flex", my: 3, alignItems: "center", justifyContent: 'space-between' }}>
                                 <Box sx={{ width: "30%", height: "1px", bgcolor: "text.graytextB3" }}></Box>
                                 <CustomTypography
@@ -243,24 +243,21 @@ function Login() {
                                 />
                                 <Box sx={{ width: "30%", height: "1px", bgcolor: "text.graytextB3" }}></Box>
                             </Box>
-
                             <OutlinedButton
-                                style={{ height: '40px', borderRadius: '6px', p: '10px, 24px, 10px, 24px', mb: 2 }}
+                                style={{ height: '40px', borderRadius: '6px', p: '10px 24px', mb: 2 }}
                                 text='Sign In with Google'
                                 type="submit"
                                 fullWidth
                                 leftimage={<Box sx={{ mr: 2 }} component={'img'} src={googleicon} alt='googleicon' />}
                             />
-
                             <OutlinedButton
-                                style={{ height: '40px', borderRadius: '6px', p: '10px, 24px, 10px, 24px', mb: 2 }}
+                                style={{ height: '40px', borderRadius: '6px', p: '10px 24px', mb: 2 }}
                                 text='Sign In with Facebook'
                                 type="submit"
                                 fullWidth
                                 leftimage={<Box sx={{ mr: 2 }} component={'img'} src={facebookicon} alt='facebookicon' />}
                             />
                             <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', my: 6 }}>
-
                                 <CustomTypography
                                     text="Don't have an account?"
                                     style={{

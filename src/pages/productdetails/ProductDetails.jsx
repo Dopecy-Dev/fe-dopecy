@@ -7,6 +7,7 @@ import ProductImagesSlider from '../../shared/ProductImagesSlider/ProductImagesS
 import CustomTypography from '../../components/typography/CustomTypography'
 import OutlinedButton from '../../components/buttons/OutlinedButton';
 
+
 function ProductDetails() {
     const [isExpanded, setIsExpanded] = useState(false);
 
@@ -20,9 +21,10 @@ function ProductDetails() {
             <Header></Header>
             <Box
                 sx={{
-                    px: 8
+                    px: 8,
+                    py: 4
                 }}>
-                <Box sx={{ py: 4 }}>
+                <Box sx={{ pb: 4 }}>
                     <Breadcrumbs></Breadcrumbs>
                 </Box>
                 <Grid container spacing={8}>
@@ -121,13 +123,10 @@ function ProductDetails() {
                                             lineHeight: '24px',
                                             color: 'primary.main',
                                             textDecoration: 'underline',
-                                            border: 'none',
-                                            fontWeight: '800',
-                                            fontSize: '16px',
-                                            lineHeight: '20px',
-                                            cursor: 'pointer'
+                                            cursor: 'pointer',
                                         }}
                                     />
+
 
                                     {/* <OutlinedButton
                                         onClick={() => setIsExpanded(!isExpanded)}
