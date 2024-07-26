@@ -36,6 +36,7 @@ import LandingPage from '../pages/landingpage/LandingPage';
 
 // protected
 import Protected from './Protected';
+import SellerSignup from '../pages/auth/SellerSignup';
 
 const Routers = () => {
     return (
@@ -44,6 +45,7 @@ const Routers = () => {
                 {/* auth */}
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<SignUp />} />
+                <Route path="/seller-signup" element={<SellerSignup />} />
                 <Route path="/congratulation" element={<Congratulation />} />
                 <Route path='/forgotpassword' element={<ForgotPassword />} />
                 <Route path='/verifycode' element={<VerifyCode />} />

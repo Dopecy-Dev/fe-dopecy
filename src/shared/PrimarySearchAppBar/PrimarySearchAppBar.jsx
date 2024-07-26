@@ -13,7 +13,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { Grid } from '@mui/material';
 import AllCategoriesMenu from '../AllCategoriesMenu/AllCategoriesMenu';
-import SearchIcon from '../../assets/images/SearchIcon.svg'
+import SearchIcon from '../../assets/images/searchicon.svg'
 import SearchIconRight from '../../assets/images/SearchIconRight.svg'
 import UserIcon from '../../assets/images/UserIcon.svg'
 import CustomTypography from '../../components/typography/CustomTypography';
