@@ -6,7 +6,6 @@ import CustomTypography from '../../components/typography/CustomTypography';
 import LogoLoginScreen from '../../components/logos/LogoLoginScreen';
 import ContainedButton from '../../components/buttons/ContainedButton';
 import OutlinedButton from '../../components/buttons/OutlinedButton';
-
 import googleicon from '../../assets/images/googleicon.svg';
 import facebookicon from '../../assets/images/facebookicon.svg';
 import { Link, useNavigate } from 'react-router-dom';
@@ -25,6 +24,7 @@ function Login() {
         const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return re.test(String(email).toLowerCase());
     };
+
     const navigate = useNavigate();
 
     const handleSubmit = (event) => {
@@ -44,8 +44,6 @@ function Login() {
         console.log('Remember Me:', rememberMe);
 
         navigate("/");
-
-
     };
 
     const handleClickShowPassword = () => {
@@ -79,20 +77,23 @@ function Login() {
                                 top: 0,
                                 left: 0,
                                 opacity: 0.7,
-                                p: 8,
+                                p: { xs: '1rem', md: '2rem' }, // Responsive padding
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'center',
                             }}
                         >
-                            <Grid container spacing={4} sx={{ flexDirection: 'column', alignItems: 'start' }}>
+                            <Grid container spacing={4} sx={{ alignItems: 'start' }}>
                                 <Grid item>
                                     <LogoLoginScreen />
                                 </Grid>
-                                <Grid item xs={8}>
+                                <Grid item xs={12}>
                                     <CustomTypography
                                         text='Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
                                         style={{
                                             fontWeight: '400',
-                                            fontSize: '26px',
-                                            lineHeight: '36px',
+                                            fontSize: { xs: '1.25rem', md: '1.625rem' }, // Responsive font size
+                                            lineHeight: '2.25rem',
                                             color: 'text.white',
                                             textAlign: 'left',
                                         }}
@@ -102,28 +103,28 @@ function Login() {
                         </Box>
                     </Box>
                 </Grid>
-                <Grid item xs={12} md={5} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', p: { xs: 2, md: 4 } }}>
-                    <Box sx={{ width: '100%', maxWidth: 400 }}>
+                <Grid item xs={12} md={5} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', p: { xs: '1rem', sm: '1.5rem' }, bgcolor: 'text.white' }}>
+                    <Box sx={{ width: '100%', maxWidth: '25rem' }}>
                         <CustomTypography
                             text='Login'
                             style={{
                                 fontWeight: '600',
-                                fontSize: isSmallScreen ? '28px' : '35px',
-                                lineHeight: '28px',
+                                fontSize: isSmallScreen ? '1.75rem' : '2.1875rem', // Responsive font size
+                                lineHeight: '2.25rem',
                                 textAlign: 'left',
                                 color: 'text.titleblack',
-                                mb: 2
+                                mb: { xs: '1rem', md: '1.5rem' } // Responsive margin bottom
                             }}
                         />
                         <CustomTypography
                             text='Nice To See You Again'
                             style={{
                                 fontWeight: '400',
-                                fontSize: isSmallScreen ? '16px' : '18px',
-                                lineHeight: '28px',
+                                fontSize: isSmallScreen ? '1rem' : '1.125rem', // Responsive font size
+                                lineHeight: '1.75rem',
                                 textAlign: 'left',
                                 color: 'text.titleblack',
-                                mb: 4
+                                mb: { xs: '1rem', md: '1.5rem' } // Responsive margin bottom
                             }}
                         />
                         <form onSubmit={handleSubmit}>
@@ -131,11 +132,11 @@ function Login() {
                                 text='Email'
                                 style={{
                                     fontWeight: '400',
-                                    fontSize: '14px',
-                                    lineHeight: '0px',
+                                    fontSize: '0.875rem', // 14px to rem
+                                    lineHeight: '1.25rem', // 20px to rem
                                     textAlign: 'left',
                                     color: 'text.graybg3',
-                                    pl: 2
+                                    pl: '0.5rem' // 8px to rem
                                 }}
                             />
                             <TextField
@@ -145,7 +146,7 @@ function Login() {
                                 margin="normal"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                sx={{ mb: 4 }}
+                                sx={{ mb: '1rem' }} // 16px to rem
                                 error={!!emailError}
                                 helperText={emailError}
                             />
@@ -153,11 +154,11 @@ function Login() {
                                 text='Password'
                                 style={{
                                     fontWeight: '400',
-                                    fontSize: '14px',
-                                    lineHeight: '0px',
+                                    fontSize: '0.875rem', // 14px to rem
+                                    lineHeight: '1.25rem', // 20px to rem
                                     textAlign: 'left',
                                     color: 'text.graybg3',
-                                    pl: 2
+                                    pl: '0.5rem' // 8px to rem
                                 }}
                             />
                             <TextField
@@ -183,7 +184,7 @@ function Login() {
                                     ),
                                 }}
                             />
-                            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 4 }}>
+                            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: '1rem' }}> {/* 16px to rem */}
                                 <FormControlLabel
                                     control={
                                         <Switch
@@ -199,8 +200,8 @@ function Login() {
                                         text='Forgot password?'
                                         style={{
                                             fontWeight: '400',
-                                            fontSize: '12px',
-                                            lineHeight: '20px',
+                                            fontSize: '0.75rem', // 12px to rem
+                                            lineHeight: '1.25rem', // 20px to rem
                                             color: 'primary.main',
                                             cursor: 'pointer',
                                             '&:hover': {
@@ -211,7 +212,7 @@ function Login() {
                                 </Link>
                             </Box>
                             <ContainedButton
-                                style={{ height: '40px', borderRadius: '6px', p: '10px, 24px, 10px, 24px' }}
+                                style={{ height: '2.5rem', borderRadius: '0.375rem', padding: '0.625rem 1.5rem' }} // 40px to rem
                                 text='Login'
                                 type="submit"
                                 fullWidth
@@ -220,55 +221,51 @@ function Login() {
                                 text='Join Dopecy Delivery'
                                 style={{
                                     fontWeight: '400',
-                                    fontSize: '15px',
-                                    lineHeight: '12px',
+                                    fontSize: '0.9375rem', // 15px to rem
+                                    lineHeight: '1.25rem', // 20px to rem
                                     color: 'primary.main',
                                     cursor: 'pointer',
                                     textDecoration: 'underline',
-                                    my: 3
+                                    my: '1.5rem' // 24px to rem
                                 }}
                             />
-
-                            <Box sx={{ display: "flex", my: 3, alignItems: "center", justifyContent: 'space-between' }}>
+                            <Box sx={{ display: "flex", my: '1.5rem', alignItems: "center", justifyContent: 'space-between' }}> {/* 24px to rem */}
                                 <Box sx={{ width: "30%", height: "1px", bgcolor: "text.graytextB3" }}></Box>
                                 <CustomTypography
                                     text='Or Continue with'
                                     style={{
                                         fontWeight: '400',
-                                        fontSize: '15px',
-                                        lineHeight: '20px',
+                                        fontSize: '0.9375rem', // 15px to rem
+                                        lineHeight: '1.25rem', // 20px to rem
                                         color: 'text.graytextB3',
                                         cursor: 'pointer'
                                     }}
                                 />
                                 <Box sx={{ width: "30%", height: "1px", bgcolor: "text.graytextB3" }}></Box>
                             </Box>
-
                             <OutlinedButton
-                                style={{ height: '40px', borderRadius: '6px', p: '10px, 24px, 10px, 24px', mb: 2 }}
+                                style={{ height: '2.5rem', borderRadius: '0.375rem', padding: '0.625rem 1.5rem', mb: '1rem' }} // 40px to rem
                                 text='Sign In with Google'
                                 type="submit"
                                 fullWidth
-                                leftimage={<Box sx={{ mr: 2 }} component={'img'} src={googleicon} alt='googleicon' />}
+                                leftimage={<Box sx={{ mr: '0.5rem' }} component={'img'} src={googleicon} alt='googleicon' />} // 8px to rem
                             />
-
                             <OutlinedButton
-                                style={{ height: '40px', borderRadius: '6px', p: '10px, 24px, 10px, 24px', mb: 2 }}
+                                style={{ height: '2.5rem', borderRadius: '0.375rem', padding: '0.625rem 1.5rem', mb: '1rem' }} // 40px to rem
                                 text='Sign In with Facebook'
                                 type="submit"
                                 fullWidth
-                                leftimage={<Box sx={{ mr: 2 }} component={'img'} src={facebookicon} alt='facebookicon' />}
+                                leftimage={<Box sx={{ mr: '0.5rem' }} component={'img'} src={facebookicon} alt='facebookicon' />} // 8px to rem
                             />
-                            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', my: 6 }}>
-
+                            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', my: '3rem' }}> {/* 48px to rem */}
                                 <CustomTypography
                                     text="Don't have an account?"
                                     style={{
                                         fontWeight: '400',
-                                        fontSize: '12px',
-                                        lineHeight: '20px',
+                                        fontSize: '0.75rem', // 12px to rem
+                                        lineHeight: '1.25rem', // 20px to rem
                                         color: 'text.titleblack',
-                                        mr: 0.5
+                                        mr: '0.25rem' // 4px to rem
                                     }}
                                 />
                                 <Link to='/signup'>
@@ -276,8 +273,8 @@ function Login() {
                                         text='Sign Up Now'
                                         style={{
                                             fontWeight: '400',
-                                            fontSize: '12px',
-                                            lineHeight: '20px',
+                                            fontSize: '0.75rem', // 12px to rem
+                                            lineHeight: '1.25rem', // 20px to rem
                                             color: 'primary.main',
                                             cursor: 'pointer',
                                         }}

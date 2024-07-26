@@ -14,6 +14,14 @@ function ContainedButton(props) {
                 '&:hover': {
                     backgroundColor: 'primary.dark',
                 },
+                '&:focus': {
+                    outline: 'none',
+                    boxShadow: 'none',
+                },
+                '&.Mui-focused': {
+                    outline: 'none',
+                    boxShadow: 'none',
+                },
             }}
             endIcon={props.icon ? <props.icon /> : null}
         >

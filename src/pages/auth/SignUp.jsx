@@ -19,13 +19,11 @@ function SignUp() {
     const [phone, setPhone] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
-    const [rememberMe, setRememberMe] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [emailError, setEmailError] = useState('');
 
     const navigate = useNavigate();
-
     const theme = useTheme();
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
@@ -36,7 +34,7 @@ function SignUp() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // Validate email
+
         if (!validateEmail(email)) {
             setEmailError("Invalid email address");
             return;
@@ -44,21 +42,17 @@ function SignUp() {
             setEmailError("");
         }
 
-        // Validate passwords match
         if (password !== confirmPassword) {
             alert("Passwords do not match");
             return;
         }
 
-        // Handle sign up logic here
         console.log('Username:', username);
         console.log('Email:', email);
         console.log('Phone:', phone);
         console.log('Password:', password);
-        console.log('Remember Me:', rememberMe);
 
         navigate("/congratulation");
-
     };
 
     const handleClickShowPassword = () => {
@@ -78,7 +72,7 @@ function SignUp() {
     };
 
     return (
-        <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh', bgcolor: 'text.white' }}>
             <Grid container sx={{ flex: 1 }}>
                 <Grid item xs={12} md={7} sx={{ display: { xs: 'none', md: 'block' } }}>
                     <Box
@@ -100,20 +94,20 @@ function SignUp() {
                                 top: 0,
                                 left: 0,
                                 opacity: 0.7,
-                                p: 8,
+                                p: { xs: '1rem', md: '2rem' }, // Responsive padding
                             }}
                         >
                             <Grid container spacing={4} sx={{ flexDirection: 'column', alignItems: 'start' }}>
                                 <Grid item>
                                     <LogoLoginScreen />
                                 </Grid>
-                                <Grid item xs={8}>
+                                <Grid item xs={12}>
                                     <CustomTypography
                                         text='Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
                                         style={{
                                             fontWeight: '400',
-                                            fontSize: '26px',
-                                            lineHeight: '36px',
+                                            fontSize: { xs: '1.5rem', md: '2rem' }, // Responsive font size
+                                            lineHeight: '2.25rem',
                                             color: 'text.white',
                                             textAlign: 'left',
                                         }}
@@ -123,28 +117,28 @@ function SignUp() {
                         </Box>
                     </Box>
                 </Grid>
-                <Grid item xs={12} md={5} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', p: { xs: 2, md: 4 } }}>
-                    <Box sx={{ width: '100%', maxWidth: 400 }}>
+                <Grid item xs={12} md={5} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', p: { xs: '1rem', sm: '1.5rem' }, bgcolor: 'text.white' }}>
+                    <Box sx={{ width: '100%', maxWidth: '25rem' }}>
                         <CustomTypography
                             text='Create Account'
                             style={{
                                 fontWeight: '600',
-                                fontSize: isSmallScreen ? '28px' : '35px',
-                                lineHeight: '28px',
+                                fontSize: isSmallScreen ? '1.75rem' : '2.1875rem', // Responsive font size
+                                lineHeight: '2rem',
                                 textAlign: 'left',
                                 color: 'text.titleblack',
-                                mb: 2
+                                mb: { xs: '1rem', md: '1.5rem' } // Responsive margin bottom
                             }}
                         />
                         <CustomTypography
                             text='Lorem Ipsum is simply dummy text'
                             style={{
                                 fontWeight: '400',
-                                fontSize: isSmallScreen ? '16px' : '18px',
-                                lineHeight: '28px',
+                                fontSize: isSmallScreen ? '1rem' : '1.125rem', // Responsive font size
+                                lineHeight: '1.75rem',
                                 textAlign: 'left',
                                 color: 'text.titleblack',
-                                mb: 4
+                                mb: { xs: '1rem', md: '1.5rem' } // Responsive margin bottom
                             }}
                         />
                         <form onSubmit={handleSubmit}>
@@ -152,11 +146,11 @@ function SignUp() {
                                 text='Username'
                                 style={{
                                     fontWeight: '400',
-                                    fontSize: '14px',
-                                    lineHeight: '0px',
+                                    fontSize: '0.875rem', // 14px to rem
+                                    lineHeight: '1.25rem', // 20px to rem
                                     textAlign: 'left',
                                     color: 'text.graybg3',
-                                    pl: 2
+                                    pl: '0.5rem' // 8px to rem
                                 }}
                             />
                             <TextField
@@ -167,18 +161,18 @@ function SignUp() {
                                 margin="normal"
                                 value={username}
                                 onChange={(e) => setUsername(e.target.value)}
-                                sx={{ mb: 4, height: '48px' }}
+                                sx={{ mb: '1rem', height: '3rem' }} // 48px to rem
                             />
 
                             <CustomTypography
                                 text='Email'
                                 style={{
                                     fontWeight: '400',
-                                    fontSize: '14px',
-                                    lineHeight: '0px',
+                                    fontSize: '0.875rem', // 14px to rem
+                                    lineHeight: '1.25rem', // 20px to rem
                                     textAlign: 'left',
                                     color: 'text.graybg3',
-                                    pl: 2
+                                    pl: '0.5rem' // 8px to rem
                                 }}
                             />
                             <TextField
@@ -188,7 +182,7 @@ function SignUp() {
                                 margin="normal"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                sx={{ mb: 4, height: '48px' }}
+                                sx={{ mb: '1rem', height: '3rem' }} // 48px to rem
                                 error={!!emailError}
                                 helperText={emailError}
                             />
@@ -196,35 +190,35 @@ function SignUp() {
                                 text='Phone Number'
                                 style={{
                                     fontWeight: '400',
-                                    fontSize: '14px',
-                                    lineHeight: '0px',
+                                    fontSize: '0.875rem', // 14px to rem
+                                    lineHeight: '1.25rem', // 20px to rem
                                     textAlign: 'left',
                                     color: 'text.graybg3',
-                                    pl: 2,
-                                    mb: 2
+                                    pl: '0.5rem',
+                                    mb: '0.5rem' // 8px to rem
                                 }}
                             />
                             <PhoneInput
                                 country={'us'}
                                 value={phone}
                                 onChange={(phone) => setPhone(phone)}
-                                inputStyle={{ width: '100%', height: '48px', color: 'black' }}
+                                inputStyle={{ width: '100%', height: '3rem', color: 'black' }} // 48px to rem
                             />
 
                             <CustomTypography
                                 text='Password'
                                 style={{
                                     fontWeight: '400',
-                                    fontSize: '14px',
-                                    lineHeight: '0px',
+                                    fontSize: '0.875rem', // 14px to rem
+                                    lineHeight: '1.25rem', // 20px to rem
                                     textAlign: 'left',
                                     color: 'text.graybg3',
-                                    pl: 2,
-                                    mt: 4
+                                    pl: '0.5rem',
+                                    mt: '1rem' // 16px to rem
                                 }}
                             />
                             <TextField
-                                sx={{ mb: 4, height: '48px' }}
+                                sx={{ mb: '1rem', height: '3rem' }} // 48px to rem
                                 placeholder='Enter password'
                                 type={showPassword ? 'text' : 'password'}
                                 variant="outlined"
@@ -251,15 +245,15 @@ function SignUp() {
                                 text='Confirm Password'
                                 style={{
                                     fontWeight: '400',
-                                    fontSize: '14px',
-                                    lineHeight: '0px',
+                                    fontSize: '0.875rem', // 14px to rem
+                                    lineHeight: '1.25rem', // 20px to rem
                                     textAlign: 'left',
                                     color: 'text.graybg3',
-                                    pl: 2
+                                    pl: '0.5rem'
                                 }}
                             />
                             <TextField
-                                sx={{ mb: 4, height: '48px' }}
+                                sx={{ mb: '1rem', height: '3rem' }} // 48px to rem
                                 placeholder='Confirm password'
                                 type={showConfirmPassword ? 'text' : 'password'}
                                 variant="outlined"
@@ -284,21 +278,20 @@ function SignUp() {
                             />
 
                             <ContainedButton
-                                style={{ height: '40px', borderRadius: '6px', p: '10px, 24px, 10px, 24px' }}
+                                style={{ height: '2.5rem', borderRadius: '0.375rem', p: '0.625rem 1.5rem', mb: '1rem' }} // 40px to rem
                                 text='Sign Up'
                                 type="submit"
                                 fullWidth
                             />
 
-
-                            <Box sx={{ display: "flex", my: 2, alignItems: "center", justifyContent: 'space-between' }}>
+                            <Box sx={{ display: "flex", my: '1.5rem', alignItems: "center", justifyContent: 'space-between' }}> {/* 24px to rem */}
                                 <Box sx={{ width: "30%", height: "1px", bgcolor: "text.graytextB3" }}></Box>
                                 <CustomTypography
                                     text='Or Continue with'
                                     style={{
                                         fontWeight: '400',
-                                        fontSize: '15px',
-                                        lineHeight: '20px',
+                                        fontSize: '0.9375rem', // 15px to rem
+                                        lineHeight: '1.25rem', // 20px to rem
                                         color: 'text.graytextB3',
                                         cursor: 'pointer',
                                     }}
@@ -307,30 +300,29 @@ function SignUp() {
                             </Box>
 
                             <OutlinedButton
-                                style={{ height: '40px', borderRadius: '6px', p: '10px, 24px, 10px, 24px', mb: 2 }}
+                                style={{ height: '2.5rem', borderRadius: '0.375rem', p: '0.625rem 1.5rem', mb: '1rem' }} // 40px to rem
                                 text='Sign In with Google'
                                 type="submit"
                                 fullWidth
-                                leftimage={<Box sx={{ mr: 2 }} component={'img'} src={googleicon} alt='googleicon' />}
+                                leftimage={<Box sx={{ mr: '0.5rem' }} component={'img'} src={googleicon} alt='googleicon' />}
                             />
 
                             <OutlinedButton
-                                style={{ height: '40px', borderRadius: '6px', p: '10px, 24px, 10px, 24px', mb: 2 }}
+                                style={{ height: '2.5rem', borderRadius: '0.375rem', p: '0.625rem 1.5rem', mb: '1rem' }} // 40px to rem
                                 text='Sign In with Facebook'
                                 type="submit"
                                 fullWidth
-                                leftimage={<Box sx={{ mr: 2 }} component={'img'} src={facebookicon} alt='facebookicon' />}
+                                leftimage={<Box sx={{ mr: '0.5rem' }} component={'img'} src={facebookicon} alt='facebookicon' />}
                             />
-                            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', my: 2 }}>
-
+                            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', my: '1.5rem' }}> {/* 24px to rem */}
                                 <CustomTypography
                                     text="Already have an account?"
                                     style={{
                                         fontWeight: '400',
-                                        fontSize: '12px',
-                                        lineHeight: '20px',
+                                        fontSize: '0.75rem', // 12px to rem
+                                        lineHeight: '1.25rem', // 20px to rem
                                         color: 'text.titleblack',
-                                        mr: 0.5
+                                        mr: '0.25rem' // 4px to rem
                                     }}
                                 />
                                 <Link to='/login'>
@@ -338,8 +330,8 @@ function SignUp() {
                                         text='Login Now'
                                         style={{
                                             fontWeight: '400',
-                                            fontSize: '12px',
-                                            lineHeight: '20px',
+                                            fontSize: '0.75rem', // 12px to rem
+                                            lineHeight: '1.25rem', // 20px to rem
                                             color: 'primary.main',
                                             cursor: 'pointer',
                                         }}

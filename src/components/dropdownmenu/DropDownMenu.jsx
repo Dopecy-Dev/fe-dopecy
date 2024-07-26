@@ -1,77 +1,83 @@
 import * as React from 'react';
-import { Box, Button } from '@mui/material';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
+import { Box, Menu, MenuItem } from '@mui/material';
 import btndownarrowblack from '../../assets/images/btndownarrowblack.svg';
+import CustomTypography from '../typography/CustomTypography';
 
-export default function DropDownMenu() {
-    const [anchorEl, setAnchorEl] = React.useState(null);
+export default function DropDownMenu({ anchorEl, handleClose }) {
     const open = Boolean(anchorEl);
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
 
     return (
-        <div>
-            <Button
+        <Menu
+            id="basic-menu"
+            anchorEl={anchorEl}
+            open={open}
+            onClose={handleClose}
+            MenuListProps={{
+                'aria-labelledby': 'dopecy-studio-button',
+            }}
+            PaperProps={{
+                sx: {
+                    mt: '0.125rem', // 2px
+                    width: {
+                        xs: '12.5rem', // 200px
+                        sm: '15.625rem', // 250px
+                        md: '18.75rem' // 300px
+                    },
+                    borderRadius: '0.5rem', // 8px
+                    boxShadow: '0px 0.25rem 0.5rem rgba(0, 0, 0, 0.1)' // 4px 8px
+                }
+            }}
+        >
+            <MenuItem
+                onClick={handleClose}
                 sx={{
-                    textTransform: 'none',
-                    color: 'text.primary'
-                }}
-                id="basic-button"
-                aria-controls={open ? 'basic-menu' : undefined}
-                aria-haspopup="true"
-                aria-expanded={open ? 'true' : undefined}
-                onClick={handleClick}
-            >
-                Dopecy Studio
-                <Box sx={{ ml: 1 }} component={'img'} src={btndownarrowblack} alt='btndownarrowblack' />
-            </Button>
-            <Menu
-                id="basic-menu"
-                anchorEl={anchorEl}
-                open={open}
-                onClose={handleClose}
-                MenuListProps={{
-                    'aria-labelledby': 'basic-button',
+                    fontSize: {
+                        xs: '0.75rem', // 12px
+                        sm: '0.875rem', // 14px
+                        md: '1rem' // 16px
+                    },
+                    borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
+                    '&:last-child': {
+                        borderBottom: 'none',
+                    },
+                    py: { xs: '0.25rem', sm: '0.375rem', md: '0.5rem' } // 4px, 6px, 8px
                 }}
             >
-                <MenuItem
-                    onClick={handleClose}
-                    sx={{
-                        borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
-                        '&:last-child': {
-                            borderBottom: 'none',
-                        },
-                    }}
-                >
-                    Stock News
-                </MenuItem>
-                <MenuItem
-                    onClick={handleClose}
-                    sx={{
-                        borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
-                        '&:last-child': {
-                            borderBottom: 'none',
-                        },
-                    }}
-                >
-                    Brands Podcast
-                </MenuItem>
-                <MenuItem
-                    onClick={handleClose}
-                    sx={{
-                        '&:last-child': {
-                            borderBottom: 'none',
-                        },
-                    }}
-                >
-                    Youtube Video
-                </MenuItem>
-            </Menu>
-        </div>
+                Stock News
+            </MenuItem>
+            <MenuItem
+                onClick={handleClose}
+                sx={{
+                    fontSize: {
+                        xs: '0.75rem', // 12px
+                        sm: '0.875rem', // 14px
+                        md: '1rem' // 16px
+                    },
+                    borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
+                    '&:last-child': {
+                        borderBottom: 'none',
+                    },
+                    py: { xs: '0.25rem', sm: '0.375rem', md: '0.5rem' } // 4px, 6px, 8px
+                }}
+            >
+                Brands Podcast
+            </MenuItem>
+            <MenuItem
+                onClick={handleClose}
+                sx={{
+                    fontSize: {
+                        xs: '0.75rem', // 12px
+                        sm: '0.875rem', // 14px
+                        md: '1rem' // 16px
+                    },
+                    py: { xs: '0.25rem', sm: '0.375rem', md: '0.5rem' }, // 4px, 6px, 8px
+                    '&:last-child': {
+                        borderBottom: 'none',
+                    },
+                }}
+            >
+                Youtube Video
+            </MenuItem>
+        </Menu>
     );
 }

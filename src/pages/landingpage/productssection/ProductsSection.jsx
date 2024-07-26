@@ -1,17 +1,18 @@
-import { Box, Grid } from '@mui/material'
+import { Box, Grid } from '@mui/material';
 import React, { useState } from 'react';
-import CustomTypography from '../../../components/typography/CustomTypography'
-import ProductCard from '../../../shared/ProductCard/ProductCard'
-import P1Image from '../../../assets/images/P1Image.svg'
-import P2Image from '../../../assets/images/P2Image.svg'
-import P3Image from '../../../assets/images/P3Image.svg'
-import P4Image from '../../../assets/images/P4Image.svg'
-import P5Image from '../../../assets/images/P5Image.svg'
-import P6Image from '../../../assets/images/P6Image.svg'
-import P7Image from '../../../assets/images/P7Image.svg'
-import P8Image from '../../../assets/images/P8Image.svg'
-import P9Image from '../../../assets/images/P9Image.svg'
-import ArrowRight from '../../../assets/images/ArrowRight.svg'
+import CustomTypography from '../../../components/typography/CustomTypography';
+import ProductCard from '../../../shared/ProductCard/ProductCard';
+import P1Image from '../../../assets/images/P1Image.svg';
+import P2Image from '../../../assets/images/P2Image.svg';
+import P3Image from '../../../assets/images/P3Image.svg';
+import P4Image from '../../../assets/images/P4Image.svg';
+import P5Image from '../../../assets/images/P5Image.svg';
+import P6Image from '../../../assets/images/P6Image.svg';
+import P7Image from '../../../assets/images/P7Image.svg';
+import P8Image from '../../../assets/images/P8Image.svg';
+import P9Image from '../../../assets/images/P9Image.svg';
+import ArrowRight from '../../../assets/images/ArrowRight.svg';
+import { useNavigate } from 'react-router-dom';
 
 function ProductsSection() {
     const [clickedItem, setClickedItem] = useState('All Products');
@@ -101,34 +102,35 @@ function ProductsSection() {
     };
 
     const getStyle = (item) => ({
-        fontSize: '14px',
-        lineHeight: '20px',
+        fontSize: '0.875rem', // 14px to rem
+        lineHeight: '1.25rem', // 20px to rem
         fontWeight: item === clickedItem ? '600' : '400',
         textAlign: 'left',
         color: item === clickedItem || item === 'Browse All Product' ? 'primary.main' : 'text.darkgray', // Change color on click
-        borderBottom: item === clickedItem ? '2px solid ' : 'none', // Add bottom border to the clicked item
+        borderBottom: item === clickedItem ? '0.125rem solid' : 'none', // 2px to rem
         cursor: 'pointer', // Change cursor to pointer to indicate it's clickable
-        paddingBottom: '4px', // Add padding to space the border from the text
+        paddingBottom: '0.25rem', // 4px to rem
     });
 
+    const navigate = useNavigate();
 
     const handleProductClick = (product) => {
         console.log(`Clicked on product: ${product.title}`);
+        navigate("/productdetails");
     };
 
     const items = ['All Products', 'Smart Phone', 'Laptop', 'Headphone', 'TV', 'Browse All Product'];
 
     return (
         <>
-            <Grid container sx={{ justifyContent: 'space-between', alignItems: 'center', mb: 4 }}>
+            <Grid container sx={{ justifyContent: 'space-between', alignItems: 'center', mb: 4 }}> {/* 40px to rem */}
                 <Grid item>
-                    <Box
-                        sx={{ display: 'flex' }}>
+                    <Box sx={{ display: 'flex' }}>
                         <CustomTypography
                             text='Shop From'
                             style={{
-                                fontSize: '24px',
-                                lineHeight: '30px',
+                                fontSize: '1.5rem', // 24px to rem
+                                lineHeight: '1.875rem', // 30px to rem
                                 fontWeight: '400',
                                 textAlign: 'left',
                                 color: 'text.darkgray',
@@ -138,8 +140,8 @@ function ProductsSection() {
                         <CustomTypography
                             text='All Products'
                             style={{
-                                fontSize: '24px',
-                                lineHeight: '30px',
+                                fontSize: '1.5rem', // 24px to rem
+                                lineHeight: '1.875rem', // 30px to rem
                                 fontWeight: '700',
                                 textAlign: 'left',
                                 color: 'primary.main'
@@ -148,7 +150,7 @@ function ProductsSection() {
                     </Box>
                 </Grid>
                 <Grid item>
-                    <Grid container spacing={2}>
+                    <Grid container spacing={2}> {/* 8px to rem */}
                         {items.map((item) => (
                             <Grid item key={item} onClick={() => handleClick(item)}>
                                 {item === 'Browse All Product' ?
@@ -157,7 +159,7 @@ function ProductsSection() {
                                             text={item}
                                             style={getStyle(item)}
                                         />
-                                        <Box sx={{ ml: 1 }} component={'img'} src={ArrowRight} alt='ArrowRight' />
+                                        <Box sx={{ ml: '0.0625rem' }} component={'img'} src={ArrowRight} alt='ArrowRight' />
                                     </Box> :
                                     <Box sx={getStyle(item)}>
                                         <CustomTypography
@@ -172,10 +174,9 @@ function ProductsSection() {
                 </Grid>
             </Grid>
 
-            <Grid container spacing={2} >
+            <Grid container spacing={2}> {/* 8px to rem */}
                 {products.map((product, index) => (
                     <Grid item key={index}>
-
                         <Box
                             sx={{
                                 cursor: 'pointer',
@@ -188,7 +189,7 @@ function ProductsSection() {
                 ))}
             </Grid>
         </>
-    )
+    );
 }
 
-export default ProductsSection
+export default ProductsSection;

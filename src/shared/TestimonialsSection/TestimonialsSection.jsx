@@ -1,13 +1,12 @@
-import { Box, Grid } from '@mui/material'
+import { Box, Grid } from '@mui/material';
 import React from 'react';
-import CustomTypography from '../../../components/typography/CustomTypography'
-import whiterightarrow from '../../../assets/images/whiterightarrow.svg'
-import blackleftarrow from '../../../assets/images/blackleftarrow.svg'
-import TestimonialCard from '../../../shared/TestimonialCard/TestimonialCard';
-import testimonialuserimage from '../../../assets/images/testimonialuserimage.svg'
-import testimonialuserimage1 from '../../../assets/images/testimonialuserimage1.svg'
-import testimonialuserimage2 from '../../../assets/images/testimonialuserimage2.svg'
-
+import CustomTypography from '../../components/typography/CustomTypography';
+import whiterightarrow from '../../assets/images/whiterightarrow.svg';
+import blackleftarrow from '../../assets/images/blackleftarrow.svg';
+import TestimonialCard from '../../shared/TestimonialCard/TestimonialCard';
+import testimonialuserimage from '../../assets/images/testimonialuserimage.svg';
+import testimonialuserimage1 from '../../assets/images/testimonialuserimage1.svg';
+import testimonialuserimage2 from '../../assets/images/testimonialuserimage2.svg';
 
 const testimonials = [
     {
@@ -16,13 +15,15 @@ const testimonials = [
         role: 'Customer',
         rating: 4,
         userImage: testimonialuserimage,
-    }, {
+    },
+    {
         text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
         name: 'Dianne Russell',
         role: 'Customer',
         rating: 5,
         userImage: testimonialuserimage1,
-    }, {
+    },
+    {
         text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
         name: 'Eleanor Pena',
         role: 'Customer',
@@ -31,47 +32,64 @@ const testimonials = [
     },
 ];
 
-
-
 function TestimonialsSection() {
-
     return (
         <>
-            <Grid container sx={{ justifyContent: 'space-between', alignItems: 'center', mb: 4 }}>
+            <Grid container sx={{ justifyContent: 'space-between', alignItems: 'center', mb: '2rem' }}> {/* 32px converted to rem */}
                 <Grid item>
                     <CustomTypography
                         text='Client Testimonials'
                         style={{
-                            fontSize: '24px',
-                            lineHeight: '30px',
+                            fontSize: '1.5rem', // 24px converted to rem
+                            lineHeight: '1.875rem', // 30px converted to rem
                             fontWeight: '700',
                             textAlign: 'left',
-                            color: 'primary.main'
+                            color: 'primary.main',
                         }}
                     />
                 </Grid>
                 <Grid item>
                     <Box sx={{ display: 'flex' }}>
-                        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '45px', height: '45px', borderRadius: '100px', border: '1px solid', borderColor: 'primary.main', bgcolor: 'text.white', mr: 1 }}>
+                        <Box sx={{
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            width: '2.8125rem', // 45px converted to rem
+                            height: '2.8125rem', // 45px converted to rem
+                            borderRadius: '100px',
+                            border: '0.0625rem solid', // 1px converted to rem
+                            borderColor: 'primary.main',
+                            bgcolor: 'text.white',
+                            mr: '0.0625rem', // 1px converted to rem
+                        }}>
                             <Box component={'img'} src={blackleftarrow} alt='blackleftarrow' />
                         </Box>
-                        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '45px', height: '45px', borderRadius: '100px', border: '1px solid', borderColor: 'primary.main', bgcolor: 'primary.main' }}>
+                        <Box sx={{
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            width: '2.8125rem', // 45px converted to rem
+                            height: '2.8125rem', // 45px converted to rem
+                            borderRadius: '100px',
+                            border: '0.0625rem solid', // 1px converted to rem
+                            borderColor: 'primary.main',
+                            bgcolor: 'primary.main',
+                        }}>
                             <Box component={'img'} src={whiterightarrow} alt='ArrowRight' />
                         </Box>
                     </Box>
                 </Grid>
             </Grid>
 
-            <Grid container spacing={1}>
+            <Grid container spacing={2}>
                 {testimonials.map((testimonial, index) => (
                     <Grid item key={index}>
-                        <TestimonialCard testimonial={testimonial} ></TestimonialCard>
+                        <TestimonialCard testimonial={testimonial} />
                     </Grid>
                 ))}
-
             </Grid>
         </>
-    )
+    );
 }
 
-export default TestimonialsSection
+export default TestimonialsSection;

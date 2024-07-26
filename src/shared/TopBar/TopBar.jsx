@@ -9,21 +9,20 @@ import CustomTypography from '../../components/typography/CustomTypography';
 
 function TopBar() {
     return (
-        <Grid container spacing={6}
+        <Grid container spacing={2.5}
             sx={{
                 backgroundColor: 'primary.main',
                 padding: {
-                    xs: '8px 16px',   // small devices
-                    sm: '10px 32px',  // medium devices
-                    md: '12px 48px',  // large devices
-                    lg: '12px 100px',  // extra large devices
+                    xs: '0.5rem 1rem',   // small devices, 8px 16px
+                    sm: '0.625rem 2rem',  // medium devices, 10px 32px
+                    md: '0.75rem 3rem',   // large devices, 12px 48px
+                    lg: '0.75rem 6.25rem',// extra large devices, 12px 100px
                 },
                 color: 'white',
                 justifyContent: 'flex-end',
                 alignItems: 'center'
             }}>
             <Grid item>
-                {/* <Link to="/dopecy-deals" style={{ textDecoration: 'none' }}> */}
                 <Box sx={{
                     display: 'flex',
                     alignItems: 'center',
@@ -33,15 +32,13 @@ function TopBar() {
                         text="Dopecy Deals"
                         style={{
                             color: 'text.cstmwhite',
-                            marginLeft: '1.5rem',
+                            marginLeft: '1.5rem', // 24px
                             cursor: 'pointer',
                         }}
                     />
                 </Box>
-                {/* </Link> */}
             </Grid>
             <Grid item>
-                {/* <Link to="/bird-coupon" style={{ textDecoration: 'none' }}> */}
                 <Box sx={{
                     display: 'flex',
                     alignItems: 'center',
@@ -51,15 +48,13 @@ function TopBar() {
                         text="Early Bird Deals"
                         style={{
                             color: 'text.cstmwhite',
-                            marginLeft: '1.5rem',
+                            marginLeft: '1.5rem', // 24px
                             cursor: 'pointer'
                         }}
                     />
                 </Box>
-                {/* </Link> */}
             </Grid>
             <Grid item>
-                {/* <Link to="/buy1-get1" style={{ textDecoration: 'none' }}> */}
                 <Box sx={{
                     display: 'flex',
                     alignItems: 'center',
@@ -69,15 +64,13 @@ function TopBar() {
                         text="Buy 1 Get 1"
                         style={{
                             color: 'text.cstmwhite',
-                            marginLeft: '1.5rem',
+                            marginLeft: '1.5rem', // 24px
                             cursor: 'pointer'
                         }}
                     />
                 </Box>
-                {/* </Link> */}
             </Grid>
             <Grid item>
-                {/* <Link to="/free-giveaway" style={{ textDecoration: 'none' }}> */}
                 <Box sx={{
                     display: 'flex',
                     alignItems: 'center',
@@ -87,12 +80,11 @@ function TopBar() {
                         text="Free Giveaway"
                         style={{
                             color: 'text.cstmwhite',
-                            marginLeft: '1.5rem',
+                            marginLeft: '1.5rem', // 24px
                             cursor: 'pointer'
                         }}
                     />
                 </Box>
-                {/* </Link> */}
             </Grid>
         </Grid>
     );

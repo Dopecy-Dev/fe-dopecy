@@ -1,13 +1,13 @@
-import { Box, Grid, useTheme, useMediaQuery } from '@mui/material';
-import React, { useState } from 'react';
+import { Box, Grid } from '@mui/material';
+import React from 'react';
 import loginbg from '../../assets/images/loginbg.svg';
 import CustomTypography from '../../components/typography/CustomTypography';
 import LogoLoginScreen from '../../components/logos/LogoLoginScreen';
-import congratimage from '../../assets/images/congratimage.svg'
+import congratimage from '../../assets/images/congratimage.svg';
 
 function Congratulation() {
-    const bonusPoints = 200
-    const bonusText = 'Your Account is successfully created & you earn' + ' ' + bonusPoints + ' ' + 'bonus points as a new user.'
+    const bonusPoints = 200;
+    const bonusText = `Your Account is successfully created & you earn ${bonusPoints} bonus points as a new user.`;
 
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
@@ -32,7 +32,7 @@ function Congratulation() {
                                 top: 0,
                                 left: 0,
                                 opacity: 0.7,
-                                p: 8,
+                                p: '2rem', // 32px
                             }}
                         >
                             <Grid container spacing={4} sx={{ flexDirection: 'column', alignItems: 'start' }}>
@@ -44,8 +44,8 @@ function Congratulation() {
                                         text='Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
                                         style={{
                                             fontWeight: '400',
-                                            fontSize: '26px',
-                                            lineHeight: '36px',
+                                            fontSize: '1.625rem', // 26px
+                                            lineHeight: '2.25rem', // 36px
                                             color: 'text.white',
                                             textAlign: 'left',
                                         }}
@@ -55,15 +55,15 @@ function Congratulation() {
                         </Box>
                     </Box>
                 </Grid>
-                <Grid item xs={12} md={5} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', p: { xs: 2, md: 4 } }}>
-                    <Box sx={{ width: '100%', maxWidth: 400 }}>
+                <Grid item xs={12} md={5} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', p: { xs: '1.25rem', md: '2.5rem' }, bgcolor: 'text.white' }}>
+                    <Box sx={{ width: '100%', maxWidth: '25rem' }}> {/* 400px */}
                         <Box component="img" src={congratimage} alt="congratimage" />
                         <CustomTypography
                             text='congratulation'
                             style={{
                                 fontWeight: '600',
-                                fontSize: '35px',
-                                lineHeight: '28px',
+                                fontSize: '2.1875rem', // 35px
+                                lineHeight: '1.75rem', // 28px
                                 color: 'text.primary',
                             }}
                         />
@@ -71,8 +71,8 @@ function Congratulation() {
                             text={bonusText}
                             style={{
                                 fontWeight: '400',
-                                fontSize: '16px',
-                                lineHeight: '28px',
+                                fontSize: '1rem', // 16px
+                                lineHeight: '1.75rem', // 28px
                                 color: 'text.primary',
                             }}
                         />

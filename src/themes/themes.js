@@ -18,6 +18,7 @@ const lightTheme = createTheme({
             footerlinks: '#999999',
             graybg3: '#333333',
             graytextB3: '#B3B3B3',
+            accordiontext: '#667085'
         },
         common: {
             searchbar: '#EBEFEB',
@@ -27,7 +28,11 @@ const lightTheme = createTheme({
             leftbannerbg: '#F2F4F5',
             rightbannerbg: '#191C1F',
             rightbannerintrobg: '#EFD33D',
-            heroarrowbg: '#DCEDDF'
+            heroarrowbg: '#DCEDDF',
+            productbg1: '#F7EDE1',
+            productbg2: '#F2F4F7',
+            cartselectionbg: '#F2F4F7'
+
         },
     },
 });

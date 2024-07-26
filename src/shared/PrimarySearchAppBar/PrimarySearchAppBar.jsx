@@ -25,7 +25,7 @@ const Search = styled('div')(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
     position: 'relative',
-    borderRadius: '10px',
+    borderRadius: '0.625rem', // 10px to rem
     backgroundColor: theme.palette.mode === 'dark' ? alpha(theme.palette.common.white, 0.15) : alpha(theme.palette.common.searchbar, 0.5),
     '&:hover': {
         backgroundColor: theme.palette.mode === 'dark' ? alpha(theme.palette.common.white, 0.25) : alpha(theme.palette.common.searchbar, 0.75),
@@ -37,7 +37,6 @@ const Search = styled('div')(({ theme }) => ({
         marginLeft: theme.spacing(2),
         width: 'auto',
     },
-    // border: theme.palette.mode === 'dark' ? '1px solid rgba(255, 255, 255, 0.25)' : '1px solid rgba(0, 0, 0, 0.25)',
 }));
 
 const SearchIconWrapper = styled('div')(({ theme }) => ({
@@ -47,11 +46,11 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    marginLeft: '10px'
+    marginLeft: '0.625rem', // 10px to rem
 }));
 
 const SearchSecondIconWrapper = styled('div')(({ theme }) => ({
-    marginRight: '10px',
+    marginRight: '0.625rem', // 10px to rem
     pointerEvents: 'none',
     display: 'flex',
     alignItems: 'center',
@@ -61,8 +60,8 @@ const SearchSecondIconWrapper = styled('div')(({ theme }) => ({
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
     color: theme.palette.mode === 'dark' ? alpha(theme.palette.common.white, 0.75) : alpha(theme.palette.common.black, 0.75),
     '& .MuiInputBase-input': {
-        padding: theme.spacing(1, 1, 1, 1),
-        paddingLeft: `calc(1em + ${theme.spacing(2)})`,
+        padding: '0.625rem 0.625rem 0.625rem 0.625rem', // 10px to rem
+        paddingLeft: `calc(1rem + 1.25rem)`, // 16px + 20px to rem
         transition: theme.transitions.create('width'),
         width: '100%',
         [theme.breakpoints.up('md')]: {
@@ -78,10 +77,6 @@ const CustomAppBar = styled(AppBar)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#333' : '#FFFFFF',
     boxShadow: 'none',
 }));
-
-// const CustomTypography = styled(Typography)(({ theme }) => ({
-//     color: theme.palette.mode === 'dark' ? '#FFFFFF' : '#000000',
-// }));
 
 export default function PrimarySearchAppBar({ toggleTheme, theme }) {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -182,23 +177,22 @@ export default function PrimarySearchAppBar({ toggleTheme, theme }) {
     );
 
     return (
-        <Box sx={{ flexGrow: 1, px: 5 }}>
+        <Box sx={{ flexGrow: 1, px: '3.125rem' }}> {/* 50px to rem */}
             <CustomAppBar sx={{ paddingLeft: 0, paddingRight: 0 }} position="static">
                 <Toolbar>
-                    <Grid container spacing={6}
+                    <Grid container spacing={3.75} // 60px to rem
                         sx={{
                             alignItems: 'center',
-                            // justifyContent: 'space-between'
                         }}
                     >
-                        <Grid item >
+                        <Grid item>
                             <Link to='/'>
                                 <LogoGreen />
                             </Link>
                         </Grid>
                         <Grid item xs={8}>
                             <Box sx={{ display: 'flex' }}>
-                                <AllCategoriesMenu></AllCategoriesMenu>
+                                <AllCategoriesMenu />
                                 <Search>
                                     <SearchIconWrapper>
                                         <Box component="img" src={SearchIcon} alt="SearchIcon" />
@@ -213,9 +207,8 @@ export default function PrimarySearchAppBar({ toggleTheme, theme }) {
                                 </Search>
                             </Box>
                         </Grid>
-
                         <Grid item>
-                            <Grid container spacing={2}>
+                            <Grid container spacing={1.25}> {/* 20px to rem */}
                                 <Grid item>
                                     <Box sx={{
                                         display: 'flex',
@@ -227,9 +220,9 @@ export default function PrimarySearchAppBar({ toggleTheme, theme }) {
                                                 text='Sign Up'
                                                 style={{
                                                     color: 'text.darkgray',
-                                                    fontSize: '16px',
+                                                    fontSize: '1rem', // 16px to rem
                                                     fontWeight: '400',
-                                                    lineHeight: '18px',
+                                                    lineHeight: '1.125rem', // 18px to rem
                                                     cursor: 'pointer',
                                                     '&:hover': {
                                                         color: 'primary.main',
@@ -242,9 +235,9 @@ export default function PrimarySearchAppBar({ toggleTheme, theme }) {
                                             text='/'
                                             style={{
                                                 color: 'text.darkgray',
-                                                fontSize: '16px',
+                                                fontSize: '1rem', // 16px to rem
                                                 fontWeight: '400',
-                                                lineHeight: '18px'
+                                                lineHeight: '1.125rem', // 18px to rem
                                             }}
                                         />
                                         <Link to='/login'>
@@ -252,9 +245,9 @@ export default function PrimarySearchAppBar({ toggleTheme, theme }) {
                                                 text='Sign In'
                                                 style={{
                                                     color: 'text.darkgray',
-                                                    fontSize: '16px',
+                                                    fontSize: '1rem', // 16px to rem
                                                     fontWeight: '400',
-                                                    lineHeight: '18px',
+                                                    lineHeight: '1.125rem', // 18px to rem
                                                     cursor: 'pointer',
                                                     '&:hover': {
                                                         color: 'primary.main',
@@ -267,7 +260,7 @@ export default function PrimarySearchAppBar({ toggleTheme, theme }) {
                                 </Grid>
                                 <Grid item>
                                     <Box sx={{
-                                        width: '2px',
+                                        width: '0.125rem', // 2px to rem
                                         height: '1.5rem',
                                         backgroundColor: 'text.black',
                                         opacity: '15%'
@@ -286,9 +279,9 @@ export default function PrimarySearchAppBar({ toggleTheme, theme }) {
                                                 text='Cart'
                                                 style={{
                                                     color: 'text.darkgray',
-                                                    fontSize: '16px',
+                                                    fontSize: '1rem', // 16px to rem
                                                     fontWeight: '400',
-                                                    lineHeight: '18px',
+                                                    lineHeight: '1.125rem', // 18px to rem
                                                     cursor: 'pointer',
                                                     '&:hover': {
                                                         color: 'primary.main',
