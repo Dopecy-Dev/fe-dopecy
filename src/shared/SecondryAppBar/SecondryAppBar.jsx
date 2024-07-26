@@ -22,21 +22,21 @@ const Search = styled('div')(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
     position: 'relative',
-    borderRadius: '10px',
+    borderRadius: '0.625rem', // 10px to rem
     backgroundColor: theme.palette.mode === 'dark' ? alpha(theme.palette.common.white, 0.15) : alpha(theme.palette.common.searchbar, 0.5),
     '&:hover': {
         backgroundColor: theme.palette.mode === 'dark' ? alpha(theme.palette.common.white, 0.25) : alpha(theme.palette.common.searchbar, 0.75),
     },
-    marginRight: theme.spacing(2),
+    marginRight: theme.spacing(2), // 16px
     marginLeft: 0,
-    maxWidth: '300px', // Set a maximum width to prevent overflow
-    flexGrow: 1, // Allow it to grow but not exceed the max width
+    maxWidth: '18.75rem', // 300px to rem
+    flexGrow: 1,
     [theme.breakpoints.up('md')]: {
-        marginLeft: theme.spacing(2),
-        maxWidth: '400px',
+        marginLeft: theme.spacing(2), // 16px
+        maxWidth: '25rem', // 400px to rem
     },
     [theme.breakpoints.up('lg')]: {
-        maxWidth: '500px',
+        maxWidth: '31.25rem', // 500px to rem
     },
 }));
 
@@ -47,11 +47,11 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    marginLeft: '10px'
+    marginLeft: '0.625rem' // 10px to rem
 }));
 
 const SearchSecondIconWrapper = styled('div')(({ theme }) => ({
-    marginRight: '10px',
+    marginRight: '0.625rem', // 10px to rem
     pointerEvents: 'none',
     display: 'flex',
     alignItems: 'center',
@@ -96,8 +96,8 @@ export default function SecondryAppBar() {
     };
 
     const getStyle = (item) => ({
-        fontSize: '14px',
-        lineHeight: '12px',
+        fontSize: '0.875rem', // 14px to rem
+        lineHeight: '0.75rem', // 12px to rem
         fontWeight: item === clickedItem ? '600' : '300',
         textAlign: 'left',
         color: item === clickedItem ? 'primary.main' : 'text.primary',
@@ -125,8 +125,8 @@ export default function SecondryAppBar() {
                 <Box
                     sx={{
                         display: 'flex',
-                        overflowX: 'auto', // Enable horizontal scrolling
-                        whiteSpace: 'nowrap', // Prevent wrapping of items
+                        overflowX: 'auto',
+                        whiteSpace: 'nowrap',
                         alignItems: 'center',
                     }}
                 >

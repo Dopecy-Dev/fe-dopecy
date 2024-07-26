@@ -24,17 +24,17 @@ import { Link } from 'react-router-dom';
 
 const responsive = {
     desktop: {
-        breakpoint: { max: 3000, min: 1024 },
+        breakpoint: { max: 3000, min: 64 },
         items: 4,
         slidesToSlide: 1, // Change this to 1 for continuous smooth transition
     },
     tablet: {
-        breakpoint: { max: 1024, min: 464 },
+        breakpoint: { max: 64, min: 29 },
         items: 2,
         slidesToSlide: 1, // Change this to 1 for continuous smooth transition
     },
     mobile: {
-        breakpoint: { max: 464, min: 0 },
+        breakpoint: { max: 29, min: 0 },
         items: 1,
         slidesToSlide: 1, // Change this to 1 for continuous smooth transition
     },
@@ -57,6 +57,7 @@ function ShopsSection() {
             swiperEl.removeEventListener('mouseleave', handleMouseLeave);
         };
     }, []);
+
     const [shops, setShops] = useState([
         {
             title: 'Whimsical Wonder shop',
@@ -174,14 +175,14 @@ function ShopsSection() {
 
     return (
         <>
-            <Grid container sx={{ justifyContent: 'space-between', alignItems: 'center', mb: 4 }}>
+            <Grid container sx={{ justifyContent: 'space-between', alignItems: 'center', mb: '2.5rem' }}> {/* 40px to rem */}
                 <Grid item>
-                    <Box sx={{ display: 'flex', ml: 8 }}>
+                    <Box sx={{ display: 'flex', ml: '2rem' }}> {/* 32px to rem */}
                         <CustomTypography
                             text='All Shops'
                             style={{
-                                fontSize: '24px',
-                                lineHeight: '30px',
+                                fontSize: '1.5rem', // 24px to rem
+                                lineHeight: '1.875rem', // 30px to rem
                                 fontWeight: '700',
                                 textAlign: 'left',
                                 color: 'primary.main'
@@ -229,7 +230,6 @@ function ShopsSection() {
                 </Grid>
             </Swiper>
 
-
             {/* <Carousel
                 swipeable={true}
                 draggable={true}
@@ -258,7 +258,7 @@ function ShopsSection() {
                 ))}
             </Carousel> */}
         </>
-    )
+    );
 }
 
 export default ShopsSection;

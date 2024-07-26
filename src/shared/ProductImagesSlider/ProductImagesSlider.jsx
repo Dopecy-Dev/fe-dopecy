@@ -48,8 +48,8 @@ const ProductImagesSlider = () => {
                             display: 'flex',
                             justifyContent: 'center',
                             alignItems: 'center',
-                            p: 6,
-                            borderRadius: '16px'
+                            p: '1.5rem', // 24px to rem
+                            borderRadius: '1rem', // 16px to rem
                         }}
                     >
                         <Box component={'img'} src={currentImage} alt="productlargeimage" />
@@ -78,17 +78,17 @@ const ProductImagesSlider = () => {
                                 <Box
                                     key={index}
                                     sx={{
-                                        width: '18%',
-                                        minWidth: '100px',
+                                        width: '18%', // Responsive width
+                                        minWidth: '6.25rem', // 100px to rem
                                         bgcolor: 'common.productbg2',
                                         display: 'flex',
                                         justifyContent: 'center',
                                         alignItems: 'center',
-                                        p: 2,
-                                        borderRadius: '16px',
+                                        p: '1rem', // 16px to rem
+                                        borderRadius: '1rem', // 16px to rem
                                         cursor: 'pointer',
-                                        border: currentIndex === index ? '2px solid blue' : 'none',
-                                        mx: 1
+                                        border: currentIndex === index ? '0.125rem solid blue' : 'none', // 2px to rem
+                                        mx: '0.625rem' // 10px to rem
                                     }}
                                     onClick={() => handleImageClick(index)}
                                 >

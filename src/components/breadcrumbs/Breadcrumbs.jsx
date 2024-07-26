@@ -18,8 +18,8 @@ export default function BasicBreadcrumbs() {
                         text='Category'
                         style={{
                             fontWeight: '500',
-                            fontSize: '18px',
-                            lineHeight: '28px',
+                            fontSize: '1.125rem', // 18px
+                            lineHeight: '1.75rem', // 28px
                             textAlign: 'left',
                             color: 'text.graytextB3',
                         }}
@@ -34,19 +34,19 @@ export default function BasicBreadcrumbs() {
                         text='Supplements'
                         style={{
                             fontWeight: '500',
-                            fontSize: '18px',
-                            lineHeight: '28px',
+                            fontSize: '1.125rem', // 18px
+                            lineHeight: '1.75rem', // 28px
                             textAlign: 'left',
                             color: 'text.graytextB3',
                         }}
                     />
                 </Link>
                 <CustomTypography
-                    text='Vitamin c'
+                    text='Vitamin C'
                     style={{
                         fontWeight: '500',
-                        fontSize: '18px',
-                        lineHeight: '28px',
+                        fontSize: '1.125rem', // 18px
+                        lineHeight: '1.75rem', // 28px
                         textAlign: 'left',
                         color: 'primary.main',
                     }}

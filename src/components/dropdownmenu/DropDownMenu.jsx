@@ -17,14 +17,14 @@ export default function DropDownMenu({ anchorEl, handleClose }) {
             }}
             PaperProps={{
                 sx: {
-                    mt: 2,
+                    mt: '0.125rem', // 2px
                     width: {
-                        xs: '200px',
-                        sm: '250px',
-                        md: '300px'
+                        xs: '12.5rem', // 200px
+                        sm: '15.625rem', // 250px
+                        md: '18.75rem' // 300px
                     },
-                    borderRadius: '8px',
-                    boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)'
+                    borderRadius: '0.5rem', // 8px
+                    boxShadow: '0px 0.25rem 0.5rem rgba(0, 0, 0, 0.1)' // 4px 8px
                 }
             }}
         >
@@ -32,15 +32,15 @@ export default function DropDownMenu({ anchorEl, handleClose }) {
                 onClick={handleClose}
                 sx={{
                     fontSize: {
-                        xs: '12px',
-                        sm: '14px',
-                        md: '16px'
+                        xs: '0.75rem', // 12px
+                        sm: '0.875rem', // 14px
+                        md: '1rem' // 16px
                     },
                     borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
                     '&:last-child': {
                         borderBottom: 'none',
                     },
-                    py: { xs: 1, sm: 1.5, md: 2 }
+                    py: { xs: '0.25rem', sm: '0.375rem', md: '0.5rem' } // 4px, 6px, 8px
                 }}
             >
                 Stock News
@@ -49,15 +49,15 @@ export default function DropDownMenu({ anchorEl, handleClose }) {
                 onClick={handleClose}
                 sx={{
                     fontSize: {
-                        xs: '12px',
-                        sm: '14px',
-                        md: '16px'
+                        xs: '0.75rem', // 12px
+                        sm: '0.875rem', // 14px
+                        md: '1rem' // 16px
                     },
                     borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
                     '&:last-child': {
                         borderBottom: 'none',
                     },
-                    py: { xs: 1, sm: 1.5, md: 2 }
+                    py: { xs: '0.25rem', sm: '0.375rem', md: '0.5rem' } // 4px, 6px, 8px
                 }}
             >
                 Brands Podcast
@@ -66,11 +66,11 @@ export default function DropDownMenu({ anchorEl, handleClose }) {
                 onClick={handleClose}
                 sx={{
                     fontSize: {
-                        xs: '12px',
-                        sm: '14px',
-                        md: '16px'
+                        xs: '0.75rem', // 12px
+                        sm: '0.875rem', // 14px
+                        md: '1rem' // 16px
                     },
-                    py: { xs: 1, sm: 1.5, md: 2 },
+                    py: { xs: '0.25rem', sm: '0.375rem', md: '0.5rem' }, // 4px, 6px, 8px
                     '&:last-child': {
                         borderBottom: 'none',
                     },

@@ -16,21 +16,21 @@ function LeftHalfBanner() {
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
 
     return (
-        <Box sx={{ width: '100%', p: 4, bgcolor: 'common.leftbannerbg' }}>
+        <Box sx={{ width: '100%', p: '1rem', bgcolor: 'common.leftbannerbg' }}>
             <Grid container sx={{ flexDirection: isSmallScreen ? 'column' : 'row', alignItems: 'center' }}>
-                <Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: 'center', mb: isSmallScreen ? 4 : 0 }}>
+                <Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: 'center', mb: isSmallScreen ? '1rem' : 0 }}>
                     <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'baseline' }}>
                         <CustomTypography
                             text='Introducing'
                             style={{
                                 fontWeight: '400',
-                                fontSize: isSmallScreen ? '12px' : '14px',
-                                lineHeight: '20px',
+                                fontSize: isSmallScreen ? '0.75rem' : '0.875rem', // 12px and 14px to rem
+                                lineHeight: '1.25rem', // 20px to rem
                                 color: 'text.primary',
                                 textAlign: isSmallScreen ? 'center' : 'left',
-                                my: 2,
-                                px: 2,
-                                py: 1,
+                                my: '0.125rem', // 2px to rem
+                                px: '0.125rem', // 2px to rem
+                                py: '0.0625rem', // 1px to rem
                                 bgcolor: 'common.bennerdiscountbg',
                                 width: 'max-content'
                             }}
@@ -40,11 +40,11 @@ function LeftHalfBanner() {
                             text={banner.title}
                             style={{
                                 fontWeight: '600',
-                                fontSize: isSmallScreen ? '24px' : '32px',
-                                lineHeight: '40px',
+                                fontSize: isSmallScreen ? '1.5rem' : '2rem', // 24px and 32px to rem
+                                lineHeight: '2.5rem', // 40px to rem
                                 color: 'text.primary',
                                 textAlign: isSmallScreen ? 'center' : 'left',
-                                mb: 2
+                                mb: '0.125rem' // 2px to rem
                             }}
                         />
 
@@ -52,16 +52,16 @@ function LeftHalfBanner() {
                             text={banner.detail}
                             style={{
                                 fontWeight: '400',
-                                fontSize: isSmallScreen ? '14px' : '16px',
-                                lineHeight: '24px',
+                                fontSize: isSmallScreen ? '0.875rem' : '1rem', // 14px and 16px to rem
+                                lineHeight: '1.5rem', // 24px to rem
                                 color: 'text.primary',
                                 textAlign: isSmallScreen ? 'center' : 'left',
-                                mb: 2
+                                mb: '0.125rem' // 2px to rem
                             }}
                         />
 
                         <ContainedButton
-                            style={{ width: isSmallScreen ? '100%' : '161px', height: '48px', borderRadius: '3px' }}
+                            style={{ width: isSmallScreen ? '100%' : '10.0625rem', height: '3rem', borderRadius: '0.1875rem' }} // 161px to rem, 48px to rem, 3px to rem
                             text='SHOP NOW'
                             icon={ArrowForwardIcon}
                         />
@@ -72,7 +72,7 @@ function LeftHalfBanner() {
                         component={'img'}
                         src={banner.image}
                         alt='LeftBannerImage'
-                        sx={{ width: isSmallScreen ? '80%' : '100%', maxWidth: '500px' }}
+                        sx={{ width: isSmallScreen ? '80%' : '100%', maxWidth: '31.25rem' }} // 500px to rem
                     />
                 </Grid>
             </Grid>

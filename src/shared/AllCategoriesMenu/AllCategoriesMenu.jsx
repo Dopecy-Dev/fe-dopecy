@@ -24,14 +24,14 @@ const DropdownContent = styled('div')`
     display: none;
     position: absolute;
     background-color: #f9f9f9;
-    min-width: 200px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    min-width: 12.5rem; /* 200px to rem */
+    box-shadow: 0px 0.5rem 1rem 0px rgba(0,0,0,0.2); /* 8px and 16px to rem */
     z-index: 99999;
 `;
 
 const DropdownItem = styled('div')`
     position: relative;
-    
+
     &:hover .sub-dropdown-content {
         display: block;
     }
@@ -43,13 +43,13 @@ const SubDropdownContent = styled('div')`
     left: 100%;
     top: 0;
     background-color: #f9f9f9;
-    min-width: 200px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    min-width: 12.5rem; /* 200px to rem */
+    box-shadow: 0px 0.5rem 1rem 0px rgba(0,0,0,0.2); /* 8px and 16px to rem */
 `;
 
 const DropdownLink = styled('a')`
     color: black;
-    padding: 12px 16px;
+    padding: 0.75rem 1rem; /* 12px 16px to rem */
     text-decoration: none;
     display: block;
     position: relative;
@@ -57,24 +57,22 @@ const DropdownLink = styled('a')`
     &::after {
         content: '';
         position: absolute;
-        left: 16px; /* Match this with your horizontal padding */
-        right: 16px; /* Match this with your horizontal padding */
+        left: 1rem; /* 16px to rem */
+        right: 1rem; /* 16px to rem */
         bottom: 0;
-        height: 1px;
+        height: 0.0625rem; /* 1px to rem */
         background-color: #ccc;
     }
 
     &:last-child::after {
         display: none; /* Remove border from the last item */
     }
-    
+
     &:hover {
         background-color: #f1f1f1;
         color: ${({ theme }) => theme.palette.primary.main};
     }
 `;
-
-
 
 const AllCategoriesMenu = () => {
     const theme = useTheme();
@@ -82,7 +80,7 @@ const AllCategoriesMenu = () => {
     return (
         <Dropdown className="dropdown" style={{ textAlign: 'left' }}>
             <ContainedButton
-                style={{ width: '143px', height: '48px', borderRadius: '10px', }}
+                style={{ width: '8.9375rem', height: '3rem', borderRadius: '0.625rem' }} // 143px, 48px, 10px to rem
                 text='Categories'
                 icon={KeyboardArrowDownIcon}
             />

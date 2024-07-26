@@ -48,7 +48,6 @@ function VerifyCode() {
         console.log('Verification Code:', verificationCode);
 
         navigate("/");
-
     };
 
     const formatTime = (seconds) => {
@@ -60,34 +59,33 @@ function VerifyCode() {
     return (
         <>
             <Header />
-            <Grid container spacing={8} sx={{ flex: 1, p: 8 }}>
-                <Grid item xs={6} md={6} sx={{ alignContent: 'center', justifyContent: 'center' }}>
-                    <Box sx={{ p: 8 }}>
-
+            <Grid container spacing={8} sx={{ flex: 1, p: '2rem' }}>
+                <Grid item xs={12} md={6} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <Box sx={{ p: '2rem', width: '100%', maxWidth: '25rem' }}>
                         <CustomTypography
-                            text='One - Time Password'
+                            text='One-Time Password'
                             style={{
                                 fontWeight: '600',
-                                fontSize: '35px',
-                                lineHeight: '28px',
+                                fontSize: '2.1875rem', // 35px to rem
+                                lineHeight: '1.75rem', // 28px to rem
                                 color: 'text.primary',
-                                mb: 4
+                                mb: '1.5rem' // 24px to rem
                             }}
                         />
                         <CustomTypography
                             text='Please enter the one-time password to verify your account that was sent to your email.'
                             style={{
                                 fontWeight: '400',
-                                fontSize: '18px',
-                                lineHeight: '28px',
+                                fontSize: '1.125rem', // 18px to rem
+                                lineHeight: '1.75rem', // 28px to rem
                                 color: 'text.primary',
-                                mb: 8
+                                mb: '2rem' // 32px to rem
                             }}
                         />
                         <form onSubmit={handleSubmit}>
-                            <Grid container spacing={2} sx={{ justifyContent: 'center', alignItems: 'center', p: 2 }}>
+                            <Grid container spacing={2} sx={{ justifyContent: 'center', alignItems: 'center', p: 0 }}>
                                 {code.map((digit, index) => (
-                                    <Grid item key={index} xs={2}>
+                                    <Grid item key={index} xs={2} sx={{ display: 'flex', justifyContent: 'center' }}>
                                         <TextField
                                             id={`code-input-${index}`}
                                             inputProps={{
@@ -95,10 +93,11 @@ function VerifyCode() {
                                                 style: {
                                                     textAlign: 'center',
                                                     color: '#326039',
-                                                    fontSize: '24px',
+                                                    fontSize: '1.5rem', // 24px to rem
                                                     fontWeight: '400'
                                                 }
-                                            }} value={digit}
+                                            }}
+                                            value={digit}
                                             onChange={(e) => handleChange(e, index)}
                                             error={!!codeError}
                                             sx={{
@@ -113,9 +112,10 @@ function VerifyCode() {
                                                         border: 'none', // Remove focus effect border
                                                     },
                                                 },
-                                                borderBottom: '5px solid',
+                                                borderBottom: '0.3125rem solid', // 5px to rem
                                                 borderColor: 'primary.main',
-                                                textAlign: 'center'
+                                                textAlign: 'center',
+                                                width: '3rem', // Adjust width to ensure consistent spacing
                                             }}
                                         />
                                     </Grid>
@@ -124,13 +124,13 @@ function VerifyCode() {
                                     {codeError && (
                                         <CustomTypography
                                             text={codeError}
-                                            style={{ color: 'red', mt: 2 }}
+                                            style={{ color: 'red', mt: '0.5rem' }} // 8px to rem
                                         />
                                     )}
                                 </Grid>
                                 <Grid item xs={12}>
                                     <ContainedButton
-                                        style={{ width: '20%', height: '48px', borderRadius: '6px', mt: 2 }}
+                                        style={{ width: '20%', height: '3rem', borderRadius: '0.375rem', mt: '1rem' }} // 48px to rem
                                         text='Verify'
                                         type="submit"
                                     />
@@ -138,15 +138,15 @@ function VerifyCode() {
                                 <Grid item xs={12}>
                                     <CustomTypography
                                         text={`Resend code in ${formatTime(countdown)}`}
-                                        style={{ fontWeight: '400', fontSize: '16px', lineHeight: '28px', color: 'text.primary' }}
+                                        style={{ fontWeight: '400', fontSize: '1rem', lineHeight: '1.75rem', color: 'text.primary' }} // 16px to rem
                                     />
                                 </Grid>
                             </Grid>
                         </form>
                     </Box>
                 </Grid>
-                <Grid item xs={6} md={6}>
-                    <Box component="img" src={verifycode} alt="verifycode" />
+                <Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <Box component="img" src={verifycode} alt="verifycode" sx={{ width: '100%', maxWidth: '20rem' }} />
                 </Grid>
             </Grid>
         </>

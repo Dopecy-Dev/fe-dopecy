@@ -20,12 +20,12 @@ export default function TestimonialCard(props) {
     return (
         <Box
             sx={{
-                width: '424px',
-                height: '275px',
+                width: '25.5rem', // No conversion needed, already in rem
+                height: '17.1875rem', // 275px converted to rem
                 textAlign: 'left',
-                p: 2,
+                p: '1rem', // 16px converted to rem
                 bgcolor: 'text.white',
-                border: '1px solid transparent',
+                border: '0.0625rem solid transparent', // 1px converted to rem
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
@@ -36,24 +36,24 @@ export default function TestimonialCard(props) {
             }}
         >
             <Box>
-                <Box sx={{ width: '32px', height: '26px' }} component={'img'} src={testimonialicon} alt='testimonialicon' />
+                <Box sx={{ width: '2rem', height: '1.625rem' }} component={'img'} src={testimonialicon} alt='testimonialicon' />
 
                 <Box
                     sx={{
-                        maxHeight: '120px', // set max height for the text container
-                        overflowY: 'auto', // make it scrollable
-                        ...hiddenScrollbar, // hide scrollbar
+                        maxHeight: '7.5rem', // 120px converted to rem
+                        overflowY: 'auto',
+                        ...hiddenScrollbar,
                     }}
                 >
                     <CustomTypography
                         text={props?.testimonial?.text ? props?.testimonial?.text : "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."}
                         style={{
                             fontWeight: '400',
-                            fontSize: '14px',
-                            lineHeight: '21px',
+                            fontSize: '0.875rem', // 14px converted to rem
+                            lineHeight: '1.3125rem', // 21px converted to rem
                             color: 'text.primary',
                             textAlign: 'left',
-                            mb: 2,
+                            mb: '0.5rem', // 8px converted to rem
                         }}
                     />
                 </Box>
@@ -63,29 +63,29 @@ export default function TestimonialCard(props) {
                 <Grid item>
                     <Grid container sx={{ alignItems: 'center' }}>
                         <Grid item>
-                            <Box sx={{ width: '56px', height: '56px', borderRadius: '100px', mr: 2 }} component={'img'} src={props?.testimonial?.userImage ? props?.testimonial?.userImage : testimonialuserimage} alt='testimonialuserimage' />
+                            <Box sx={{ width: '3.5rem', height: '3.5rem', borderRadius: '100px', mr: '0.5rem' }} component={'img'} src={props?.testimonial?.userImage ? props?.testimonial?.userImage : testimonialuserimage} alt='testimonialuserimage' />
                         </Grid>
                         <Grid item>
                             <CustomTypography
                                 text={props?.testimonial?.name ? props?.testimonial?.name : "Robert Fox"}
                                 style={{
                                     fontWeight: '600',
-                                    fontSize: '16px',
-                                    lineHeight: '24px',
+                                    fontSize: '1rem', // 16px converted to rem
+                                    lineHeight: '1.5rem', // 24px converted to rem
                                     color: 'text.primary',
                                     textAlign: 'left',
-                                    mb: 1
+                                    mb: '0.25rem', // 4px converted to rem
                                 }}
                             />
                             <CustomTypography
                                 text={props?.testimonial?.role ? props?.testimonial?.role : "Customer"}
                                 style={{
                                     fontWeight: '400',
-                                    fontSize: '14px',
-                                    lineHeight: '21px',
+                                    fontSize: '0.875rem', // 14px converted to rem
+                                    lineHeight: '1.3125rem', // 21px converted to rem
                                     color: 'text.darkgray',
                                     textAlign: 'left',
-                                    mb: 1
+                                    mb: '0.25rem', // 4px converted to rem
                                 }}
                             />
                         </Grid>
