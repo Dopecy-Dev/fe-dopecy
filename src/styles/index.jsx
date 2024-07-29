@@ -30,18 +30,18 @@ const useStyles = makeStyles((theme) => ({
   mainContainer: {
     height: "100%",
     display: "flex",
-    alignItems: "center",
+    alignItems: "start",
   },
   welcomeTextContainer: {
     display: "flex",
-    justifyContent: "center",
+    justifyContent: "start",
     alignItems: "center",
-    flexDirection: "column",
     padding: theme.spacing(4),
   },
   welcomeText: {
     color: "#fff",
     textAlign: "center",
+    
   },
   formPaper: {
     padding: theme.spacing(4),

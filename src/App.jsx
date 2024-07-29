@@ -1,5 +1,7 @@
 import './App.css'
-import { ThemeProvider, CssBaseline, Button } from '@mui/material';
+
+import CssBaseline from "@mui/material/CssBaseline";
+import { ThemeProvider} from '@mui/material';
 import { lightTheme, darkTheme } from './themes/themes';
 import useDarkMode from './hooks/useDarkMode';
 
