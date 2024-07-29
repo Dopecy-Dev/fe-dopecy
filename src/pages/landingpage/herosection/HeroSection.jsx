@@ -20,10 +20,6 @@ const images = [
     hero2image,
     hero3image,
     testbanner,
-    testbanner,
-    testbanner,
-    testbanner,
-    testbanner,
 ];
 
 const CustomLeftArrow = ({ onClick }) => (

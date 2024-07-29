@@ -15,7 +15,7 @@
 
 .scroll-text {
   display: inline-block;
-  animation: scrollLeftToRight 10s linear infinite;
+  animation: scrollLeftToRight 40s linear infinite;
 }
 
 .scroll-container:hover .scroll-text {
