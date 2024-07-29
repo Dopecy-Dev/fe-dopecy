@@ -78,9 +78,6 @@ function Login() {
                                 left: 0,
                                 opacity: 0.7,
                                 p: { xs: '1rem', md: '2rem' }, // Responsive padding
-                                display: 'flex',
-                                flexDirection: 'column',
-                                justifyContent: 'center',
                             }}
                         >
                             <Grid container spacing={4} sx={{ alignItems: 'start' }}>
