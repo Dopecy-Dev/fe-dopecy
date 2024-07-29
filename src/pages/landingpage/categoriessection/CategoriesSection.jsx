@@ -11,34 +11,13 @@ import foodimage from '../../../assets/images/foodimage.svg';
 import accessoriesimage from '../../../assets/images/accessoriesimage.svg';
 
 const categories = [
-    {
-        text: 'Mobile',
-        image: catMobile,
-    },
-    {
-        text: 'Cannabis',
-        image: cannebiesimage,
-    },
-    {
-        text: 'Electronics',
-        image: electronicsimage,
-    },
-    {
-        text: 'Liquor',
-        image: Liquorimage,
-    },
-    {
-        text: 'Watches',
-        image: watchesimage,
-    },
-    {
-        text: 'Food',
-        image: foodimage,
-    },
-    {
-        text: 'Accessories',
-        image: accessoriesimage,
-    },
+    { text: 'Mobile', image: catMobile },
+    { text: 'Cannabis', image: cannebiesimage },
+    { text: 'Electronics', image: electronicsimage },
+    { text: 'Liquor', image: Liquorimage },
+    { text: 'Watches', image: watchesimage },
+    { text: 'Food', image: foodimage },
+    { text: 'Accessories', image: accessoriesimage },
 ];
 
 function CategoriesSection() {
@@ -49,27 +28,28 @@ function CategoriesSection() {
 
     return (
         <>
-            <Grid container sx={{ justifyContent: 'space-between', alignItems: 'center', mb: '1rem' }}>
+            <Grid container sx={{ justifyContent: 'space-between', alignItems: 'center', mb: { xs: '0.5rem', sm: '1rem' } }}>
                 <Grid item>
-                    <Box sx={{ display: 'flex' }}>
+                    <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, alignItems: { xs: 'flex-start', sm: 'center' } }}>
                         <CustomTypography
                             text='Shop From'
                             style={{
-                                fontSize: '1.5rem', // 24px to rem
-                                lineHeight: '1.875rem', // 30px to rem
+                                fontSize: { xs: '1.25rem', sm: '1.5rem' }, // Responsive font size
+                                lineHeight: { xs: '1.5rem', sm: '1.875rem' }, // Responsive line height
                                 fontWeight: '400',
-                                textAlign: 'left',
+                                textAlign: { xs: 'center', sm: 'left' },
                                 color: 'text.darkgray',
-                                mr: '0.0625rem', // 1px to rem
+                                mr: { xs: '0', sm: '0.0625rem' }, // Responsive margin
+                                mb: { xs: '0.25rem', sm: '0' } // Responsive bottom margin
                             }}
                         />
                         <CustomTypography
                             text='Top Categories'
                             style={{
-                                fontSize: '1.5rem', // 24px to rem
-                                lineHeight: '1.875rem', // 30px to rem
+                                fontSize: { xs: '1.25rem', sm: '1.5rem' }, // Responsive font size
+                                lineHeight: { xs: '1.5rem', sm: '1.875rem' }, // Responsive line height
                                 fontWeight: '700',
-                                textAlign: 'left',
+                                textAlign: { xs: 'center', sm: 'left' },
                                 color: 'primary.main'
                             }}
                         />
@@ -79,22 +59,26 @@ function CategoriesSection() {
                     <CustomTypography
                         text='View All'
                         style={{
-                            fontSize: '1rem', // 16px to rem
-                            lineHeight: '1.125rem', // 18px to rem
+                            fontSize: { xs: '0.875rem', sm: '1rem' }, // Responsive font size
+                            lineHeight: { xs: '1rem', sm: '1.125rem' }, // Responsive line height
                             fontWeight: '400',
-                            textAlign: 'left',
+                            textAlign: { xs: 'center', sm: 'left' },
                             color: 'primary.main'
                         }}
                     />
                 </Grid>
             </Grid>
 
-            <Grid container sx={{ justifyContent: 'space-between' }}>
+            <Grid container spacing={{ xs: 1, sm: 2, md: 1 }} sx={{ justifyContent: { xs: 'left', md: 'space-between' } }}>
                 {categories.map((category, index) => (
-                    <Grid item key={index}>
+                    <Grid item key={index} xs={6} sm={4} md={1}>
                         <Box
                             sx={{
                                 cursor: 'pointer',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                                justifyContent: 'center',
                             }}
                             onClick={() => handleCategoryClick(category)}
                         >

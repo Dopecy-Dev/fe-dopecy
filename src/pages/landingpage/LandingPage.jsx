@@ -17,40 +17,36 @@ function LandingPage() {
     return (
         <>
             <Header></Header>
-            <Box sx={{ px: 8 }}>
-                <Box sx={{ py: 4 }}>
+            <Box sx={{ px: { xs: 2, md: 4, lg: 8 } }}>
+                <Box sx={{ py: { xs: 2, md: 4 } }}>
                     <HeroSection />
                 </Box>
             </Box>
-            <Box sx={{ py: 4, bgcolor: 'common.shopsection' }}>
+            <Box sx={{ py: { xs: 2, md: 4 }, bgcolor: 'common.shopsection' }}>
                 <DispensariesSection></DispensariesSection>
             </Box>
+            <Box sx={{ px: { xs: 2, md: 4, lg: 8 } }}>
 
-            {/* <Box sx={{ py: 4 }}>
-                    <DispensariesSection></DispensariesSection>
-                </Box> */}
-            <Box sx={{ px: 8 }}>
-
-                <Box sx={{ py: 4 }}>
+                <Box sx={{ py: { xs: 2, md: 4 } }}>
                     <DeliverySection />
                 </Box>
 
-                <Box sx={{ py: 4 }}>
+                <Box sx={{ py: { xs: 2, md: 4 } }}>
                     <CategoriesSection />
                 </Box>
 
-                <Box sx={{ py: 4 }}>
+                <Box sx={{ py: { xs: 2, md: 4 } }}>
                     <ProductsSection />
                 </Box>
-                <Box sx={{ py: 4 }}>
+                <Box sx={{ py: { xs: 2, md: 4 } }}>
                     <HalfBannersSection />
                 </Box>
             </Box>
-            <Box sx={{ py: 4, bgcolor: 'common.shopsection' }}>
+            <Box sx={{ py: { xs: 2, md: 4 }, bgcolor: 'common.shopsection' }}>
                 <ShopsSection />
             </Box>
-            <Box sx={{ px: 8 }}>
-                <Box sx={{ py: 12 }}>
+            <Box sx={{ px: { xs: 2, md: 4, lg: 8 } }}>
+                <Box sx={{ py: { xs: 6, md: 12 } }}>
                     <SmallProductsSection />
                 </Box>
 
@@ -58,7 +54,7 @@ function LandingPage() {
                     <FullBannerSection />
                 </Box>
 
-                <Box sx={{ py: 4 }}>
+                <Box sx={{ py: { xs: 2, md: 4 } }}>
                     <TestimonialsSection />
                 </Box>
 

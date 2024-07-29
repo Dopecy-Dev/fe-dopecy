@@ -9,6 +9,7 @@ import Groupbanner from '../../../assets/images/Groupbanner.svg';
 import hero1image from '../../../assets/images/hero1image.svg';
 import hero2image from '../../../assets/images/hero2image.svg';
 import hero3image from '../../../assets/images/hero3image.svg';
+import testbanner from '../../../assets/images/testbanner.jpeg'
 import { Box, IconButton } from '@mui/material';
 import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material';
 import './HeroSection.css';
@@ -18,6 +19,11 @@ const images = [
     hero1image,
     hero2image,
     hero3image,
+    testbanner,
+    testbanner,
+    testbanner,
+    testbanner,
+    testbanner,
 ];
 
 const CustomLeftArrow = ({ onClick }) => (
@@ -26,14 +32,14 @@ const CustomLeftArrow = ({ onClick }) => (
         className="custom-prev"
         sx={{
             position: 'absolute',
-            left: 0,
-            width: '5rem', // 80px to rem
-            height: '5rem', // 80px to rem
+            left: '-3%',
+            width: { xs: '1rem', sm: '3rem', md: '4rem', lg: '5rem' }, // Responsive width
+            height: { xs: '1rem', sm: '3rem', md: '4rem', lg: '5rem' }, // Responsive height
             zIndex: 1,
-            border: '0.3125rem solid white', // 5px to rem
+            border: '0.3125rem solid white',
             bgcolor: 'common.heroarrowbg',
             '&:hover': {
-                border: '0.3125rem solid white', // 5px to rem
+                border: '0.3125rem solid white',
                 bgcolor: 'common.heroarrowbg',
             },
         }}>
@@ -47,36 +53,20 @@ const CustomRightArrow = ({ onClick }) => (
         className="custom-next"
         sx={{
             position: 'absolute',
-            right: 0,
-            width: '5rem', // 80px to rem
-            height: '5rem', // 80px to rem
+            right: '-3%',
+            width: { xs: '1rem', sm: '3rem', md: '4rem', lg: '5rem' }, // Responsive width
+            height: { xs: '1rem', sm: '3rem', md: '4rem', lg: '5rem' }, // Responsive height
             zIndex: 1,
-            border: '0.3125rem solid white', // 5px to rem
+            border: '0.3125rem solid white',
             bgcolor: 'common.heroarrowbg',
             '&:hover': {
-                border: '0.3125rem solid white', // 5px to rem
+                border: '0.3125rem solid white',
                 bgcolor: 'common.heroarrowbg',
             },
         }}>
         <ArrowForwardIos />
     </IconButton>
 );
-
-// const CustomDot = ({ onClick, active }) => (
-//     <Box
-//         onClick={onClick}
-//         sx={{
-//             display: 'inline-block',
-//             width: active ? '1.5rem' : '0.75rem', // 24px and 12px to rem
-//             height: active ? '0.75rem' : '0.6875rem', // 12px and 11px to rem
-//             borderRadius: active ? '30%' : '50%',
-//             margin: '0 0.25rem', // 4px to rem
-//             backgroundColor: active ? 'text.white' : 'text.cstmwhite',
-//             cursor: 'pointer',
-//             transition: 'width 0.3s ease, background-color 0.3s ease'
-//         }}
-//     />
-// );
 
 function HeroSection() {
     return (
@@ -112,13 +102,18 @@ function HeroSection() {
             >
                 {images.map((image, index) => (
                     <SwiperSlide key={index}>
-                        <Box component='img' src={image} alt={`carousel-item-${index}`} sx={{ width: '100%', height: '29.375rem' }} /> {/* 470px to rem */}
+                        <Box component='img' src={image} alt={`carousel-item-${index}`}
+                            sx={{
+                                width: '100%',
+                                height: { xs: '11.375rem', sm: '19.375rem', md: '25rem', lg: '29.375rem' },
+                                borderRadius: { xs: '1rem', md: '1.5rem' }
+                            }} />
                     </SwiperSlide>
                 ))}
             </Swiper>
             <CustomLeftArrow />
             <CustomRightArrow />
-            <Box className="custom-pagination" sx={{ textAlign: 'center', mt: '1.25rem' }} /> {/* 20px to rem */}
+            <Box className="custom-pagination" sx={{ textAlign: 'center', mt: '1.25rem' }} />
         </Box>
     );
 }
