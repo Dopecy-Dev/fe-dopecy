@@ -11,6 +11,7 @@ import HeroSection from './herosection/HeroSection'
 import Header from '../../layout/Header/Header'
 import Footer from '../../layout/Footer/Footer'
 import TestimonialsSection from '../../shared/TestimonialsSection/TestimonialsSection'
+import DispensariesSection from './dispensariessection/DispensariesSection'
 
 function LandingPage() {
     return (
@@ -20,6 +21,16 @@ function LandingPage() {
                 <Box sx={{ py: 4 }}>
                     <HeroSection />
                 </Box>
+            </Box>
+            <Box sx={{ py: 4, bgcolor: 'common.shopsection' }}>
+                <DispensariesSection></DispensariesSection>
+            </Box>
+
+            {/* <Box sx={{ py: 4 }}>
+                    <DispensariesSection></DispensariesSection>
+                </Box> */}
+            <Box sx={{ px: 8 }}>
+
                 <Box sx={{ py: 4 }}>
                     <DeliverySection />
                 </Box>
