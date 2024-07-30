@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -20,10 +20,14 @@ import CustomTypography from '../../components/typography/CustomTypography';
 import CartIcon from "../../assets/images/CartIcon.svg";
 import { Link } from 'react-router-dom';
 import LogoGreen from '../../components/logos/LogoGreen';
+import { useMediaQuery, useTheme } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 
 const Search = styled('div')(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
+    justifyContent: 'space-between',
     position: 'relative',
     borderRadius: '0.625rem', // 10px to rem
     backgroundColor: theme.palette.mode === 'dark' ? alpha(theme.palette.common.white, 0.15) : alpha(theme.palette.common.searchbar, 0.5),
@@ -35,7 +39,7 @@ const Search = styled('div')(({ theme }) => ({
     width: '100%',
     [theme.breakpoints.up('sm')]: {
         marginLeft: theme.spacing(2),
-        width: 'auto',
+        width: '100%',
     },
 }));
 
@@ -64,9 +68,15 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
         paddingLeft: `calc(1rem + 1.25rem)`, // 16px + 20px to rem
         transition: theme.transitions.create('width'),
         width: '100%',
-        [theme.breakpoints.up('md')]: {
-            width: '60ch',
-        },
+        // [theme.breakpoints.between('md', 'lg')]: {
+        //     width: '30ch',
+        // },
+        // [theme.breakpoints.up('lg')]: {
+        //     width: '60ch',
+        // },
+        // [theme.breakpoints.down('sm')]: {
+        //     width: '35ch',
+        // },
         '&::placeholder': {
             color: theme.palette.mode === 'dark' ? alpha(theme.palette.common.white, 0.75) : alpha(theme.palette.common.black, 0.75),
         },
@@ -79,120 +89,71 @@ const CustomAppBar = styled(AppBar)(({ theme }) => ({
 }));
 
 export default function PrimarySearchAppBar({ toggleTheme, theme }) {
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+    const [menuOpen, setMenuOpen] = useState(false);
+    const [searchBarVisible, setSearchBarVisible] = useState(false);
+    const muiTheme = useTheme();
+    const isMobile = useMediaQuery(muiTheme.breakpoints.down('md'));
+    const isTablet = useMediaQuery(muiTheme.breakpoints.between('sm', 'md'));
+    const isMedium = useMediaQuery(muiTheme.breakpoints.between('md', 'lg'));
 
-    const isMenuOpen = Boolean(anchorEl);
-    const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
-    const handleProfileMenuOpen = (event) => {
-        setAnchorEl(event.currentTarget);
+    const handleMenuToggle = () => {
+        setMenuOpen(prevState => !prevState);
     };
 
-    const handleMobileMenuClose = () => {
-        setMobileMoreAnchorEl(null);
+    const handleSearchToggle = () => {
+        setSearchBarVisible(prevState => !prevState);
     };
-
-    const handleMenuClose = () => {
-        setAnchorEl(null);
-        handleMobileMenuClose();
-    };
-
-    const handleMobileMenuOpen = (event) => {
-        setMobileMoreAnchorEl(event.currentTarget);
-    };
-
-    const menuId = 'primary-search-account-menu';
-    const renderMenu = (
-        <Menu
-            anchorEl={anchorEl}
-            anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-            }}
-            id={menuId}
-            keepMounted
-            transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-            }}
-            open={isMenuOpen}
-            onClose={handleMenuClose}
-        >
-            <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-            <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-        </Menu>
-    );
-
-    const mobileMenuId = 'primary-search-account-menu-mobile';
-    const renderMobileMenu = (
-        <Menu
-            anchorEl={mobileMoreAnchorEl}
-            anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-            }}
-            id={mobileMenuId}
-            keepMounted
-            transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-            }}
-            open={isMobileMenuOpen}
-            onClose={handleMobileMenuClose}
-        >
-            <MenuItem>
-                <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-                    <Badge badgeContent={4} color="error">
-                        <MailIcon />
-                    </Badge>
-                </IconButton>
-                <p>Messages</p>
-            </MenuItem>
-            <MenuItem>
-                <IconButton
-                    size="large"
-                    aria-label="show 17 new notifications"
-                    color="inherit"
-                >
-                    <Badge badgeContent={17} color="error">
-                        <NotificationsIcon />
-                    </Badge>
-                </IconButton>
-                <p>Notifications</p>
-            </MenuItem>
-            <MenuItem onClick={handleProfileMenuOpen}>
-                <IconButton
-                    size="large"
-                    aria-label="account of current user"
-                    aria-controls="primary-search-account-menu"
-                    aria-haspopup="true"
-                    color="inherit"
-                >
-                    <AccountCircle />
-                </IconButton>
-                <p>Profile</p>
-            </MenuItem>
-        </Menu>
-    );
 
     return (
-        <Box sx={{ flexGrow: 1, px: '3.125rem' }}> {/* 50px to rem */}
-            <CustomAppBar sx={{ paddingLeft: 0, paddingRight: 0 }} position="static">
-                <Toolbar>
-                    <Grid container spacing={3.75} // 60px to rem
-                        sx={{
-                            alignItems: 'center',
-                        }}
-                    >
-                        <Grid item>
-                            <Link to='/'>
-                                <LogoGreen />
-                            </Link>
+        <>
+            {isMobile ? (
+                <Grid container sx={{ py: 1, px: 2, justifyContent: 'space-between', alignItems: 'center' }}>
+                    <Grid item>
+                        <Grid container spacing={1} sx={{ alignItems: 'center' }}>
+                            <Grid item>
+                                <Box>
+                                    <IconButton
+                                        onClick={handleMenuToggle}
+                                        sx={{
+                                            '&:hover, &:focus, &:active': {
+                                                outline: 'none',
+                                                border: 'none',
+                                                boxShadow: 'none',
+                                                backgroundColor: 'transparent',
+                                            },
+                                        }}
+                                    >
+                                        <MenuIcon
+                                            sx={{
+                                                color: 'primary.main',
+                                                opacity: menuOpen ? 0 : 1,
+                                                transition: 'opacity 0.9s ease-in-out',
+                                            }}
+                                        />
+                                        <CloseIcon
+                                            sx={{
+                                                color: 'primary.main',
+                                                opacity: menuOpen ? 1 : 0,
+                                                transition: 'opacity 0.9s ease-in-out',
+                                                position: 'absolute', // Ensure the icons overlap
+                                            }}
+                                        />
+                                    </IconButton>
+
+                                </Box>
+                            </Grid>
+                            <Grid item>
+                                <Box>
+                                    <Link to={'/'}>
+                                        <LogoGreen />
+                                    </Link>
+                                </Box>
+                            </Grid>
                         </Grid>
-                        <Grid item xs={8}>
-                            <Box sx={{ display: 'flex' }}>
-                                <AllCategoriesMenu />
+                    </Grid>
+                    {isTablet &&
+                        <Grid item>
+                            <Box>
                                 <Search>
                                     <SearchIconWrapper>
                                         <Box component="img" src={SearchIcon} alt="SearchIcon" />
@@ -205,100 +166,197 @@ export default function PrimarySearchAppBar({ toggleTheme, theme }) {
                                         <Box component="img" src={SearchIconRight} alt="SearchIconRight" />
                                     </SearchSecondIconWrapper>
                                 </Search>
+
                             </Box>
                         </Grid>
-                        <Grid item>
-                            <Grid container spacing={1.25}> {/* 20px to rem */}
-                                <Grid item>
-                                    <Box sx={{
-                                        display: 'flex',
-                                        alignItems: 'center'
-                                    }}>
-                                        <Box component="img" src={UserIcon} alt="UserIcon" />
-                                        <Link to='/signup'>
-                                            <CustomTypography
-                                                text='Sign Up'
-                                                style={{
-                                                    color: 'text.darkgray',
-                                                    fontSize: '1rem', // 16px to rem
-                                                    fontWeight: '400',
-                                                    lineHeight: '1.125rem', // 18px to rem
-                                                    cursor: 'pointer',
-                                                    '&:hover': {
-                                                        color: 'primary.main',
-                                                        textDecoration: 'underline',
-                                                    },
-                                                }}
-                                            />
-                                        </Link>
-                                        <CustomTypography
-                                            text='/'
-                                            style={{
-                                                color: 'text.darkgray',
-                                                fontSize: '1rem', // 16px to rem
-                                                fontWeight: '400',
-                                                lineHeight: '1.125rem', // 18px to rem
-                                            }}
-                                        />
-                                        <Link to='/login'>
-                                            <CustomTypography
-                                                text='Sign In'
-                                                style={{
-                                                    color: 'text.darkgray',
-                                                    fontSize: '1rem', // 16px to rem
-                                                    fontWeight: '400',
-                                                    lineHeight: '1.125rem', // 18px to rem
-                                                    cursor: 'pointer',
-                                                    '&:hover': {
-                                                        color: 'primary.main',
-                                                        textDecoration: 'underline',
-                                                    },
-                                                }}
-                                            />
-                                        </Link>
-                                    </Box>
-                                </Grid>
-                                <Grid item>
-                                    <Box sx={{
-                                        width: '0.125rem', // 2px to rem
-                                        height: '1.5rem',
-                                        backgroundColor: 'text.black',
-                                        opacity: '15%'
-                                    }}>
+                    }
+                    <Grid item>
+                        <Grid container spacing={1} sx={{ alignItems: 'center' }}>
+                            {!isTablet &&
 
-                                    </Box>
-                                </Grid>
                                 <Grid item>
-                                    <Box>
-                                        <Box sx={{
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                        }}>
-                                            <Box component="img" src={CartIcon} alt="CartIcon" />
-                                            <CustomTypography
-                                                text='Cart'
-                                                style={{
-                                                    color: 'text.darkgray',
-                                                    fontSize: '1rem', // 16px to rem
-                                                    fontWeight: '400',
-                                                    lineHeight: '1.125rem', // 18px to rem
-                                                    cursor: 'pointer',
-                                                    '&:hover': {
-                                                        color: 'primary.main',
-                                                        textDecoration: 'underline',
-                                                    },
-                                                }}
-                                            />
-                                        </Box>
-                                    </Box>
+                                    <IconButton
+                                        sx={{
+                                            '&:hover, &:focus, &:active': {
+                                                outline: 'none',
+                                                border: 'none',
+                                                boxShadow: 'none',
+                                                backgroundColor: 'transparent',
+                                            }
+                                        }}
+                                        onClick={handleSearchToggle}>
+                                        <Box component={'img'} src={SearchIcon} alt='SearchIcon'></Box>
+                                    </IconButton>
                                 </Grid>
+                            }
+                            <Grid item>
+                                <Link to={'/login'}>
+                                    <Box component={'img'} src={UserIcon} alt='UserIcon'></Box>
+                                </Link>
+                            </Grid>
+                            <Grid item>
+                                <Box component={'img'} src={CartIcon} alt='CartIcon'></Box>
                             </Grid>
                         </Grid>
                     </Grid>
-                </Toolbar>
-            </CustomAppBar>
-            {renderMobileMenu}
-            {renderMenu}
-        </Box >
+                </Grid>
+            ) : (
+                <Box sx={{ flexGrow: 1, px: '3.125rem' }}>
+                    <CustomAppBar sx={{ paddingLeft: 0, paddingRight: 0 }} position="static">
+                        <Toolbar>
+                            <Grid container spacing={isMedium ? 2 : 3.75} // 60px to rem
+                                sx={{
+                                    alignItems: 'center',
+                                }}
+                            >
+                                <Grid item >
+                                    <Link to='/'>
+                                        <LogoGreen />
+                                    </Link>
+                                </Grid>
+                                <Grid item xs={isMedium ? 7 : 8}>
+                                    <Box sx={{ display: 'flex' }}>
+                                        <AllCategoriesMenu />
+                                        <Search>
+                                            <SearchIconWrapper>
+                                                <Box component="img" src={SearchIcon} alt="SearchIcon" />
+                                            </SearchIconWrapper>
+                                            <StyledInputBase
+                                                placeholder="Search essentials, groceries and more..."
+                                                inputProps={{ 'aria-label': 'search' }}
+                                            />
+                                            <SearchSecondIconWrapper>
+                                                <Box component="img" src={SearchIconRight} alt="SearchIconRight" />
+                                            </SearchSecondIconWrapper>
+                                        </Search>
+                                    </Box>
+                                </Grid>
+                                <Grid item >
+                                    <Grid container spacing={1.25}> {/* 20px to rem */}
+                                        <Grid item>
+                                            <Box sx={{
+                                                display: 'flex',
+                                                alignItems: 'center'
+                                            }}>
+                                                <Box component="img" src={UserIcon} alt="UserIcon" />
+                                                <Link to='/signup'>
+                                                    <CustomTypography
+                                                        text='Sign Up'
+                                                        style={{
+                                                            color: 'text.darkgray',
+                                                            fontSize: '1rem', // 16px to rem
+                                                            fontWeight: '400',
+                                                            lineHeight: '1.125rem', // 18px to rem
+                                                            cursor: 'pointer',
+                                                            '&:hover': {
+                                                                color: 'primary.main',
+                                                                textDecoration: 'underline',
+                                                            },
+                                                        }}
+                                                    />
+                                                </Link>
+                                                <CustomTypography
+                                                    text='/'
+                                                    style={{
+                                                        color: 'text.darkgray',
+                                                        fontSize: '1rem', // 16px to rem
+                                                        fontWeight: '400',
+                                                        lineHeight: '1.125rem', // 18px to rem
+                                                    }}
+                                                />
+                                                <Link to='/login'>
+                                                    <CustomTypography
+                                                        text='Sign In'
+                                                        style={{
+                                                            color: 'text.darkgray',
+                                                            fontSize: '1rem', // 16px to rem
+                                                            fontWeight: '400',
+                                                            lineHeight: '1.125rem', // 18px to rem
+                                                            cursor: 'pointer',
+                                                            '&:hover': {
+                                                                color: 'primary.main',
+                                                                textDecoration: 'underline',
+                                                            },
+                                                        }}
+                                                    />
+                                                </Link>
+                                            </Box>
+                                        </Grid>
+                                        <Grid item>
+                                            <Box sx={{
+                                                width: '0.125rem', // 2px to rem
+                                                height: '1.5rem',
+                                                backgroundColor: 'text.black',
+                                                opacity: '15%'
+                                            }}>
+
+                                            </Box>
+                                        </Grid>
+                                        <Grid item>
+                                            <Box>
+                                                <Box sx={{
+                                                    display: 'flex',
+                                                    alignItems: 'center',
+                                                }}>
+                                                    <Box component="img" src={CartIcon} alt="CartIcon" />
+                                                    <CustomTypography
+                                                        text='Cart'
+                                                        style={{
+                                                            color: 'text.darkgray',
+                                                            fontSize: '1rem', // 16px to rem
+                                                            fontWeight: '400',
+                                                            lineHeight: '1.125rem', // 18px to rem
+                                                            cursor: 'pointer',
+                                                            '&:hover': {
+                                                                color: 'primary.main',
+                                                                textDecoration: 'underline',
+                                                            },
+                                                        }}
+                                                    />
+                                                </Box>
+                                            </Box>
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </Toolbar>
+                    </CustomAppBar>
+                </Box >
+            )}
+
+            {searchBarVisible && (
+                <Box sx={{ my: 1, px: 2 }}>
+                    <Search>
+                        <SearchIconWrapper>
+                            <Box component="img" src={SearchIcon} alt="SearchIcon" />
+                        </SearchIconWrapper>
+                        <StyledInputBase
+                            placeholder="Search essentials, groceries and more..."
+                            inputProps={{ 'aria-label': 'search' }}
+                        />
+                        <SearchSecondIconWrapper>
+                            <Box component="img" src={SearchIconRight} alt="SearchIconRight" />
+                        </SearchSecondIconWrapper>
+                    </Search>
+                </Box>
+            )}
+
+            {menuOpen && (
+                <Box
+                    sx={{
+                        position: 'absolute',
+                        width: '100%',
+                        height: '100%',
+                        backgroundColor: 'common.searchbar',
+                        zIndex: 1300,
+                        opacity: 1,
+                        visibility: menuOpen ? 'visible' : 'hidden',
+                        transition: 'opacity 1s ease-in-out, visibility 1s ease-in-out',
+                    }}
+                >
+                    <Box sx={{ my: 2 }}>Categories will place here</Box>
+                </Box>
+            )}
+        </>
     );
 }
