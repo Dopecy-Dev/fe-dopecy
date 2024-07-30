@@ -101,17 +101,19 @@ function TopBar() {
                     </Box>
                 </Box>
                 :
-                <Grid container spacing={2}
+                <Grid container spacing={0.5}
                     sx={{
+                        // flexWrap: 'nowrap',
                         backgroundColor: 'primary.main',
-                        padding: {
-                            xs: '0.5rem 1rem',   // small devices, 8px 16px
-                            sm: '0.625rem 2rem',  // medium devices, 10px 32px
-                            md: '0.75rem 3rem',   // large devices, 12px 48px
-                            lg: '0.75rem 6.25rem',// extra large devices, 12px 100px
-                        },
+                        padding: 1,
+                        // padding: {
+                        //     xs: '0.5rem 1rem',   // small devices, 8px 16px
+                        //     sm: '0.625rem 2rem',  // medium devices, 10px 32px
+                        //     md: '0.75rem 3rem',   // large devices, 12px 48px
+                        //     lg: '0.75rem 6.25rem',// extra large devices, 12px 100px
+                        // },
                         color: 'white',
-                        justifyContent: { xs: 'center', md: 'flex-end' },
+                        justifyContent: 'center',
                         alignItems: 'center',
                     }}>
                     <Grid item>
@@ -119,13 +121,15 @@ function TopBar() {
                             display: 'flex',
                             alignItems: 'center',
                         }}>
-                            <Box component={'img'} src={DopecyDealsIcon} alt='DopecyDealsIcon' />
+                            <Box sx={{ width: '10%', mr: 0.5 }} component={'img'} src={DopecyDealsIcon} alt='DopecyDealsIcon' />
                             <CustomTypography
                                 text="Dopecy Deals"
                                 style={{
                                     color: 'text.cstmwhite',
-                                    marginLeft: { xs: '0.5rem', sm: '1rem' },
                                     cursor: 'pointer',
+                                    fontWeight: '400',
+                                    fontSize: '0.7rem',
+                                    lineHeight: '0.8rem'
                                 }}
                             />
                         </Box>
@@ -135,13 +139,15 @@ function TopBar() {
                             display: 'flex',
                             alignItems: 'center',
                         }}>
-                            <Box component={'img'} src={BirdCouponIcon} alt='BirdCouponIcon' />
+                            <Box sx={{ width: '10%', mr: 0.5 }} component={'img'} src={BirdCouponIcon} alt='BirdCouponIcon' />
                             <CustomTypography
                                 text="Early Bird Deals"
                                 style={{
                                     color: 'text.cstmwhite',
-                                    marginLeft: { xs: '0.5rem', sm: '1rem' },
-                                    cursor: 'pointer'
+                                    cursor: 'pointer',
+                                    fontWeight: '400',
+                                    fontSize: '0.7rem',
+                                    lineHeight: '0.8rem'
                                 }}
                             />
                         </Box>
@@ -151,13 +157,15 @@ function TopBar() {
                             display: 'flex',
                             alignItems: 'center',
                         }}>
-                            <Box component={'img'} src={Buy1Get1Icon} alt='Buy1Get1Icon' />
+                            <Box sx={{ width: '10%', mr: 0.5 }} component={'img'} src={Buy1Get1Icon} alt='Buy1Get1Icon' />
                             <CustomTypography
                                 text="Buy 1 Get 1"
                                 style={{
                                     color: 'text.cstmwhite',
-                                    marginLeft: { xs: '0.5rem', sm: '1rem' },
-                                    cursor: 'pointer'
+                                    cursor: 'pointer',
+                                    fontWeight: '400',
+                                    fontSize: '0.7rem',
+                                    lineHeight: '0.8rem'
                                 }}
                             />
                         </Box>
@@ -167,13 +175,15 @@ function TopBar() {
                             display: 'flex',
                             alignItems: 'center',
                         }}>
-                            <Box component={'img'} src={FreeGiveawayIcon} alt='FreeGiveawayIcon' />
+                            <Box sx={{ width: '10%', mr: 0.5 }} component={'img'} src={FreeGiveawayIcon} alt='FreeGiveawayIcon' />
                             <CustomTypography
                                 text="Free Giveaway"
                                 style={{
                                     color: 'text.cstmwhite',
-                                    marginLeft: { xs: '0.5rem', sm: '1rem' },
-                                    cursor: 'pointer'
+                                    cursor: 'pointer',
+                                    fontWeight: '400',
+                                    fontSize: '0.7rem',
+                                    lineHeight: '0.8rem'
                                 }}
                             />
                         </Box>
