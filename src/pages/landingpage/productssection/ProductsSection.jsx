@@ -140,7 +140,7 @@ function ProductsSection() {
         <>
             <Grid container spacing={2} sx={{ mb: 4, alignItems: 'center' }}>
                 <Grid item xs={12} md={6}>
-                    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: { xs: 'center', md: 'flex-start' } }}>
+                    <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: { xs: 'center', md: 'flex-start' } }}>
                         <CustomTypography
                             text='Shop From'
                             style={{

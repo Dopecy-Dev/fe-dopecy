@@ -198,7 +198,7 @@ function ShopsSection() {
                 freeMode={true}
                 grabCursor={true}
                 centeredSlides={true}
-                slidesPerView={4} // Show 4 slides, but center 3
+                slidesPerView={4}
                 loop={true}
                 mousewheel={true}
                 keyboard={true}
@@ -237,7 +237,7 @@ function ShopsSection() {
                     {shops.map((shop, index) => (
                         <SwiperSlide key={index}>
                             <Grid item xs={4}>
-                                <Link to='/forgotpassword'>
+                                <Link to='/shopdetails'>
                                     <ShopCard shop={shop} />
                                 </Link>
                             </Grid>
