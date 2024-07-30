@@ -24,7 +24,7 @@ function Footer() {
         <Box sx={{ bgcolor: 'text.titleblack' }}>
             <Box sx={{ borderBottom: '0.0625rem solid', borderColor: 'text.cstmwhite', px: '2rem', pt: '2rem', pb: '1rem' }}>
                 <Grid container spacing={2}>
-                    <Grid item xs={2}>
+                    <Grid item xs={12} md={2}>
                         <Box sx={{ py: '1.5rem', display: 'flex', flexDirection: 'column' }}>
                             <Link to='/'>
                                 <Box sx={{ width: '7.75rem' }}>
@@ -58,10 +58,10 @@ function Footer() {
                             </Grid>
                         </Box>
                     </Grid>
-                    <Grid item xs={8}>
+                    <Grid item xs={12} md={8}>
                         <Box sx={{ pt: '1rem' }}>
                             <Grid container spacing={2} sx={{ justifyContent: 'space-between' }}>
-                                <Grid item xs={9}>
+                                <Grid item xs={12} md={9}>
                                     <Grid container sx={{ flexDirection: 'column' }}>
                                         <Grid item>
                                             <Box>
@@ -111,7 +111,7 @@ function Footer() {
                                         </Grid>
                                     </Grid>
                                 </Grid>
-                                <Grid item xs={3}>
+                                <Grid item xs={12} md={3}>
                                     <Grid container sx={{ flexDirection: 'column' }}>
                                         <Grid item>
                                             <Box>
@@ -164,7 +164,7 @@ function Footer() {
                             </Grid>
                         </Box>
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid item xs={12} md={2}>
                         <Box sx={{ py: '1.5rem' }}>
                             <Grid container sx={{ flexDirection: 'column' }}>
                                 <Grid item>
@@ -261,7 +261,7 @@ function Footer() {
             </Box>
             <Box sx={{ px: '2rem', py: '1rem' }}>
                 <Grid container sx={{ justifyContent: 'space-between', alignItems: 'center' }}>
-                    <Grid item xs={6}>
+                    <Grid item xs={12} md={6}>
                         <CustomTypography
                             text='Dopecy eCommerce © 2024. All Rights Reserved'
                             style={{
@@ -274,8 +274,8 @@ function Footer() {
                             }}
                         />
                     </Grid>
-                    <Grid item xs={6}>
-                        <Grid container spacing={2} sx={{ justifyContent: 'flex-end' }}>
+                    <Grid item xs={12} md={6}>
+                        <Grid container spacing={2} sx={{ justifyContent: { xs: 'start', md: 'flex-end' } }}>
                             <Grid item sx={{ cursor: 'pointer' }}>
                                 <Box sx={{ p: '0.3125rem', border: '0.125rem solid', borderColor: 'text.graybg3', borderRadius: '0.625rem', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                     <Box sx={{ width: '4rem', height: '1.875rem' }} component={'img'} src={ApplePay} alt='Apple Pay' />
