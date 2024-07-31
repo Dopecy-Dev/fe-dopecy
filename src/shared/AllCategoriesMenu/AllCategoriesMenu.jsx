@@ -3,6 +3,7 @@ import './AllCategoriesMenu.css';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import ContainedButton from '../../components/buttons/ContainedButton';
 import { styled, useTheme } from '@mui/system';
+import OutlinedButton from '../../components/buttons/OutlinedButton';
 
 const categories = [
     { name: 'Electronics', subCategories: ['Mobile Phones', 'Laptops', 'Cameras'] },
@@ -79,7 +80,7 @@ const AllCategoriesMenu = () => {
 
     return (
         <Dropdown className="dropdown" style={{ textAlign: 'left' }}>
-            <ContainedButton
+            <OutlinedButton
                 style={{ width: '8.9375rem', height: '3rem', borderRadius: '0.625rem' }} // 143px, 48px, 10px to rem
                 text='Categories'
                 icon={KeyboardArrowDownIcon}
