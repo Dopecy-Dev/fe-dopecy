@@ -31,7 +31,8 @@ const lightTheme = createTheme({
             heroarrowbg: '#DCEDDF',
             productbg1: '#F7EDE1',
             productbg2: '#F2F4F7',
-            cartselectionbg: '#F2F4F7'
+            cartselectionbg: '#F2F4F7',
+            darklightbg: '#EAEAEA'
 
         },
     },

@@ -8,7 +8,7 @@ function Header({ toggleTheme, theme }) {
     return (
         <>
             <TopBar />
-            <PrimarySearchAppBar toggleTheme={toggleTheme} theme={theme} />
+            <PrimarySearchAppBar />
             <SecondryAppBar />
         </>
     );

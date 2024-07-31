@@ -23,6 +23,8 @@ import LogoGreen from '../../components/logos/LogoGreen';
 import { useMediaQuery, useTheme } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import LoginButtonMenu from '../../components/loginbuttonmenu/LoginButtonMenu';
+import DarkLightSwitch from '../DarkLightSwitch/DarkLightSwitch';
 
 const Search = styled('div')(({ theme }) => ({
     display: 'flex',
@@ -88,7 +90,10 @@ const CustomAppBar = styled(AppBar)(({ theme }) => ({
     boxShadow: 'none',
 }));
 
-export default function PrimarySearchAppBar({ toggleTheme, theme }) {
+
+
+export default function PrimarySearchAppBar() {
+    const [anchorEl, setAnchorEl] = useState(null);
     const [menuOpen, setMenuOpen] = useState(false);
     const [searchBarVisible, setSearchBarVisible] = useState(false);
     const muiTheme = useTheme();
@@ -103,6 +108,15 @@ export default function PrimarySearchAppBar({ toggleTheme, theme }) {
     const handleSearchToggle = () => {
         setSearchBarVisible(prevState => !prevState);
     };
+
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleMenuClose = () => {
+        setAnchorEl(null);
+    };
+
 
     return (
         <>
@@ -152,7 +166,7 @@ export default function PrimarySearchAppBar({ toggleTheme, theme }) {
                         </Grid>
                     </Grid>
                     {isTablet &&
-                        <Grid item>
+                        <Grid item sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                             <Box>
                                 <Search>
                                     <SearchIconWrapper>
@@ -168,7 +182,11 @@ export default function PrimarySearchAppBar({ toggleTheme, theme }) {
                                 </Search>
 
                             </Box>
+                            <Box sx={{ ml: 4 }}>
+                                <DarkLightSwitch></DarkLightSwitch>
+                            </Box>
                         </Grid>
+
                     }
                     <Grid item>
                         <Grid container spacing={1} sx={{ alignItems: 'center' }}>
@@ -190,9 +208,9 @@ export default function PrimarySearchAppBar({ toggleTheme, theme }) {
                                 </Grid>
                             }
                             <Grid item>
-                                <Link to={'/login'}>
-                                    <Box component={'img'} src={UserIcon} alt='UserIcon'></Box>
-                                </Link>
+                                {/* <Link to={'/login'}> */}
+                                <Box onClick={handleClick} component={'img'} src={UserIcon} alt='UserIcon'></Box>
+                                {/* </Link> */}
                             </Grid>
                             <Grid item>
                                 <Box component={'img'} src={CartIcon} alt='CartIcon'></Box>
@@ -204,9 +222,10 @@ export default function PrimarySearchAppBar({ toggleTheme, theme }) {
                 <Box sx={{ flexGrow: 1, px: '3.125rem' }}>
                     <CustomAppBar sx={{ paddingLeft: 0, paddingRight: 0 }} position="static">
                         <Toolbar>
-                            <Grid container spacing={isMedium ? 2 : 3.75} // 60px to rem
+                            <Grid container spacing={isMedium ? 1 : 3.75} // 60px to rem
                                 sx={{
                                     alignItems: 'center',
+                                    justifyContent: 'space-between'
                                 }}
                             >
                                 <Grid item >
@@ -214,7 +233,7 @@ export default function PrimarySearchAppBar({ toggleTheme, theme }) {
                                         <LogoGreen />
                                     </Link>
                                 </Grid>
-                                <Grid item xs={isMedium ? 7 : 8}>
+                                <Grid item xs={isMedium ? 6 : 7}>
                                     <Box sx={{ display: 'flex' }}>
                                         <AllCategoriesMenu />
                                         <Search>
@@ -231,6 +250,11 @@ export default function PrimarySearchAppBar({ toggleTheme, theme }) {
                                         </Search>
                                     </Box>
                                 </Grid>
+                                <Grid item>
+                                    <Box>
+                                        <DarkLightSwitch ></DarkLightSwitch>
+                                    </Box>
+                                </Grid>
                                 <Grid item >
                                     <Grid container spacing={1.25}> {/* 20px to rem */}
                                         <Grid item>
@@ -238,7 +262,8 @@ export default function PrimarySearchAppBar({ toggleTheme, theme }) {
                                                 display: 'flex',
                                                 alignItems: 'center'
                                             }}>
-                                                <Box component="img" src={UserIcon} alt="UserIcon" />
+                                                <Box onClick={handleClick} sx={{ cursor: 'pointer' }} component="img" src={UserIcon} alt="UserIcon" />
+
                                                 <Link to='/signup'>
                                                     <CustomTypography
                                                         text='Sign Up'
@@ -357,6 +382,11 @@ export default function PrimarySearchAppBar({ toggleTheme, theme }) {
                     <Box sx={{ my: 2 }}>Categories will place here</Box>
                 </Box>
             )}
+
+            <LoginButtonMenu
+                anchorEl={anchorEl}
+                handleClose={handleMenuClose}
+            />
         </>
     );
 }

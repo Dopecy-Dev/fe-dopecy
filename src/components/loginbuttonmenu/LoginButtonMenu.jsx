@@ -3,7 +3,7 @@ import { Box, Menu, MenuItem } from '@mui/material';
 import btndownarrowblack from '../../assets/images/btndownarrowblack.svg';
 import CustomTypography from '../typography/CustomTypography';
 
-export default function DropDownMenu({ anchorEl, handleClose }) {
+export default function LoginButtonMenu({ anchorEl, handleClose }) {
     const open = Boolean(anchorEl);
 
     return (
@@ -20,9 +20,7 @@ export default function DropDownMenu({ anchorEl, handleClose }) {
                     p: 1.5,
                     mt: '0.125rem', // 2px
                     width: {
-                        xs: '12.5rem', // 200px
-                        sm: '15.625rem', // 250px
-                        md: '18.75rem' // 300px
+                        md: '8.75rem' // 300px
                     },
                     borderRadius: '0.5rem', // 8px
                     boxShadow: '0px 0.25rem 0.5rem rgba(0, 0, 0, 0.1)' // 4px 8px
@@ -34,8 +32,6 @@ export default function DropDownMenu({ anchorEl, handleClose }) {
                 sx={{
                     fontSize: {
                         xs: '0.75rem', // 12px
-                        sm: '0.875rem', // 14px
-                        md: '1rem' // 16px
                     },
                     borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
                     '&:last-child': {
@@ -44,15 +40,13 @@ export default function DropDownMenu({ anchorEl, handleClose }) {
                     py: { xs: '0.25rem', sm: '0.375rem', md: '0.5rem' } // 4px, 6px, 8px
                 }}
             >
-                Stock News
+                My Orders
             </MenuItem>
             <MenuItem
                 onClick={handleClose}
                 sx={{
                     fontSize: {
                         xs: '0.75rem', // 12px
-                        sm: '0.875rem', // 14px
-                        md: '1rem' // 16px
                     },
                     borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
                     '&:last-child': {
@@ -61,23 +55,52 @@ export default function DropDownMenu({ anchorEl, handleClose }) {
                     py: { xs: '0.25rem', sm: '0.375rem', md: '0.5rem' } // 4px, 6px, 8px
                 }}
             >
-                Brands Podcast
+                My Coins
             </MenuItem>
             <MenuItem
                 onClick={handleClose}
                 sx={{
                     fontSize: {
                         xs: '0.75rem', // 12px
-                        sm: '0.875rem', // 14px
-                        md: '1rem' // 16px
                     },
                     py: { xs: '0.25rem', sm: '0.375rem', md: '0.5rem' }, // 4px, 6px, 8px
+                    borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
                     '&:last-child': {
                         borderBottom: 'none',
                     },
                 }}
             >
-                Youtube Video
+                Wish list
+            </MenuItem>
+            <MenuItem
+                onClick={handleClose}
+                sx={{
+                    fontSize: {
+                        xs: '0.75rem', // 12px
+                    },
+                    py: { xs: '0.25rem', sm: '0.375rem', md: '0.5rem' }, // 4px, 6px, 8px
+                    borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
+                    '&:last-child': {
+                        borderBottom: 'none',
+                    },
+                }}
+            >
+                Seller Log in
+            </MenuItem>
+            <MenuItem
+                onClick={handleClose}
+                sx={{
+                    fontSize: {
+                        xs: '0.75rem', // 12px
+                    },
+                    py: { xs: '0.25rem', sm: '0.375rem', md: '0.5rem' }, // 4px, 6px, 8px
+                    borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
+                    '&:last-child': {
+                        borderBottom: 'none',
+                    },
+                }}
+            >
+                Help Center
             </MenuItem>
         </Menu>
     );
