@@ -1,26 +1,27 @@
+// src/App.jsx
 import './App.css'
-
+import React from 'react';
 import CssBaseline from "@mui/material/CssBaseline";
-import { ThemeProvider } from '@mui/material';
-import { lightTheme, darkTheme } from './themes/themes';
-import useDarkMode from './hooks/useDarkMode';
+import { ThemeProvider as MUIThemeProvider } from '@mui/material';
+import { ThemeProvider, useTheme } from './contexts/ThemeContext.jsx';
 
-import Header from './layout/Header/Header'
-import Layout from './layout/Layout';
 import Routers from './Routers/Routers';
 
-function App() {
-  const [theme, toggleTheme] = useDarkMode();
-  const appliedTheme = theme === 'light' ? lightTheme : darkTheme;
+const App = () => {
+  const { appliedTheme } = useTheme();
 
   return (
-    <ThemeProvider theme={appliedTheme}>
+    <MUIThemeProvider theme={appliedTheme}>
       <CssBaseline />
-      {/* <Layout toggleTheme={toggleTheme} theme={theme}></Layout> */}
-      <Routers></Routers>
-      {/* <Header toggleTheme={toggleTheme} theme={theme} /> */}
-    </ThemeProvider>
-  )
+      <Routers />
+    </MUIThemeProvider>
+  );
 }
 
-export default App
+const AppWrapper = () => (
+  <ThemeProvider>
+    <App />
+  </ThemeProvider>
+);
+
+export default AppWrapper;

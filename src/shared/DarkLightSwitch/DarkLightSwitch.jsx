@@ -1,16 +1,16 @@
-import { Box, Grid } from '@mui/material'
-import React, { useState } from 'react'
-import darkoff from '../../assets/images/darkoff.svg'
-import darkon from '../../assets/images/darkon.svg'
-import lightoff from '../../assets/images/lightoff.svg'
-import lighton from '../../assets/images/lighton.svg'
+// src/components/DarkLightSwitch.jsx
+import { Box, Grid } from '@mui/material';
+import React from 'react';
+import darkoff from '../../assets/images/darkoff.svg';
+import darkon from '../../assets/images/darkon.svg';
+import lightoff from '../../assets/images/lightoff.svg';
+import lighton from '../../assets/images/lighton.svg';
+import { useTheme } from '../../contexts/ThemeContext';
 
 function DarkLightSwitch() {
-    const [isLightMode, setIsLightMode] = useState(true);
+    const { theme, toggleTheme } = useTheme(); // Get theme and toggleTheme from context
 
-    const toggleMode = () => {
-        setIsLightMode(!isLightMode);
-    };
+    const isLightMode = theme === 'light';
 
     return (
         <Box
@@ -23,7 +23,7 @@ function DarkLightSwitch() {
                 alignItems: 'center',
                 cursor: 'pointer', // to indicate it's clickable
             }}
-            onClick={toggleMode}
+            onClick={toggleTheme} // Use toggleTheme from context
         >
             <Grid
                 container
