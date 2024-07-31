@@ -5,6 +5,10 @@ import {
   Typography,
   InputAdornment,
   IconButton,
+  Select,
+  MenuItem,
+  FormControl,
+  InputLabel,
 } from "@mui/material";
 import useStyles from "../../styles";
 import CustomTypography from "../typography/CustomTypography";
@@ -16,8 +20,17 @@ import { Stepper, Step, StepLabel, StepConnector, styled } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import PersonalInformation from "./PersonalInformation";
 import UnderReview from "./UnderReview";
-
-const steps = ["User Detail", "Personal Information"];
+import PinInputField from "../../common/PinInputField";
+import SelectField from "../../common/SelectField";
+import BusinessLicense from "./BusinessLicense";
+import PhysicalStore from "./PhysicalStore";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+const steps = [
+  "Personal Information",
+  "Business Type",
+  "Business License",
+  "Physical Stores",
+];
 
 const StyledStepConnector = styled(StepConnector)(({ theme, activeStep }) => ({
   "& .MuiStepConnector-line": {
@@ -28,6 +41,7 @@ const StyledStepConnector = styled(StepConnector)(({ theme, activeStep }) => ({
 
 const CustomStepIcon = styled("div")(({ active, completed }) => ({
   display: "flex",
+  // color: active || completed ? "white" : "#C4C4C4",
   alignItems: "center",
   justifyContent: "center",
   height: 40,
@@ -42,13 +56,7 @@ const StepIconComponent = (props) => {
 
   return (
     <CustomStepIcon active={active} completed={completed}>
-      {completed ? (
-        <CheckCircleIcon />
-      ) : (
-        <span style={{ color: active || completed ? "white" : "#C4C4C4" }}>
-          {icon}
-        </span>
-      )}
+      {completed ? <CheckCircleIcon /> : <span>{icon}</span>}
     </CustomStepIcon>
   );
 };
@@ -61,9 +69,8 @@ function SellerDetails() {
   const handleClickShowConfirmPassword = () =>
     setShowConfirmPassword(!showConfirmPassword);
   const [activeStep, setActiveStep] = useState(0);
-
+  const [title, setTitle] = useState("");
   const handleNext = () => {
-   
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
   const handleBack = () => {
@@ -71,10 +78,11 @@ function SellerDetails() {
       setActiveStep((prevActiveStep) => prevActiveStep - 1);
     }
   };
+
   return (
     <Box className={classes.formContainer}>
-     {activeStep!==2&&<><Typography variant="h5" sx={{ fontWeight: 700 }}>
-        Create Your Shop
+      <Typography variant="h5" sx={{ fontWeight: 700, mb: 1 }}>
+        Create Your Dopecy Shop
       </Typography>
       <Stepper
         alternativeLabel
@@ -86,11 +94,31 @@ function SellerDetails() {
             <StepLabel StepIconComponent={StepIconComponent}>{label}</StepLabel>
           </Step>
         ))}
-      </Stepper></> }
+      </Stepper>
+
       {activeStep === 0 ? (
         <Box>
           <CustomTypography
-            text="Username"
+            text="Title"
+            style={{
+              fontWeight: "400",
+              fontSize: 16,
+              color: "#333333",
+              textAlign: "left",
+            }}
+          />
+          <SelectField
+            label="Title"
+            value={title}
+            onChange={(event) => setTitle(event.target.value)}
+            options={[
+              { value: "Mr", label: "Mr" },
+              { value: "Mrs", label: "Mrs" },
+              { value: "Ms", label: "Ms" },
+            ]}
+          />
+          <CustomTypography
+            text="Name"
             style={{
               fontWeight: "400",
               fontSize: 16,
@@ -102,7 +130,22 @@ function SellerDetails() {
             variant="outlined"
             fullWidth
             InputLabelProps={{ shrink: true }}
-            placeholder="Username"
+            placeholder="Name"
+          />
+          <CustomTypography
+            text="Last Name"
+            style={{
+              fontWeight: "400",
+              fontSize: 16,
+              color: "#333333",
+              textAlign: "left",
+            }}
+          />
+          <TextInputField
+            variant="outlined"
+            fullWidth
+            InputLabelProps={{ shrink: true }}
+            placeholder="Last Name"
           />
           <CustomTypography
             text="Email"
@@ -134,13 +177,71 @@ function SellerDetails() {
             onChange={(phone) => setPhone(phone)}
           />
           <CustomTypography
+            text="For easy , fast Access & second Verification Create 6 digits unique passcode"
+            style={{
+              fontWeight: "400",
+              fontSize: 14,
+              color: "#333333",
+              textAlign: "left",
+            }}
+          />
+          <PinInputField />
+          <CustomTypography
+            text="Company / Business name (If Applicable)"
+            style={{
+              fontWeight: "400",
+              fontSize: 15,
+              color: "#333333",
+              textAlign: "left",
+            }}
+          />
+          <TextInputField
+            variant="outlined"
+            fullWidth
+            InputLabelProps={{ shrink: true }}
+            placeholder="Company / Business name"
+            sx={{ mt: 1 }}
+          />
+          <CustomTypography
+            text="Physical Address"
+            style={{
+              fontWeight: "400",
+              fontSize: 15,
+              color: "#333333",
+              textAlign: "left",
+            }}
+          />
+          <TextInputField
+            variant="outlined"
+            fullWidth
+            InputLabelProps={{ shrink: true }}
+            placeholder="Physical Address"
+            sx={{ mt: 1 }}
+          />
+          <CustomTypography
+            text="zip Code"
+            style={{
+              fontWeight: "400",
+              fontSize: 15,
+              color: "#333333",
+              textAlign: "left",
+            }}
+          />
+          <TextInputField
+            variant="outlined"
+            fullWidth
+            InputLabelProps={{ shrink: true }}
+            placeholder="zip Code"
+            sx={{ mt: 1 }}
+          />
+          <CustomTypography
             text="Password"
             style={{
               fontWeight: "400",
               fontSize: 16,
               color: "#333333",
               textAlign: "left",
-              mt: 2,
+              mt: 1,
             }}
           />
           <TextInputField
@@ -187,10 +288,15 @@ function SellerDetails() {
         </Box>
       ) : activeStep === 1 ? (
         <PersonalInformation />
+      ) : activeStep === 2 ? (
+        <BusinessLicense />
+      ) : activeStep === 3 ? (
+        <PhysicalStore />
       ) : (
-        <UnderReview/>
+        <UnderReview />
       )}
-      {activeStep !== 2 && <Box sx={{ display: "flex", flexDirection: "row", pt: 2  }}>
+
+      <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
         <Button
           variant="contained"
           color="primary"
@@ -198,7 +304,7 @@ function SellerDetails() {
           onClick={handleBack}
           sx={{ mr: 1 }}
         >
-          Back
+          <ArrowBackIcon />
         </Button>
         <Box sx={{ flex: "1 1 auto" }} />
         <Button
@@ -207,11 +313,10 @@ function SellerDetails() {
           fullWidth
           onClick={handleNext}
           className={classes?.nextButton}
-          disabled={activeStep === 2}
         >
-          {activeStep ===  0 ?"Next": "Submit" }
+          {activeStep === steps.length - 1 ? "Submit" : "Next"}
         </Button>
-      </Box>}
+      </Box>
     </Box>
   );
 }

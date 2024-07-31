@@ -38,10 +38,10 @@ function SellerSignup() {
         <Container component="main" maxWidth="lg">
           <Grid container className={classes.mainContainer}>
             <Grid item xs={12} md={6} className={classes.welcomeTextContainer}>
-              <Box className={classes.welcomeText} sx={{ zIndex: 1 }}>
+              <Box className={classes.welcomeText} sx={{ zIndex: 1,mt:20 }}>
                 <CustomTypography
                   variant="h4"
-                  text=" Welcome to Dopecy,"
+                  text="Welcome to DOPECY Sellers Platform,"
                   style={{
                     fontWeight: "400",
                     fontSize: 26,
