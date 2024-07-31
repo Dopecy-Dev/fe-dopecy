@@ -108,7 +108,7 @@ const PhysicalStore = () => {
             }}
           />
           <Grid container spacing={2} alignItems="center">
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={10} sm={6}>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker
                   label="Date of Operation"
@@ -147,7 +147,7 @@ const PhysicalStore = () => {
             }}
           />
           <Grid container spacing={2} alignItems="center">
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={10} sm={6}>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <TimePicker
                   label="Time of Operation"
