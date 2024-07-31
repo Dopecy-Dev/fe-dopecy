@@ -7,7 +7,7 @@ import DropDownMenu from '../../components/dropdownmenu/DropDownMenu';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
-import SearchIcon from '../../assets/images/searchIcon.svg';
+import SearchIcon from '../../assets/images/SearchIcon.svg';
 import SearchIconRight from '../../assets/images/SearchIconRight.svg';
 
 const CustomAppBar = styled(AppBar)(({ theme }) => ({
