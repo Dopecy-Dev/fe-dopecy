@@ -1,0 +1,23 @@
+@keyframes scrollLeftToRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.scroll-container {
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+}
+
+.scroll-text {
+  display: inline-block;
+  animation: scrollLeftToRight 40s linear infinite;
+}
+
+.scroll-container:hover .scroll-text {
+  animation-play-state: paused;
+}

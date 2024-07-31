@@ -4,6 +4,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import AccordionUsage from './AccordionUsage';
+import { useTheme, useMediaQuery } from '@mui/material';
 
 function CustomTabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -36,6 +37,8 @@ function a11yProps(index) {
 
 export default function BasicTabs() {
     const [value, setValue] = React.useState(0);
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -43,7 +46,13 @@ export default function BasicTabs() {
 
     return (
         <Box sx={{ width: '100%' }}>
-            <Box sx={{ bgcolor: 'text.graytextB3', borderRadius: '1.5625rem', p: '0.3125rem' }}>
+            <Box
+                sx={{
+                    bgcolor: 'text.graytextB3',
+                    borderRadius: '1.5625rem',
+                    p: '0.3125rem',
+                }}
+            >
                 <Tabs
                     value={value}
                     onChange={handleChange}
@@ -53,35 +62,22 @@ export default function BasicTabs() {
                     <Tab
                         sx={{
                             fontWeight: '600',
-                            fontSize: '1rem', // 16px to rem
-                            lineHeight: '1.75rem', // 28px to rem
+                            fontSize: isMobile ? '0.875rem' : '1rem', // 14px to rem or 16px to rem
+                            lineHeight: isMobile ? '1.5rem' : '1.75rem', // 24px to rem or 28px to rem
                             textTransform: 'none',
-                            borderRadius: '1.5625rem', // 25px to rem
-                            padding: '0 4rem', // 64px to rem
-                            bgcolor: value === 0 ? 'text.white' : 'transparent', // Change bg color for active tab
-                            color: value === 0 ? 'primary.main' : 'text.grey', // Change text color for active tab
-                            marginRight: '2rem', // 4px to rem
-                            '@media (max-width: 600px)': {
-                                padding: '0 2rem', // 32px to rem
-                                marginRight: '1rem', // 16px to rem
-                            },
-                            '@media (max-width: 400px)': {
-                                padding: '0 1rem', // 16px to rem
-                                marginRight: '0.5rem', // 8px to rem
-                            },
-                            '&:focused': {
-                                border: 'none'
-                                // bgcolor: value === 0 ? 'primary.dark' : 'text.grey',
+                            borderRadius: '1.5625rem',
+                            padding: isMobile ? '0 1rem' : '0 4rem', // 16px to rem or 64px to rem
+                            bgcolor: value === 0 ? 'text.white' : 'transparent',
+                            color: value === 0 ? 'primary.main' : 'text.grey',
+                            marginRight: isMobile ? '0.5rem' : '2rem', // 8px to rem or 32px to rem
+                            '&:focus': {
+                                border: 'none',
+                                outline: 'none',
                             },
                             '&.Mui-selected': {
-                                border: 'none', // Remove border when selected
-                                bgcolor: value === 0 ? 'text.white' : 'transparent', // Background color for selected tab
-                                outline: 'none', // Remove default outline on focus
-                                color: value === 0 ? 'primary.main' : 'text.grey', // Text color for selected tab
-                            },
-                            '&:focus': {
-                                border: 'none', // Remove border on focus
-                                outline: 'none', // Remove default outline on focus
+                                border: 'none',
+                                bgcolor: value === 0 ? 'text.white' : 'transparent',
+                                color: value === 0 ? 'primary.main' : 'text.grey',
                             },
                         }}
                         label="Details"
@@ -90,35 +86,22 @@ export default function BasicTabs() {
                     <Tab
                         sx={{
                             fontWeight: '600',
-                            fontSize: '1rem', // 16px to rem
-                            lineHeight: '1.75rem', // 28px to rem
+                            fontSize: isMobile ? '0.875rem' : '1rem', // 14px to rem or 16px to rem
+                            lineHeight: isMobile ? '1.5rem' : '1.75rem', // 24px to rem or 28px to rem
                             textTransform: 'none',
-                            borderRadius: '1.5625rem', // 25px to rem
-                            padding: '0 2rem', // 32px to rem
-                            bgcolor: value === 1 ? 'text.white' : 'transparent', // Change bg color for active tab
-                            color: value === 1 ? 'primary.main' : 'text.grey', // Change text color for active tab
-                            marginRight: '2rem', // 4px to rem
-                            '@media (max-width: 600px)': {
-                                padding: '0 1.5rem', // 24px to rem
-                                marginRight: '1rem', // 16px to rem
-                            },
-                            '@media (max-width: 400px)': {
-                                padding: '0 1rem', // 16px to rem
-                                marginRight: '0.5rem', // 8px to rem
-                            },
-                            '&:focused': {
-                                border: 'none'
-                                // bgcolor: value === 0 ? 'primary.dark' : 'text.grey',
+                            borderRadius: '1.5625rem',
+                            padding: isMobile ? '0 1rem' : '0 2rem', // 16px to rem or 32px to rem
+                            bgcolor: value === 1 ? 'text.white' : 'transparent',
+                            color: value === 1 ? 'primary.main' : 'text.grey',
+                            marginRight: isMobile ? '0.5rem' : '2rem', // 8px to rem or 32px to rem
+                            '&:focus': {
+                                border: 'none',
+                                outline: 'none',
                             },
                             '&.Mui-selected': {
-                                border: 'none', // Remove border when selected
-                                bgcolor: value === 1 ? 'text.white' : 'transparent', // Background color for selected tab
-                                outline: 'none', // Remove default outline on focus
-                                color: value === 1 ? 'primary.main' : 'text.grey', // Text color for selected tab
-                            },
-                            '&:focus': {
-                                border: 'none', // Remove border on focus
-                                outline: 'none', // Remove default outline on focus
+                                border: 'none',
+                                bgcolor: value === 1 ? 'text.white' : 'transparent',
+                                color: value === 1 ? 'primary.main' : 'text.grey',
                             },
                         }}
                         label="Packaging"
@@ -127,35 +110,21 @@ export default function BasicTabs() {
                     <Tab
                         sx={{
                             fontWeight: '600',
-                            fontSize: '1rem', // 16px to rem
-                            lineHeight: '1.75rem', // 28px to rem
+                            fontSize: isMobile ? '0.875rem' : '1rem', // 14px to rem or 16px to rem
+                            lineHeight: isMobile ? '1.5rem' : '1.75rem', // 24px to rem or 28px to rem
                             textTransform: 'none',
-                            borderRadius: '1.5625rem', // 25px to rem
-                            padding: '0 4rem', // 64px to rem
-                            bgcolor: value === 2 ? 'text.white' : 'transparent', // Change bg color for active tab
-                            color: value === 2 ? 'primary.main' : 'text.grey', // Change text color for active tab
-                            // marginRight: '0.125rem', // 2px to rem
-                            '@media (max-width: 600px)': {
-                                padding: '0 2rem', // 32px to rem
-                                marginRight: '1rem', // 16px to rem
-                            },
-                            '@media (max-width: 400px)': {
-                                padding: '0 1rem', // 16px to rem
-                                marginRight: '0.5rem', // 8px to rem
-                            },
-                            '&:focused': {
-                                border: 'none'
-                                // bgcolor: value === 0 ? 'primary.dark' : 'text.grey',
+                            borderRadius: '1.5625rem',
+                            padding: isMobile ? '0 1rem' : '0 4rem', // 16px to rem or 64px to rem
+                            bgcolor: value === 2 ? 'text.white' : 'transparent',
+                            color: value === 2 ? 'primary.main' : 'text.grey',
+                            '&:focus': {
+                                border: 'none',
+                                outline: 'none',
                             },
                             '&.Mui-selected': {
-                                border: 'none', // Remove border when selected
-                                bgcolor: value === 2 ? 'text.white' : 'transparent', // Background color for selected tab
-                                outline: 'none', // Remove default outline on focus
-                                color: value === 2 ? 'primary.main' : 'text.grey', // Text color for selected tab
-                            },
-                            '&:focus': {
-                                border: 'none', // Remove border on focus
-                                outline: 'none', // Remove default outline on focus
+                                border: 'none',
+                                bgcolor: value === 2 ? 'text.white' : 'transparent',
+                                color: value === 2 ? 'primary.main' : 'text.grey',
                             },
                         }}
                         label="Shipping details"

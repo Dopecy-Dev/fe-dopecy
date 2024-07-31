@@ -12,7 +12,7 @@ import P7Image from '../../../assets/images/P7Image.svg';
 import P8Image from '../../../assets/images/P8Image.svg';
 import P9Image from '../../../assets/images/P9Image.svg';
 import ArrowRight from '../../../assets/images/ArrowRight.svg';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function ProductsSection() {
     const [clickedItem, setClickedItem] = useState('All Products');
@@ -33,6 +33,21 @@ function ProductsSection() {
             price: '19.99',
             image: P2Image,
             type: 'Smart Phone'
+        },
+        {
+            title: 'Amazon Basics Amazon Basics High-Speed HDMI Cable (18 Gbps, 4K/6...',
+            rating: 4.7,
+            totalrating: 236,
+            price: '99.99',
+            image: P3Image,
+            bestdeals: true
+        },
+        {
+            title: 'Portable Wshing Machine, 11lbs capacity Model',
+            rating: 4.3,
+            totalrating: 236,
+            price: '49.99',
+            image: P4Image,
         },
         {
             title: 'Amazon Basics Amazon Basics High-Speed HDMI Cable (18 Gbps, 4K/6...',
@@ -102,14 +117,14 @@ function ProductsSection() {
     };
 
     const getStyle = (item) => ({
-        fontSize: '0.875rem', // 14px to rem
-        lineHeight: '1.25rem', // 20px to rem
+        fontSize: '0.875rem',
+        lineHeight: '1.25rem',
         fontWeight: item === clickedItem ? '600' : '400',
         textAlign: 'left',
-        color: item === clickedItem || item === 'Browse All Product' ? 'primary.main' : 'text.darkgray', // Change color on click
-        borderBottom: item === clickedItem ? '0.125rem solid' : 'none', // 2px to rem
-        cursor: 'pointer', // Change cursor to pointer to indicate it's clickable
-        paddingBottom: '0.25rem', // 4px to rem
+        color: item === clickedItem || item === 'Browse All Product' ? 'primary.main' : 'text.darkgray',
+        borderBottom: item === clickedItem ? '0.125rem solid' : 'none',
+        cursor: 'pointer',
+        paddingBottom: '0.25rem',
     });
 
     const navigate = useNavigate();
@@ -123,43 +138,43 @@ function ProductsSection() {
 
     return (
         <>
-            <Grid container sx={{ justifyContent: 'space-between', alignItems: 'center', mb: 4 }}> {/* 40px to rem */}
-                <Grid item>
-                    <Box sx={{ display: 'flex' }}>
+            <Grid container spacing={2} sx={{ mb: 4, alignItems: 'center' }}>
+                <Grid item xs={12} md={6}>
+                    <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: { xs: 'center', md: 'flex-start' } }}>
                         <CustomTypography
                             text='Shop From'
                             style={{
-                                fontSize: '1.5rem', // 24px to rem
-                                lineHeight: '1.875rem', // 30px to rem
+                                fontSize: '1.25rem', // Adjusted for better responsiveness
+                                lineHeight: '1.5rem',
                                 fontWeight: '400',
-                                textAlign: 'left',
                                 color: 'text.darkgray',
-                                mr: 1,
+                                textAlign: { xs: 'center', md: 'left' },
+                                mb: 1,
                             }}
                         />
                         <CustomTypography
                             text='All Products'
                             style={{
-                                fontSize: '1.5rem', // 24px to rem
-                                lineHeight: '1.875rem', // 30px to rem
+                                fontSize: '1.25rem',
+                                lineHeight: '1.5rem',
                                 fontWeight: '700',
-                                textAlign: 'left',
-                                color: 'primary.main'
+                                color: 'primary.main',
+                                textAlign: { xs: 'center', md: 'left' },
                             }}
                         />
                     </Box>
                 </Grid>
-                <Grid item>
-                    <Grid container spacing={2}> {/* 8px to rem */}
+                <Grid item xs={12} md={6}>
+                    <Grid container spacing={1} justifyContent={{ xs: 'center', md: 'flex-end' }}>
                         {items.map((item) => (
                             <Grid item key={item} onClick={() => handleClick(item)}>
                                 {item === 'Browse All Product' ?
-                                    <Box sx={{ display: 'flex' }}>
+                                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
                                         <CustomTypography
                                             text={item}
                                             style={getStyle(item)}
                                         />
-                                        <Box sx={{ ml: '0.0625rem' }} component={'img'} src={ArrowRight} alt='ArrowRight' />
+                                        <Box sx={{ ml: '0.5rem' }} component={'img'} src={ArrowRight} alt='ArrowRight' />
                                     </Box> :
                                     <Box sx={getStyle(item)}>
                                         <CustomTypography
@@ -174,20 +189,16 @@ function ProductsSection() {
                 </Grid>
             </Grid>
 
-            <Grid container spacing={2}> {/* 8px to rem */}
+            <Grid container spacing={2}>
                 {products.map((product, index) => (
-                    <Grid item key={index}>
-                        <Box
-                            sx={{
-                                cursor: 'pointer',
-                            }}
-                            onClick={() => handleProductClick(product)}
-                        >
+                    <Grid item xs={12} sm={6} md={4} lg={2} key={index}>
+                        <Link to='/productdetails'>
                             <ProductCard product={product} />
-                        </Box>
+                        </Link>
                     </Grid>
                 ))}
             </Grid>
+
         </>
     );
 }

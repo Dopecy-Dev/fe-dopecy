@@ -14,28 +14,6 @@ import P8Image from '../../assets/images/P8Image.svg';
 import P9Image from '../../assets/images/P9Image.svg';
 import ProductCard from '../ProductCard/ProductCard';
 
-// const testimonials = [
-//     {
-//         text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-//         name: 'Robert Fox',
-//         role: 'Customer',
-//         rating: 4,
-//         userImage: testimonialuserimage,
-//     }, {
-//         text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-//         name: 'Dianne Russell',
-//         role: 'Customer',
-//         rating: 5,
-//         userImage: testimonialuserimage1,
-//     }, {
-//         text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-//         name: 'Eleanor Pena',
-//         role: 'Customer',
-//         rating: 3,
-//         userImage: testimonialuserimage2,
-//     },
-// ];
-
 function RelatedProductsSection() {
     const [products, setProducts] = useState([
         {
@@ -64,14 +42,14 @@ function RelatedProductsSection() {
             bestdeals: true
         },
         {
-            title: 'Portable Wshing Machine, 11lbs capacity Model',
+            title: 'Portable Washing Machine, 11lbs capacity Model',
             rating: 4.3,
             totalrating: 236,
             price: '49.99',
             image: P4Image,
         },
         {
-            title: 'Portable Wshing Machine, 11lbs capacity Model',
+            title: 'Portable Washing Machine, 11lbs capacity Model',
             rating: 4.6,
             totalrating: 216,
             price: '199.99',
@@ -118,10 +96,14 @@ function RelatedProductsSection() {
         },
     ]);
 
+    const handleProductClick = (product) => {
+        console.log('Product clicked:', product);
+    };
+
     return (
         <>
             <Grid container sx={{ mb: '2.5rem' }}> {/* 40px to rem */}
-                <Grid item>
+                <Grid item xs={12}>
                     <CustomTypography
                         text='Related Products'
                         style={{
@@ -137,7 +119,7 @@ function RelatedProductsSection() {
 
             <Grid container spacing={2}>
                 {products.map((product, index) => (
-                    <Grid item key={index}>
+                    <Grid item key={index} xs={12} sm={6} md={4} lg={2}>
                         <Box
                             sx={{
                                 cursor: 'pointer',

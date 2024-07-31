@@ -42,7 +42,7 @@ function SmallProductsSection() {
     return (
         <>
             <Grid container spacing={2}> {/* 24px to rem */}
-                <Grid item>
+                <Grid item xs={12} sm={6} md={4} lg={3}>
                     <CustomTypography
                         text='Flash Sale Today'
                         style={{
@@ -55,7 +55,7 @@ function SmallProductsSection() {
                         }}
                     />
 
-                    <Grid container spacing={1} sx={{ flexDirection: 'column' }}> {/* 16px to rem */}
+                    <Grid container spacing={2} sx={{ flexDirection: 'column' }}> {/* 16px to rem */}
                         {products.map((product, index) => (
                             <Grid item key={index}>
                                 <Box
@@ -71,7 +71,7 @@ function SmallProductsSection() {
                     </Grid>
                 </Grid>
 
-                <Grid item>
+                <Grid item xs={12} sm={6} md={4} lg={3}>
                     <CustomTypography
                         text='Best Sellers'
                         style={{
@@ -84,7 +84,7 @@ function SmallProductsSection() {
                         }}
                     />
 
-                    <Grid container spacing={1} sx={{ flexDirection: 'column' }}> {/* 16px to rem */}
+                    <Grid container spacing={2} sx={{ flexDirection: 'column' }}> {/* 16px to rem */}
                         {products.map((product, index) => (
                             <Grid item key={index}>
                                 <Box
@@ -100,7 +100,7 @@ function SmallProductsSection() {
                     </Grid>
                 </Grid>
 
-                <Grid item>
+                <Grid item xs={12} sm={6} md={4} lg={3}>
                     <CustomTypography
                         text='Top Rated'
                         style={{
@@ -113,7 +113,7 @@ function SmallProductsSection() {
                         }}
                     />
 
-                    <Grid container spacing={1} sx={{ flexDirection: 'column' }}> {/* 16px to rem */}
+                    <Grid container spacing={2} sx={{ flexDirection: 'column' }}> {/* 16px to rem */}
                         {products.map((product, index) => (
                             <Grid item key={index}>
                                 <Box
@@ -129,7 +129,7 @@ function SmallProductsSection() {
                     </Grid>
                 </Grid>
 
-                <Grid item>
+                <Grid item xs={12} sm={6} md={4} lg={3}>
                     <CustomTypography
                         text='New Arrival'
                         style={{
@@ -142,7 +142,7 @@ function SmallProductsSection() {
                         }}
                     />
 
-                    <Grid container spacing={1} sx={{ flexDirection: 'column' }}> {/* 16px to rem */}
+                    <Grid container spacing={2} sx={{ flexDirection: 'column' }}> {/* 16px to rem */}
                         {products.map((product, index) => (
                             <Grid item key={index}>
                                 <Box

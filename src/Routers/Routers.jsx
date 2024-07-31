@@ -27,6 +27,7 @@ import VerifyCode from '../pages/auth/VerifyCode';
 // import ProgressPathScreen from '../pages/user/ProgressPathScreen/index'
 import LandingPage from '../pages/landingpage/LandingPage';
 import ProductDetails from '../pages/productdetails/ProductDetails';
+import ShopDetails from '../pages/shopdetails/ShopDetails';
 
 //seller
 // import TermsAndConditions from '../pages/seller/TermsAndConditions/index'
@@ -56,6 +57,7 @@ const Routers = () => {
                 <Route path="/" element={<Navigate replace to="/landingpage" />} />
                 <Route path="/landingpage" element={<LandingPage />} />
                 <Route path="/productdetails" element={<ProductDetails />} />
+                <Route path="/shopdetails" element={<ShopDetails />} />
                 {/* <Route path="/marketplace" element={<Protected Component={MarketPlace} />} /> */}
                 {/* <Route path="/sellerstore" element={<Protected Component={SellerStore} />} /> */}
                 {/* <Route path="/ownprofile" element={<Protected Component={OwnProfile} />} /> */}

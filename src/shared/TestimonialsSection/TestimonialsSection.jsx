@@ -35,21 +35,21 @@ const testimonials = [
 function TestimonialsSection() {
     return (
         <>
-            <Grid container sx={{ justifyContent: 'space-between', alignItems: 'center', mb: '2rem' }}> {/* 32px converted to rem */}
-                <Grid item>
+            <Grid container sx={{ justifyContent: 'space-between', alignItems: 'center', mb: { xs: '1rem', md: '2rem' } }}>
+                <Grid item xs={12} md="auto">
                     <CustomTypography
                         text='Client Testimonials'
                         style={{
-                            fontSize: '1.5rem', // 24px converted to rem
-                            lineHeight: '1.875rem', // 30px converted to rem
+                            fontSize: '1.25rem', // 20px converted to rem
+                            lineHeight: '1.5rem', // 24px converted to rem
                             fontWeight: '700',
-                            textAlign: 'left',
+                            textAlign: { xs: 'center', md: 'left' },
                             color: 'primary.main',
                         }}
                     />
                 </Grid>
-                <Grid item>
-                    <Box sx={{ display: 'flex' }}>
+                <Grid item xs={12} md="auto" sx={{ mt: { xs: '1rem', md: '0' }, textAlign: { xs: 'center', md: 'right' } }}>
+                    <Box sx={{ display: 'flex', justifyContent: { xs: 'center', md: 'flex-end' } }}>
                         <Box sx={{
                             display: 'flex',
                             justifyContent: 'center',
@@ -83,7 +83,7 @@ function TestimonialsSection() {
 
             <Grid container spacing={2}>
                 {testimonials.map((testimonial, index) => (
-                    <Grid item key={index}>
+                    <Grid item key={index} xs={12} md={6} lg={4}>
                         <TestimonialCard testimonial={testimonial} />
                     </Grid>
                 ))}

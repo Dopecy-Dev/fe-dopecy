@@ -6,6 +6,7 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import shopimage from '../../../assets/images/shopimage.svg';
 import ShopCoverImage from '../../../assets/images/ShopCoverImage.svg';
+import dispensaryImage from '../../../assets/images/dispensary.svg'
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -21,6 +22,7 @@ import 'swiper/css/free-mode';
 // import required modules
 import { FreeMode, Autoplay, EffectCoverflow, Pagination, Navigation, Mousewheel, Keyboard } from 'swiper/modules';
 import { Link } from 'react-router-dom';
+import DispensaryCard from '../../../shared/DispensaryCard/DispensaryCard';
 
 const responsive = {
     desktop: {
@@ -40,7 +42,7 @@ const responsive = {
     },
 };
 
-function ShopsSection() {
+function DispensariesSection() {
     const swiperRef = useRef(null);
 
     useEffect(() => {
@@ -58,114 +60,176 @@ function ShopsSection() {
         };
     }, []);
 
-    const [shops, setShops] = useState([
+    const [dispensaries, setDispensaries] = useState([
         {
-            title: 'Whimsical Wonder shop',
-            location: 'USA',
+            title: 'Herbal Haven Dispensary',
+            location: '123 Main Street, New York, USA',
             rating: 4.5,
             openinghours: '--:--',
             totalrating: 786,
             price: '299.99',
-            image: shopimage,
+            image: dispensaryImage,
             cover: ShopCoverImage,
             hot: true,
             type: 'Smart Phone'
         },
         {
-            title: 'Whimsical Wonder shop',
-            location: 'USA',
+            title: 'Herbal Haven Dispensary',
+            location: '123 Main Street, New York, USA',
             rating: 4.0,
             openinghours: '--:--',
             totalrating: 746,
             price: '19.99',
-            image: shopimage,
+            image: dispensaryImage,
             cover: ShopCoverImage,
             type: 'Smart Phone'
         },
         {
-            title: 'Whimsical Wonder shop',
-            location: 'UK',
+            title: 'Herbal Haven Dispensary',
+            location: '123 Main Street, New York, USA',
             rating: 4.7,
             totalrating: 236,
             openinghours: '--:--',
             price: '99.99',
-            image: shopimage,
+            image: dispensaryImage,
             cover: ShopCoverImage,
             bestdeals: true
         },
         {
-            title: 'Portable Washing Machine, 11lbs capacity Model',
-            location: 'USA',
+            title: 'Greenleaf',
+            location: '123 Main Street, New York, USA',
             rating: 4.3,
             openinghours: '--:--',
             totalrating: 236,
             price: '49.99',
-            image: shopimage,
+            image: dispensaryImage,
             cover: ShopCoverImage,
         },
         {
-            title: 'Portable Washing Machine, 11lbs capacity Model',
-            location: 'UK',
+            title: 'Emporium',
+            location: '123 Main Street, New York, USA',
             rating: 4.6,
             totalrating: 216,
             openinghours: '--:--',
             price: '199.99',
-            image: shopimage,
+            image: dispensaryImage,
             cover: ShopCoverImage,
             type: 'Headphone'
         },
         {
-            title: 'TOZO T6 True Wireless Earbuds Bluetooth',
+            title: 'Greenleaf Emporium',
             openinghours: '--:--',
-            location: 'USA',
+            location: '123 Main Street, New York, USA',
             rating: 4.2,
             totalrating: 726,
             price: '9.99',
-            image: shopimage,
+            image: dispensaryImage,
             cover: ShopCoverImage,
             hot: true
         },
         {
             title: 'Cannabis-derived products like delta-8',
             openinghours: '--:--',
-            location: 'UK',
+            location: '123 Main Street, New York, USA',
             rating: 3,
             totalrating: 226,
             price: '29.99',
             cover: ShopCoverImage,
-            image: shopimage,
+            image: dispensaryImage,
             type: 'cannabis'
         },
         {
             title: 'Fast food kids meals chock full of salt',
-            location: 'USA',
+            location: '123 Main Street, New York, USA',
             openinghours: '--:--',
             rating: 4.4,
             totalrating: 111,
             price: '29.99',
             cover: ShopCoverImage,
-            image: shopimage,
+            image: dispensaryImage,
             bestdeals: true
         },
         {
             title: 'Cannabis-derived products like delta-8',
             openinghours: '--:--',
-            location: 'USA',
+            location: '123 Main Street, New York, USA',
             rating: 1,
             totalrating: 726,
             price: '29.99',
-            image: shopimage,
+            image: dispensaryImage,
             cover: ShopCoverImage,
         },
         {
             title: 'Cannabis-derived products like delta-8',
-            location: 'USA',
+            location: '123 Main Street, New York, USA',
             openinghours: '--:--',
             rating: 5,
             totalrating: 786,
             price: '29.99',
             cover: ShopCoverImage,
-            image: shopimage,
+            image: dispensaryImage,
+        },
+        {
+            title: 'Fast food kids meals chock full of salt',
+            location: '123 Main Street, New York, USA',
+            openinghours: '--:--',
+            rating: 4.4,
+            totalrating: 111,
+            price: '29.99',
+            cover: ShopCoverImage,
+            image: dispensaryImage,
+            bestdeals: true
+        },
+        {
+            title: 'Cannabis-derived products like delta-8',
+            openinghours: '--:--',
+            location: '123 Main Street, New York, USA',
+            rating: 1,
+            totalrating: 726,
+            price: '29.99',
+            image: dispensaryImage,
+            cover: ShopCoverImage,
+        },
+        {
+            title: 'Cannabis-derived products like delta-8',
+            location: '123 Main Street, New York, USA',
+            openinghours: '--:--',
+            rating: 5,
+            totalrating: 786,
+            price: '29.99',
+            cover: ShopCoverImage,
+            image: dispensaryImage,
+        },
+        {
+            title: 'Fast food kids meals chock full of salt',
+            location: '123 Main Street, New York, USA',
+            openinghours: '--:--',
+            rating: 4.4,
+            totalrating: 111,
+            price: '29.99',
+            cover: ShopCoverImage,
+            image: dispensaryImage,
+            bestdeals: true
+        },
+        {
+            title: 'Cannabis-derived products like delta-8',
+            openinghours: '--:--',
+            location: '123 Main Street, New York, USA',
+            rating: 1,
+            totalrating: 726,
+            price: '29.99',
+            image: dispensaryImage,
+            cover: ShopCoverImage,
+        },
+        {
+            title: 'Cannabis-derived products like delta-8',
+            location: '123 Main Street, New York, USA',
+            openinghours: '--:--',
+            rating: 5,
+            totalrating: 786,
+            price: '29.99',
+            cover: ShopCoverImage,
+            image: dispensaryImage,
         },
     ]);
 
@@ -179,7 +243,7 @@ function ShopsSection() {
                 <Grid item>
                     <Box sx={{ display: 'flex', ml: '2rem' }}> {/* 32px to rem */}
                         <CustomTypography
-                            text='All Shops'
+                            text='All Dispensaries'
                             style={{
                                 fontSize: '1.5rem', // 24px to rem
                                 lineHeight: '1.875rem', // 30px to rem
@@ -198,7 +262,7 @@ function ShopsSection() {
                 freeMode={true}
                 grabCursor={true}
                 centeredSlides={true}
-                slidesPerView={4}
+                slidesPerView={6}
                 loop={true}
                 mousewheel={true}
                 keyboard={true}
@@ -208,73 +272,44 @@ function ShopsSection() {
                 }}
                 speed={1500}
                 coverflowEffect={{
-                    rotate: 0,
-                    stretch: 0,
+                    rotate: 10,
+                    stretch: 50,
                     depth: 100,
-                    modifier: 3,
+                    modifier: 1,
                     slideShadows: true,
                 }}
-
 
                 breakpoints={{
                     // When window width is >= 320px
                     320: {
-                        slidesPerView: 1,
+                        slidesPerView: 3,
                     },
                     // When window width is >= 768px
                     768: {
-                        slidesPerView: 3,
+                        slidesPerView: 5,
                     },
                     // When window width is >= 1200px
                     1200: {
-                        slidesPerView: 4,
+                        slidesPerView: 7,
                     },
                 }}
                 // pagination={true}
                 modules={[FreeMode, Autoplay, EffectCoverflow, Pagination, Navigation, Mousewheel, Keyboard]}
             >
                 <Grid container>
-                    {shops.map((shop, index) => (
+                    {dispensaries.map((dispensary, index) => (
                         <SwiperSlide key={index}>
                             <Grid item xs={4}>
-                                <Link to='/shopdetails'>
-                                    <ShopCard shop={shop} />
+                                <Link to='/'>
+                                    <DispensaryCard dispensary={dispensary}></DispensaryCard>
                                 </Link>
                             </Grid>
                         </SwiperSlide>
                     ))}
                 </Grid>
             </Swiper>
-
-            {/* <Carousel
-                swipeable={true}
-                draggable={true}
-                showDots={false}
-                responsive={responsive}
-                ssr={true} // means to render carousel on server-side.
-                infinite={true}
-                autoPlay={true}
-                autoPlaySpeed={3000} // Adjust the speed as needed
-                keyBoardControl={true}
-                customTransition="transform 2000ms ease-in-out"
-                transitionDuration={1000} // Adjust the duration as needed
-                containerClass="carousel-container"
-                removeArrowOnDeviceType={["tablet", "mobile", "desktop"]}
-                dotListClass="custom-dot-list-style"
-                itemClass="carousel-item-padding-40-px"
-            >
-                {shops.map((shop, index) => (
-                    <Box
-                        key={index}
-                        sx={{ cursor: 'pointer' }}
-                        onClick={() => handleShopClick(shop)}
-                    >
-                        <ShopCard shop={shop} />
-                    </Box>
-                ))}
-            </Carousel> */}
         </>
     );
 }
 
-export default ShopsSection;
+export default DispensariesSection;

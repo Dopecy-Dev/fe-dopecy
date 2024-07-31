@@ -45,19 +45,19 @@ function ProductDetails() {
             <Header />
             <Box
                 sx={{
-                    px: isMobile ? '1.25rem' : '5rem', // 20px to rem and 80px to rem
-                    py: '2.5rem', // 40px to rem
+                    px: isMobile ? '1.25rem' : '4rem', // 20px to rem and 80px to rem
+                    py: isMobile ? '1.25rem' : '2.5rem', // 40px to rem
                 }}
             >
-                <Box sx={{ pb: '2.5rem' }}> {/* 40px to rem */}
+                <Box sx={{ pb: isMobile ? '1.25rem' : '2.5rem' }}> {/* 40px to rem */}
                     <Breadcrumbs />
                 </Box>
-                <Grid container spacing={isMobile ? '1.25rem' : '5rem'}> {/* 20px to rem and 80px to rem */}
-                    <Grid item xs={12} sm={5}>
+                <Grid container spacing={isMobile ? '1.25rem' : '2rem'}> {/* 20px to rem and 80px to rem */}
+                    <Grid item xs={12} md={5}>
                         <ProductImagesSlider />
                     </Grid>
-                    <Grid item xs={12} sm={7}>
-                        <Grid sx={{ pr: isMobile ? 0 : '5rem' }} container spacing='1.25rem'> {/* 20px to rem */}
+                    <Grid item xs={12} md={7}>
+                        <Grid sx={{ pr: isMobile ? 0 : '3rem' }} container spacing='1.25rem'> {/* 20px to rem */}
                             <Grid item xs={12}>
                                 <CustomTypography
                                     text='Vitamin C-100ML-Original'
@@ -142,9 +142,7 @@ function ProductDetails() {
                                     />
                                 </Box>
                             </Grid>
-                            {/* <Grid item xs={12}>
 
-                            </Grid> */}
                             <Grid item xs={12}>
                                 <Grid container spacing='1.25rem'> {/* 20px to rem */}
                                     <Grid item xs={6} sm={6} md={3}>
@@ -314,10 +312,6 @@ function ProductDetails() {
                             <Grid item xs={12}>
                                 <BasicTabs></BasicTabs>
                             </Grid>
-
-                            {/* <Grid item xs={12}>
-                                <AccordionUsage></AccordionUsage>
-                            </Grid> */}
 
                         </Grid>
                     </Grid>

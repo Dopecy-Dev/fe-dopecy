@@ -10,36 +10,62 @@ export default function CategoryCard(props) {
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                cursor: 'pointer', // Add a pointer cursor for better UX
+                cursor: 'pointer',
                 '&:hover': {
                     '& .hover-effect': {
-                        border: '0.0625rem solid', // Border color on hover (1px to rem)
+                        border: '0.0625rem solid',
                         borderColor: 'primary.main',
-                        boxShadow: '0 0.25rem 0.5rem rgba(0, 0, 0, 0.2)', // Add shadow on hover (4px to rem)
+                        boxShadow: '0 0.25rem 0.5rem rgba(0, 0, 0, 0.2)',
                         '& img': {
-                            transform: 'scale(1.1)', // Scale image on hover
+                            transform: 'scale(1.1)',
                         },
                     },
                     '& .hover-text': {
-                        color: 'primary.main', // Change text color on hover
+                        color: 'primary.main',
                     },
+                },
+                // Responsive design
+                '@media (max-width: 600px)': {
+                    width: '100%',
+                    px: '1rem', // Padding for small screens
+                },
+                '@media (min-width: 601px) and (max-width: 900px)': {
+                    width: '50%',
+                    px: '1.5rem',
+                },
+                '@media (min-width: 901px)': {
+                    width: '25%',
+                    px: '2rem',
                 },
             }}
         >
             <Box
                 className="hover-effect"
                 sx={{
-                    width: '8.25rem', // 132px to rem
-                    height: '8.25rem', // 132px to rem
+                    width: '8.25rem',
+                    height: '8.25rem',
                     bgcolor: 'text.cstmwhite',
-                    p: '0.625rem', // 10px to rem
+                    p: '0.625rem',
                     borderRadius: '50%',
-                    mb: '1.25rem', // 20px to rem
+                    mb: '1.25rem',
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    border: '0.0625rem solid transparent', // Initial transparent border (1px to rem)
-                    transition: 'all 0.3s ease-in-out', // Smooth transition for all properties
+                    border: '0.0625rem solid transparent',
+                    transition: 'all 0.3s ease-in-out',
+                    // Responsive design
+                    '@media (max-width: 600px)': {
+                        width: '6rem',
+                        height: '6rem',
+                        p: '0.5rem',
+                        mb: '1rem',
+                    },
+                    '@media (min-width: 601px) and (max-width: 900px)': {
+                        width: '7rem',
+                        height: '7rem',
+                        p: '0.5rem',
+                        mb: '1.1rem',
+                    },
                 }}
             >
                 <Box
@@ -47,7 +73,10 @@ export default function CategoryCard(props) {
                     src={props.image ? props.image : catMobile}
                     alt={props.text}
                     sx={{
-                        transition: 'transform 0.3s ease-in-out', // Smooth scaling transition
+                        transition: 'transform 0.3s ease-in-out',
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'contain',
                     }}
                 />
             </Box>
@@ -57,10 +86,20 @@ export default function CategoryCard(props) {
                     className="hover-text"
                     style={{
                         fontWeight: '300',
-                        fontSize: '1rem', // 16px to rem
-                        lineHeight: '1.25rem', // 20px to rem
+                        fontSize: '1rem',
+                        lineHeight: '1.25rem',
                         color: 'text.primary',
-                        transition: 'color 0.3s ease-in-out', // Smooth color transition
+                        transition: 'color 0.3s ease-in-out',
+                        textAlign: 'center', // Center text alignment
+                        // Responsive design
+                        '@media (max-width: 600px)': {
+                            fontSize: '0.875rem',
+                            lineHeight: '1rem',
+                        },
+                        '@media (min-width: 601px) and (max-width: 900px)': {
+                            fontSize: '0.95rem',
+                            lineHeight: '1.2rem',
+                        },
                     }}
                 />
             </Box>

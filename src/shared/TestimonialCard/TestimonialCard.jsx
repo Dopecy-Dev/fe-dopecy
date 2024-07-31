@@ -20,7 +20,7 @@ export default function TestimonialCard(props) {
     return (
         <Box
             sx={{
-                width: '25.5rem', // No conversion needed, already in rem
+                width: { xs: '100%', sm: '25.5rem' }, // 100% for xs screens, 25.5rem for sm and up
                 height: '17.1875rem', // 275px converted to rem
                 textAlign: 'left',
                 p: '1rem', // 16px converted to rem
