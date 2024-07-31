@@ -16,18 +16,6 @@ import { FileUploader } from "react-drag-drop-files";
 function PersonalInformation() {
   const [position, setPosition] = useState("");
   const [business, setBusiness] = useState("");
-  const [logo, setLogo] = useState(null);
-  const [hasBusinessLicense, setHasBusinessLicense] = useState("");
-  const [hasPhysicalStore, setHasPhysicalStore] = useState("");
-  const handleLogoChange = (file) => {
-    setLogo(file);
-  };
-  const handleBusinessLicenseChange = (event) => {
-    setHasBusinessLicense(event.target.value);
-  };
-  const handlePhysicalStoreChange = (event) => {
-    setHasPhysicalStore(event.target.value);
-  };
 
   return (
     <Box>
@@ -93,17 +81,8 @@ function PersonalInformation() {
           textAlign: "left",
         }}
       />
-      <Typography
-        variant="body2"
-        sx={{
-          backgroundColor: "#FFFFFF",
-          textAlign: "center",
-        }}
-      >
-        If you don't have one, no worries. Dopecy will create the best logo for
-        your business.
-      </Typography>
-      <FileUploader
+     
+      {/* <FileUploader
         handleChange={handleLogoChange}
         name="logo"
         types={["JPG", "PNG", "GIF"]}
@@ -114,74 +93,10 @@ function PersonalInformation() {
           alt="Brand Logo"
           style={{ width: "100%", height: "auto", marginBottom: 10 }}
         />
-      )}
-      <FormControl sx={{ textAlign: "left" }}>
-        <FormLabel>Do you have Business Licenses?</FormLabel>
-        <RadioGroup
-          row
-          aria-label="business-licenses"
-          name="business-licenses"
-          value={hasBusinessLicense}
-          onChange={handleBusinessLicenseChange}
-          sx={{ display: "flex", justifyContent: "start" }}
-        >
-          <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-          <FormControlLabel value="no" control={<Radio />} label="No" />
-        </RadioGroup>
-      </FormControl>
-      {hasBusinessLicense === "yes" && (
-        <>
-          <CustomTypography
-            text=" You can search our database by entering your license number."
-            style={{
-              fontWeight: "400",
-              fontSize: 15,
-              color: "#333333",
-              textAlign: "left",
-            }}
-          />
-          <TextInputField
-            variant="outlined"
-            fullWidth
-            InputLabelProps={{ shrink: true }}
-            placeholder="Enter your license number"
-          />
-        </>
-      )}
-      <FormControl sx={{ textAlign: "left" }}>
-        <FormLabel>Do you have a Physical Store?</FormLabel>
-        <RadioGroup
-          row
-          aria-label="store-licenses"
-          name="store-licenses"
-          value={hasPhysicalStore}
-          onChange={handlePhysicalStoreChange}
-          sx={{ display: "flex", justifyContent: "start" }}
-        >
-          <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-          <FormControlLabel value="no" control={<Radio />} label="No" />
-        </RadioGroup>
-      </FormControl>
-      {hasPhysicalStore === "yes" && (
-        <>
-          <CustomTypography
-            text="Number of Stores."
-            style={{
-              fontWeight: "400",
-              fontSize: 15,
-              color: "#333333",
-              textAlign: "left",
-            }}
-          />
-          <TextInputField
-            variant="outlined"
-            fullWidth
-            InputLabelProps={{ shrink: true }}
-            placeholder="Number of Stores"
-          />
-        </>
-      )}
-      {/* <DragDrop /> */}
+      )} */}
+       <DragDrop />
+     
+     
     </Box>
   );
 }

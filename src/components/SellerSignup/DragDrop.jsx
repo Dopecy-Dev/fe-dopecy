@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FileUploader } from "react-drag-drop-files";
-
+import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
 const fileTypes = ["JPG", "PNG", "GIF"];
 
 function DragDrop() {
@@ -14,8 +14,8 @@ function DragDrop() {
   const customStyles = {
     border: "2px dashed grey",
     borderRadius: "8px",
-    height: "200px",
-    width: "400px",
+    height: "70px",
+    width: "150px",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -39,7 +39,7 @@ function DragDrop() {
     <div
       style={{
         display: "flex",
-        justifyContent: "center",
+        justifyContent: "left",
         alignItems: "center",
       }}
     >
@@ -52,7 +52,7 @@ function DragDrop() {
             {fileURL ? (
               <img src={fileURL} alt="Preview" style={imageStyles} />
             ) : (
-              <div>Drag and drop your files here or click to upload</div>
+              <DriveFolderUploadIcon sx={{fontSize:40}}/>
             )}
           </div>
         }

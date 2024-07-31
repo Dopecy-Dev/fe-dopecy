@@ -22,8 +22,15 @@ import PersonalInformation from "./PersonalInformation";
 import UnderReview from "./UnderReview";
 import PinInputField from "../../common/PinInputField";
 import SelectField from "../../common/SelectField";
-
-const steps = ["User Detail", "Personal Information"];
+import BusinessLicense from "./BusinessLicense";
+import PhysicalStore from "./PhysicalStore";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+const steps = [
+  "Personal Information",
+  "Business Type",
+  "Business License",
+  "Physical Stores",
+];
 
 const StyledStepConnector = styled(StepConnector)(({ theme, activeStep }) => ({
   "& .MuiStepConnector-line": {
@@ -34,6 +41,7 @@ const StyledStepConnector = styled(StepConnector)(({ theme, activeStep }) => ({
 
 const CustomStepIcon = styled("div")(({ active, completed }) => ({
   display: "flex",
+  // color: active || completed ? "white" : "#C4C4C4",
   alignItems: "center",
   justifyContent: "center",
   height: 40,
@@ -48,13 +56,7 @@ const StepIconComponent = (props) => {
 
   return (
     <CustomStepIcon active={active} completed={completed}>
-      {completed ? (
-        <CheckCircleIcon />
-      ) : (
-        <span style={{ color: active || completed ? "white" : "#C4C4C4" }}>
-          {icon}
-        </span>
-      )}
+      {completed ? <CheckCircleIcon /> : <span>{icon}</span>}
     </CustomStepIcon>
   );
 };
@@ -79,26 +81,21 @@ function SellerDetails() {
 
   return (
     <Box className={classes.formContainer}>
-      {activeStep !== 2 && (
-        <>
-          <Typography variant="h5" sx={{ fontWeight: 700,mb:1 }}>
-            Create Your Dopecy Shop
-          </Typography>
-          <Stepper
-            alternativeLabel
-            activeStep={activeStep}
-            connector={<StyledStepConnector activeStep={activeStep} />}
-          >
-            {steps.map((label, index) => (
-              <Step key={label}>
-                <StepLabel StepIconComponent={StepIconComponent}>
-                  {label}
-                </StepLabel>
-              </Step>
-            ))}
-          </Stepper>
-        </>
-      )}
+      <Typography variant="h5" sx={{ fontWeight: 700, mb: 1 }}>
+        Create Your Dopecy Shop
+      </Typography>
+      <Stepper
+        alternativeLabel
+        activeStep={activeStep}
+        connector={<StyledStepConnector activeStep={activeStep} />}
+      >
+        {steps.map((label, index) => (
+          <Step key={label}>
+            <StepLabel StepIconComponent={StepIconComponent}>{label}</StepLabel>
+          </Step>
+        ))}
+      </Stepper>
+
       {activeStep === 0 ? (
         <Box>
           <CustomTypography
@@ -291,33 +288,35 @@ function SellerDetails() {
         </Box>
       ) : activeStep === 1 ? (
         <PersonalInformation />
+      ) : activeStep === 2 ? (
+        <BusinessLicense />
+      ) : activeStep === 3 ? (
+        <PhysicalStore />
       ) : (
         <UnderReview />
       )}
-      {activeStep !== 2 && (
-        <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
-          <Button
-            variant="contained"
-            color="primary"
-            disabled={activeStep === 0}
-            onClick={handleBack}
-            sx={{ mr: 1 }}
-          >
-            Back
-          </Button>
-          <Box sx={{ flex: "1 1 auto" }} />
-          <Button
-            variant="contained"
-            color="primary"
-            fullWidth
-            onClick={handleNext}
-            className={classes?.nextButton}
-            disabled={activeStep === 2}
-          >
-            {activeStep === 0 ? "Next" : "Submit"}
-          </Button>
-        </Box>
-      )}
+
+      <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
+        <Button
+          variant="contained"
+          color="primary"
+          disabled={activeStep === 0}
+          onClick={handleBack}
+          sx={{ mr: 1 }}
+        >
+          <ArrowBackIcon />
+        </Button>
+        <Box sx={{ flex: "1 1 auto" }} />
+        <Button
+          variant="contained"
+          color="primary"
+          fullWidth
+          onClick={handleNext}
+          className={classes?.nextButton}
+        >
+          {activeStep === steps.length - 1 ? "Submit" : "Next"}
+        </Button>
+      </Box>
     </Box>
   );
 }
