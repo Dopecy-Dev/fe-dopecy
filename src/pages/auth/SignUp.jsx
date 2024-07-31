@@ -314,31 +314,56 @@ function SignUp() {
                                 fullWidth
                                 leftimage={<Box sx={{ mr: '0.5rem' }} component={'img'} src={facebookicon} alt='facebookicon' />}
                             />
-                            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', my: '1.5rem' }}> {/* 24px to rem */}
+                        </form>
+                        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mt: '1.5rem' }}> {/* 24px to rem */}
+                            <CustomTypography
+                                text="Already have an account?"
+                                style={{
+                                    fontWeight: '400',
+                                    fontSize: '0.75rem', // 12px to rem
+                                    lineHeight: '1.25rem', // 20px to rem
+                                    color: 'text.titleblack',
+                                    mr: '0.25rem' // 4px to rem
+                                }}
+                            />
+                            <Link to='/login'>
                                 <CustomTypography
-                                    text="Already have an account?"
+                                    text='Login Now'
                                     style={{
                                         fontWeight: '400',
                                         fontSize: '0.75rem', // 12px to rem
                                         lineHeight: '1.25rem', // 20px to rem
-                                        color: 'text.titleblack',
-                                        mr: '0.25rem' // 4px to rem
+                                        color: 'primary.main',
+                                        cursor: 'pointer',
                                     }}
                                 />
-                                <Link to='/login'>
-                                    <CustomTypography
-                                        text='Login Now'
-                                        style={{
-                                            fontWeight: '400',
-                                            fontSize: '0.75rem', // 12px to rem
-                                            lineHeight: '1.25rem', // 20px to rem
-                                            color: 'primary.main',
-                                            cursor: 'pointer',
-                                        }}
-                                    />
-                                </Link>
-                            </Box>
-                        </form>
+                            </Link>
+                        </Box>
+
+                        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}> {/* 24px to rem */}
+                            <CustomTypography
+                                text="Want to sell on DOPECY?"
+                                style={{
+                                    fontWeight: '400',
+                                    fontSize: '0.75rem', // 12px to rem
+                                    lineHeight: '1.25rem', // 20px to rem
+                                    color: 'text.titleblack',
+                                    mr: '0.25rem' // 4px to rem
+                                }}
+                            />
+                            <Link to='/seller-signup'>
+                                <CustomTypography
+                                    text='Become a seller'
+                                    style={{
+                                        fontWeight: '400',
+                                        fontSize: '0.75rem', // 12px to rem
+                                        lineHeight: '1.25rem', // 20px to rem
+                                        color: 'primary.main',
+                                        cursor: 'pointer',
+                                    }}
+                                />
+                            </Link>
+                        </Box>
                     </Box>
                 </Grid>
             </Grid>
