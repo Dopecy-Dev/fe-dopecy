@@ -130,7 +130,7 @@ function Login() {
                                 style={{
                                     fontWeight: '400',
                                     fontSize: '0.875rem', // 14px to rem
-                                    lineHeight: '1.25rem', // 20px to rem
+                                    lineHeight: 0,
                                     textAlign: 'left',
                                     color: 'text.graybg3',
                                     pl: '0.5rem' // 8px to rem
@@ -143,7 +143,7 @@ function Login() {
                                 margin="normal"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                sx={{ mb: '1rem' }} // 16px to rem
+                                sx={{ mb: '2rem' }} // 16px to rem
                                 error={!!emailError}
                                 helperText={emailError}
                             />
@@ -152,7 +152,7 @@ function Login() {
                                 style={{
                                     fontWeight: '400',
                                     fontSize: '0.875rem', // 14px to rem
-                                    lineHeight: '1.25rem', // 20px to rem
+                                    lineHeight: 0,
                                     textAlign: 'left',
                                     color: 'text.graybg3',
                                     pl: '0.5rem' // 8px to rem

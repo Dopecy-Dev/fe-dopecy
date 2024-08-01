@@ -147,7 +147,7 @@ function SignUp() {
                                 style={{
                                     fontWeight: '400',
                                     fontSize: '0.875rem', // 14px to rem
-                                    lineHeight: '1.25rem', // 20px to rem
+                                    lineHeight: 0,
                                     textAlign: 'left',
                                     color: 'text.graybg3',
                                     pl: '0.5rem' // 8px to rem
@@ -161,7 +161,7 @@ function SignUp() {
                                 margin="normal"
                                 value={username}
                                 onChange={(e) => setUsername(e.target.value)}
-                                sx={{ mb: '1rem', height: '3rem' }} // 48px to rem
+                                sx={{ mb: '2rem', height: '3rem' }} // 48px to rem
                             />
 
                             <CustomTypography
@@ -169,7 +169,7 @@ function SignUp() {
                                 style={{
                                     fontWeight: '400',
                                     fontSize: '0.875rem', // 14px to rem
-                                    lineHeight: '1.25rem', // 20px to rem
+                                    lineHeight: 0,
                                     textAlign: 'left',
                                     color: 'text.graybg3',
                                     pl: '0.5rem' // 8px to rem
@@ -182,7 +182,7 @@ function SignUp() {
                                 margin="normal"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                sx={{ mb: '1rem', height: '3rem' }} // 48px to rem
+                                sx={{ mb: '2rem', height: '3rem' }} // 48px to rem
                                 error={!!emailError}
                                 helperText={emailError}
                             />
@@ -191,7 +191,7 @@ function SignUp() {
                                 style={{
                                     fontWeight: '400',
                                     fontSize: '0.875rem', // 14px to rem
-                                    lineHeight: '1.25rem', // 20px to rem
+                                    lineHeight: 0,
                                     textAlign: 'left',
                                     color: 'text.graybg3',
                                     pl: '0.5rem',
@@ -210,7 +210,7 @@ function SignUp() {
                                 style={{
                                     fontWeight: '400',
                                     fontSize: '0.875rem', // 14px to rem
-                                    lineHeight: '1.25rem', // 20px to rem
+                                    lineHeight: 0,
                                     textAlign: 'left',
                                     color: 'text.graybg3',
                                     pl: '0.5rem',
@@ -218,7 +218,7 @@ function SignUp() {
                                 }}
                             />
                             <TextField
-                                sx={{ mb: '1rem', height: '3rem' }} // 48px to rem
+                                sx={{ mb: '2rem', height: '3rem' }} // 48px to rem
                                 placeholder='Enter password'
                                 type={showPassword ? 'text' : 'password'}
                                 variant="outlined"
@@ -246,14 +246,14 @@ function SignUp() {
                                 style={{
                                     fontWeight: '400',
                                     fontSize: '0.875rem', // 14px to rem
-                                    lineHeight: '1.25rem', // 20px to rem
+                                    lineHeight: 0,
                                     textAlign: 'left',
                                     color: 'text.graybg3',
                                     pl: '0.5rem'
                                 }}
                             />
                             <TextField
-                                sx={{ mb: '1rem', height: '3rem' }} // 48px to rem
+                                sx={{ mb: '2rem', height: '3rem' }} // 48px to rem
                                 placeholder='Confirm password'
                                 type={showConfirmPassword ? 'text' : 'password'}
                                 variant="outlined"
