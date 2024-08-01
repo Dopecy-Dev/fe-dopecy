@@ -3,11 +3,16 @@ import { Box, Grid, Rating } from '@mui/material';
 import pimag from '../../assets/images/pimage.svg';
 import CustomTypography from '../../components/typography/CustomTypography';
 import { truncateTitle } from '../../utils/truncatetext/TruncateText';
+import { useTheme } from '../../contexts/ThemeContext';
 
 export default function ProductCard(props) {
     const rating = `(${props.product.totalrating})`;
     const price = `$${props?.product?.price}`;
     const title = truncateTitle(props?.product?.title || 'TOZO T6 True Wireless Earbuds Bluetooth', 45);
+
+    const { theme } = useTheme()
+    const isLight = theme === 'light'
+
 
     return (
         <Box
@@ -22,9 +27,9 @@ export default function ProductCard(props) {
                 transition: 'border-color 0.3s, box-shadow 0.3s',
                 position: 'relative',
                 '&:hover': {
-                    borderColor: 'primary.main',
+                    borderColor: 'common.mainbg',
                 },
-                backgroundColor: 'background.paper', // Ensure background color
+                backgroundColor: 'common.cardbg', // Ensure background color
             }}
         >
             {props.product.hot &&
@@ -57,7 +62,7 @@ export default function ProductCard(props) {
                     sx={{
                         width: 'fit-content',
                         height: '1.625rem',
-                        bgcolor: 'primary.main',
+                        bgcolor: 'text.main',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
@@ -121,7 +126,7 @@ export default function ProductCard(props) {
                         fontWeight: '600',
                         fontSize: '0.875rem',
                         lineHeight: '1.25rem',
-                        color: 'primary.main',
+                        color: 'text.primary',
                         textAlign: 'left',
                         justifySelf: 'end'
                     }}

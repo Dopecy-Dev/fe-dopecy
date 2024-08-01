@@ -15,6 +15,7 @@ const banner = {
 function RightHalfBanner() {
     const theme = useTheme();
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
+    const isLight = theme.palette.mode === 'light'
 
     const price = "$" + banner.price;
 
@@ -29,7 +30,7 @@ function RightHalfBanner() {
                                 fontWeight: '400',
                                 fontSize: isSmallScreen ? '0.75rem' : '0.875rem', // 12px and 14px to rem
                                 lineHeight: '1.25rem', // 20px to rem
-                                color: 'text.primary',
+                                color: isLight ? 'text.primary' : 'text.black',
                                 textAlign: isSmallScreen ? 'center' : 'left',
                                 my: '0.0625rem', // 1px to rem
                                 px: '0.125rem', // 2px to rem
@@ -81,7 +82,7 @@ function RightHalfBanner() {
                         sx={{
                             width: isSmallScreen ? '3.125rem' : '5.625rem', // 50px and 90px to rem
                             height: isSmallScreen ? '3.125rem' : '5.625rem', // 50px and 90px to rem
-                            bgcolor: 'primary.main',
+                            bgcolor: 'text.main',
                             borderRadius: '100px',
                             p: '0.125rem', // 2px to rem
                             display: 'flex',

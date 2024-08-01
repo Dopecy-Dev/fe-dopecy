@@ -15,8 +15,8 @@ function DarkLightSwitch() {
     return (
         <Box
             sx={{
-                bgcolor: 'common.darklightbg',
-                p: 0.5,
+                bgcolor: isLightMode ? 'common.darklightbg' : '#EAEAEA',
+                p: 0.2,
                 borderRadius: '1.5rem',
                 display: 'flex',
                 justifyContent: 'center',
@@ -27,7 +27,7 @@ function DarkLightSwitch() {
         >
             <Grid
                 container
-                spacing={1}
+                spacing={{ sm: 1, md: 2 }}
                 sx={{
                     display: 'flex',
                     justifyContent: 'center',
@@ -37,7 +37,7 @@ function DarkLightSwitch() {
                 <Grid item>
                     <Box
                         sx={{
-                            bgcolor: isLightMode ? 'primary.main' : 'common.darklightbg',
+                            bgcolor: isLightMode ? 'common.mainbg' : 'common.darklightbg',
                             borderRadius: '1.5rem',
                             p: 0.5,
                             justifyContent: 'center',
@@ -52,7 +52,7 @@ function DarkLightSwitch() {
                 <Grid item>
                     <Box
                         sx={{
-                            bgcolor: !isLightMode ? 'primary.main' : 'common.darklightbg',
+                            bgcolor: !isLightMode ? 'common.mainbg' : 'common.darklightbg',
                             borderRadius: '1.5rem',
                             p: 0.5,
                             justifyContent: 'center',
@@ -65,7 +65,7 @@ function DarkLightSwitch() {
                     />
                 </Grid>
             </Grid>
-        </Box>
+        </Box >
     );
 }
 

@@ -1,9 +1,9 @@
-import React from 'react';
-import './AllCategoriesMenu.css';
+import React, { useState } from 'react';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import ContainedButton from '../../components/buttons/ContainedButton';
-import { styled, useTheme } from '@mui/system';
 import OutlinedButton from '../../components/buttons/OutlinedButton';
+import { useTheme } from '../../contexts/ThemeContext';
+import Box from '@mui/material/Box';
 
 const categories = [
     { name: 'Electronics', subCategories: ['Mobile Phones', 'Laptops', 'Cameras'] },
@@ -11,93 +11,143 @@ const categories = [
     { name: 'Clothing', subCategories: ['Men', 'Women', 'Kids'] },
     { name: 'Home & Kitchen', subCategories: ['Furniture', 'Appliances', 'Decor'] },
     { name: 'Sports', subCategories: ['Cricket', 'Football', 'Gym Equipment'] },
-    { name: 'Toysall', subCategories: ['Action Figures', 'Dolls', 'Puzzles'] },
+    { name: 'Toys', subCategories: ['Action Figures', 'Dolls', 'Puzzles'] },
     { name: 'Beauty', subCategories: ['Makeup', 'Skincare', 'Haircare'] }
 ];
 
-// Styled components with theme integration
-const Dropdown = styled('div')`
-    position: relative;
-    display: inline-block;
-`;
-
-const DropdownContent = styled('div')`
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 12.5rem; /* 200px to rem */
-    box-shadow: 0px 0.5rem 1rem 0px rgba(0,0,0,0.2); /* 8px and 16px to rem */
-    z-index: 99999;
-`;
-
-const DropdownItem = styled('div')`
-    position: relative;
-
-    &:hover .sub-dropdown-content {
-        display: block;
-    }
-`;
-
-const SubDropdownContent = styled('div')`
-    display: none;
-    position: absolute;
-    left: 100%;
-    top: 0;
-    background-color: #f9f9f9;
-    min-width: 12.5rem; /* 200px to rem */
-    box-shadow: 0px 0.5rem 1rem 0px rgba(0,0,0,0.2); /* 8px and 16px to rem */
-`;
-
-const DropdownLink = styled('a')`
-    color: black;
-    padding: 0.75rem 1rem; /* 12px 16px to rem */
-    text-decoration: none;
-    display: block;
-    position: relative;
-
-    &::after {
-        content: '';
-        position: absolute;
-        left: 1rem; /* 16px to rem */
-        right: 1rem; /* 16px to rem */
-        bottom: 0;
-        height: 0.0625rem; /* 1px to rem */
-        background-color: #ccc;
-    }
-
-    &:last-child::after {
-        display: none; /* Remove border from the last item */
-    }
-
-    &:hover {
-        background-color: #f1f1f1;
-        color: ${({ theme }) => theme.palette.primary.main};
-    }
-`;
-
 const AllCategoriesMenu = () => {
-    const theme = useTheme();
+    const { theme, appliedTheme } = useTheme();
+    const [open, setOpen] = useState(false);
+    const [activeIndex, setActiveIndex] = useState(null);
+
+    const currentColors = theme === 'light' ? {
+        background: appliedTheme.palette.common.white,
+        text: appliedTheme.palette.text.primary,
+        hover: '#f1f1f1',
+        hoverText: appliedTheme.palette.text.main,
+        border: appliedTheme.palette.divider,
+        buttonHover: '#3e8e41',
+        subBackground: appliedTheme.palette.common.white
+    } : {
+        background: appliedTheme.palette.common.primaryheaderbg,
+        text: appliedTheme.palette.text.white,
+        hover: appliedTheme.palette.common.primaryheaderbg,
+        hoverText: appliedTheme.palette.text.main,
+        border: appliedTheme.palette.divider,
+        buttonHover: '#9b66ff',
+        subBackground: appliedTheme.palette.common.primaryheaderbg
+    };
 
     return (
-        <Dropdown className="dropdown" style={{ textAlign: 'left' }}>
-            <OutlinedButton
-                style={{ width: '8.9375rem', height: '3rem', borderRadius: '0.625rem' }} // 143px, 48px, 10px to rem
-                text='Categories'
-                icon={KeyboardArrowDownIcon}
-            />
-            <DropdownContent className="dropdown-content">
+        <Box
+            sx={{
+                position: 'relative',
+                display: 'inline-block',
+                textAlign: 'left'
+            }}
+            onMouseEnter={() => setOpen(true)}
+            onMouseLeave={() => setOpen(false)}
+        >
+            {theme === 'light' ?
+                <OutlinedButton
+                    style={{
+                        width: '8.9375rem',
+                        height: '3rem',
+                        borderRadius: '0.625rem',
+                    }}
+                    text='Categories'
+                    icon={KeyboardArrowDownIcon}
+                />
+                :
+                <ContainedButton
+                    style={{
+                        width: '8.9375rem',
+                        height: '3rem',
+                        borderRadius: '0.625rem',
+                    }}
+                    text='Categories'
+                    icon={KeyboardArrowDownIcon}
+                />
+            }
+            <Box
+                sx={{
+                    display: open ? 'block' : 'none',
+                    position: 'absolute',
+                    backgroundColor: currentColors.background,
+                    minWidth: '200px',
+                    boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+                    zIndex: 99999,
+                    borderRadius: '0.625rem',
+                    top: '100%',
+                    left: 0,
+                }}
+            >
                 {categories.map((category, index) => (
-                    <DropdownItem className="dropdown-item" key={index}>
-                        <DropdownLink href={`#${category.name.toLowerCase()}`}>{category.name}</DropdownLink>
-                        <SubDropdownContent className="sub-dropdown-content">
+                    <Box
+                        key={index}
+                        sx={{
+                            position: 'relative',
+                        }}
+                        onMouseEnter={() => setActiveIndex(index)}
+                        onMouseLeave={() => setActiveIndex(null)}
+                    >
+                        <Box
+                            component="a"
+                            href={`#${category.name.toLowerCase()}`}
+                            sx={{
+                                color: currentColors.text,
+                                padding: '12px 16px',
+                                textDecoration: 'none',
+                                display: 'block',
+                                backgroundColor: 'transparent',
+                                borderBottom: `1px solid ${currentColors.border}`,
+                                '&:hover': {
+                                    backgroundColor: currentColors.hover,
+                                    color: currentColors.hoverText,
+                                }
+                            }}
+                        >
+                            {category.name}
+                        </Box>
+                        <Box
+                            sx={{
+                                display: activeIndex === index ? 'block' : 'none',
+                                position: 'absolute',
+                                left: '100%',
+                                top: 0,
+                                backgroundColor: currentColors.subBackground,
+                                minWidth: '200px',
+                                boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+                                borderRadius: '0.625rem',
+                                zIndex: 100000,
+                            }}
+                        >
                             {category.subCategories.map((subCategory, subIndex) => (
-                                <DropdownLink key={subIndex} href={`#${subCategory.toLowerCase()}`}>{subCategory}</DropdownLink>
+                                <Box
+                                    component="a"
+                                    key={subIndex}
+                                    href={`#${subCategory.toLowerCase()}`}
+                                    sx={{
+                                        color: currentColors.text,
+                                        padding: '12px 16px',
+                                        textDecoration: 'none',
+                                        display: 'block',
+                                        backgroundColor: 'transparent',
+                                        borderBottom: `1px solid ${currentColors.border}`,
+                                        '&:hover': {
+                                            backgroundColor: currentColors.hover,
+                                            color: currentColors.hoverText,
+                                        }
+                                    }}
+                                >
+                                    {subCategory}
+                                </Box>
                             ))}
-                        </SubDropdownContent>
-                    </DropdownItem>
+                        </Box>
+                    </Box>
                 ))}
-            </DropdownContent>
-        </Dropdown>
+            </Box>
+        </Box>
     );
 }
 

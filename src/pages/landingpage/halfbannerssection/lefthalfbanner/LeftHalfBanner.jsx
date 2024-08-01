@@ -15,6 +15,8 @@ function LeftHalfBanner() {
     const theme = useTheme();
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
 
+    const isLight = theme.palette.mode === 'light'
+
     return (
         <Box sx={{ width: '100%', p: '1rem', bgcolor: 'common.leftbannerbg' }}>
             <Grid container sx={{ flexDirection: isSmallScreen ? 'column' : 'row', alignItems: 'center' }}>
@@ -26,7 +28,7 @@ function LeftHalfBanner() {
                                 fontWeight: '400',
                                 fontSize: isSmallScreen ? '0.75rem' : '0.875rem', // 12px and 14px to rem
                                 lineHeight: '1.25rem', // 20px to rem
-                                color: 'text.primary',
+                                color: isLight ? 'text.primary' : 'text.main',
                                 textAlign: isSmallScreen ? 'center' : 'left',
                                 my: '0.125rem', // 2px to rem
                                 px: '0.125rem', // 2px to rem

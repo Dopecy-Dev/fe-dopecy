@@ -17,18 +17,17 @@ function TopBar() {
     return (
         <>
             {isMdUp ?
-                <Box className="scroll-container" sx={{ backgroundColor: 'primary.main', }}>
+                <Box className="scroll-container" sx={{ backgroundColor: 'common.topbarbg', cursor: 'pointer' }}>
                     <Box className="scroll-text">
                         <Grid container spacing={6}
                             sx={{
-                                backgroundColor: 'primary.main',
+                                backgroundColor: 'transparent',
                                 padding: {
                                     xs: '0.5rem 1rem',   // small devices, 8px 16px
                                     sm: '0.625rem 2rem',  // medium devices, 10px 32px
                                     md: '0.75rem 3rem',   // large devices, 12px 48px
                                     lg: '0.75rem 6.25rem',// extra large devices, 12px 100px
                                 },
-                                color: 'white',
                                 justifyContent: { xs: 'center', md: 'flex-end' },
                                 alignItems: 'center',
                                 flexWrap: 'nowrap'
@@ -103,16 +102,8 @@ function TopBar() {
                 :
                 <Grid container spacing={0.5}
                     sx={{
-                        // flexWrap: 'nowrap',
-                        backgroundColor: 'primary.main',
+                        backgroundColor: 'common.topbarbg',
                         padding: 1,
-                        // padding: {
-                        //     xs: '0.5rem 1rem',   // small devices, 8px 16px
-                        //     sm: '0.625rem 2rem',  // medium devices, 10px 32px
-                        //     md: '0.75rem 3rem',   // large devices, 12px 48px
-                        //     lg: '0.75rem 6.25rem',// extra large devices, 12px 100px
-                        // },
-                        color: 'white',
                         justifyContent: 'center',
                         alignItems: 'center',
                     }}>

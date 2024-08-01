@@ -7,6 +7,7 @@ import TestimonialCard from '../../shared/TestimonialCard/TestimonialCard';
 import testimonialuserimage from '../../assets/images/testimonialuserimage.svg';
 import testimonialuserimage1 from '../../assets/images/testimonialuserimage1.svg';
 import testimonialuserimage2 from '../../assets/images/testimonialuserimage2.svg';
+import { useTheme } from '../../contexts/ThemeContext';
 
 const testimonials = [
     {
@@ -33,6 +34,10 @@ const testimonials = [
 ];
 
 function TestimonialsSection() {
+
+    const { theme } = useTheme()
+    const isLightMode = theme === 'light';
+
     return (
         <>
             <Grid container sx={{ justifyContent: 'space-between', alignItems: 'center', mb: { xs: '1rem', md: '2rem' } }}>
@@ -44,7 +49,7 @@ function TestimonialsSection() {
                             lineHeight: '1.5rem', // 24px converted to rem
                             fontWeight: '700',
                             textAlign: { xs: 'center', md: 'left' },
-                            color: 'primary.main',
+                            color: isLightMode ? 'text.main' : 'text.primary'
                         }}
                     />
                 </Grid>
@@ -73,7 +78,7 @@ function TestimonialsSection() {
                             borderRadius: '100px',
                             border: '0.0625rem solid', // 1px converted to rem
                             borderColor: 'primary.main',
-                            bgcolor: 'primary.main',
+                            bgcolor: 'common.mainbg',
                         }}>
                             <Box component={'img'} src={whiterightarrow} alt='ArrowRight' />
                         </Box>

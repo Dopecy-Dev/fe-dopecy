@@ -21,8 +21,10 @@ function FullBannerSection() {
     const discountedamount = "$" + banner.discount;
     const price = "$" + banner.price;
 
+    const isLight = theme.palette.mode === 'light'
+
     return (
-        <Box sx={{ width: '100%', p: '1rem', bgcolor: 'common.pinkbg' }}>
+        <Box sx={{ width: '100%', p: '1rem', bgcolor: 'common.fullbannerbg' }}>
             <Grid container sx={{ justifyContent: 'space-between', alignItems: 'center', flexDirection: isSmallScreen ? 'column' : 'row' }}>
                 <Grid item xs={12} md={6}>
                     <Box sx={{ p: '1.5rem', display: 'flex', flexDirection: 'column', alignItems: 'baseline' }}>
@@ -33,7 +35,7 @@ function FullBannerSection() {
                                     fontWeight: '400',
                                     fontSize: isSmallScreen ? '0.75rem' : '0.875rem', // 12px and 14px to rem
                                     lineHeight: '1.25rem', // 20px to rem
-                                    color: 'text.primary',
+                                    color: 'text.black',
                                     textAlign: 'left',
                                     my: '0.0625rem', // 1px to rem
                                     px: '0.125rem', // 2px to rem
@@ -48,7 +50,7 @@ function FullBannerSection() {
                                     fontWeight: '700',
                                     fontSize: isSmallScreen ? '0.75rem' : '0.875rem', // 12px and 14px to rem
                                     lineHeight: '1.25rem', // 20px to rem
-                                    color: 'text.primary',
+                                    color: 'text.black',
                                     textAlign: 'left',
                                     my: '0.0625rem', // 1px to rem
                                     pr: '0.125rem', // 2px to rem
@@ -66,7 +68,7 @@ function FullBannerSection() {
                                 fontWeight: '600',
                                 fontSize: isSmallScreen ? '2rem' : '3rem', // 32px and 48px to rem
                                 lineHeight: '3.5rem', // 56px to rem
-                                color: 'text.primary',
+                                color: 'text.black',
                                 textAlign: 'left',
                                 my: '0.125rem' // 2px to rem
                             }}
@@ -77,7 +79,7 @@ function FullBannerSection() {
                                 fontWeight: '400',
                                 fontSize: isSmallScreen ? '1rem' : '1.125rem', // 16px and 18px to rem
                                 lineHeight: '2rem', // 32px to rem
-                                color: 'text.primary',
+                                color: 'text.black',
                                 textAlign: 'left',
                                 my: '0.125rem' // 2px to rem
                             }}
@@ -101,7 +103,7 @@ function FullBannerSection() {
                         sx={{
                             width: isSmallScreen ? '3.75rem' : '7rem', // 60px and 112px to rem
                             height: isSmallScreen ? '3.75rem' : '7rem', // 60px and 112px to rem
-                            bgcolor: 'primary.main',
+                            bgcolor: 'common.mainbg',
                             border: '0.3125rem solid', // 5px to rem
                             borderColor: 'text.white',
                             borderRadius: '100px',

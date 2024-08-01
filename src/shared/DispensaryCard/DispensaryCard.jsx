@@ -4,23 +4,26 @@ import pimag from '../../assets/images/pimage.svg';
 import CustomTypography from '../../components/typography/CustomTypography';
 import { truncateTitle } from '../../utils/truncatetext/TruncateText';
 import Starrating from '../../assets/images/Starrating.svg'
+import { useTheme } from '../../contexts/ThemeContext';
 
 export default function DispensaryCard(props) {
     const totalrating = props.dispensary.totalrating + '/5';
     const title = truncateTitle(props?.dispensary?.title ? props?.dispensary?.title : 'Herbal Haven Dispensary', 45);
 
+    const { theme } = useTheme()
 
-    console.log(props.dispensary, 'props.dispensary')
+    const isLightMode = theme === 'light';
+
     return (
         <Box
             sx={{
                 width: '11.3125rem', // 341px converted to rem
                 height: '13.3125rem', // 373px converted to rem
-                bgcolor: 'text.white',
+                bgcolor: isLightMode ? 'text.white' : 'common.cardbg',
                 border: '0.0625rem solid transparent', // 1px converted to rem
                 transition: 'border-color 0.3s, box-shadow 0.3s',
                 '&:hover': {
-                    borderColor: 'primary.main',
+                    borderColor: 'common.mainbg',
                 }
             }}
         >
@@ -55,7 +58,7 @@ export default function DispensaryCard(props) {
                                 fontWeight: '400',
                                 fontSize: '0.775rem', // 14px converted to rem
                                 lineHeight: '0.775rem', // 14px converted to rem
-                                color: 'text.darkgray',
+                                color: isLightMode ? 'text.darkgray' : 'text.white',
                                 textAlign: 'left'
                             }}
                         />

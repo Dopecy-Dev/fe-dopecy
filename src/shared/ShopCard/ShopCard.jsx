@@ -3,21 +3,26 @@ import { Box, Grid, Rating } from '@mui/material';
 import pimag from '../../assets/images/pimage.svg';
 import CustomTypography from '../../components/typography/CustomTypography';
 import { truncateTitle } from '../../utils/truncatetext/TruncateText';
+import { useTheme } from '../../contexts/ThemeContext';
 
 export default function ShopCard(props) {
     const totalrating = '(' + props.shop.totalrating + ')';
     const title = truncateTitle(props?.shop?.title ? props?.shop?.title : 'Whimsical Wonder shop', 45);
+
+    const { theme } = useTheme()
+    const isLightMode = theme === 'light';
+
 
     return (
         <Box
             sx={{
                 width: '21.3125rem', // 341px converted to rem
                 height: '23.3125rem', // 373px converted to rem
-                bgcolor: 'text.white',
+                bgcolor: isLightMode ? 'text.white' : 'common.cardbg',
                 border: '0.0625rem solid transparent', // 1px converted to rem
                 transition: 'border-color 0.3s, box-shadow 0.3s',
                 '&:hover': {
-                    borderColor: 'primary.main',
+                    borderColor: 'text.main',
                 }
             }}
         >
@@ -106,7 +111,7 @@ export default function ShopCard(props) {
                                 fontWeight: '600',
                                 fontSize: '0.875rem', // 14px converted to rem
                                 lineHeight: '0.875rem', // 14px converted to rem
-                                color: 'text.black',
+                                color: 'text.primary',
                                 textAlign: 'left'
                             }}
                         />

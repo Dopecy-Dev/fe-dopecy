@@ -1,10 +1,15 @@
 import * as React from 'react';
-import { Box, Menu, MenuItem } from '@mui/material';
+import { Box, Menu, MenuItem, useMediaQuery } from '@mui/material';
 import btndownarrowblack from '../../assets/images/btndownarrowblack.svg';
 import CustomTypography from '../typography/CustomTypography';
+import DarkLightSwitch from '../../shared/DarkLightSwitch/DarkLightSwitch';
+import { useTheme } from '@emotion/react';
 
 export default function LoginButtonMenu({ anchorEl, handleClose }) {
     const open = Boolean(anchorEl);
+
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
     return (
         <Menu
@@ -27,6 +32,13 @@ export default function LoginButtonMenu({ anchorEl, handleClose }) {
                 }
             }}
         >
+            {
+                isMobile &&
+                <MenuItem onClick={handleClose}>
+                    <DarkLightSwitch />
+                </MenuItem>
+            }
+
             <MenuItem
                 onClick={handleClose}
                 sx={{

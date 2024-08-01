@@ -76,7 +76,7 @@ function Footer() {
                                                     }}
                                                 />
                                             </Box>
-                                            <Box sx={{ width: '2.5rem', height: '0.25rem', bgcolor: 'primary.main', my: '0.5rem' }} />
+                                            <Box sx={{ width: '2.5rem', height: '0.25rem', bgcolor: 'text.main', my: '0.5rem' }} />
                                         </Grid>
                                         <Grid item>
                                             <Box
@@ -126,7 +126,7 @@ function Footer() {
                                                     }}
                                                 />
                                             </Box>
-                                            <Box sx={{ width: '2.5rem', height: '0.25rem', bgcolor: 'primary.main', my: '0.5rem' }} />
+                                            <Box sx={{ width: '2.5rem', height: '0.25rem', bgcolor: 'text.main', my: '0.5rem' }} />
                                         </Grid>
                                         <Grid item>
                                             <Box
@@ -180,7 +180,7 @@ function Footer() {
                                             }}
                                         />
                                     </Box>
-                                    <Box sx={{ width: '2.5rem', height: '0.25rem', bgcolor: 'primary.main', my: '0.5rem' }} />
+                                    <Box sx={{ width: '2.5rem', height: '0.25rem', bgcolor: 'text.main', my: '0.5rem' }} />
                                 </Grid>
                                 <Grid item>
                                     <Grid container spacing={2}>

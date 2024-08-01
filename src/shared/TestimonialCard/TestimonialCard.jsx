@@ -3,6 +3,7 @@ import { Box, Grid, Rating } from '@mui/material';
 import testimonialicon from '../../assets/images/testimonialicon.svg';
 import CustomTypography from '../../components/typography/CustomTypography';
 import testimonialuserimage from '../../assets/images/testimonialuserimage.svg';
+import { useTheme } from '../../contexts/ThemeContext';
 
 const hiddenScrollbar = {
     '&::-webkit-scrollbar': {
@@ -14,8 +15,10 @@ const hiddenScrollbar = {
     },
 };
 
+
 export default function TestimonialCard(props) {
-    console.log(props, 'props');
+    const { theme } = useTheme()
+    const isLightMode = theme === 'light';
 
     return (
         <Box
@@ -24,14 +27,14 @@ export default function TestimonialCard(props) {
                 height: '17.1875rem', // 275px converted to rem
                 textAlign: 'left',
                 p: '1rem', // 16px converted to rem
-                bgcolor: 'text.white',
+                bgcolor: 'common.cardbg',
                 border: '0.0625rem solid transparent', // 1px converted to rem
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
                 transition: 'border-color 0.3s, box-shadow 0.3s',
                 '&:hover': {
-                    borderColor: 'primary.main',
+                    borderColor: 'text.main',
                 }
             }}
         >

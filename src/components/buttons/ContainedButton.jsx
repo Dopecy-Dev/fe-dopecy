@@ -8,11 +8,11 @@ function ContainedButton(props) {
             {...props}
             sx={{
                 ...props.style,
-                backgroundColor: 'primary.main',
+                backgroundColor: 'common.mainbg',
                 textTransform: 'none',
                 color: 'white',
                 '&:hover': {
-                    backgroundColor: 'primary.dark',
+                    backgroundColor: 'common.mainhoverbg',
                 },
                 '&:focus': {
                     outline: 'none',

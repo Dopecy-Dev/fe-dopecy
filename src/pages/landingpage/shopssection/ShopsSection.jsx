@@ -21,6 +21,7 @@ import 'swiper/css/free-mode';
 // import required modules
 import { FreeMode, Autoplay, EffectCoverflow, Pagination, Navigation, Mousewheel, Keyboard } from 'swiper/modules';
 import { Link } from 'react-router-dom';
+import { useTheme } from '../../../contexts/ThemeContext';
 
 const responsive = {
     desktop: {
@@ -173,11 +174,15 @@ function ShopsSection() {
         console.log(`Clicked on shop: ${shop.title}`);
     };
 
+    const { theme } = useTheme()
+    const isLightMode = theme === 'light';
+
+
     return (
         <>
             <Grid container sx={{ justifyContent: 'space-between', alignItems: 'center', mb: '2.5rem' }}> {/* 40px to rem */}
                 <Grid item>
-                    <Box sx={{ display: 'flex', ml: '2rem' }}> {/* 32px to rem */}
+                    <Box sx={{ display: 'flex', ml: 8 }}> {/* 32px to rem */}
                         <CustomTypography
                             text='All Shops'
                             style={{
@@ -185,7 +190,7 @@ function ShopsSection() {
                                 lineHeight: '1.875rem', // 30px to rem
                                 fontWeight: '700',
                                 textAlign: 'left',
-                                color: 'primary.main'
+                                color: isLightMode ? 'text.main' : 'text.primary'
                             }}
                         />
                     </Box>

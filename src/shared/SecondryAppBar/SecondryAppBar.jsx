@@ -100,7 +100,7 @@ export default function SecondryAppBar() {
         lineHeight: '0.75rem', // 12px to rem
         fontWeight: item === clickedItem ? '600' : '300',
         textAlign: 'left',
-        color: item === clickedItem ? 'primary.main' : 'text.primary',
+        color: item === clickedItem ? 'text.main' : 'text.primary',
         cursor: 'pointer',
         p: { xs: 1, sm: 1.5, md: 2 }, // Responsive padding
         mr: { xs: 2, sm: 3, md: 4 }, // Responsive margin-right

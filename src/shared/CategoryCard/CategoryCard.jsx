@@ -2,8 +2,16 @@ import * as React from 'react';
 import CustomTypography from '../../components/typography/CustomTypography';
 import catMobile from '../../assets/images/catMobile.svg';
 import { Box } from '@mui/material';
+import { useTheme } from '../../contexts/ThemeContext';
 
 export default function CategoryCard(props) {
+
+
+    const { theme } = useTheme()
+
+    const isLight = theme === 'light'
+
+
     return (
         <Box
             sx={{
@@ -21,7 +29,7 @@ export default function CategoryCard(props) {
                         },
                     },
                     '& .hover-text': {
-                        color: 'primary.main',
+                        color: 'text.main',
                     },
                 },
                 // Responsive design

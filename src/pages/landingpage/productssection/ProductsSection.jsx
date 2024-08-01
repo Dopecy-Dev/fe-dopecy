@@ -13,6 +13,7 @@ import P8Image from '../../../assets/images/P8Image.svg';
 import P9Image from '../../../assets/images/P9Image.svg';
 import ArrowRight from '../../../assets/images/ArrowRight.svg';
 import { Link, useNavigate } from 'react-router-dom';
+import { useTheme } from '../../../contexts/ThemeContext';
 
 function ProductsSection() {
     const [clickedItem, setClickedItem] = useState('All Products');
@@ -121,7 +122,7 @@ function ProductsSection() {
         lineHeight: '1.25rem',
         fontWeight: item === clickedItem ? '600' : '400',
         textAlign: 'left',
-        color: item === clickedItem || item === 'Browse All Product' ? 'primary.main' : 'text.darkgray',
+        color: item === clickedItem && isLight || item === 'Browse All Product' ? 'text.productlinkclicked' : 'text.primary',
         borderBottom: item === clickedItem ? '0.125rem solid' : 'none',
         cursor: 'pointer',
         paddingBottom: '0.25rem',
@@ -135,6 +136,9 @@ function ProductsSection() {
     };
 
     const items = ['All Products', 'Smart Phone', 'Laptop', 'Headphone', 'TV', 'Browse All Product'];
+
+    const { theme } = useTheme()
+    const isLight = theme === 'light'
 
     return (
         <>
@@ -155,10 +159,11 @@ function ProductsSection() {
                         <CustomTypography
                             text='All Products'
                             style={{
+                                ml: 0.5,
                                 fontSize: '1.25rem',
                                 lineHeight: '1.5rem',
                                 fontWeight: '700',
-                                color: 'primary.main',
+                                color: !isLight ? 'text.primary' : 'text.main',
                                 textAlign: { xs: 'center', md: 'left' },
                             }}
                         />

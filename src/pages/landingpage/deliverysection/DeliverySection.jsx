@@ -11,6 +11,7 @@ function DeliverySection() {
         lineHeight: '1.1875rem', // 19px to rem
         fontWeight: '600',
         textAlign: 'left',
+        color: 'text.primary',
         [theme.breakpoints.up('sm')]: {
             fontSize: '1.125rem', // 18px to rem
             lineHeight: '1.375rem', // 22px to rem
@@ -46,7 +47,7 @@ function DeliverySection() {
                         alignItems: 'center',
                         cursor: 'pointer',
                         boxShadow: 8,
-                        bgcolor: 'text.white',
+                        bgcolor: 'common.deliverybg',
                         p: '1rem', // 16px to rem
                     }}
                 >
@@ -73,7 +74,7 @@ function DeliverySection() {
                         alignItems: 'center',
                         cursor: 'pointer',
                         boxShadow: 8,
-                        bgcolor: 'text.white',
+                        bgcolor: 'common.deliverybg',
                         p: '1rem', // 16px to rem
                     }}
                 >
@@ -100,7 +101,7 @@ function DeliverySection() {
                         alignItems: 'center',
                         cursor: 'pointer',
                         boxShadow: 8,
-                        bgcolor: 'text.white',
+                        bgcolor: 'common.deliverybg',
                         p: '1rem', // 16px to rem
                     }}
                 >

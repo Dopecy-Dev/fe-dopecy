@@ -5,6 +5,7 @@ import P1Image from '../../../assets/images/P1Image.svg'
 import P2Image from '../../../assets/images/P2Image.svg'
 import P7Image from '../../../assets/images/P7Image.svg'
 import SmallProductCard from '../../../shared/SmallProductCard/SmallProductCard';
+import { useTheme } from '../../../contexts/ThemeContext';
 
 function SmallProductsSection() {
     const [products, setProducts] = useState([
@@ -39,6 +40,10 @@ function SmallProductsSection() {
         console.log(`Clicked on product: ${product.title}`);
     };
 
+    const { theme } = useTheme()
+    const isLightMode = theme === 'light';
+
+
     return (
         <>
             <Grid container spacing={2}> {/* 24px to rem */}
@@ -49,7 +54,7 @@ function SmallProductsSection() {
                             fontWeight: '600',
                             fontSize: '1rem',
                             lineHeight: '1.375rem', // 22px to rem
-                            color: 'text.primary',
+                            color: 'text.smallproductheading',
                             textAlign: 'left',
                             mb: '1.25rem' // 20px to rem
                         }}
@@ -78,7 +83,7 @@ function SmallProductsSection() {
                             fontWeight: '600',
                             fontSize: '0.9375rem', // 15px to rem
                             lineHeight: '1.375rem', // 22px to rem
-                            color: 'text.primary',
+                            color: 'text.smallproductheading',
                             textAlign: 'left',
                             mb: '1.25rem' // 20px to rem
                         }}
@@ -107,7 +112,7 @@ function SmallProductsSection() {
                             fontWeight: '600',
                             fontSize: '0.9375rem', // 15px to rem
                             lineHeight: '1.375rem', // 22px to rem
-                            color: 'text.primary',
+                            color: 'text.smallproductheading',
                             textAlign: 'left',
                             mb: '1.25rem' // 20px to rem
                         }}
@@ -136,7 +141,7 @@ function SmallProductsSection() {
                             fontWeight: '600',
                             fontSize: '0.9375rem', // 15px to rem
                             lineHeight: '1.375rem', // 22px to rem
-                            color: 'text.primary',
+                            color: 'text.smallproductheading',
                             textAlign: 'left',
                             mb: '1.25rem' // 20px to rem
                         }}

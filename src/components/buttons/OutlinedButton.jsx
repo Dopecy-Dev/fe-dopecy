@@ -14,6 +14,14 @@ function OutlinedButton(props) {
                 '&:hover': {
                     borderColor: 'primary.main',
                 },
+                '&:focus': {
+                    outline: 'none',
+                    boxShadow: 'none',
+                },
+                '&.Mui-focused': {
+                    outline: 'none',
+                    boxShadow: 'none',
+                },
             }}
             endIcon={props.icon ? <props.icon /> : null}
         >

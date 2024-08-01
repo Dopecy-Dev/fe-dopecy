@@ -23,6 +23,7 @@ import 'swiper/css/free-mode';
 import { FreeMode, Autoplay, EffectCoverflow, Pagination, Navigation, Mousewheel, Keyboard } from 'swiper/modules';
 import { Link } from 'react-router-dom';
 import DispensaryCard from '../../../shared/DispensaryCard/DispensaryCard';
+import { useTheme } from '../../../contexts/ThemeContext';
 
 const responsive = {
     desktop: {
@@ -237,11 +238,14 @@ function DispensariesSection() {
         console.log(`Clicked on shop: ${shop.title}`);
     };
 
+    const { theme } = useTheme()
+    const isLightMode = theme === 'light';
+
     return (
         <>
             <Grid container sx={{ justifyContent: 'space-between', alignItems: 'center', mb: '2.5rem' }}> {/* 40px to rem */}
                 <Grid item>
-                    <Box sx={{ display: 'flex', ml: '2rem' }}> {/* 32px to rem */}
+                    <Box sx={{ display: 'flex', ml: 8 }}> {/* 32px to rem */}
                         <CustomTypography
                             text='All Dispensaries'
                             style={{
@@ -249,7 +253,7 @@ function DispensariesSection() {
                                 lineHeight: '1.875rem', // 30px to rem
                                 fontWeight: '700',
                                 textAlign: 'left',
-                                color: 'primary.main'
+                                color: isLightMode ? 'text.main' : 'text.primary'
                             }}
                         />
                     </Box>
@@ -272,8 +276,8 @@ function DispensariesSection() {
                 }}
                 speed={1500}
                 coverflowEffect={{
-                    rotate: 10,
-                    stretch: 50,
+                    rotate: 0,
+                    stretch: 10,
                     depth: 100,
                     modifier: 1,
                     slideShadows: true,

@@ -9,6 +9,7 @@ import Liquorimage from '../../../assets/images/Liquorimage.svg';
 import watchesimage from '../../../assets/images/watchesimage.svg';
 import foodimage from '../../../assets/images/foodimage.svg';
 import accessoriesimage from '../../../assets/images/accessoriesimage.svg';
+import { useTheme } from '../../../contexts/ThemeContext';
 
 const categories = [
     { text: 'Mobile', image: catMobile },
@@ -25,6 +26,11 @@ function CategoriesSection() {
         console.log(`Clicked on category: ${category.text}`);
         // Add navigation or other click handling logic here
     };
+
+
+    const { theme } = useTheme()
+
+    const isLight = theme === 'light'
 
     return (
         <>
@@ -49,8 +55,9 @@ function CategoriesSection() {
                                 fontSize: { xs: '1.25rem', sm: '1.5rem' }, // Responsive font size
                                 lineHeight: { xs: '1.5rem', sm: '1.875rem' }, // Responsive line height
                                 fontWeight: '700',
+                                ml: 0.5,
                                 textAlign: { xs: 'center', sm: 'left' },
-                                color: 'primary.main'
+                                color: !isLight ? 'text.primary' : 'text.main'
                             }}
                         />
                     </Box>
@@ -63,7 +70,7 @@ function CategoriesSection() {
                             lineHeight: { xs: '1rem', sm: '1.125rem' }, // Responsive line height
                             fontWeight: '400',
                             textAlign: { xs: 'center', sm: 'left' },
-                            color: 'primary.main'
+                            color: !isLight ? 'text.primary' : 'text.main'
                         }}
                     />
                 </Grid>
