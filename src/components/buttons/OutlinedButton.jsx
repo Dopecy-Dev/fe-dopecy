@@ -9,10 +9,11 @@ function OutlinedButton(props) {
             sx={{
                 ...props.style,
                 // borderColor: 'transparent',
-                color: 'primary.main',
+                color: 'text.main',
                 textTransform: 'none',
+                borderColor: 'common.mainbg',
                 '&:hover': {
-                    borderColor: 'primary.main',
+                    borderColor: 'common.mainbg',
                 },
                 '&:focus': {
                     outline: 'none',

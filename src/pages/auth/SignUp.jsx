@@ -72,7 +72,7 @@ function SignUp() {
     };
 
     return (
-        <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh', bgcolor: 'text.white' }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh', bgcolor: 'background.default' }}>
             <Grid container sx={{ flex: 1 }}>
                 <Grid item xs={12} md={7} sx={{ display: { xs: 'none', md: 'block' } }}>
                     <Box
@@ -117,7 +117,7 @@ function SignUp() {
                         </Box>
                     </Box>
                 </Grid>
-                <Grid item xs={12} md={5} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', p: { xs: '1rem', sm: '1.5rem' }, bgcolor: 'text.white' }}>
+                <Grid item xs={12} md={5} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', p: { xs: '1rem', sm: '1.5rem' }, bgcolor: 'background.paper' }}>
                     <Box sx={{ width: '100%', maxWidth: '25rem' }}>
                         <CustomTypography
                             text='Create Account'
@@ -126,7 +126,7 @@ function SignUp() {
                                 fontSize: isSmallScreen ? '1.75rem' : '2.1875rem', // Responsive font size
                                 lineHeight: '2rem',
                                 textAlign: 'left',
-                                color: 'text.titleblack',
+                                color: 'text.primary',
                                 mb: { xs: '1rem', md: '1.5rem' } // Responsive margin bottom
                             }}
                         />
@@ -137,7 +137,7 @@ function SignUp() {
                                 fontSize: isSmallScreen ? '1rem' : '1.125rem', // Responsive font size
                                 lineHeight: '1.75rem',
                                 textAlign: 'left',
-                                color: 'text.titleblack',
+                                color: 'text.primary',
                                 mb: { xs: '1rem', md: '1.5rem' } // Responsive margin bottom
                             }}
                         />
@@ -149,7 +149,7 @@ function SignUp() {
                                     fontSize: '0.875rem', // 14px to rem
                                     lineHeight: 0,
                                     textAlign: 'left',
-                                    color: 'text.graybg3',
+                                    color: 'text.primary',
                                     pl: '0.5rem' // 8px to rem
                                 }}
                             />
@@ -171,7 +171,7 @@ function SignUp() {
                                     fontSize: '0.875rem', // 14px to rem
                                     lineHeight: 0,
                                     textAlign: 'left',
-                                    color: 'text.graybg3',
+                                    color: 'text.primary',
                                     pl: '0.5rem' // 8px to rem
                                 }}
                             />
@@ -190,12 +190,12 @@ function SignUp() {
                                 text='Phone Number'
                                 style={{
                                     fontWeight: '400',
-                                    fontSize: '0.875rem', // 14px to rem
+                                    fontSize: '0.875rem',
                                     lineHeight: 0,
                                     textAlign: 'left',
-                                    color: 'text.graybg3',
+                                    color: 'text.primary',
                                     pl: '0.5rem',
-                                    mb: '0.5rem' // 8px to rem
+                                    mb: '1rem'
                                 }}
                             />
                             <PhoneInput
@@ -209,12 +209,12 @@ function SignUp() {
                                 text='Password'
                                 style={{
                                     fontWeight: '400',
-                                    fontSize: '0.875rem', // 14px to rem
+                                    fontSize: '0.875rem',
                                     lineHeight: 0,
                                     textAlign: 'left',
-                                    color: 'text.graybg3',
+                                    color: 'text.primary',
                                     pl: '0.5rem',
-                                    mt: '1rem' // 16px to rem
+                                    mt: '1rem'
                                 }}
                             />
                             <TextField
@@ -248,7 +248,7 @@ function SignUp() {
                                     fontSize: '0.875rem', // 14px to rem
                                     lineHeight: 0,
                                     textAlign: 'left',
-                                    color: 'text.graybg3',
+                                    color: 'text.primary',
                                     pl: '0.5rem'
                                 }}
                             />
@@ -322,7 +322,7 @@ function SignUp() {
                                     fontWeight: '400',
                                     fontSize: '0.75rem', // 12px to rem
                                     lineHeight: '1.25rem', // 20px to rem
-                                    color: 'text.titleblack',
+                                    color: 'text.primary',
                                     mr: '0.25rem' // 4px to rem
                                 }}
                             />
@@ -333,7 +333,7 @@ function SignUp() {
                                         fontWeight: '400',
                                         fontSize: '0.75rem', // 12px to rem
                                         lineHeight: '1.25rem', // 20px to rem
-                                        color: 'primary.main',
+                                        color: 'text.main',
                                         cursor: 'pointer',
                                     }}
                                 />
@@ -347,7 +347,7 @@ function SignUp() {
                                     fontWeight: '400',
                                     fontSize: '0.75rem', // 12px to rem
                                     lineHeight: '1.25rem', // 20px to rem
-                                    color: 'text.titleblack',
+                                    color: 'text.primary',
                                     mr: '0.25rem' // 4px to rem
                                 }}
                             />
@@ -358,7 +358,7 @@ function SignUp() {
                                         fontWeight: '400',
                                         fontSize: '0.75rem', // 12px to rem
                                         lineHeight: '1.25rem', // 20px to rem
-                                        color: 'primary.main',
+                                        color: 'text.main',
                                         cursor: 'pointer',
                                     }}
                                 />
