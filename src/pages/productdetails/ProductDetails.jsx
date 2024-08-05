@@ -161,11 +161,12 @@ function ProductDetails() {
                                                         return selected + 'ml';
                                                     }}
                                                     sx={{
-                                                        backgroundColor: 'common.cartselectionbg',
+                                                        // backgroundColor: 'common.cartselectionbg',
+                                                        color: 'text.main',
                                                         borderRadius: '1.5625rem', // 25px to rem
                                                         border: 'none',
                                                         '&:hover': {
-                                                            backgroundColor: 'common.cartselectionbg',
+                                                            // backgroundColor: 'common.cartselectionbg',
                                                         },
                                                         '&.Mui-focused': {
                                                             border: 'none',
@@ -181,12 +182,13 @@ function ProductDetails() {
                                                         PaperProps: {
                                                             sx: {
                                                                 borderRadius: '0.625rem', // 10px to rem
-                                                                backgroundColor: 'text.white'
+                                                                backgroundColor: 'common.mainbg',
+                                                                color: 'text.primary'
                                                             }
                                                         }
                                                     }}
                                                 >
-                                                    <MenuItem value="" disabled></MenuItem>
+                                                    {/* <MenuItem value="" disabled></MenuItem> */}
                                                     <MenuItem value={100}>100ml</MenuItem>
                                                     <MenuItem value={200}>200ml</MenuItem>
                                                     <MenuItem value={500}>500ml</MenuItem>
@@ -232,7 +234,7 @@ function ProductDetails() {
                                             <Typography
                                                 sx={{
                                                     margin: '0 1rem', // 16px to rem
-                                                    color: 'text.primary',
+                                                    color: 'text.main',
                                                     fontWeight: 'bold',
                                                 }}
                                             >
@@ -287,7 +289,7 @@ function ProductDetails() {
                                                 fontSize: { xs: '1rem', sm: '1.125rem' }, // 16px to rem and 18px to rem
                                                 lineHeight: '1.75rem', // 28px to rem
                                                 textAlign: 'left',
-                                                color: 'text.titleblack',
+                                                color: 'text.primary',
                                                 ml: '0.625rem' // 10px to rem
                                             }}
                                         />
@@ -301,7 +303,7 @@ function ProductDetails() {
                                                 fontSize: { xs: '1rem', sm: '1.125rem' }, // 16px to rem and 18px to rem
                                                 lineHeight: '1.75rem', // 28px to rem
                                                 textAlign: 'left',
-                                                color: 'text.titleblack',
+                                                color: 'text.primary',
                                                 ml: '0.625rem' // 10px to rem
                                             }}
                                         />
