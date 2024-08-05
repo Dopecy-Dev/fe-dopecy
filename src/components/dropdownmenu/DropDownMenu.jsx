@@ -44,6 +44,23 @@ export default function DropDownMenu({ anchorEl, handleClose }) {
                     py: { xs: '0.25rem', sm: '0.375rem', md: '0.5rem' } // 4px, 6px, 8px
                 }}
             >
+                Doepcy Stage
+            </MenuItem>
+            <MenuItem
+                onClick={handleClose}
+                sx={{
+                    fontSize: {
+                        xs: '0.75rem', // 12px
+                        sm: '0.875rem', // 14px
+                        md: '1rem' // 16px
+                    },
+                    borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
+                    '&:last-child': {
+                        borderBottom: 'none',
+                    },
+                    py: { xs: '0.25rem', sm: '0.375rem', md: '0.5rem' } // 4px, 6px, 8px
+                }}
+            >
                 Stock News
             </MenuItem>
             <MenuItem
