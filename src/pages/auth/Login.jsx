@@ -55,7 +55,7 @@ function Login() {
     };
 
     return (
-        <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh', bgcolor: 'background.default' }}>
             <Grid container sx={{ flex: 1 }}>
                 <Grid item xs={12} md={7} sx={{ display: { xs: 'none', md: 'block' } }}>
                     <Box
@@ -100,7 +100,7 @@ function Login() {
                         </Box>
                     </Box>
                 </Grid>
-                <Grid item xs={12} md={5} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', p: { xs: '1rem', sm: '1.5rem' }, bgcolor: 'text.white' }}>
+                <Grid item xs={12} md={5} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', p: { xs: '1rem', sm: '1.5rem' }, bgcolor: 'background.paper' }}>
                     <Box sx={{ width: '100%', maxWidth: '25rem' }}>
                         <CustomTypography
                             text='Login'
@@ -109,7 +109,7 @@ function Login() {
                                 fontSize: isSmallScreen ? '1.75rem' : '2.1875rem', // Responsive font size
                                 lineHeight: '2.25rem',
                                 textAlign: 'left',
-                                color: 'text.titleblack',
+                                color: 'text.primary',
                                 mb: { xs: '1rem', md: '1.5rem' } // Responsive margin bottom
                             }}
                         />
@@ -120,7 +120,7 @@ function Login() {
                                 fontSize: isSmallScreen ? '1rem' : '1.125rem', // Responsive font size
                                 lineHeight: '1.75rem',
                                 textAlign: 'left',
-                                color: 'text.titleblack',
+                                color: 'text.primary',
                                 mb: { xs: '1rem', md: '1.5rem' } // Responsive margin bottom
                             }}
                         />
@@ -132,7 +132,7 @@ function Login() {
                                     fontSize: '0.875rem', // 14px to rem
                                     lineHeight: 0,
                                     textAlign: 'left',
-                                    color: 'text.graybg3',
+                                    color: 'text.primary',
                                     pl: '0.5rem' // 8px to rem
                                 }}
                             />
@@ -154,7 +154,7 @@ function Login() {
                                     fontSize: '0.875rem', // 14px to rem
                                     lineHeight: 0,
                                     textAlign: 'left',
-                                    color: 'text.graybg3',
+                                    color: 'text.primary',
                                     pl: '0.5rem' // 8px to rem
                                 }}
                             />
@@ -181,16 +181,27 @@ function Login() {
                                     ),
                                 }}
                             />
-                            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: '1rem' }}> {/* 16px to rem */}
+                            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: '1rem' }}>
                                 <FormControlLabel
                                     control={
                                         <Switch
                                             checked={rememberMe}
                                             onChange={(e) => setRememberMe(e.target.checked)}
+                                            sx={{
+                                                '& .MuiSwitch-switchBase.Mui-checked': {
+                                                    color: 'text.main',
+                                                    '&:hover': {
+                                                        backgroundColor: 'text.main' + '26', // Adjust hover color
+                                                    },
+                                                },
+                                                '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': {
+                                                    backgroundColor: 'text.main',
+                                                },
+                                            }}
                                         />
                                     }
                                     label="Remember me"
-                                    sx={{ display: 'flex', alignItems: 'center' }}
+                                    sx={{ display: 'flex', alignItems: 'center', color: 'text.primary' }}
                                 />
                                 <Link to='/forgotpassword'>
                                     <CustomTypography
@@ -199,7 +210,7 @@ function Login() {
                                             fontWeight: '400',
                                             fontSize: '0.75rem', // 12px to rem
                                             lineHeight: '1.25rem', // 20px to rem
-                                            color: 'primary.main',
+                                            color: 'text.primary',
                                             cursor: 'pointer',
                                             '&:hover': {
                                                 textDecoration: 'underline'
@@ -220,7 +231,7 @@ function Login() {
                                     fontWeight: '400',
                                     fontSize: '0.9375rem', // 15px to rem
                                     lineHeight: '1.25rem', // 20px to rem
-                                    color: 'primary.main',
+                                    color: 'text.main',
                                     cursor: 'pointer',
                                     textDecoration: 'underline',
                                     my: '1.5rem' // 24px to rem
@@ -262,7 +273,7 @@ function Login() {
                                     fontWeight: '400',
                                     fontSize: '0.75rem', // 12px to rem
                                     lineHeight: '1.25rem', // 20px to rem
-                                    color: 'text.titleblack',
+                                    color: 'text.primary',
                                     mr: '0.25rem' // 4px to rem
                                 }}
                             />
@@ -273,7 +284,7 @@ function Login() {
                                         fontWeight: '400',
                                         fontSize: '0.75rem', // 12px to rem
                                         lineHeight: '1.25rem', // 20px to rem
-                                        color: 'primary.main',
+                                        color: 'text.main',
                                         cursor: 'pointer',
                                     }}
                                 />
@@ -286,7 +297,7 @@ function Login() {
                                     fontWeight: '400',
                                     fontSize: '0.75rem', // 12px to rem
                                     lineHeight: '1.25rem', // 20px to rem
-                                    color: 'text.titleblack',
+                                    color: 'text.primary',
                                     mr: '0.25rem' // 4px to rem
                                 }}
                             />
@@ -297,7 +308,7 @@ function Login() {
                                         fontWeight: '400',
                                         fontSize: '0.75rem', // 12px to rem
                                         lineHeight: '1.25rem', // 20px to rem
-                                        color: 'primary.main',
+                                        color: 'text.main',
                                         cursor: 'pointer',
                                     }}
                                 />
