@@ -184,7 +184,7 @@ function ShopDetails() {
         lineHeight: '1.25rem',
         fontWeight: item === clickedItem ? '600' : '400',
         textAlign: 'left',
-        color: item === clickedItem || item === 'Browse All Product' ? 'primary.main' : 'text.darkgray',
+        color: item === clickedItem || item === 'Browse All Product' ? 'text.main' : 'text.darkgray',
         borderBottom: item === clickedItem ? '0.125rem solid' : 'none',
         cursor: 'pointer',
         paddingBottom: '0.25rem',
@@ -246,7 +246,7 @@ function ShopDetails() {
                                         fontWeight: '600',
                                         fontSize: isMobile ? '1.25rem' : '1.5rem',
                                         lineHeight: '2rem',
-                                        color: 'text.titleblack',
+                                        color: 'text.primary',
                                         textAlign: isMobile ? 'center' : 'left',
                                     }}
                                 />
@@ -300,7 +300,7 @@ function ShopDetails() {
                                     fontWeight: '600',
                                     fontSize: '1rem',
                                     lineHeight: '1.5rem',
-                                    color: 'primary.main',
+                                    color: 'text.primary',
                                 }}
                             />
                         </Grid>
@@ -320,7 +320,7 @@ function ShopDetails() {
                                     fontWeight: '600',
                                     fontSize: '1rem',
                                     lineHeight: '1.5rem',
-                                    color: 'primary.main',
+                                    color: 'text.primary',
                                 }}
                             />
                         </Grid>
@@ -331,7 +331,7 @@ function ShopDetails() {
                                     fontWeight: '300',
                                     fontSize: '0.9rem',
                                     lineHeight: '1.4rem',
-                                    color: 'text.primary',
+                                    color: 'text.darkgray',
                                 }}
                             />
                             <Grid container spacing={2} sx={{ justifyContent: 'center' }}>
