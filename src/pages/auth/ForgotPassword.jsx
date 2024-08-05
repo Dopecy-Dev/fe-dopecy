@@ -5,6 +5,7 @@ import CustomTypography from '../../components/typography/CustomTypography';
 import Header from '../../layout/Header/Header';
 import ContainedButton from '../../components/buttons/ContainedButton';
 import { useNavigate } from 'react-router-dom';
+import CustomTextField from '../../components/textfield/CustomTextField';
 
 function ForgotPassword() {
     const [email, setEmail] = useState('');
@@ -61,7 +62,7 @@ function ForgotPassword() {
                     <form onSubmit={handleSubmit}>
                         <Grid container spacing={2} sx={{ justifyContent: 'center', alignItems: 'center', p: { xs: '0.5rem', sm: '1rem' } }}>
                             <Grid item xs={12} sm={9}>
-                                <TextField
+                                <CustomTextField
                                     placeholder='Enter Your email'
                                     variant="outlined"
                                     fullWidth

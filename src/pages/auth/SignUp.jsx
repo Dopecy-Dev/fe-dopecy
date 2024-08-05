@@ -12,6 +12,7 @@ import OutlinedButton from '../../components/buttons/OutlinedButton';
 import googleicon from '../../assets/images/googleicon.svg';
 import facebookicon from '../../assets/images/facebookicon.svg';
 import { Link } from 'react-router-dom';
+import CustomTextField from '../../components/textfield/CustomTextField';
 
 function SignUp() {
     const [email, setEmail] = useState('');
@@ -153,7 +154,7 @@ function SignUp() {
                                     pl: '0.5rem' // 8px to rem
                                 }}
                             />
-                            <TextField
+                            <CustomTextField
                                 placeholder='Username'
                                 variant="outlined"
                                 fullWidth
@@ -175,7 +176,7 @@ function SignUp() {
                                     pl: '0.5rem' // 8px to rem
                                 }}
                             />
-                            <TextField
+                            <CustomTextField
                                 placeholder='Email or phone number'
                                 variant="outlined"
                                 fullWidth
@@ -217,7 +218,7 @@ function SignUp() {
                                     mt: '1rem'
                                 }}
                             />
-                            <TextField
+                            <CustomTextField
                                 sx={{ mb: '2rem', height: '3rem' }} // 48px to rem
                                 placeholder='Enter password'
                                 type={showPassword ? 'text' : 'password'}
@@ -252,7 +253,7 @@ function SignUp() {
                                     pl: '0.5rem'
                                 }}
                             />
-                            <TextField
+                            <CustomTextField
                                 sx={{ mb: '2rem', height: '3rem' }} // 48px to rem
                                 placeholder='Confirm password'
                                 type={showConfirmPassword ? 'text' : 'password'}

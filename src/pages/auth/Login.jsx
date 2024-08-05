@@ -9,6 +9,7 @@ import OutlinedButton from '../../components/buttons/OutlinedButton';
 import googleicon from '../../assets/images/googleicon.svg';
 import facebookicon from '../../assets/images/facebookicon.svg';
 import { Link, useNavigate } from 'react-router-dom';
+import CustomTextField from '../../components/textfield/CustomTextField';
 
 function Login() {
     const [email, setEmail] = useState('');
@@ -136,7 +137,7 @@ function Login() {
                                     pl: '0.5rem' // 8px to rem
                                 }}
                             />
-                            <TextField
+                            <CustomTextField
                                 placeholder='Email or phone number'
                                 variant="outlined"
                                 fullWidth
@@ -158,7 +159,7 @@ function Login() {
                                     pl: '0.5rem' // 8px to rem
                                 }}
                             />
-                            <TextField
+                            <CustomTextField
                                 placeholder='Enter password'
                                 type={showPassword ? 'text' : 'password'}
                                 variant="outlined"
