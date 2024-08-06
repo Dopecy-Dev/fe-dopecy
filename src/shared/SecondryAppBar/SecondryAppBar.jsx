@@ -109,30 +109,30 @@ export default function SecondryAppBar() {
 
     const items = [
         { text: 'Home', link: '/' },
-        { text: 'Events', link: '/comming-soon' },
-        { text: 'Clubs', link: '/comming-soon' },
+        { text: 'Events', link: '/coming-soon' },
+        { text: 'Clubs', link: '/coming-soon' },
         { text: 'Dopecy Studio', link: '#' },
-        { text: 'Dispensaries', link: '/comming-soon' },
-        { text: 'Restaurants', link: '/comming-soon' },
-        { text: 'Liquor Stores', link: '/comming-soon' }
+        { text: 'Dispensaries', link: '/coming-soon' },
+        { text: 'Restaurants', link: '/coming-soon' },
+        { text: 'Liquor Stores', link: '/coming-soon' }
     ];
 
     const menuItems = [
         {
             text: 'Doepcy Stage',
-            link: '/comming-soon'
+            link: '/coming-soon'
         },
         {
             text: 'Stock News',
-            link: '/comming-soon'
+            link: '/coming-soon'
         },
         {
             text: 'Brands Podcast',
-            link: '/comming-soon'
+            link: '/coming-soon'
         },
         {
             text: 'Youtube Video',
-            link: '/comming-soon'
+            link: '/coming-soon'
         }
     ];
 

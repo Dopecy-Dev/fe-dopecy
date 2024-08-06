@@ -3,7 +3,7 @@ import React from 'react'
 import Header from '../../layout/Header/Header'
 import Footer from '../../layout/Footer/Footer'
 
-function CommingSoon() {
+function ComingSoon() {
     return (
         <>
             <Header />
@@ -16,7 +16,7 @@ function CommingSoon() {
                     alignItems: 'center'
                 }}>
 
-                Comming soon..!
+                Coming soon..!
             </Box>
             <Footer />
 
@@ -24,4 +24,4 @@ function CommingSoon() {
     )
 }
 
-export default CommingSoon
+export default ComingSoon

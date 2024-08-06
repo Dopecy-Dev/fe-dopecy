@@ -39,7 +39,7 @@ import ShopDetails from '../pages/shopdetails/ShopDetails';
 // protected
 import Protected from './Protected';
 import SellerSignup from '../pages/auth/SellerSignup';
-import CommingSoon from '../pages/commingsoon/CommingSoon';
+import ComingSoon from '../pages/comingsoon/ComingSoon';
 import MarketingOffers from '../pages/marketingoffers/MarketingOffers';
 
 const Routers = () => {
@@ -60,7 +60,7 @@ const Routers = () => {
                 <Route path="/landingpage" element={<LandingPage />} />
                 <Route path="/productdetails" element={<ProductDetails />} />
                 <Route path="/shopdetails" element={<ShopDetails />} />
-                <Route path="/comming-soon" element={<CommingSoon />} />
+                <Route path="/coming-soon" element={<ComingSoon />} />
                 <Route path="/marketing-offers" element={<MarketingOffers />} />
 
 
