@@ -39,6 +39,8 @@ import ShopDetails from '../pages/shopdetails/ShopDetails';
 // protected
 import Protected from './Protected';
 import SellerSignup from '../pages/auth/SellerSignup';
+import CommingSoon from '../pages/commingsoon/CommingSoon';
+import MarketingOffers from '../pages/marketingoffers/MarketingOffers';
 
 const Routers = () => {
     return (
@@ -58,6 +60,10 @@ const Routers = () => {
                 <Route path="/landingpage" element={<LandingPage />} />
                 <Route path="/productdetails" element={<ProductDetails />} />
                 <Route path="/shopdetails" element={<ShopDetails />} />
+                <Route path="/comming-soon" element={<CommingSoon />} />
+                <Route path="/marketing-offers" element={<MarketingOffers />} />
+
+
                 {/* <Route path="/marketplace" element={<Protected Component={MarketPlace} />} /> */}
                 {/* <Route path="/sellerstore" element={<Protected Component={SellerStore} />} /> */}
                 {/* <Route path="/ownprofile" element={<Protected Component={OwnProfile} />} /> */}

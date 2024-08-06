@@ -15,7 +15,7 @@ function TopBar() {
     const isMdUp = useMediaQuery(muiTheme.breakpoints.up('md'));
 
     return (
-        <>
+        <><Link to='/marketing-offers'>
             {isMdUp ?
                 <Box className="scroll-container" sx={{ backgroundColor: 'common.topbarbg', cursor: 'pointer' }}>
                     <Box className="scroll-text">
@@ -181,6 +181,7 @@ function TopBar() {
                     </Grid>
                 </Grid>
             }
+        </Link>
         </>
     );
 }

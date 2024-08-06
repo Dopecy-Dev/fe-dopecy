@@ -9,6 +9,7 @@ import { useTheme } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '../../assets/images/SearchIcon.svg';
 import SearchIconRight from '../../assets/images/SearchIconRight.svg';
+import { Link } from 'react-router-dom';
 
 const CustomAppBar = styled(AppBar)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#000000' : theme.palette.common.searchbar,
@@ -101,12 +102,39 @@ export default function SecondryAppBar() {
         fontWeight: item === clickedItem ? '600' : '300',
         textAlign: 'left',
         color: item === clickedItem ? 'text.main' : 'text.primary',
-        cursor: 'pointer',
+        // cursor: 'pointer',
         p: { xs: 1, sm: 1.5, md: 2 }, // Responsive padding
         mr: { xs: 2, sm: 3, md: 4 }, // Responsive margin-right
     });
 
-    const items = ['Home', 'Events', 'Clubs', 'Dopecy Studio', 'Dispensaries', 'Restaurants', 'Liquor Stores '];
+    const items = [
+        { text: 'Home', link: '/' },
+        { text: 'Events', link: '/comming-soon' },
+        { text: 'Clubs', link: '/comming-soon' },
+        { text: 'Dopecy Studio', link: '#' },
+        { text: 'Dispensaries', link: '/comming-soon' },
+        { text: 'Restaurants', link: '/comming-soon' },
+        { text: 'Liquor Stores', link: '/comming-soon' }
+    ];
+
+    const menuItems = [
+        {
+            text: 'Doepcy Stage',
+            link: '/comming-soon'
+        },
+        {
+            text: 'Stock News',
+            link: '/comming-soon'
+        },
+        {
+            text: 'Brands Podcast',
+            link: '/comming-soon'
+        },
+        {
+            text: 'Youtube Video',
+            link: '/comming-soon'
+        }
+    ];
 
     React.useEffect(() => {
         const handleScroll = () => {
@@ -131,18 +159,20 @@ export default function SecondryAppBar() {
                     }}
                 >
                     {items.map((item) => (
-                        <Box key={item} onClick={() => handleClick(item)} sx={getStyle(item)}>
-                            <CustomTypography
-                                text={item}
-                                style={{
-                                    fontSize: 'inherit',
-                                    lineHeight: 'inherit',
-                                    fontWeight: 'inherit',
-                                    textAlign: 'inherit',
-                                    color: 'inherit'
-                                }}
-                                id={item === 'Dopecy Studio' ? 'dopecy-studio-button' : undefined}
-                            />
+                        <Box key={item.text} onClick={() => handleClick(item.text)} sx={getStyle(item.text)}>
+                            <Link to={item.link} replace style={{ textDecoration: 'none', color: 'inherit' }}>
+                                <CustomTypography
+                                    text={item.text}
+                                    style={{
+                                        fontSize: 'inherit',
+                                        lineHeight: 'inherit',
+                                        fontWeight: 'inherit',
+                                        textAlign: 'inherit',
+                                        color: 'inherit'
+                                    }}
+                                    id={item.text === 'Dopecy Studio' ? 'dopecy-studio-button' : undefined}
+                                />
+                            </Link>
                         </Box>
                     ))}
 
@@ -160,7 +190,7 @@ export default function SecondryAppBar() {
                             </SearchSecondIconWrapper>
                         </Search>
                     )}
-                    <DropDownMenu anchorEl={anchorEl} handleClose={handleMenuClose} />
+                    <DropDownMenu anchorEl={anchorEl} handleClose={handleMenuClose} menuItems={menuItems} />
                 </Box>
             </Box>
         </CustomAppBar>
