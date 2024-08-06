@@ -51,6 +51,8 @@ const useStyles = makeStyles((theme) => ({
   formContainer: {
     display: "flex",
     flexDirection: "column",
+    justifyContent: 'center',
+    alignItems: 'center'
 
   },
   nextButton: {
