@@ -4,16 +4,17 @@ import { styled } from '@mui/system';
 const TextInputField = styled(TextField)(({ theme }) => ({
     "& .MuiOutlinedInput-root": {
       borderRadius: "8px",
-      backgroundColor: "#F2F2F2",
+      backgroundColor: "common.selectfieldbg",
       marginBottom: 10,
+      borderColor: theme.palette.common.mainbg,
       "& fieldset": {
-        borderColor: "transparent",
+      borderColor: theme.palette.common.mainbg,
       },
       "&:hover fieldset": {
-        borderColor: "transparent",
+      borderColor: theme.palette.common.mainbg,
       },
       "&.Mui-focused fieldset": {
-        borderColor: "transparent",
+      borderColor: theme.palette.common.mainbg,
       },
       "& .MuiInputBase-input": {
         padding: "10px 14px",

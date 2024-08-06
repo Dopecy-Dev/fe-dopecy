@@ -380,7 +380,7 @@ function ShopDetails() {
                                     fontSize: '1.25rem',
                                     lineHeight: '1.5rem',
                                     fontWeight: '700',
-                                    color: 'primary.main',
+                                    color: 'text.main',
                                     textAlign: { xs: 'center', md: 'left' },
                                 }}
                             />

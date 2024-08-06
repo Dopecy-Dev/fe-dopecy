@@ -38,7 +38,7 @@ function SellerSignup() {
         <Container component="main" maxWidth="lg">
           <Grid container className={classes.mainContainer}>
             <Grid item xs={12} md={6} className={classes.welcomeTextContainer}>
-              <Box className={classes.welcomeText} sx={{ zIndex: 1,mt:20 }}>
+              <Box className={classes.welcomeText} sx={{ zIndex: 1, mt: 20 }}>
                 <CustomTypography
                   variant="h4"
                   text="Welcome to DOPECY Sellers Platform,"
@@ -66,9 +66,9 @@ function SellerSignup() {
               <Paper
                 elevation={3}
                 className={classes.formPaper}
-                sx={{ borderRadius: 5,minHeight:600,mb:2}}
+                sx={{ borderRadius: 5, minHeight: 600, mb: 2 }}
               >
-               <SellerDetails />
+                <SellerDetails />
               </Paper>
             </Grid>
           </Grid>

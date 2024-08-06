@@ -264,22 +264,22 @@ function DispensariesSection() {
                 ref={swiperRef}
                 effect={'coverflow'}
                 freeMode={true}
-                grabCursor={true}
+                // grabCursor={true}
                 centeredSlides={true}
-                slidesPerView={6}
+                // slidesPerView={8}
                 loop={true}
                 mousewheel={true}
                 keyboard={true}
                 autoplay={{
-                    delay: 1000,
-                    disableOnInteraction: false,
+                    delay: 1500,
+                    // disableOnInteraction: false,
                 }}
-                speed={1500}
+                speed={1000}
                 coverflowEffect={{
                     rotate: 0,
-                    stretch: 10,
-                    depth: 100,
-                    modifier: 1,
+                    stretch: 0,
+                    depth: 10,
+                    modifier: 3,
                     slideShadows: true,
                 }}
 
@@ -290,11 +290,11 @@ function DispensariesSection() {
                     },
                     // When window width is >= 768px
                     768: {
-                        slidesPerView: 5,
+                        slidesPerView: 6,
                     },
                     // When window width is >= 1200px
                     1200: {
-                        slidesPerView: 7,
+                        slidesPerView: 8,
                     },
                 }}
                 // pagination={true}

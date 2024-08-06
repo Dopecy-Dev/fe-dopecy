@@ -27,6 +27,7 @@ const lightTheme = createTheme({
         },
         common: {
             mainbg: '#326039',
+            selectfieldbg: '#F2F2F2',
             topbarbg: '#326039',
             primaryheaderbg: '#FFFFFF',
             searchbar: '#EBEFEB',
@@ -74,6 +75,7 @@ const darkTheme = createTheme({
         common: {
             mainbg: '#326039',
             mainhoverbg: '#327039',
+            selectfieldbg: 'transparent',
             topbarbg: '#212121',
             primaryheaderbg: '#302F2F',
             heroarrowbg: '#232323',

@@ -5,16 +5,17 @@ import { styled } from "@mui/system";
 const CustomFormControl = styled(FormControl)(({ theme }) => ({
   "& .MuiOutlinedInput-root": {
     borderRadius: "8px",
-    backgroundColor: "#F2F2F2",
+    backgroundColor: theme.palette.common.selectfieldbg,
     textAlign:"left",
+    borderColor: theme.palette.common.mainbg,
     "& fieldset": {
-      borderColor: "transparent",
+      borderColor: theme.palette.common.mainbg,
     },
     "&:hover fieldset": {
-      borderColor: "transparent",
+      borderColor: theme.palette.common.mainbg,
     },
     "&.Mui-focused fieldset": {
-      borderColor: "transparent",
+      borderColor: theme.palette.common.mainbg,
     },
     "& .MuiInputBase-input": {
       padding: "10px 14px",
@@ -22,6 +23,20 @@ const CustomFormControl = styled(FormControl)(({ theme }) => ({
   },
   "& .MuiInputLabel-root": {
     color: theme.palette.text.primary,
+  },
+}));
+
+const CustomMenuItem = styled(MenuItem)(({ theme }) => ({
+  // backgroundColor: theme.palette.common.mainbg,
+  "&:hover": {
+    backgroundColor: theme.palette.common.mainbg,
+  },
+  "&.Mui-selected": {
+    backgroundColor: theme.palette.common.mainbg,
+    color: theme.palette.common.white,
+  },
+  "&.Mui-selected:hover": {
+    backgroundColor: theme.palette.common.mainbg,
   },
 }));
 
@@ -35,9 +50,10 @@ const SelectField = ({ label, value, onChange, options }) => {
         label={label}
       >
         {options.map((option) => (
-          <MenuItem key={option.value} value={option.value}>
+          <CustomMenuItem
+          key={option.value} value={option.value}>
             {option.label}
-          </MenuItem>
+          </CustomMenuItem>
         ))}
       </Select>
     </CustomFormControl>

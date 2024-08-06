@@ -9,6 +9,7 @@ import {
   MenuItem,
   FormControl,
   InputLabel,
+  Grid,
 } from "@mui/material";
 import useStyles from "../../styles";
 import CustomTypography from "../typography/CustomTypography";
@@ -25,6 +26,8 @@ import SelectField from "../../common/SelectField";
 import BusinessLicense from "./BusinessLicense";
 import PhysicalStore from "./PhysicalStore";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ContainedButton from "../buttons/ContainedButton";
+import OutlinedButton from "../buttons/OutlinedButton";
 const steps = [
   "Personal Information",
   "Business Type",
@@ -81,9 +84,16 @@ function SellerDetails() {
 
   return (
     <Box className={classes.formContainer}>
-      <Typography variant="h5" sx={{ fontWeight: 700, mb: 1 }}>
-        Create Your Dopecy Shop
-      </Typography>
+      <CustomTypography
+        text="Create Your Dopecy Shop"
+        style={{
+          fontWeight: "700",
+          fontSize: '2rem',
+          lineHeight: '1.8rem',
+          color: "text.primary",
+          mb: 1
+        }}
+      />
       <Stepper
         alternativeLabel
         activeStep={activeStep}
@@ -103,12 +113,11 @@ function SellerDetails() {
             style={{
               fontWeight: "400",
               fontSize: 16,
-              color: "#333333",
+              color: "text.primary",
               textAlign: "left",
             }}
           />
           <SelectField
-            label="Title"
             value={title}
             onChange={(event) => setTitle(event.target.value)}
             options={[
@@ -122,7 +131,7 @@ function SellerDetails() {
             style={{
               fontWeight: "400",
               fontSize: 16,
-              color: "#333333",
+              color: "text.primary",
               textAlign: "left",
             }}
           />
@@ -137,7 +146,7 @@ function SellerDetails() {
             style={{
               fontWeight: "400",
               fontSize: 16,
-              color: "#333333",
+              color: "text.primary",
               textAlign: "left",
             }}
           />
@@ -152,7 +161,7 @@ function SellerDetails() {
             style={{
               fontWeight: "400",
               fontSize: 16,
-              color: "#333333",
+              color: "text.primary",
               textAlign: "left",
             }}
           />
@@ -168,7 +177,7 @@ function SellerDetails() {
             style={{
               fontWeight: "400",
               fontSize: 16,
-              color: "#333333",
+              color: "text.primary",
               textAlign: "left",
             }}
           />
@@ -181,7 +190,7 @@ function SellerDetails() {
             style={{
               fontWeight: "400",
               fontSize: 14,
-              color: "#333333",
+              color: "text.primary",
               textAlign: "left",
             }}
           />
@@ -191,7 +200,7 @@ function SellerDetails() {
             style={{
               fontWeight: "400",
               fontSize: 15,
-              color: "#333333",
+              color: "text.primary",
               textAlign: "left",
             }}
           />
@@ -207,7 +216,7 @@ function SellerDetails() {
             style={{
               fontWeight: "400",
               fontSize: 15,
-              color: "#333333",
+              color: "text.primary",
               textAlign: "left",
             }}
           />
@@ -223,7 +232,7 @@ function SellerDetails() {
             style={{
               fontWeight: "400",
               fontSize: 15,
-              color: "#333333",
+              color: "text.primary",
               textAlign: "left",
             }}
           />
@@ -239,7 +248,7 @@ function SellerDetails() {
             style={{
               fontWeight: "400",
               fontSize: 16,
-              color: "#333333",
+              color: "text.primary",
               textAlign: "left",
               mt: 1,
             }}
@@ -265,7 +274,7 @@ function SellerDetails() {
             style={{
               fontWeight: "400",
               fontSize: 16,
-              color: "#333333",
+              color: "text.primary",
               textAlign: "left",
             }}
           />
@@ -296,27 +305,26 @@ function SellerDetails() {
         <UnderReview />
       )}
 
-      <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
-        <Button
-          variant="contained"
-          color="primary"
-          disabled={activeStep === 0}
-          onClick={handleBack}
-          sx={{ mr: 1 }}
-        >
-          <ArrowBackIcon />
-        </Button>
-        <Box sx={{ flex: "1 1 auto" }} />
-        <Button
-          variant="contained"
-          color="primary"
-          fullWidth
-          onClick={handleNext}
-          className={classes?.nextButton}
-        >
-          {activeStep === steps.length - 1 ? "Submit" : "Next"}
-        </Button>
-      </Box>
+      <Grid container spacing={2} sx={{ mt: 2, alignItems: 'end', justifyContent: 'space-between' }}>
+        <Grid item xs={2}>
+          <OutlinedButton
+            text='Back'
+            fullWidth
+            disabled={activeStep === 0}
+            onClick={handleBack}
+          />
+
+        </Grid>
+        <Grid item xs={9}>
+          <ContainedButton
+            text={activeStep === steps.length - 1 ? "Submit" : "Next"}
+            fullWidth
+            onClick={handleNext}
+            className={classes?.nextButton}
+          />
+
+        </Grid>
+      </Grid>
     </Box>
   );
 }

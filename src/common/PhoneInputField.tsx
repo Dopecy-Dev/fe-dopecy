@@ -5,15 +5,16 @@ import { styled } from '@mui/system';
 const StyledPhoneInput  = styled(PhoneInput)(({ theme }) => ({
     '& .form-control': {
       borderRadius: '8px',
-      backgroundColor: '#F2F2F2',
-      border: 'none',
+      backgroundColor: 'transparent',
+      // border: 'none',
+      borderColor: theme.palette.text.main,
       width: '100%',
       height: '40px',
-      color: 'black',
+      color: theme.palette.text.primary,
     },
     '& .form-control:focus': {
-      borderColor: 'transparent',
-      boxShadow: 'none',
+      borderColor: theme.palette.common.mainbg,
+      // color: theme.palette.text.primary, // Change text color on focus
     },
   }));
 

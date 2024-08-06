@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   Box,
   FormControl,
@@ -8,15 +9,81 @@ import {
   Button,
   Grid,
   IconButton,
+  TextField,
 } from "@mui/material";
-import React, { useState } from "react";
-import CustomTypography from "../typography/CustomTypography";
-import TextInputField from "../../common/TextInputField";
 import { AddCircle, RemoveCircle } from "@mui/icons-material";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { TimePicker } from "@mui/x-date-pickers/TimePicker";
+import { styled } from '@mui/material/styles';
+import CustomTypography from "../typography/CustomTypography";
+import TextInputField from "../../common/TextInputField";
+
+// Custom styled DatePicker
+const CustomDatePicker = styled(DatePicker)(({ theme }) => ({
+  '& .MuiOutlinedInput-root': {
+    borderRadius: '8px',
+    // backgroundColor: theme.palette.common.selectfieldbg,
+    textAlign: 'left',
+    borderColor: theme.palette.common.mainbg,
+    '& fieldset': {
+      borderColor: theme.palette.common.mainbg,
+    },
+    '&:hover fieldset': {
+      borderColor: theme.palette.common.mainbg,
+    },
+    '&.Mui-focused fieldset': {
+      borderColor: theme.palette.common.mainbg,
+    },
+    '& .MuiInputBase-input': {
+      padding: '10px 14px',
+    },
+  },
+  '& .MuiInputLabel-root': {
+    color: theme.palette.text.primary,
+  },
+  '& .MuiPickersDay-root.Mui-selected': {
+    backgroundColor: theme.palette.common.mainbg, // Change the selected date background color
+    color: theme.palette.text.primary, // Change the selected date text color
+    '&:hover': {
+      backgroundColor: theme.palette.primary.dark, // Change the hover color of the selected date
+    },
+  },
+}));
+
+// Custom styled TimePicker
+const CustomTimePicker = styled(TimePicker)(({ theme }) => ({
+  '& .MuiOutlinedInput-root': {
+    borderRadius: '8px',
+    // backgroundColor: theme.palette.common.selectfieldbg,
+    textAlign: 'left',
+    borderColor: theme.palette.common.mainbg,
+    '& fieldset': {
+      borderColor: theme.palette.common.mainbg,
+    },
+    '&:hover fieldset': {
+      borderColor: theme.palette.common.mainbg,
+    },
+    '&.Mui-focused fieldset': {
+      borderColor: theme.palette.common.mainbg,
+    },
+    '& .MuiInputBase-input': {
+      padding: '10px 14px',
+    },
+  },
+  '& .MuiInputLabel-root': {
+    color: theme.palette.text.primary,
+  },
+  '& .MuiPickersDay-root.Mui-selected': {
+    backgroundColor: theme.palette.common.mainbg, // Change the selected date background color
+    color: theme.palette.text.primary, // Change the selected date text color
+    '&:hover': {
+      backgroundColor: theme.palette.common.mainbg, // Change the hover color of the selected date
+    },
+  },
+}));
+
 const PhysicalStore = () => {
   const [hasPhysicalStore, setHasPhysicalStore] = useState("");
   const handlePhysicalStoreChange = (event) => {
@@ -46,10 +113,18 @@ const PhysicalStore = () => {
     e.preventDefault();
     console.log("Submitted Data:", stores);
   };
+
   return (
     <Box>
       <FormControl sx={{ textAlign: "left", display: "flex" }}>
-        <FormLabel>Do you have a Physical Store?</FormLabel>
+        <FormLabel
+          sx={{
+            color: 'text.main',
+            fontWeight: 'bold',
+          }}
+        >
+          Do you have a Physical Store?
+        </FormLabel>
         <RadioGroup
           row
           aria-label="store-licenses"
@@ -58,8 +133,38 @@ const PhysicalStore = () => {
           onChange={handlePhysicalStoreChange}
           sx={{ display: "flex", justifyContent: "start" }}
         >
-          <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-          <FormControlLabel value="no" control={<Radio />} label="No" />
+          <FormControlLabel
+            value="yes"
+            control={<Radio sx={{
+              color: 'text.main',
+              '&.Mui-checked': {
+                color: 'text.main',
+              },
+            }} />}
+            label="Yes"
+            sx={{
+              color: 'text.main',
+              '& .MuiFormControlLabel-label': {
+                fontWeight: 'medium',
+              }
+            }}
+          />
+          <FormControlLabel
+            value="no"
+            control={<Radio sx={{
+              color: 'text.main',
+              '&.Mui-checked': {
+                color: 'text.main',
+              },
+            }} />}
+            label="No"
+            sx={{
+              color: 'text.main',
+              '& .MuiFormControlLabel-label': {
+                fontWeight: 'medium',
+              }
+            }}
+          />
         </RadioGroup>
       </FormControl>
       <CustomTypography
@@ -67,7 +172,7 @@ const PhysicalStore = () => {
         style={{
           fontWeight: "400",
           fontSize: 15,
-          color: "#333333",
+          color: "text.primary",
           textAlign: "left",
         }}
       />
@@ -84,7 +189,7 @@ const PhysicalStore = () => {
             style={{
               fontWeight: "400",
               fontSize: 16,
-              color: "#333333",
+              color: "text.primary",
               textAlign: "left",
             }}
           />
@@ -102,7 +207,7 @@ const PhysicalStore = () => {
             style={{
               fontWeight: "400",
               fontSize: 16,
-              color: "#333333",
+              color: "text.primary",
               textAlign: "left",
               mb: 1,
             }}
@@ -110,8 +215,7 @@ const PhysicalStore = () => {
           <Grid container spacing={2} alignItems="center">
             <Grid item xs={10} sm={6}>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DatePicker
-                  label="Date of Operation"
+                <CustomDatePicker
                   value={store.dateOfOperation}
                   onChange={(date) =>
                     handleChange(index, "dateOfOperation", date)
@@ -120,14 +224,6 @@ const PhysicalStore = () => {
                     <TextField
                       {...params}
                       required
-                      sx={{
-                        "& .MuiInputBase-root": {
-                          fontSize: 14,
-                        },
-                        "& .MuiInputLabel-root": {
-                          fontSize: 14,
-                        },
-                      }}
                       fullWidth
                     />
                   )}
@@ -141,7 +237,7 @@ const PhysicalStore = () => {
             style={{
               fontWeight: "400",
               fontSize: 16,
-              color: "#333333",
+              color: "text.primary",
               textAlign: "left",
               mb: 1,
             }}
@@ -149,8 +245,7 @@ const PhysicalStore = () => {
           <Grid container spacing={2} alignItems="center">
             <Grid item xs={10} sm={6}>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <TimePicker
-                  label="Time of Operation"
+                <CustomTimePicker
                   value={store.timeOfOperation}
                   onChange={(time) =>
                     handleChange(index, "timeOfOperation", time)
@@ -159,14 +254,6 @@ const PhysicalStore = () => {
                     <TextField
                       {...params}
                       required
-                      sx={{
-                        "& .MuiInputBase-root": {
-                          fontSize: 14,
-                        },
-                        "& .MuiInputLabel-root": {
-                          fontSize: 14,
-                        },
-                      }}
                       fullWidth
                     />
                   )}
@@ -184,9 +271,24 @@ const PhysicalStore = () => {
 
       <Button
         size="small"
-        sx={{ display: "flex", justifyContent: "start" }}
+        sx={{
+          display: "flex",
+          justifyContent: "start",
+          color: 'white',
+          backgroundColor: 'common.mainbg',
+          '&:hover': {
+            backgroundColor: 'common.mainbg',
+          },
+          '&:focus': {
+            outline: 'none',
+            boxShadow: 'none',
+          },
+          '&.Mui-focused': {
+            outline: 'none',
+            boxShadow: 'none',
+          },
+        }}
         variant="contained"
-        color="primary"
         onClick={handleAddStore}
       >
         Add Store{" "}

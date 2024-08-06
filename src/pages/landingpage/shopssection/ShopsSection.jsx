@@ -201,21 +201,21 @@ function ShopsSection() {
                 ref={swiperRef}
                 effect={'coverflow'}
                 freeMode={true}
-                grabCursor={true}
+                // grabCursor={true}
                 centeredSlides={true}
-                slidesPerView={4}
+                // slidesPerView={4}
                 loop={true}
                 mousewheel={true}
                 keyboard={true}
                 autoplay={{
-                    delay: 1000,
-                    disableOnInteraction: false,
+                    delay: 1500,
+                    // disableOnInteraction: false,
                 }}
-                speed={1500}
+                speed={1000}
                 coverflowEffect={{
                     rotate: 0,
                     stretch: 0,
-                    depth: 100,
+                    depth: 50,
                     modifier: 3,
                     slideShadows: true,
                 }}
@@ -224,7 +224,7 @@ function ShopsSection() {
                 breakpoints={{
                     // When window width is >= 320px
                     320: {
-                        slidesPerView: 1,
+                        slidesPerView: 1.5,
                     },
                     // When window width is >= 768px
                     768: {

@@ -7,16 +7,16 @@ const useStyles = makeStyles((theme) => ({
   },
   navbar: {
     boxShadow: "none !important",
-    backgroundColor: "#ffffff !important",
-    marginBottom:"20px"
+    backgroundColor: theme.palette.background.default,
+    paddingBottom: "20px"
   },
   toolbar: {
-    backgroundColor: "#ffffff",
+    // backgroundColor: "#ffffff",
     color: "#326039",
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    margin:"0 2rem"
+    margin: "0 2rem"
   },
 
   signInButton: {
@@ -41,20 +41,20 @@ const useStyles = makeStyles((theme) => ({
   welcomeText: {
     color: "#fff",
     textAlign: "center",
-    
+
   },
   formPaper: {
     padding: theme.spacing(4),
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: "#ffffff",
+    // backgroundColor: "#ffffff",
   },
   formContainer: {
     display: "flex",
     flexDirection: "column",
-   
+
   },
   nextButton: {
-    marginTop: theme.spacing(3),
+    // marginTop: theme.spacing(3),
   },
   submitButton: {
     marginTop: theme.spacing(2),

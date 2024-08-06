@@ -24,12 +24,12 @@ function PersonalInformation() {
         style={{
           fontWeight: "400",
           fontSize: 16,
-          color: "#333333",
+          color: "text.primary",
           textAlign: "left",
         }}
       />
       <SelectField
-        label="Position"
+        // label="Position"
         value={position}
         onChange={(event) => setPosition(event.target.value)}
         options={[
@@ -43,12 +43,12 @@ function PersonalInformation() {
         style={{
           fontWeight: "400",
           fontSize: 16,
-          color: "#333333",
+          color: "text.primary",
           textAlign: "left",
         }}
       />
       <SelectField
-        label="Business"
+        // label="Business"
         value={business}
         onChange={(event) => setBusiness(event.target.value)}
         options={[
@@ -62,7 +62,7 @@ function PersonalInformation() {
         style={{
           fontWeight: "400",
           fontSize: 16,
-          color: "#333333",
+          color: "text.primary",
           textAlign: "left",
         }}
       />
@@ -77,11 +77,11 @@ function PersonalInformation() {
         style={{
           fontWeight: "400",
           fontSize: 16,
-          color: "#333333",
+          color: "text.primary",
           textAlign: "left",
         }}
       />
-     
+
       {/* <FileUploader
         handleChange={handleLogoChange}
         name="logo"
@@ -94,9 +94,9 @@ function PersonalInformation() {
           style={{ width: "100%", height: "auto", marginBottom: 10 }}
         />
       )} */}
-       <DragDrop />
-     
-     
+      <DragDrop />
+
+
     </Box>
   );
 }

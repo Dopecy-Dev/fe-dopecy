@@ -25,16 +25,16 @@ const UnderReview = () => (
       style={{
         fontWeight: "700",
         fontSize: 20,
-        color: "#333333",
+        color: "text.primary",
         textAlign: "center",
       }}
     />
     <CustomTypography
-      text="Thank you for your request to open a new shop with us.  We have received your application and it is currently under review. We will notify you as soon as the process is complete."
+      text="Thank you for your request to open a new shop with us. We have received your application and it is currently under review. We will notify you as soon as the process is complete."
       style={{
         fontWeight: "400",
         fontSize: 16,
-        color: "#333333",
+        color: "text.primary",
         textAlign: "center",
       }}
     />

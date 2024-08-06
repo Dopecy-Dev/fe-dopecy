@@ -3,6 +3,8 @@ import { AppBar, Toolbar, Button, Typography, Box } from "@mui/material";
 import useStyles from "../../styles";
 import LogoGreen from "../logos/LogoGreen";
 import ContainedButton from "../buttons/ContainedButton";
+import { Link } from "react-router-dom";
+import Logo from "../../shared/Logo/Logo";
 
 function Navbar() {
   const classes = useStyles();
@@ -11,7 +13,9 @@ function Navbar() {
     <AppBar position="static" className={classes.navbar}>
       <Toolbar className={classes.toolbar}>
         <Box className={classes.logo}>
-          <LogoGreen />
+          <Link to='/'>
+            <Logo></Logo>
+          </Link>
         </Box>
         <ContainedButton
           style={{ height: 40, borderRadius: "6px", p: "8px, 8px, 8px, 16px" }}
