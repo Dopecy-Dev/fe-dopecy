@@ -1,4 +1,4 @@
-import { Box, Grid } from '@mui/material';
+import { Box, Grid, useMediaQuery, useTheme } from '@mui/material';
 import React, { useRef, useEffect, useState } from 'react';
 import CustomTypography from '../../../components/typography/CustomTypography';
 import ShopCard from '../../../shared/ShopCard/ShopCard';
@@ -15,13 +15,13 @@ import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/free-mode';
+import 'swiper/css/navigation';
 
 // import './styles.css';
 
 // import required modules
 import { FreeMode, Autoplay, EffectCoverflow, Pagination, Navigation, Mousewheel, Keyboard } from 'swiper/modules';
 import { Link } from 'react-router-dom';
-import { useTheme } from '../../../contexts/ThemeContext';
 
 const responsive = {
     desktop: {
@@ -174,8 +174,9 @@ function ShopsSection() {
         console.log(`Clicked on shop: ${shop.title}`);
     };
 
-    const { theme } = useTheme()
-    const isLightMode = theme === 'light';
+    const theme = useTheme();
+    const isLightMode = theme.palette.mode === 'light';
+    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
 
     return (
@@ -204,6 +205,7 @@ function ShopsSection() {
                 // grabCursor={true}
                 centeredSlides={true}
                 // slidesPerView={4}
+                navigation={isMobile ? true : false}
                 loop={true}
                 mousewheel={true}
                 keyboard={true}
@@ -237,6 +239,7 @@ function ShopsSection() {
                 }}
                 // pagination={true}
                 modules={[FreeMode, Autoplay, EffectCoverflow, Pagination, Navigation, Mousewheel, Keyboard]}
+                className='custom-swiper'
             >
                 <Grid container>
                     {shops.map((shop, index) => (

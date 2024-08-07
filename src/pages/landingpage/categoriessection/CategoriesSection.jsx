@@ -1,4 +1,4 @@
-import { Box, Grid } from '@mui/material';
+import { Box, Grid, useMediaQuery, useTheme } from '@mui/material';
 import React from 'react';
 import CustomTypography from '../../../components/typography/CustomTypography';
 import CategoryCard from '../../../shared/CategoryCard/CategoryCard';
@@ -9,7 +9,21 @@ import Liquorimage from '../../../assets/images/Liquorimage.svg';
 import watchesimage from '../../../assets/images/watchesimage.svg';
 import foodimage from '../../../assets/images/foodimage.svg';
 import accessoriesimage from '../../../assets/images/accessoriesimage.svg';
-import { useTheme } from '../../../contexts/ThemeContext';
+
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/pagination';
+import 'swiper/css/free-mode';
+import 'swiper/css/navigation';
+
+import './CategoriesSection.css'
+// import '../../../styles/global.css'
+
+import { FreeMode, Autoplay, EffectCoverflow, Pagination, Navigation, Mousewheel, Keyboard } from 'swiper/modules';
 
 const categories = [
     { text: 'Mobile', image: catMobile },
@@ -19,6 +33,8 @@ const categories = [
     { text: 'Watches', image: watchesimage },
     { text: 'Food', image: foodimage },
     { text: 'Accessories', image: accessoriesimage },
+    { text: 'Electronics', image: electronicsimage },
+    { text: 'Liquor', image: Liquorimage },
 ];
 
 function CategoriesSection() {
@@ -27,10 +43,9 @@ function CategoriesSection() {
         // Add navigation or other click handling logic here
     };
 
-
-    const { theme } = useTheme()
-
-    const isLight = theme === 'light'
+    const theme = useTheme();
+    const isLight = theme.palette.mode === 'light';
+    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
     return (
         <>
@@ -76,24 +91,54 @@ function CategoriesSection() {
                 </Grid>
             </Grid>
 
-            <Grid container spacing={{ xs: 1, sm: 2, md: 1 }} sx={{ justifyContent: { xs: 'left', md: 'space-between' } }}>
+            <Swiper
+                freeMode={true}
+                // slidesPerView={7}
+                loop={true}
+                mousewheel={true}
+                keyboard={{
+                    enabled: true,
+                }}
+                dir="rtl"
+                navigation={isMobile ? true : false}
+                autoplay={{
+                    delay: 1500,
+                }}
+                speed={1000}
+
+                breakpoints={{
+                    320: {
+                        slidesPerView: 3,
+                    },
+                    768: {
+                        slidesPerView: 5,
+                    },
+                    1200: {
+                        slidesPerView: 7,
+                    },
+                }}
+                modules={[FreeMode, Autoplay, EffectCoverflow, Pagination, Navigation, Mousewheel, Keyboard]}
+                className='custom-swiper'
+            >
                 {categories.map((category, index) => (
-                    <Grid item key={index} xs={6} sm={4} md={1}>
-                        <Box
-                            sx={{
-                                cursor: 'pointer',
-                                display: 'flex',
-                                flexDirection: 'column',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                            }}
-                            onClick={() => handleCategoryClick(category)}
-                        >
-                            <CategoryCard text={category.text} image={category.image} />
-                        </Box>
-                    </Grid>
+                    <SwiperSlide key={index}>
+                        <Grid item xs={6} sm={4} md={1}>
+                            <Box
+                                sx={{
+                                    cursor: 'pointer',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                }}
+                                onClick={() => handleCategoryClick(category)}
+                            >
+                                <CategoryCard text={category.text} image={category.image} />
+                            </Box>
+                        </Grid>
+                    </SwiperSlide>
                 ))}
-            </Grid>
+            </Swiper>
         </>
     );
 }

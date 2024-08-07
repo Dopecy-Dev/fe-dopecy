@@ -1,5 +1,6 @@
 // src/App.jsx
 import './App.css'
+import './styles/global.css'
 import React from 'react';
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider as MUIThemeProvider } from '@mui/material';

@@ -1,0 +1,16 @@
+/* .custom-swiper .swiper-wrapper {
+    animation: slideAnimation 30s linear infinite;
+}
+
+.custom-swiper:hover .swiper-wrapper {
+    animation-play-state: paused;
+} */
+
+/* @keyframes slideAnimation {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+} */

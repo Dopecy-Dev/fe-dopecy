@@ -33,7 +33,7 @@
     height: 80px;
     z-index: 1;
     border: 5px solid white;
-    background-color: var(--hero-arrow-bg); /* Use your desired background color */
+    background-color: var(--hero-arrow-bg);
 }
 
 .custom-prev {

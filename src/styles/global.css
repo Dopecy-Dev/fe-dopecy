@@ -1,0 +1,12 @@
+.custom-swiper .swiper-button-next,
+.custom-swiper .swiper-button-prev {
+    border-radius: 25px;
+    border: 2px solid #326039;
+    /* background-color: red;  */
+    color: #326039; /* Customize the text color */
+}
+
+.custom-swiper .swiper-button-next:after,
+.custom-swiper .swiper-button-prev:after {
+    font-size: 24px; /* Customize icon size if needed */
+}
