@@ -132,7 +132,7 @@ function ProductsSection() {
 
     const handleProductClick = (product) => {
         console.log(`Clicked on product: ${product.title}`);
-        navigate("/productdetails");
+        navigate("/product-details");
     };
 
     const items = ['All Products', 'Smart Phone', 'Laptop', 'Headphone', 'TV', 'Browse All Product'];
@@ -197,7 +197,7 @@ function ProductsSection() {
             <Grid container spacing={2}>
                 {products.map((product, index) => (
                     <Grid item xs={12} sm={6} md={4} lg={2} key={index}>
-                        <Link to='/productdetails'>
+                        <Link to='/product-details'>
                             <ProductCard product={product} />
                         </Link>
                     </Grid>

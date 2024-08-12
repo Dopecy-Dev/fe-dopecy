@@ -245,7 +245,7 @@ function ShopsSection() {
                     {shops.map((shop, index) => (
                         <SwiperSlide key={index}>
                             <Grid item xs={4}>
-                                <Link to='/shopdetails'>
+                                <Link to='/shop-details'>
                                     <ShopCard shop={shop} />
                                 </Link>
                             </Grid>

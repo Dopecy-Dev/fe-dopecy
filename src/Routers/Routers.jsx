@@ -28,6 +28,7 @@ import VerifyCode from '../pages/auth/VerifyCode';
 import LandingPage from '../pages/landingpage/LandingPage';
 import ProductDetails from '../pages/productdetails/ProductDetails';
 import ShopDetails from '../pages/shopdetails/ShopDetails';
+import Coins from '../pages/coins/Coins';
 
 //seller
 // import TermsAndConditions from '../pages/seller/TermsAndConditions/index'
@@ -51,17 +52,18 @@ const Routers = () => {
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/seller-signup" element={<SellerSignup />} />
                 <Route path="/congratulation" element={<Congratulation />} />
-                <Route path='/forgotpassword' element={<ForgotPassword />} />
-                <Route path='/verifycode' element={<VerifyCode />} />
+                <Route path='/forgot-password' element={<ForgotPassword />} />
+                <Route path='/verify-code' element={<VerifyCode />} />
                 {/* <Route path='/verifyemail' element={<VerifyEmail />} /> */}
                 {/* <Route path='/resetpassword' element={<ResetPassword />} /> */}
                 {/* user */}
-                <Route path="/" element={<Navigate replace to="/landingpage" />} />
-                <Route path="/landingpage" element={<LandingPage />} />
-                <Route path="/productdetails" element={<ProductDetails />} />
-                <Route path="/shopdetails" element={<ShopDetails />} />
+                <Route path="/" element={<Navigate replace to="/landing-page" />} />
+                <Route path="/landing-page" element={<LandingPage />} />
+                <Route path="/product-details" element={<ProductDetails />} />
+                <Route path="/shop-details" element={<ShopDetails />} />
                 <Route path="/coming-soon" element={<ComingSoon />} />
                 <Route path="/marketing-offers" element={<MarketingOffers />} />
+                <Route path="/coins" element={<Coins />} />
 
 
                 {/* <Route path="/marketplace" element={<Protected Component={MarketPlace} />} /> */}

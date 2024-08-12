@@ -204,7 +204,7 @@ function Login() {
                                     label="Remember me"
                                     sx={{ display: 'flex', alignItems: 'center', color: 'text.primary' }}
                                 />
-                                <Link to='/forgotpassword'>
+                                <Link to='/forgot-password'>
                                     <CustomTypography
                                         text='Forgot password?'
                                         style={{

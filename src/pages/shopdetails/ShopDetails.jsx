@@ -194,7 +194,7 @@ function ShopDetails() {
 
     const handleProductClick = (product) => {
         console.log(`Clicked on product: ${product.title}`);
-        navigate("/productdetails");
+        navigate("/product-details");
     };
 
 
@@ -414,7 +414,7 @@ function ShopDetails() {
                 <Grid container spacing={2}>
                     {products.map((product, index) => (
                         <Grid item xs={12} sm={6} md={4} lg={2} key={index}>
-                            <Link to='/productdetails'>
+                            <Link to='/product-details'>
                                 <ProductCard product={product} />
                             </Link>
                         </Grid>

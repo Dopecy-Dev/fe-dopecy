@@ -31,7 +31,7 @@ function ForgotPassword() {
         // Handle login logic here
         console.log('Email:', email);
 
-        navigate("/verifycode");
+        navigate("/verify-code");
     };
 
     return (
