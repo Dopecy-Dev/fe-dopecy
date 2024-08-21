@@ -14,11 +14,37 @@ import Mastercard from '../../assets/images/Mastercard.svg';
 import lockicon from '../../assets/images/lockicon.svg';
 import LogoLight from '../../components/logos/LogoLight';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 function Footer() {
-    const myAccountItems = ['Business Login', 'Club Login', 'List your Store', 'List your Dispensaries', 'List your CBD Stores', 'List your Restaurant, Caffe , Club, Hubs , THC/CBD Lounge', 'List Your Brand', 'List your Practice', 'List Certify Lab', 'Sell on Dopecy', 'Start Package Delivery', 'Business on Dopecy', 'Drive with Dopecy', 'Build Your Brand'];
-    const helpsItems = ['Contact', 'FAQs', 'Terms & Condition', 'Privacy Policy'];
-    const proxyItems = ['About Dopecy', 'FAQ', 'Accessibility', 'Commercial Terms of Use', 'Investors Inquires', 'Contact Us'];
+    const { t } = useTranslation();
+
+
+    const myAccountItems = [
+        t('myAccountItems.businessLogin'),
+        t('myAccountItems.clubLogin'),
+        t('myAccountItems.listYourStore'),
+        t('myAccountItems.listYourDispensaries'),
+        t('myAccountItems.listYourCBDStores'),
+        t('myAccountItems.listYourRestaurantCaffeClubHubsTHCCBDLounge'),
+        t('myAccountItems.listYourBrand'),
+        t('myAccountItems.listYourPractice'),
+        t('myAccountItems.listCertifyLab'),
+        t('myAccountItems.sellOnDopecy'),
+        t('myAccountItems.startPackageDelivery'),
+        t('myAccountItems.businessOnDopecy'),
+        t('myAccountItems.driveWithDopecy'),
+        t('myAccountItems.buildYourBrand')
+    ];
+
+    const proxyItems = [
+        t('proxyItems.aboutDopecy'),
+        t('proxyItems.faq'),
+        t('proxyItems.accessibility'),
+        t('proxyItems.commercialTermsOfUse'),
+        t('proxyItems.investorsInquires'),
+        t('proxyItems.contactUs')
+    ];
 
     return (
         <Box sx={{ bgcolor: 'text.titleblack' }}>
@@ -66,7 +92,7 @@ function Footer() {
                                         <Grid item>
                                             <Box>
                                                 <CustomTypography
-                                                    text='My Account'
+                                                    text={t('myAccount')}
                                                     style={{
                                                         fontSize: '1.125rem',
                                                         lineHeight: '1.25rem',
@@ -116,7 +142,7 @@ function Footer() {
                                         <Grid item>
                                             <Box>
                                                 <CustomTypography
-                                                    text='Proxy'
+                                                    text={t('proxy')}
                                                     style={{
                                                         fontSize: '1.125rem',
                                                         lineHeight: '1.25rem',
@@ -170,7 +196,7 @@ function Footer() {
                                 <Grid item>
                                     <Box>
                                         <CustomTypography
-                                            text='Download Mobile App'
+                                            text={t('downloadMobileApp')}
                                             style={{
                                                 fontSize: '1.125rem',
                                                 lineHeight: '1.25rem',
@@ -196,7 +222,7 @@ function Footer() {
                                                 <Box sx={{ mr: '0.25rem' }} component={'img'} src={Appleicon} alt='Apple icon' />
                                                 <Box>
                                                     <CustomTypography
-                                                        text='Download on the'
+                                                        text={t('downloadApp.downloadOnThe')}
                                                         style={{
                                                             fontSize: '0.6875rem',
                                                             lineHeight: '0.875rem',
@@ -206,7 +232,7 @@ function Footer() {
                                                         }}
                                                     />
                                                     <CustomTypography
-                                                        text='App Store'
+                                                        text={t('downloadApp.appStore')}
                                                         style={{
                                                             fontSize: '1rem',
                                                             lineHeight: '1.5rem',
@@ -216,6 +242,7 @@ function Footer() {
                                                         }}
                                                     />
                                                 </Box>
+
                                             </Box>
                                         </Grid>
                                         <Grid item sx={{ cursor: 'pointer' }}>
@@ -230,7 +257,7 @@ function Footer() {
                                                 <Box sx={{ mr: '0.25rem' }} component={'img'} src={googleplayicon} alt='Google Play icon' />
                                                 <Box>
                                                     <CustomTypography
-                                                        text='Download on the'
+                                                        text={t('downloadApp.downloadOnThe')}
                                                         style={{
                                                             fontSize: '0.6875rem',
                                                             lineHeight: '0.875rem',
@@ -263,7 +290,7 @@ function Footer() {
                 <Grid container sx={{ justifyContent: 'space-between', alignItems: 'center' }}>
                     <Grid item xs={12} md={6}>
                         <CustomTypography
-                            text='Dopecy eCommerce © 2024. All Rights Reserved'
+                            text={t('footerText')}
                             style={{
                                 fontWeight: '400',
                                 fontSize: '0.875rem',

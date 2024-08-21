@@ -19,5 +19,37 @@ export default
         dopecyStage: "Doepcy Stage",
         stockNews: "Stock News",
         brandsPodcast: "Brands Podcast",
-        youtubeVideo: "Youtube Video"
+        youtubeVideo: "Youtube Video",
+        myAccount: "My Account",
+        proxy: "Proxy",
+        downloadMobileApp: "Download Mobile App",
+        myAccountItems: {
+            businessLogin: "Business Login",
+            clubLogin: "Club Login",
+            listYourStore: "List your Store",
+            listYourDispensaries: "List your Dispensaries",
+            listYourCBDStores: "List your CBD Stores",
+            listYourRestaurantCaffeClubHubsTHCCBDLounge: "List your Restaurant, Caffe, Club, Hubs, THC/CBD Lounge",
+            listYourBrand: "List Your Brand",
+            listYourPractice: "List your Practice",
+            listCertifyLab: "List Certify Lab",
+            sellOnDopecy: "Sell on Dopecy",
+            startPackageDelivery: "Start Package Delivery",
+            businessOnDopecy: "Business on Dopecy",
+            driveWithDopecy: "Drive with Dopecy",
+            buildYourBrand: "Build Your Brand"
+        },
+        proxyItems: {
+            aboutDopecy: "About Dopecy",
+            faq: "FAQ",
+            accessibility: "Accessibility",
+            commercialTermsOfUse: "Commercial Terms of Use",
+            investorsInquires: "Investors Inquires",
+            contactUs: "Contact Us"
+        },
+        downloadApp: {
+            downloadOnThe: "Download on the",
+            appStore: "App Store"
+        },
+        footerText: "Dopecy eCommerce © 2024. All Rights Reserved"
     }
