@@ -24,18 +24,7 @@ import './CategoriesSection.css'
 // import '../../../styles/global.css'
 
 import { FreeMode, Autoplay, EffectCoverflow, Pagination, Navigation, Mousewheel, Keyboard } from 'swiper/modules';
-
-const categories = [
-    { text: 'Mobile', image: catMobile },
-    { text: 'Cannabis', image: cannebiesimage },
-    { text: 'Electronics', image: electronicsimage },
-    { text: 'Liquor', image: Liquorimage },
-    { text: 'Watches', image: watchesimage },
-    { text: 'Food', image: foodimage },
-    { text: 'Accessories', image: accessoriesimage },
-    { text: 'Electronics', image: electronicsimage },
-    { text: 'Liquor', image: Liquorimage },
-];
+import { useTranslation } from 'react-i18next';
 
 function CategoriesSection() {
     const handleCategoryClick = (category) => {
@@ -47,13 +36,27 @@ function CategoriesSection() {
     const isLight = theme.palette.mode === 'light';
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
+    const { t } = useTranslation()
+
+    const categories = [
+        { text: t('mobile'), image: catMobile },
+        { text: t('cannabis'), image: cannebiesimage },
+        { text: t('electronics'), image: electronicsimage },
+        { text: t('liquor'), image: Liquorimage },
+        { text: t('watches'), image: watchesimage },
+        { text: t('food'), image: foodimage },
+        { text: t('accessories'), image: accessoriesimage },
+        { text: t('electronics'), image: electronicsimage },
+        { text: t('liquor'), image: Liquorimage },
+    ];
+
     return (
         <>
             <Grid container sx={{ justifyContent: 'space-between', alignItems: 'center', mb: { xs: '0.5rem', sm: '1rem' } }}>
                 <Grid item>
                     <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, alignItems: { xs: 'flex-start', sm: 'center' } }}>
                         <CustomTypography
-                            text='Shop From'
+                            text={t('shopFrom')}
                             style={{
                                 fontSize: { xs: '1.25rem', sm: '1.5rem' }, // Responsive font size
                                 lineHeight: { xs: '1.5rem', sm: '1.875rem' }, // Responsive line height
@@ -65,7 +68,7 @@ function CategoriesSection() {
                             }}
                         />
                         <CustomTypography
-                            text='Top Categories'
+                            text={t('topCategories')}
                             style={{
                                 fontSize: { xs: '1.25rem', sm: '1.5rem' }, // Responsive font size
                                 lineHeight: { xs: '1.5rem', sm: '1.875rem' }, // Responsive line height
@@ -79,7 +82,7 @@ function CategoriesSection() {
                 </Grid>
                 <Grid item>
                     <CustomTypography
-                        text='View All'
+                        text={t('viewAll')}
                         style={{
                             fontSize: { xs: '0.875rem', sm: '1rem' }, // Responsive font size
                             lineHeight: { xs: '1rem', sm: '1.125rem' }, // Responsive line height

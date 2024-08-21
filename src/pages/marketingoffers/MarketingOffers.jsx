@@ -14,6 +14,7 @@ import P9Image from '../../assets/images/P9Image.svg';
 import CustomTypography from '../../components/typography/CustomTypography';
 import { Link } from 'react-router-dom';
 import ProductCard from '../../shared/ProductCard/ProductCard';
+import { useTranslation } from 'react-i18next';
 
 function MarketingOffers() {
     const [products, setProducts] = useState([
@@ -157,7 +158,7 @@ function MarketingOffers() {
 
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
-
+    const { t } = useTranslation()
     return (
         <>
             <Header />
@@ -170,7 +171,7 @@ function MarketingOffers() {
                 <Grid container spacing={2} sx={{ mb: 4, alignItems: 'center' }}>
                     <Grid item xs={12} md={6}>
                         <CustomTypography
-                            text='Dopecy Deals'
+                            text={t('dopecyDeals')}
                             style={{
                                 fontSize: '1.25rem',
                                 lineHeight: '1.5rem',
@@ -201,7 +202,7 @@ function MarketingOffers() {
                 <Grid container spacing={2} sx={{ mb: 4, alignItems: 'center' }}>
                     <Grid item xs={12} md={6}>
                         <CustomTypography
-                            text='Early Bird Deals'
+                            text={t('earlyBirdDeals')}
                             style={{
                                 fontSize: '1.25rem',
                                 lineHeight: '1.5rem',
@@ -232,7 +233,7 @@ function MarketingOffers() {
                 <Grid container spacing={2} sx={{ mb: 4, alignItems: 'center' }}>
                     <Grid item xs={12} md={6}>
                         <CustomTypography
-                            text='Buy 1 Get 1'
+                            text={t('buy1Get1')}
                             style={{
                                 fontSize: '1.25rem',
                                 lineHeight: '1.5rem',
@@ -263,7 +264,7 @@ function MarketingOffers() {
                 <Grid container spacing={2} sx={{ mb: 4, alignItems: 'center' }}>
                     <Grid item xs={12} md={6}>
                         <CustomTypography
-                            text='Free Giveaway'
+                            text={t('freeGiveaway')}
                             style={{
                                 fontSize: '1.25rem',
                                 lineHeight: '1.5rem',

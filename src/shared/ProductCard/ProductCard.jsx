@@ -4,6 +4,7 @@ import pimag from '../../assets/images/pimage.svg';
 import CustomTypography from '../../components/typography/CustomTypography';
 import { truncateTitle } from '../../utils/truncatetext/TruncateText';
 import { useTheme } from '../../contexts/ThemeContext';
+import { useTranslation } from 'react-i18next';
 
 export default function ProductCard(props) {
     const rating = `(${props.product.totalrating})`;
@@ -13,7 +14,7 @@ export default function ProductCard(props) {
     const { theme } = useTheme()
     const isLight = theme === 'light'
 
-
+    const { t } = useTranslation()
     return (
         <Box
             sx={{
@@ -50,7 +51,8 @@ export default function ProductCard(props) {
                         fontSize: '0.75rem',
                         lineHeight: '1rem',
                     }}>
-                    <CustomTypography text='HOT'
+                    <CustomTypography
+                        text={t('hot')}
                         style={{
                             color: 'text.white',
                             fontWeight: '600',
@@ -75,7 +77,8 @@ export default function ProductCard(props) {
                         fontSize: '0.75rem',
                         lineHeight: '1rem',
                     }}>
-                    <CustomTypography text='BEST DEALS'
+                    <CustomTypography
+                        text={t('bestDeals')}
                         style={{
                             color: 'text.white',
                             fontWeight: '600',

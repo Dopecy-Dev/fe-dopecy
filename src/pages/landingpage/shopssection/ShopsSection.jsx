@@ -6,6 +6,7 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import shopimage from '../../../assets/images/shopimage.svg';
 import ShopCoverImage from '../../../assets/images/ShopCoverImage.svg';
+import { useTranslation } from 'react-i18next';
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -41,8 +42,10 @@ const responsive = {
     },
 };
 
+
 function ShopsSection() {
     const swiperRef = useRef(null);
+    const { t } = useTranslation()
 
     useEffect(() => {
         const swiperInstance = swiperRef.current.swiper;
@@ -185,7 +188,7 @@ function ShopsSection() {
                 <Grid item>
                     <Box sx={{ display: 'flex', ml: 8 }}> {/* 32px to rem */}
                         <CustomTypography
-                            text='All Shops'
+                            text={t('allShops')}
                             style={{
                                 fontSize: '1.5rem', // 24px to rem
                                 lineHeight: '1.875rem', // 30px to rem

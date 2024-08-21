@@ -2,6 +2,7 @@ import { Box, Grid, useTheme } from '@mui/material';
 import React from 'react';
 import CustomTypography from '../../../components/typography/CustomTypography';
 import PackageIcon from '../../../assets/images/PackageICon.svg';
+import { useTranslation } from 'react-i18next';
 
 function DeliverySection() {
     const theme = useTheme();
@@ -37,6 +38,7 @@ function DeliverySection() {
             lineHeight: '1.6875rem', // 27px to rem
         },
     });
+    const { t } = useTranslation();
 
     return (
         <Grid container spacing={2} sx={{ justifyContent: 'space-between', alignItems: 'center' }}>
@@ -56,7 +58,7 @@ function DeliverySection() {
                     </Box>
                     <Box>
                         <CustomTypography
-                            text='Cannabis Delivery'
+                            text={t('cannabisDelivery')}
                             style={getTypographyStyles()}
                         />
                         <CustomTypography
@@ -83,7 +85,7 @@ function DeliverySection() {
                     </Box>
                     <Box>
                         <CustomTypography
-                            text='Liquor Delivery'
+                            text={t('liquorDelivery')}
                             style={getTypographyStyles()}
                         />
                         <CustomTypography
@@ -110,7 +112,7 @@ function DeliverySection() {
                     </Box>
                     <Box>
                         <CustomTypography
-                            text='Food Delivery'
+                            text={t('foodDelivery')}
                             style={getTypographyStyles()}
                         />
                         <CustomTypography

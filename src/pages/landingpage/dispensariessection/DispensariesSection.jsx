@@ -7,7 +7,7 @@ import 'react-multi-carousel/lib/styles.css';
 import shopimage from '../../../assets/images/shopimage.svg';
 import ShopCoverImage from '../../../assets/images/ShopCoverImage.svg';
 import dispensaryImage from '../../../assets/images/dispensary.svg'
-
+import { useTranslation } from 'react-i18next';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -241,6 +241,7 @@ function DispensariesSection() {
     const theme = useTheme();
     const isLightMode = theme.palette.mode === 'light';
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+    const { t } = useTranslation();
 
     return (
         <>
@@ -248,7 +249,7 @@ function DispensariesSection() {
                 <Grid item>
                     <Box sx={{ display: 'flex', ml: 8 }}> {/* 32px to rem */}
                         <CustomTypography
-                            text='All Dispensaries'
+                            text={t('allDispensaries')}
                             style={{
                                 fontSize: '1.5rem', // 24px to rem
                                 lineHeight: '1.875rem', // 30px to rem

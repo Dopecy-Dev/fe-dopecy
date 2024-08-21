@@ -14,6 +14,7 @@ import P9Image from '../../../assets/images/P9Image.svg';
 import ArrowRight from '../../../assets/images/ArrowRight.svg';
 import { Link, useNavigate } from 'react-router-dom';
 import { useTheme } from '../../../contexts/ThemeContext';
+import { useTranslation } from 'react-i18next';
 
 function ProductsSection() {
     const [clickedItem, setClickedItem] = useState('All Products');
@@ -113,6 +114,9 @@ function ProductsSection() {
         },
     ]);
 
+
+    const { t } = useTranslation()
+
     const handleClick = (item) => {
         setClickedItem(item);
     };
@@ -135,8 +139,14 @@ function ProductsSection() {
         navigate("/productdetails");
     };
 
-    const items = ['All Products', 'Smart Phone', 'Laptop', 'Headphone', 'TV', 'Browse All Product'];
-
+    const items = [
+        t('allProducts'),
+        t('smartPhone'),
+        t('laptop'),
+        t('headphone'),
+        t('tv'),
+        t('browseAllProduct')
+    ];
     const { theme } = useTheme()
     const isLight = theme === 'light'
 
@@ -146,7 +156,7 @@ function ProductsSection() {
                 <Grid item xs={12} md={6}>
                     <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: { xs: 'center', md: 'flex-start' } }}>
                         <CustomTypography
-                            text='Shop From'
+                            text={t('shopFrom')}
                             style={{
                                 fontSize: '1.25rem', // Adjusted for better responsiveness
                                 lineHeight: '1.5rem',
@@ -157,7 +167,7 @@ function ProductsSection() {
                             }}
                         />
                         <CustomTypography
-                            text='All Products'
+                            text={t('allProducts')}
                             style={{
                                 ml: 0.5,
                                 fontSize: '1.25rem',

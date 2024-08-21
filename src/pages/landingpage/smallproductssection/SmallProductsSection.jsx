@@ -6,6 +6,7 @@ import P2Image from '../../../assets/images/P2Image.svg'
 import P7Image from '../../../assets/images/P7Image.svg'
 import SmallProductCard from '../../../shared/SmallProductCard/SmallProductCard';
 import { useTheme } from '../../../contexts/ThemeContext';
+import { useTranslation } from 'react-i18next';
 
 function SmallProductsSection() {
     const [products, setProducts] = useState([
@@ -43,13 +44,14 @@ function SmallProductsSection() {
     const { theme } = useTheme()
     const isLightMode = theme === 'light';
 
+    const { t } = useTranslation()
 
     return (
         <>
             <Grid container spacing={2}> {/* 24px to rem */}
                 <Grid item xs={12} sm={6} md={4} lg={3}>
                     <CustomTypography
-                        text='Flash Sale Today'
+                        text={t('flashSaleToday')}
                         style={{
                             fontWeight: '600',
                             fontSize: '1rem',
@@ -78,7 +80,7 @@ function SmallProductsSection() {
 
                 <Grid item xs={12} sm={6} md={4} lg={3}>
                     <CustomTypography
-                        text='Best Sellers'
+                        text={t('bestSellers')}
                         style={{
                             fontWeight: '600',
                             fontSize: '0.9375rem', // 15px to rem
@@ -107,7 +109,7 @@ function SmallProductsSection() {
 
                 <Grid item xs={12} sm={6} md={4} lg={3}>
                     <CustomTypography
-                        text='Top Rated'
+                        text={t('topRated')}
                         style={{
                             fontWeight: '600',
                             fontSize: '0.9375rem', // 15px to rem
@@ -136,7 +138,7 @@ function SmallProductsSection() {
 
                 <Grid item xs={12} sm={6} md={4} lg={3}>
                     <CustomTypography
-                        text='New Arrival'
+                        text={t('newArrival')}
                         style={{
                             fontWeight: '600',
                             fontSize: '0.9375rem', // 15px to rem

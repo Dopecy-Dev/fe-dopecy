@@ -8,6 +8,7 @@ import testimonialuserimage from '../../assets/images/testimonialuserimage.svg';
 import testimonialuserimage1 from '../../assets/images/testimonialuserimage1.svg';
 import testimonialuserimage2 from '../../assets/images/testimonialuserimage2.svg';
 import { useTheme } from '../../contexts/ThemeContext';
+import { useTranslation } from 'react-i18next';
 
 const testimonials = [
     {
@@ -33,17 +34,19 @@ const testimonials = [
     },
 ];
 
+
 function TestimonialsSection() {
 
     const { theme } = useTheme()
     const isLightMode = theme === 'light';
+    const { t } = useTranslation()
 
     return (
         <>
             <Grid container sx={{ justifyContent: 'space-between', alignItems: 'center', mb: { xs: '1rem', md: '2rem' } }}>
                 <Grid item xs={12} md="auto">
                     <CustomTypography
-                        text='Client Testimonials'
+                        text={t('clientTestimonials')}
                         style={{
                             fontSize: '1.25rem', // 20px converted to rem
                             lineHeight: '1.5rem', // 24px converted to rem
