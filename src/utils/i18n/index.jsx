@@ -2,10 +2,24 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import en from './en';
 import es from './es';
+import fr from './fr'
+import de from './de'
+import th from './th'
+import hi from './hi'
+import el from './el'
+import pt from './pt'
+import ar from './ar'
 
 const resources = {
     en: { translation: en },
     es: { translation: es },
+    fr: { translation: fr },
+    de: { translation: de },
+    th: { translation: th },
+    hi: { translation: hi },
+    el: { translation: el },
+    pt: { translation: pt },
+    ar: { translation: ar }
 };
 
 // Function to get the language from local storage or fallback to default

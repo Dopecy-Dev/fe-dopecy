@@ -292,7 +292,7 @@ export default function PrimarySearchAppBar() {
                         <Grid container spacing={isMedium ? 1 : 3.75} // 60px to rem
                             sx={{
                                 alignItems: 'center',
-                                justifyContent: 'space-between'
+                                justifyContent: 'space-between',
                             }}
                         >
                             <Grid item >
