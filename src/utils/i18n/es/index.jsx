@@ -1,4 +1,4 @@
 export default {
-    name: 'MInhaj Spanish',
+    name: 'regalos gratuitos',
     age: 'age spanish'
 }

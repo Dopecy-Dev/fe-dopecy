@@ -11,7 +11,7 @@ export default function LoginButtonMenu({ anchorEl, handleClose }) {
     const open = Boolean(anchorEl);
 
     const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+    const isSmall = useMediaQuery(theme.breakpoints.down('md'));
 
     return (
         <Menu
@@ -57,65 +57,64 @@ export default function LoginButtonMenu({ anchorEl, handleClose }) {
                     fullWidth
                 />
             </MenuItem>
-            {
-                isMobile &&
-                <>
-                    <MenuItem onClick={handleClose}
-                        sx={{
-                            '&:hover': {
-                                backgroundColor: 'transparent', // Remove hover background
-                            },
-                            '&:focus': {
-                                backgroundColor: 'transparent', // Remove focus background
-                            },
-                            '&:active': {
-                                backgroundColor: 'transparent', // Remove active background
-                            },
-                            textDecoration: 'none', // Remove text decoration
-                            color: 'inherit', // Inherit text color
-                        }}
-                    >
+            <>
+                <MenuItem onClick={handleClose}
+                    sx={{
+                        '&:hover': {
+                            backgroundColor: 'transparent', // Remove hover background
+                        },
+                        '&:focus': {
+                            backgroundColor: 'transparent', // Remove focus background
+                        },
+                        '&:active': {
+                            backgroundColor: 'transparent', // Remove active background
+                        },
+                        textDecoration: 'none', // Remove text decoration
+                        color: 'inherit', // Inherit text color
+                    }}
+                >
+                    {
+                        isSmall &&
                         <DarkLightSwitch />
-                    </MenuItem>
-                    <MenuItem
-                        component={Link}
-                        to="/login"
-                        onClick={handleClose}
-                        sx={{
-                            fontSize: {
-                                xs: '0.75rem', // 12px
-                            },
-                            py: { xs: '0.25rem', sm: '0.375rem', md: '0.5rem' }, // 4px, 6px, 8px
-                            borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
-                            '&:last-child': {
-                                borderBottom: 'none',
-                            },
-                            textDecoration: 'none',
-                            color: 'inherit',
-                        }}
-                    >
-                        Login
-                    </MenuItem>
-                    <MenuItem
-                        component={Link}
-                        to="/signup"
-                        onClick={handleClose}
-                        sx={{
-                            fontSize: {
-                                xs: '0.75rem', // 12px
-                            },
-                            py: { xs: '0.25rem', sm: '0.375rem', md: '0.5rem' }, // 4px, 6px, 8px
-                            borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
-                            '&:last-child': {
-                                borderBottom: 'none',
-                            },
-                        }}
-                    >
-                        Sign Up
-                    </MenuItem>
-                </>
-            }
-
+                    }
+                </MenuItem>
+                <MenuItem
+                    component={Link}
+                    to="/login"
+                    onClick={handleClose}
+                    sx={{
+                        fontSize: {
+                            xs: '0.75rem', // 12px
+                        },
+                        py: { xs: '0.25rem', sm: '0.375rem', md: '0.5rem' }, // 4px, 6px, 8px
+                        borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
+                        '&:last-child': {
+                            borderBottom: 'none',
+                        },
+                        textDecoration: 'none',
+                        color: 'inherit',
+                    }}
+                >
+                    Login
+                </MenuItem>
+                <MenuItem
+                    component={Link}
+                    to="/signup"
+                    onClick={handleClose}
+                    sx={{
+                        fontSize: {
+                            xs: '0.75rem', // 12px
+                        },
+                        py: { xs: '0.25rem', sm: '0.375rem', md: '0.5rem' }, // 4px, 6px, 8px
+                        borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
+                        '&:last-child': {
+                            borderBottom: 'none',
+                        },
+                    }}
+                >
+                    Sign Up
+                </MenuItem>
+            </>
             <MenuItem
                 onClick={handleClose}
                 sx={{

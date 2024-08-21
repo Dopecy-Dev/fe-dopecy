@@ -5,6 +5,8 @@ import React from 'react';
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider as MUIThemeProvider } from '@mui/material';
 import { ThemeProvider, useTheme } from './contexts/ThemeContext.jsx';
+import { I18nextProvider } from 'react-i18next';
+import i18n from './utils/i18n/index.jsx';
 
 import Routers from './Routers/Routers';
 
@@ -21,7 +23,9 @@ const App = () => {
 
 const AppWrapper = () => (
   <ThemeProvider>
-    <App />
+    <I18nextProvider i18n={i18n}>
+      <App />
+    </I18nextProvider>
   </ThemeProvider>
 );
 

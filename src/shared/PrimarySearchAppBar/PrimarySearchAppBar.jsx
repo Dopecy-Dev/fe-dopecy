@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -26,6 +26,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import LoginButtonMenu from '../../components/loginbuttonmenu/LoginButtonMenu';
 import DarkLightSwitch from '../DarkLightSwitch/DarkLightSwitch';
+import LanguageMenu from '../../components/languagemenu/LanguageMenu';
+import { useTranslation } from 'react-i18next';
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -93,16 +95,30 @@ const CustomAppBar = styled(AppBar)(({ theme }) => ({
     boxShadow: 'none',
 }));
 
+const languages = [
+    { code: 'en', name: 'English - EN', flag: '🇺🇸' },
+    { code: 'es', name: 'Español - ES', flag: '🇪🇸' },
+    { code: 'fr', name: 'Français - FR', flag: '🇫🇷' },
+    { code: 'de', name: 'Deutsch - DE', flag: '🇩🇪' },
+    { code: 'th', name: 'แบบไทย - TH', flag: '🇹🇭' },
+    { code: 'hi', name: 'हिन्दी - HI', flag: '🇮🇳' },
+    { code: 'el', name: 'ελληνικά - EL', flag: '🇬🇷' },
+    { code: 'pt', name: 'Português - PT', flag: '🇵🇹' },
+    { code: 'ar', name: 'عربي- AR', flag: '🇸🇦' },
+];
 
 
 export default function PrimarySearchAppBar() {
     const [anchorEl, setAnchorEl] = useState(null);
+    const [anchorLa, setAnchorLa] = useState(null);
     const [menuOpen, setMenuOpen] = useState(false);
     const [searchBarVisible, setSearchBarVisible] = useState(false);
     const muiTheme = useTheme();
     const isMobile = useMediaQuery(muiTheme.breakpoints.down('md'));
     const isTablet = useMediaQuery(muiTheme.breakpoints.between('sm', 'md'));
     const isMedium = useMediaQuery(muiTheme.breakpoints.between('md', 'lg'));
+    const [selectedLanguage, setSelectedLanguage] = useState(languages[0]); // Default to English
+    const { i18n } = useTranslation(); // Access i18n instance
 
     const handleMenuToggle = () => {
         setMenuOpen(prevState => !prevState);
@@ -116,13 +132,44 @@ export default function PrimarySearchAppBar() {
         setAnchorEl(event.currentTarget);
     };
 
+    const handleLanguageClick = (event) => {
+        setAnchorLa(event.currentTarget);
+    };
+
+    const handleLanguageSelect = (language) => {
+        setSelectedLanguage(language);
+
+        i18n.changeLanguage(language.code)
+            .then(() => {
+                localStorage.setItem('lang', language.code);
+            })
+            .catch((error) => {
+                console.error('Failed to change language:', error);
+            });
+
+        setAnchorLa(null);
+    };
+
     const handleMenuClose = () => {
         setAnchorEl(null);
+        setAnchorLa(null);
     };
 
     const { theme } = useThemeCotext();
 
     const isLightMode = theme === 'light';
+
+    const setInitialLanguage = (filterCode) => {
+        const filteredLanguage = languages.find(language => language.code === filterCode);
+        setSelectedLanguage(filteredLanguage || languages[0]);
+    };
+
+
+    useEffect(() => {
+        const savedLanguageCode = localStorage.getItem('lang');
+        setInitialLanguage(savedLanguageCode || 'en');
+    }, []);
+
 
     return (
         <>
@@ -172,7 +219,7 @@ export default function PrimarySearchAppBar() {
                         </Grid>
                     </Grid>
                     {isTablet &&
-                        <Grid item sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                        <Grid item >
                             <Box>
                                 <Search>
                                     <SearchIconWrapper>
@@ -188,16 +235,32 @@ export default function PrimarySearchAppBar() {
                                 </Search>
 
                             </Box>
-                            <Box sx={{ ml: 4 }}>
-                                <DarkLightSwitch></DarkLightSwitch>
-                            </Box>
+                            {/* <DarkLightSwitch ></DarkLightSwitch> */}
                         </Grid>
 
                     }
                     <Grid item>
-                        <Grid container spacing={1} sx={{ alignItems: 'center' }}>
-                            {!isTablet &&
 
+                        <Grid container spacing={1} sx={{ alignItems: 'center' }}>
+                            <Grid item>
+
+                                <Box sx={{ cursor: 'pointer', }} onClick={handleLanguageClick}>
+                                    <CustomTypography
+                                        style={{
+                                            color: isLightMode ? 'text.darkgray' : 'text.primary',
+                                            fontSize: '1rem', // 16px to rem
+                                            fontWeight: '400',
+                                            lineHeight: '1.125rem', // 18px to rem
+                                            cursor: 'pointer',
+                                            '&:hover': {
+                                                color: 'primary.darkgray',
+                                                // textDecoration: 'underline',
+                                            },
+                                        }}
+                                        text={`${selectedLanguage.flag} ${selectedLanguage.code.toUpperCase()}`} />
+                                </Box>
+                            </Grid>
+                            {!isTablet &&
                                 <Grid item>
                                     <IconButton
                                         sx={{
@@ -214,9 +277,7 @@ export default function PrimarySearchAppBar() {
                                 </Grid>
                             }
                             <Grid item>
-                                {/* <Link to={'/login'}> */}
                                 <Box onClick={handleClick} component={'img'} src={UserIcon} alt='UserIcon'></Box>
-                                {/* </Link> */}
                             </Grid>
                             <Grid item>
                                 <Box component={'img'} src={CartIcon} alt='CartIcon'></Box>
@@ -238,7 +299,7 @@ export default function PrimarySearchAppBar() {
                                     <Logo />
                                 </Link>
                             </Grid>
-                            <Grid item xs={isMedium ? 6 : 7}>
+                            <Grid item xs={isMedium ? 5 : 6}>
                                 <Box sx={{ display: 'flex' }}>
                                     <AllCategoriesMenu />
                                     <Search>
@@ -255,20 +316,45 @@ export default function PrimarySearchAppBar() {
                                     </Search>
                                 </Box>
                             </Grid>
-                            <Grid item>
-                                <Box>
+                            {/* <Grid item>
+                                <Box sx={{ display: 'flex' }}>
                                     <DarkLightSwitch ></DarkLightSwitch>
                                 </Box>
-                            </Grid>
+                            </Grid> */}
                             <Grid item >
                                 <Grid container spacing={1.25}> {/* 20px to rem */}
                                     <Grid item>
                                         <Box sx={{
                                             display: 'flex',
-                                            alignItems: 'center'
+                                            alignItems: 'center',
                                         }}>
-                                            <Box onClick={handleClick} sx={{ cursor: 'pointer' }} component="img" src={UserIcon} alt="UserIcon" />
+                                            <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mr: 1 }}>
+                                                <DarkLightSwitch ></DarkLightSwitch>
+                                                <Box sx={{ cursor: 'pointer', }} onClick={handleLanguageClick}>
+                                                    <CustomTypography
+                                                        style={{
+                                                            color: isLightMode ? 'text.darkgray' : 'text.primary',
+                                                            fontSize: '1rem', // 16px to rem
+                                                            fontWeight: '400',
+                                                            lineHeight: '1.125rem', // 18px to rem
+                                                            cursor: 'pointer',
+                                                            '&:hover': {
+                                                                color: 'primary.darkgray',
+                                                                // textDecoration: 'underline',
+                                                            },
+                                                        }}
+                                                        text={`${selectedLanguage.flag} ${selectedLanguage.code.toUpperCase()}`} />
+                                                </Box>
+                                                <Box sx={{
+                                                    width: '0.125rem', // 2px to rem
+                                                    height: '1.5rem',
+                                                    backgroundColor: 'text.black',
+                                                    opacity: '15%'
+                                                }}>
+                                                </Box>
 
+                                            </Box>
+                                            <Box onClick={handleClick} sx={{ cursor: 'pointer' }} component="img" src={UserIcon} alt="UserIcon" />
                                             <Link to='/signup'>
                                                 <CustomTypography
                                                     text='Sign Up'
@@ -390,6 +476,12 @@ export default function PrimarySearchAppBar() {
             <LoginButtonMenu
                 anchorEl={anchorEl}
                 handleClose={handleMenuClose}
+            />
+
+            <LanguageMenu
+                anchorEl={anchorLa}
+                handleClose={handleMenuClose}
+                onLanguageSelect={handleLanguageSelect}
             />
         </>
     );

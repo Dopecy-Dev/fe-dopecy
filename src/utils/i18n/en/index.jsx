@@ -1,4 +1,4 @@
 export default {
-    name: 'Minhaj',
+    name: 'Free giveaways',
     age: 'age'
 }
