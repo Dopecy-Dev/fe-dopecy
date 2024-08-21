@@ -7,10 +7,13 @@ import BirdCouponIcon from '../../assets/images/BirdCouponIcon.svg';
 import Buy1Get1Icon from '../../assets/images/Buy1Get1Icon.svg';
 import FreeGiveawayIcon from '../../assets/images/FreeGiveawayIcon.svg';
 import CustomTypography from '../../components/typography/CustomTypography';
+import { useTranslation } from 'react-i18next';
 
 import './TopBar.css'
 
 function TopBar() {
+    const { t } = useTranslation();
+
     const muiTheme = useTheme();
     const isMdUp = useMediaQuery(muiTheme.breakpoints.up('md'));
 
@@ -39,7 +42,7 @@ function TopBar() {
                                 }}>
                                     <Box component={'img'} src={DopecyDealsIcon} alt='DopecyDealsIcon' />
                                     <CustomTypography
-                                        text="Dopecy Deals"
+                                        text={t('dopecyDeals')}
                                         style={{
                                             color: 'text.cstmwhite',
                                             marginLeft: { xs: '0.5rem', sm: '1rem' },
@@ -55,7 +58,7 @@ function TopBar() {
                                 }}>
                                     <Box component={'img'} src={BirdCouponIcon} alt='BirdCouponIcon' />
                                     <CustomTypography
-                                        text="Early Bird Deals"
+                                        text={t('earlyBirdDeals')}
                                         style={{
                                             color: 'text.cstmwhite',
                                             marginLeft: { xs: '0.5rem', sm: '1rem' },
@@ -71,7 +74,7 @@ function TopBar() {
                                 }}>
                                     <Box component={'img'} src={Buy1Get1Icon} alt='Buy1Get1Icon' />
                                     <CustomTypography
-                                        text="Buy 1 Get 1"
+                                        text={t('buy1Get1')}
                                         style={{
                                             color: 'text.cstmwhite',
                                             marginLeft: { xs: '0.5rem', sm: '1rem' },
@@ -87,7 +90,7 @@ function TopBar() {
                                 }}>
                                     <Box component={'img'} src={FreeGiveawayIcon} alt='FreeGiveawayIcon' />
                                     <CustomTypography
-                                        text="Free Giveaway"
+                                        text={t('freeGiveaway')}
                                         style={{
                                             color: 'text.cstmwhite',
                                             marginLeft: { xs: '0.5rem', sm: '1rem' },
@@ -114,7 +117,7 @@ function TopBar() {
                         }}>
                             <Box sx={{ width: '10%', mr: 0.5 }} component={'img'} src={DopecyDealsIcon} alt='DopecyDealsIcon' />
                             <CustomTypography
-                                text="Dopecy Deals"
+                                text={t('dopecyDeals')}
                                 style={{
                                     color: 'text.cstmwhite',
                                     cursor: 'pointer',
@@ -132,7 +135,7 @@ function TopBar() {
                         }}>
                             <Box sx={{ width: '10%', mr: 0.5 }} component={'img'} src={BirdCouponIcon} alt='BirdCouponIcon' />
                             <CustomTypography
-                                text="Early Bird Deals"
+                                text={t('earlyBirdDeals')}
                                 style={{
                                     color: 'text.cstmwhite',
                                     cursor: 'pointer',
@@ -150,7 +153,7 @@ function TopBar() {
                         }}>
                             <Box sx={{ width: '10%', mr: 0.5 }} component={'img'} src={Buy1Get1Icon} alt='Buy1Get1Icon' />
                             <CustomTypography
-                                text="Buy 1 Get 1"
+                                text={t('buy1Get1')}
                                 style={{
                                     color: 'text.cstmwhite',
                                     cursor: 'pointer',
@@ -168,7 +171,7 @@ function TopBar() {
                         }}>
                             <Box sx={{ width: '10%', mr: 0.5 }} component={'img'} src={FreeGiveawayIcon} alt='FreeGiveawayIcon' />
                             <CustomTypography
-                                text="Free Giveaway"
+                                text={t('freeGiveaway')}
                                 style={{
                                     color: 'text.cstmwhite',
                                     cursor: 'pointer',

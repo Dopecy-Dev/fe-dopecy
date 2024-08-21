@@ -4,6 +4,7 @@ import ContainedButton from '../../components/buttons/ContainedButton';
 import OutlinedButton from '../../components/buttons/OutlinedButton';
 import { useTheme } from '../../contexts/ThemeContext';
 import Box from '@mui/material/Box';
+import { useTranslation } from 'react-i18next';
 
 const categories = [
     { name: 'Electronics', subCategories: ['Mobile Phones', 'Laptops', 'Cameras'] },
@@ -38,6 +39,9 @@ const AllCategoriesMenu = () => {
         subBackground: appliedTheme.palette.common.primaryheaderbg
     };
 
+    const { t } = useTranslation();
+
+
     return (
         <Box
             sx={{
@@ -55,7 +59,7 @@ const AllCategoriesMenu = () => {
                         height: '3rem',
                         borderRadius: '0.625rem',
                     }}
-                    text='Categories'
+                    text={t('categories')}
                     icon={KeyboardArrowDownIcon}
                 />
                 :
@@ -65,7 +69,7 @@ const AllCategoriesMenu = () => {
                         height: '3rem',
                         borderRadius: '0.625rem',
                     }}
-                    text='Categories'
+                    text={t('categories')}
                     icon={KeyboardArrowDownIcon}
                 />
             }

@@ -119,6 +119,7 @@ export default function PrimarySearchAppBar() {
     const isMedium = useMediaQuery(muiTheme.breakpoints.between('md', 'lg'));
     const [selectedLanguage, setSelectedLanguage] = useState(languages[0]); // Default to English
     const { i18n } = useTranslation(); // Access i18n instance
+    const { t } = useTranslation();
 
     const handleMenuToggle = () => {
         setMenuOpen(prevState => !prevState);
@@ -226,7 +227,7 @@ export default function PrimarySearchAppBar() {
                                         <Box component="img" src={SearchIcon} alt="SearchIcon" />
                                     </SearchIconWrapper>
                                     <StyledInputBase
-                                        placeholder="Search essentials, groceries and more..."
+                                        placeholder={t('searchPlaceholder')}
                                         inputProps={{ 'aria-label': 'search' }}
                                     />
                                     <SearchSecondIconWrapper>
@@ -307,7 +308,7 @@ export default function PrimarySearchAppBar() {
                                             <Box component="img" src={SearchIcon} alt="SearchIcon" />
                                         </SearchIconWrapper>
                                         <StyledInputBase
-                                            placeholder="Search essentials, groceries and more..."
+                                            placeholder={t('searchPlaceholder')}
                                             inputProps={{ 'aria-label': 'search' }}
                                         />
                                         <SearchSecondIconWrapper>
@@ -357,7 +358,7 @@ export default function PrimarySearchAppBar() {
                                             <Box onClick={handleClick} sx={{ cursor: 'pointer' }} component="img" src={UserIcon} alt="UserIcon" />
                                             <Link to='/signup'>
                                                 <CustomTypography
-                                                    text='Sign Up'
+                                                    text={t('signUp')}
                                                     style={{
                                                         color: isLightMode ? 'text.darkgray' : 'text.primary',
                                                         fontSize: '1rem', // 16px to rem
@@ -382,7 +383,7 @@ export default function PrimarySearchAppBar() {
                                             />
                                             <Link to='/login'>
                                                 <CustomTypography
-                                                    text='Sign In'
+                                                    text={t('signIn')}
                                                     style={{
                                                         color: isLightMode ? 'text.darkgray' : 'text.primary',
                                                         fontSize: '1rem', // 16px to rem
@@ -416,7 +417,7 @@ export default function PrimarySearchAppBar() {
                                             }}>
                                                 <Box component="img" src={CartIcon} alt="CartIcon" />
                                                 <CustomTypography
-                                                    text='Cart'
+                                                    text={t('cart')}
                                                     style={{
                                                         color: isLightMode ? 'text.darkgray' : 'text.primary',
                                                         fontSize: '1rem', // 16px to rem
@@ -446,7 +447,7 @@ export default function PrimarySearchAppBar() {
                             <Box component="img" src={SearchIcon} alt="SearchIcon" />
                         </SearchIconWrapper>
                         <StyledInputBase
-                            placeholder="Search essentials, groceries and more..."
+                            placeholder={t('searchPlaceholder')}
                             inputProps={{ 'aria-label': 'search' }}
                         />
                         <SearchSecondIconWrapper>

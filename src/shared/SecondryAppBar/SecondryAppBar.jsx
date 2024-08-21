@@ -10,6 +10,7 @@ import InputBase from '@mui/material/InputBase';
 import SearchIcon from '../../assets/images/SearchIcon.svg';
 import SearchIconRight from '../../assets/images/SearchIconRight.svg';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const CustomAppBar = styled(AppBar)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#000000' : theme.palette.common.searchbar,
@@ -82,10 +83,11 @@ export default function SecondryAppBar() {
 
     const theme = useTheme();
     const isLargeScreen = useMediaQuery(theme.breakpoints.up('lg'));
+    const { t } = useTranslation();
 
     const handleClick = (item) => {
         setClickedItem(item);
-        if (item === 'Dopecy Studio') {
+        if (item === t('dopecyStudio')) {
             setAnchorEl((prev) => (prev ? null : document.getElementById('dopecy-studio-button')));
         } else {
             setAnchorEl(null);
@@ -108,30 +110,30 @@ export default function SecondryAppBar() {
     });
 
     const items = [
-        { text: 'Home', link: '/' },
-        { text: 'Events', link: '/coming-soon' },
-        { text: 'Clubs', link: '/coming-soon' },
-        { text: 'Dopecy Studio', link: '#' },
-        { text: 'Dispensaries', link: '/coming-soon' },
-        { text: 'Restaurants', link: '/coming-soon' },
-        { text: 'Liquor Stores', link: '/coming-soon' }
+        { text: t('home'), link: '/' },
+        { text: t('events'), link: '/coming-soon' },
+        { text: t('clubs'), link: '/coming-soon' },
+        { text: t('dopecyStudio'), link: '#' },
+        { text: t('dispensaries'), link: '/coming-soon' },
+        { text: t('restaurants'), link: '/coming-soon' },
+        { text: t('liquorStores'), link: '/coming-soon' }
     ];
 
     const menuItems = [
         {
-            text: 'Doepcy Stage',
+            text: t('dopecyStage'),
             link: '/coming-soon'
         },
         {
-            text: 'Stock News',
+            text: t('stockNews'),
             link: '/coming-soon'
         },
         {
-            text: 'Brands Podcast',
+            text: t('brandsPodcast'),
             link: '/coming-soon'
         },
         {
-            text: 'Youtube Video',
+            text: t('youtubeVideo'),
             link: '/coming-soon'
         }
     ];
@@ -170,7 +172,7 @@ export default function SecondryAppBar() {
                                         textAlign: 'inherit',
                                         color: 'inherit'
                                     }}
-                                    id={item.text === 'Dopecy Studio' ? 'dopecy-studio-button' : undefined}
+                                    id={item.text === t('dopecyStudio') ? 'dopecy-studio-button' : undefined}
                                 />
                             </Link>
                         </Box>
@@ -182,7 +184,7 @@ export default function SecondryAppBar() {
                                 <Box component="img" src={SearchIcon} alt="SearchIcon" />
                             </SearchIconWrapper>
                             <StyledInputBase
-                                placeholder="Search essentials, groceries and more..."
+                                placeholder={t('searchPlaceholder')}
                                 inputProps={{ 'aria-label': 'search' }}
                             />
                             <SearchSecondIconWrapper>
