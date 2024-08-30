@@ -103,6 +103,8 @@ const languages = [
     { code: 'th', name: 'แบบไทย - TH', flag: '🇹🇭' },
     { code: 'hi', name: 'हिन्दी - HI', flag: '🇮🇳' },
     { code: 'el', name: 'ελληνικά - EL', flag: '🇬🇷' },
+    { code: 'uk', name: 'українська - UK', flag: '🇺🇦' },
+    { code: 'pl', name: 'Polski - PL', flag: '🇵🇱' },
     { code: 'pt', name: 'Português - PT', flag: '🇵🇹' },
     { code: 'ar', name: 'عربي- AR', flag: '🇸🇦' },
 ];
