@@ -87,7 +87,8 @@ const ProductImagesSlider = () => {
                                         p: '1rem', // 16px to rem
                                         borderRadius: '1rem', // 16px to rem
                                         cursor: 'pointer',
-                                        border: currentIndex === index ? '0.125rem solid blue' : 'none', // 2px to rem
+                                        border: currentIndex === index ? '0.125rem solid' : 'none', // 2px to rem
+                                        borderColor: 'common.mainbg',
                                         mx: '0.625rem' // 10px to rem
                                     }}
                                     onClick={() => handleImageClick(index)}

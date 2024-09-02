@@ -66,7 +66,7 @@ function TestimonialsSection() {
                             height: '2.8125rem', // 45px converted to rem
                             borderRadius: '100px',
                             border: '0.0625rem solid', // 1px converted to rem
-                            borderColor: 'primary.main',
+                            borderColor: 'common.mainbg',
                             bgcolor: 'text.white',
                             mr: '0.0625rem', // 1px converted to rem
                         }}>
@@ -80,7 +80,7 @@ function TestimonialsSection() {
                             height: '2.8125rem', // 45px converted to rem
                             borderRadius: '100px',
                             border: '0.0625rem solid', // 1px converted to rem
-                            borderColor: 'primary.main',
+                            borderColor: 'common.mainbg',
                             bgcolor: 'common.mainbg',
                         }}>
                             <Box component={'img'} src={whiterightarrow} alt='ArrowRight' />
