@@ -2,6 +2,8 @@ import React from 'react';
 import { Grid, Card, CardContent, Typography, Box } from '@mui/material';
 import { styled } from '@mui/system';
 import Layout from '../layout/Layout';
+import BusinessValueChart from '../charts/BusinessValueChart';
+import AvailableRevenueChart from '../charts/AvailableRevenueChart';
 
 const DashboardCard = styled(Card)(({ theme }) => ({
   textAlign: 'center',
@@ -47,20 +49,20 @@ const Dashboard = () => {
           </DashboardCard>
         </Grid>
         <Grid item xs={12} md={6}>
-          <Card>
-            <CardContent>
-              <Typography variant="h6" gutterBottom>Business Value</Typography>
-              <Typography variant="h4">5,987,37</Typography>
-            </CardContent>
-          </Card>
+        <Typography variant="subtitle1" fontWeight="bold" mb={1}>
+            Business Value
+          </Typography>
+          <Box sx={{ backgroundColor: '#FFFFFF', borderRadius: '8px', p: 2 }}>
+            <BusinessValueChart />
+          </Box>
         </Grid>
         <Grid item xs={12} md={6}>
-          <Card>
-            <CardContent>
-              <Typography variant="h6" gutterBottom>Available Revenue</Typography>
-              <Typography variant="h4">$452</Typography>
-            </CardContent>
-          </Card>
+        <Typography variant="subtitle1" fontWeight="bold" mb={1}>
+            Available Revenue
+          </Typography>
+          <Box sx={{ backgroundColor: '#FFFFFF', borderRadius: '8px', p: 2 }}>
+            <AvailableRevenueChart />
+          </Box>
         </Grid>
       </Grid>
     </Box>
