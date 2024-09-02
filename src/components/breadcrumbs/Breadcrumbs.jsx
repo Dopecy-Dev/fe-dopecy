@@ -48,7 +48,7 @@ export default function BasicBreadcrumbs() {
                         fontSize: '1.125rem', // 18px
                         lineHeight: '1.75rem', // 28px
                         textAlign: 'left',
-                        color: 'primary.main',
+                        color: 'common.mainbg',
                     }}
                 />
             </Breadcrumbs>

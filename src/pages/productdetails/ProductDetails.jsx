@@ -111,7 +111,7 @@ function ProductDetails() {
                                             fontSize: isMobile ? '1.5rem' : '2rem', // 24px to rem and 32px to rem
                                             lineHeight: isMobile ? '2rem' : '2.5rem', // 32px to rem and 40px to rem
                                             textAlign: 'left',
-                                            color: 'primary.main',
+                                            color: 'common.mainbg',
                                         }}
                                     />
                                 </Box>
@@ -135,7 +135,7 @@ function ProductDetails() {
                                             fontWeight: '800',
                                             fontSize: isMobile ? '0.875rem' : '1rem', // 14px to rem and 16px to rem
                                             lineHeight: isMobile ? '1.25rem' : '1.5rem', // 20px to rem and 24px to rem
-                                            color: 'primary.main',
+                                            // color: 'primary.main',
                                             textDecoration: 'underline',
                                             cursor: 'pointer',
                                         }}
@@ -162,7 +162,7 @@ function ProductDetails() {
                                                     }}
                                                     sx={{
                                                         // backgroundColor: 'common.cartselectionbg',
-                                                        color: 'text.main',
+                                                        // color: 'text.main',
                                                         borderRadius: '1.5625rem', // 25px to rem
                                                         border: 'none',
                                                         '&:hover': {
@@ -234,7 +234,7 @@ function ProductDetails() {
                                             <Typography
                                                 sx={{
                                                     margin: '0 1rem', // 16px to rem
-                                                    color: 'text.main',
+                                                    // color: 'text.main',
                                                     fontWeight: 'bold',
                                                 }}
                                             >

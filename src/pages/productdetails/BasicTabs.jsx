@@ -77,10 +77,10 @@ export default function BasicTabs() {
                             '&.Mui-selected': {
                                 border: 'none',
                                 bgcolor: value === 0 ? 'text.white' : 'transparent',
-                                color: value === 0 ? 'primary.main' : 'text.grey',
+                                color: value === 0 ? 'common.mainbg' : 'text.grey',
                             },
                         }}
-                        label="Details"
+                        label="Shipping details"
                         {...a11yProps(0)}
                     />
                     <Tab
@@ -101,7 +101,7 @@ export default function BasicTabs() {
                             '&.Mui-selected': {
                                 border: 'none',
                                 bgcolor: value === 1 ? 'text.white' : 'transparent',
-                                color: value === 1 ? 'primary.main' : 'text.grey',
+                                color: value === 1 ? 'common.mainbg' : 'text.grey',
                             },
                         }}
                         label="Packaging"
@@ -124,10 +124,10 @@ export default function BasicTabs() {
                             '&.Mui-selected': {
                                 border: 'none',
                                 bgcolor: value === 2 ? 'text.white' : 'transparent',
-                                color: value === 2 ? 'primary.main' : 'text.grey',
+                                color: value === 2 ? 'common.mainbg' : 'text.grey',
                             },
                         }}
-                        label="Shipping details"
+                        label="Details"
                         {...a11yProps(2)}
                     />
                 </Tabs>

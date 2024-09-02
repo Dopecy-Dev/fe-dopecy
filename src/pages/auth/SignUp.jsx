@@ -180,6 +180,7 @@ function SignUp() {
                                 placeholder='Email or phone number'
                                 variant="outlined"
                                 fullWidth
+                                type='email'
                                 margin="normal"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}

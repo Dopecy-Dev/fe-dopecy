@@ -1,13 +1,25 @@
 import { Box, Grid } from '@mui/material';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import loginbg from '../../assets/images/loginbg.svg';
 import CustomTypography from '../../components/typography/CustomTypography';
 import LogoLoginScreen from '../../components/logos/LogoLoginScreen';
 import congratimage from '../../assets/images/congratimage.svg';
 
 function Congratulation() {
+    const navigate = useNavigate();
     const bonusPoints = 200;
     const bonusText = `Your Account is successfully created & you earn ${bonusPoints} bonus points as a new user.`;
+
+    useEffect(() => {
+        // Set a timer to redirect after 10 seconds
+        const timer = setTimeout(() => {
+            navigate('/login'); // Redirect to the home screen
+        }, 5000); // 10000 milliseconds = 10 seconds
+
+        // Clean up the timer when the component is unmounted
+        return () => clearTimeout(timer);
+    }, [navigate]);
 
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
