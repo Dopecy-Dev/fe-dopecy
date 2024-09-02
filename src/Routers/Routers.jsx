@@ -41,6 +41,7 @@ import Protected from './Protected';
 import SellerSignup from '../pages/auth/SellerSignup';
 import ComingSoon from '../pages/comingsoon/ComingSoon';
 import MarketingOffers from '../pages/marketingoffers/MarketingOffers';
+import Dashboard from '../components/admin/dashboard/Dashboard';
 
 const Routers = () => {
     return (
@@ -62,7 +63,7 @@ const Routers = () => {
                 <Route path="/shopdetails" element={<ShopDetails />} />
                 <Route path="/coming-soon" element={<ComingSoon />} />
                 <Route path="/marketing-offers" element={<MarketingOffers />} />
-
+                <Route path="/admin" element={<Dashboard />} />
 
                 {/* <Route path="/marketplace" element={<Protected Component={MarketPlace} />} /> */}
                 {/* <Route path="/sellerstore" element={<Protected Component={SellerStore} />} /> */}
