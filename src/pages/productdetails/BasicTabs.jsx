@@ -80,7 +80,7 @@ export default function BasicTabs() {
                                 color: value === 0 ? 'primary.main' : 'text.grey',
                             },
                         }}
-                        label="Details"
+                        label="Shipping details"
                         {...a11yProps(0)}
                     />
                     <Tab
@@ -127,7 +127,7 @@ export default function BasicTabs() {
                                 color: value === 2 ? 'primary.main' : 'text.grey',
                             },
                         }}
-                        label="Shipping details"
+                        label="Details"
                         {...a11yProps(2)}
                     />
                 </Tabs>

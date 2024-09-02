@@ -15,7 +15,7 @@ export default function AccordionUsage() {
                     id="panel1-header"
                 // sx={{ py: 2 }}
                 >
-                    Key Features
+                    Express Delivery
                 </AccordionSummary>
                 <AccordionDetails sx={{ textAlign: 'left' }}>
                     <CustomTypography
@@ -37,7 +37,7 @@ export default function AccordionUsage() {
                     id="panel2-header"
                 // sx={{ py: 2 }}
                 >
-                    Ingredients
+                    Messenger Delivery
                 </AccordionSummary>
                 <AccordionDetails sx={{ textAlign: 'left' }}>
                     <CustomTypography
@@ -52,14 +52,58 @@ export default function AccordionUsage() {
                     />
                 </AccordionDetails>
             </Accordion>
-            <Accordion defaultExpanded sx={{ border: 'none', borderBottom: '1px solid', borderColor: 'text.cstmwhite', boxShadow: 'none' }}>
+            <Accordion sx={{ border: 'none', borderBottom: '1px solid', borderColor: 'text.cstmwhite', boxShadow: 'none' }}>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel3-content"
                     id="panel3-header"
                 // sx={{ py: 2 }}
                 >
-                    How To Use
+                    Dopecy Delivery
+                </AccordionSummary>
+                <AccordionDetails sx={{ textAlign: 'left' }}>
+                    <CustomTypography
+                        text='Using vitamin C supplements effectively involves understanding the appropriate dosage, the form that best suits your needs, and the timing of intake. Here are some guidelines.'
+                        style={{
+                            fontWeight: '400',
+                            fontSize: '1rem', // 16px to rem
+                            lineHeight: '1.5rem', // 24px to rem
+                            textAlign: 'left',
+                            color: 'text.accordiontext',
+                        }}
+                    />
+                </AccordionDetails>
+            </Accordion>
+            <Accordion sx={{ border: 'none', borderBottom: '1px solid', borderColor: 'text.cstmwhite', boxShadow: 'none' }}>
+                <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel4-content"
+                    id="panel4-header"
+                // sx={{ py: 2 }}
+                >
+                    Parcel Delivery
+                </AccordionSummary>
+                <AccordionDetails sx={{ textAlign: 'left' }}>
+                    <CustomTypography
+                        text='Using vitamin C supplements effectively involves understanding the appropriate dosage, the form that best suits your needs, and the timing of intake. Here are some guidelines.'
+                        style={{
+                            fontWeight: '400',
+                            fontSize: '1rem', // 16px to rem
+                            lineHeight: '1.5rem', // 24px to rem
+                            textAlign: 'left',
+                            color: 'text.accordiontext',
+                        }}
+                    />
+                </AccordionDetails>
+            </Accordion>
+            <Accordion sx={{ border: 'none', borderBottom: '1px solid', borderColor: 'text.cstmwhite', boxShadow: 'none' }}>
+                <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel5-content"
+                    id="panel5-header"
+                // sx={{ py: 2 }}
+                >
+                    Store Delivery
                 </AccordionSummary>
                 <AccordionDetails sx={{ textAlign: 'left' }}>
                     <CustomTypography
