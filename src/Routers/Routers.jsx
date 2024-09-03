@@ -42,7 +42,7 @@ import SellerSignup from '../pages/auth/SellerSignup';
 import ComingSoon from '../pages/comingsoon/ComingSoon';
 import MarketingOffers from '../pages/marketingoffers/MarketingOffers';
 import Dashboard from '../components/admin/dashboard/Dashboard';
-
+import ShopCategories from '../components/admin/shopcategories/ShopCategories'
 const Routers = () => {
     return (
         <Router>
@@ -64,6 +64,7 @@ const Routers = () => {
                 <Route path="/coming-soon" element={<ComingSoon />} />
                 <Route path="/marketing-offers" element={<MarketingOffers />} />
                 <Route path="/admin" element={<Dashboard />} />
+                <Route path="/admin/shop-categories" element={<ShopCategories />} />
 
                 {/* <Route path="/marketplace" element={<Protected Component={MarketPlace} />} /> */}
                 {/* <Route path="/sellerstore" element={<Protected Component={SellerStore} />} /> */}

@@ -30,7 +30,7 @@ const Sidebar = () => {
           <ListItemIcon><Dashboard /></ListItemIcon>
           <ListItemText primary="Dashboard" />
         </ListItem>
-        <ListItem button component={Link} to="/shop-categories">
+        <ListItem button component={Link} to="/admin/shop-categories">
           <ListItemIcon><Category /></ListItemIcon>
           <ListItemText primary="Shop Categories" />
         </ListItem>
